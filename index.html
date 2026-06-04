@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Srishti Lamba — Data Scientist</title>
+<meta name="description" content="M.Sc. Data Science student at DAU. Forex risk modelling, strategic analytics, and statistical inference. Open to Data Analyst, Risk Analyst, and Data Scientist roles." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Bricolage+Grotesque:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg: #F8F6F1;
+  --surface: #FFFFFF;
+  --surface2: #F2EFE8;
+  --ink: #1A1208;
+  --ink2: #5C4F3A;
+  --ink3: #9C8D78;
+  --accent: #1A3A5C;
+  --accent2: #2B5F8E;
+  --gold: #B8874A;
+  --gold-light: #F0DFC0;
+  --border: rgba(26,18,8,0.1);
+  --border2: rgba(26,18,8,0.06);
+  --tag-bg: #EBE7DE;
+  --tag-text: #4A3F2C;
+  --radius: 12px;
+  --radius-lg: 20px;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+  line-height: 1.6;
+  font-size: 15px;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ---- NOISE TEXTURE overlay ---- */
+body::before {
+  content: '';
+  position: fixed; inset: 0; z-index: 0;
+  pointer-events: none;
+  opacity: 0.025;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  background-size: 200px 200px;
+}
+
+/* ---- NAV ---- */
+nav {
+  position: sticky; top: 0; z-index: 100;
+  background: rgba(248,246,241,0.88);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
+  padding: 0 3rem;
+  height: 60px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.nav-name {
+  font-family: 'Instrument Serif', serif;
+  font-size: 1.1rem; color: var(--ink);
+  text-decoration: none; letter-spacing: -0.01em;
+}
+.nav-links {
+  display: flex; align-items: center; gap: 2.5rem;
+  list-style: none;
+}
+.nav-links a {
+  color: var(--ink2); text-decoration: none;
+  font-size: 0.8rem; font-weight: 400;
+  letter-spacing: 0.06em; text-transform: uppercase;
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--accent); }
+.nav-resume {
+  background: var(--accent) !important;
+  color: #fff !important;
+  padding: 0.45rem 1.1rem;
+  border-radius: 6px;
+  font-size: 0.78rem !important;
+  letter-spacing: 0.05em !important;
+  transition: background 0.2s !important;
+}
+.nav-resume:hover { background: var(--accent2) !important; }
+
+/* ---- HERO ---- */
+.hero {
+  min-height: calc(100vh - 60px);
+  display: flex; flex-direction: column;
+  justify-content: center;
+  padding: 6rem 3rem 4rem;
+  max-width: 1140px; margin: 0 auto;
+  position: relative;
+}
+.hero-eyebrow {
+  display: flex; align-items: center; gap: 0.75rem;
+  font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--gold); font-weight: 500; margin-bottom: 1.5rem;
+}
+.hero-eyebrow span { display: inline-block; width: 32px; height: 1px; background: var(--gold); }
+.hero-headline {
+  font-family: 'Instrument Serif', serif;
+  font-size: clamp(3rem, 6vw, 5.5rem);
+  line-height: 1.06; letter-spacing: -0.03em;
+  color: var(--ink); font-weight: 400;
+  max-width: 800px; margin-bottom: 1.75rem;
+}
+.hero-headline em { font-style: italic; color: var(--accent); }
+.hero-sub {
+  font-size: 1.05rem; color: var(--ink2); line-height: 1.8;
+  max-width: 560px; margin-bottom: 2.5rem;
+  font-weight: 300;
+}
+.hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; align-items: center; margin-bottom: 4rem; }
+.btn-dark {
+  background: var(--ink); color: var(--bg);
+  padding: 0.8rem 2rem; border-radius: 8px;
+  text-decoration: none; font-size: 0.88rem; font-weight: 500;
+  transition: background 0.2s, transform 0.15s;
+  display: inline-flex; align-items: center; gap: 0.4rem;
+}
+.btn-dark:hover { background: var(--accent); transform: translateY(-1px); }
+.btn-ghost {
+  color: var(--ink2); border: 1px solid var(--border);
+  padding: 0.8rem 2rem; border-radius: 8px;
+  text-decoration: none; font-size: 0.88rem; font-weight: 400;
+  transition: border-color 0.2s, color 0.2s;
+  display: inline-flex; align-items: center; gap: 0.4rem;
+}
+.btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
+
+/* HERO STATS ROW */
+.hero-stats {
+  display: flex; gap: 2.5rem; flex-wrap: wrap;
+  padding-top: 2.5rem;
+  border-top: 1px solid var(--border);
+}
+.stat { }
+.stat-num {
+  font-family: 'Instrument Serif', serif;
+  font-size: 2.2rem; color: var(--ink);
+  line-height: 1; letter-spacing: -0.03em;
+}
+.stat-num sup { font-size: 0.9rem; color: var(--gold); vertical-align: super; }
+.stat-desc { font-size: 0.78rem; color: var(--ink3); text-transform: uppercase; letter-spacing: 0.07em; margin-top: 0.2rem; }
+
+/* ---- SECTION SHARED ---- */
+.section-wrap {
+  max-width: 1140px; margin: 0 auto;
+  padding: 6rem 3rem;
+}
+.section-num {
+  font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--ink3); margin-bottom: 0.4rem;
+}
+.section-title {
+  font-family: 'Instrument Serif', serif;
+  font-size: clamp(2rem, 4vw, 3rem);
+  letter-spacing: -0.025em; font-weight: 400;
+  color: var(--ink); margin-bottom: 0.75rem;
+  line-height: 1.1;
+}
+.section-sub {
+  font-size: 0.95rem; color: var(--ink2); max-width: 540px;
+  line-height: 1.75; margin-bottom: 3rem; font-weight: 300;
+}
+
+/* divider line */
+.divider { border: none; border-top: 1px solid var(--border); margin: 0; }
+
+/* ---- PROJECTS ---- */
+.projects-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+}
+.proj-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  transition: border-color 0.2s, transform 0.2s;
+  position: relative;
+  display: flex; flex-direction: column;
+}
+.proj-card:hover { border-color: var(--accent2); transform: translateY(-2px); }
+.proj-card.featured {
+  grid-column: 1 / -1;
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 2rem; align-items: start;
+  background: var(--ink);
+  border-color: transparent;
+}
+.proj-card.featured:hover { border-color: var(--accent2); }
+.proj-card.featured .proj-num,
+.proj-card.featured .proj-title,
+.proj-card.featured .proj-desc { color: rgba(255,255,255,0.9); }
+.proj-card.featured .proj-subtitle { color: var(--gold); }
+.proj-card.featured .proj-tag { background: rgba(255,255,255,0.1); color: rgba(255,255,255,0.7); }
+.proj-card.featured .proj-link { color: rgba(255,255,255,0.6); }
+.proj-card.featured .proj-link:hover { color: #fff; }
+.proj-card.featured .metric-val { color: #fff; }
+.proj-card.featured .metric-label { color: rgba(255,255,255,0.5); }
+
+.proj-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1.25rem; }
+.proj-num { font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink3); }
+.proj-links { display: flex; gap: 1rem; }
+.proj-link {
+  font-size: 0.75rem; color: var(--ink3); text-decoration: none;
+  font-weight: 500; letter-spacing: 0.04em;
+  transition: color 0.15s;
+  display: flex; align-items: center; gap: 0.2rem;
+}
+.proj-link:hover { color: var(--accent); }
+.proj-title {
+  font-family: 'Instrument Serif', serif;
+  font-size: 1.5rem; color: var(--ink);
+  letter-spacing: -0.02em; font-weight: 400;
+  margin-bottom: 0.3rem; line-height: 1.2;
+}
+.proj-subtitle { font-size: 0.78rem; color: var(--gold); font-weight: 500; margin-bottom: 0.85rem; text-transform: uppercase; letter-spacing: 0.06em; }
+.proj-desc { font-size: 0.88rem; color: var(--ink2); line-height: 1.75; margin-bottom: 1.25rem; flex: 1; font-weight: 300; }
+
+.proj-metrics { display: flex; gap: 1.75rem; margin-bottom: 1.25rem; flex-wrap: wrap; }
+.metric-val { font-family: 'Instrument Serif', serif; font-size: 1.6rem; color: var(--ink); line-height: 1; }
+.metric-label { font-size: 0.68rem; color: var(--ink3); text-transform: uppercase; letter-spacing: 0.07em; margin-top: 0.1rem; }
+
+.proj-tags { display: flex; gap: 0.4rem; flex-wrap: wrap; margin-top: auto; }
+.proj-tag { font-size: 0.7rem; padding: 0.25rem 0.65rem; border-radius: 20px; background: var(--tag-bg); color: var(--tag-text); }
+.proj-status { display: inline-flex; align-items: center; gap: 0.35rem; font-size: 0.7rem; color: var(--gold); font-weight: 500; margin-bottom: 0.5rem; }
+.proj-status::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--gold); display: inline-block; animation: pulse 2s infinite; }
+@keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.4} }
+
+/* ---- ABOUT ---- */
+.about-bg { background: var(--surface2); }
+.about-inner { display: grid; grid-template-columns: 5fr 4fr; gap: 5rem; align-items: start; }
+.about-text p { font-size: 1rem; color: var(--ink2); line-height: 1.85; margin-bottom: 1.1rem; font-weight: 300; }
+.about-text p strong { color: var(--ink); font-weight: 500; }
+.about-text p:first-child { font-size: 1.1rem; }
+.edu-block { display: flex; flex-direction: column; gap: 1rem; margin-top: 2rem; }
+.edu-item {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 1.1rem 1.4rem;
+  display: flex; gap: 1rem; align-items: flex-start;
+}
+.edu-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--gold); margin-top: 0.45rem; flex-shrink: 0; }
+.edu-title { font-size: 0.88rem; font-weight: 500; color: var(--ink); margin-bottom: 0.15rem; }
+.edu-sub { font-size: 0.78rem; color: var(--ink3); }
+.achievement-list { margin-top: 1.5rem; display: flex; flex-direction: column; gap: 0.75rem; }
+.achievement-item {
+  display: flex; gap: 0.75rem; align-items: flex-start;
+  font-size: 0.85rem; color: var(--ink2); line-height: 1.6;
+}
+.achievement-item::before { content: '→'; color: var(--gold); flex-shrink: 0; font-size: 0.8rem; margin-top: 0.15rem; }
+
+/* ---- SKILLS ---- */
+.skills-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
+.skill-card {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 1.25rem 1.4rem;
+}
+.skill-head {
+  font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--gold); font-weight: 500; margin-bottom: 0.85rem;
+  padding-bottom: 0.6rem; border-bottom: 1px solid var(--border2);
+}
+.skill-pills { display: flex; flex-wrap: wrap; gap: 0.35rem; }
+.skill-pill { font-size: 0.73rem; padding: 0.25rem 0.65rem; border-radius: 20px; background: var(--tag-bg); color: var(--tag-text); }
+
+/* CERTS */
+.certs-row { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 2.5rem; }
+.cert-badge {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 0.75rem 1.25rem;
+  display: flex; align-items: center; gap: 0.6rem;
+  font-size: 0.82rem; color: var(--ink2);
+}
+.cert-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--gold); flex-shrink: 0; }
+.cert-badge strong { color: var(--ink); font-weight: 500; font-size: 0.82rem; }
+
+/* ---- CONTACT ---- */
+.contact-bg { background: var(--ink); }
+.contact-bg .section-num { color: rgba(255,255,255,0.3); }
+.contact-bg .section-title { color: #fff; }
+.contact-bg .section-sub { color: rgba(255,255,255,0.55); }
+.contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
+.contact-links-list { display: flex; flex-direction: column; gap: 0.75rem; }
+.contact-link-item {
+  display: flex; align-items: center; gap: 1rem;
+  padding: 1rem 1.25rem;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: var(--radius);
+  text-decoration: none; color: rgba(255,255,255,0.7);
+  font-size: 0.88rem; transition: background 0.2s, color 0.2s;
+}
+.contact-link-item:hover { background: rgba(255,255,255,0.09); color: #fff; }
+.contact-link-item .link-type { font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--gold); display: block; margin-bottom: 0.1rem; }
+.contact-link-item .link-val { color: inherit; font-weight: 400; }
+
+/* CONTACT FORM */
+.contact-form { display: flex; flex-direction: column; gap: 0.75rem; }
+.contact-form input,
+.contact-form textarea {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 8px;
+  padding: 0.85rem 1rem;
+  color: #fff; font-family: inherit; font-size: 0.88rem;
+  outline: none; resize: none; width: 100%;
+  transition: border-color 0.2s;
+}
+.contact-form input::placeholder,
+.contact-form textarea::placeholder { color: rgba(255,255,255,0.3); }
+.contact-form input:focus,
+.contact-form textarea:focus { border-color: rgba(255,255,255,0.35); }
+.contact-form textarea { min-height: 120px; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; }
+.btn-send {
+  background: var(--gold); color: var(--ink);
+  padding: 0.85rem 2rem; border-radius: 8px;
+  border: none; cursor: pointer;
+  font-family: inherit; font-size: 0.88rem; font-weight: 500;
+  transition: opacity 0.2s; align-self: flex-start;
+}
+.btn-send:hover { opacity: 0.85; }
+
+/* ---- FOOTER ---- */
+footer {
+  background: var(--ink);
+  border-top: 1px solid rgba(255,255,255,0.07);
+  padding: 1.75rem 3rem;
+  display: flex; justify-content: space-between; align-items: center;
+}
+.footer-text { font-size: 0.78rem; color: rgba(255,255,255,0.35); }
+.footer-links { display: flex; gap: 1.5rem; list-style: none; }
+.footer-links a { font-size: 0.78rem; color: rgba(255,255,255,0.35); text-decoration: none; transition: color 0.2s; }
+.footer-links a:hover { color: rgba(255,255,255,0.7); }
+
+/* ---- ANIMATIONS ---- */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.hero-eyebrow { animation: fadeUp 0.6s ease both; }
+.hero-headline { animation: fadeUp 0.6s 0.1s ease both; }
+.hero-sub      { animation: fadeUp 0.6s 0.2s ease both; }
+.hero-actions  { animation: fadeUp 0.6s 0.3s ease both; }
+.hero-stats    { animation: fadeUp 0.6s 0.4s ease both; }
+
+/* ---- RESPONSIVE ---- */
+@media (max-width: 900px) {
+  nav { padding: 0 1.5rem; }
+  .nav-links { gap: 1.5rem; }
+  .section-wrap { padding: 4rem 1.5rem; }
+  .hero { padding: 4rem 1.5rem 3rem; }
+  .projects-grid { grid-template-columns: 1fr; }
+  .proj-card.featured { grid-column: 1; grid-template-columns: 1fr; }
+  .about-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+  .skills-grid { grid-template-columns: 1fr 1fr; }
+  .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+  footer { flex-direction: column; gap: 1rem; text-align: center; }
+  .hero-stats { gap: 1.75rem; }
+  .hero-headline { font-size: 2.8rem; }
+}
+@media (max-width: 540px) {
+  .skills-grid { grid-template-columns: 1fr; }
+  .form-row { grid-template-columns: 1fr; }
+  .hero-stats { flex-direction: column; gap: 1.25rem; }
+  .nav-links .hide-mobile { display: none; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-name">Srishti Lamba</a>
+  <ul class="nav-links">
+    <li class="hide-mobile"><a href="#about">About</a></li>
+    <li class="hide-mobile"><a href="#projects">Projects</a></li>
+    <li class="hide-mobile"><a href="#skills">Skills</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="#" class="nav-resume">Resume ↗</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section>
+<div class="hero">
+  <div class="hero-eyebrow">
+    <span></span>
+    M.Sc. Data Science · DAU, Gandhinagar
+  </div>
+  <h1 class="hero-headline">
+    Turning messy data<br />into <em>decisions that matter.</em>
+  </h1>
+  <p class="hero-sub">
+    I build analytics systems at the intersection of finance, policy, and statistics — from forex risk models with geopolitical features to strategic defence intelligence platforms. Statistics background, production mindset.
+  </p>
+  <div class="hero-actions">
+    <a href="#projects" class="btn-dark">View my work ↓</a>
+    <a href="https://www.linkedin.com/in/srishti-lamba-864709145" target="_blank" class="btn-ghost">LinkedIn ↗</a>
+    <a href="https://github.com/srishti7103" target="_blank" class="btn-ghost">GitHub ↗</a>
+  </div>
+  <div class="hero-stats">
+    <div class="stat">
+      <div class="stat-num">5<sup>+</sup></div>
+      <div class="stat-desc">End-to-end projects</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">0.458<sup>%</sup></div>
+      <div class="stat-desc">MAPE — RupeeRisk model</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">2.68</div>
+      <div class="stat-desc">Sharpe ratio — backtested</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">73<sup>%</sup></div>
+      <div class="stat-desc">Directional accuracy</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">8.6</div>
+      <div class="stat-desc">CGPA — M.Sc. Data Science</div>
+    </div>
+  </div>
+</div>
+</section>
+
+<hr class="divider" />
+
+<!-- PROJECTS -->
+<section id="projects">
+<div class="section-wrap">
+  <div class="section-num">02 — Selected work</div>
+  <h2 class="section-title">Projects</h2>
+  <p class="section-sub">Each project is end-to-end — real data, real methods, deployed outputs, and results you can verify. No toy datasets.</p>
+
+  <div class="projects-grid">
+
+    <!-- RupeeRisk — Featured dark card -->
+    <div class="proj-card featured">
+      <div>
+        <div class="proj-header">
+          <span class="proj-num">001 — Featured</span>
+          <div class="proj-links">
+            <a href="https://github.com/srishti7103" target="_blank" class="proj-link">GitHub ↗</a>
+            <a href="https://rupeerisk.streamlit.app" target="_blank" class="proj-link">Live ↗</a>
+          </div>
+        </div>
+        <div class="proj-title">RupeeRisk</div>
+        <div class="proj-subtitle">India Macro &amp; Geopolitical Forex Intelligence</div>
+        <p class="proj-desc">
+          Engineered 15 geopolitical tension indicators across 4 transmission channels — Oil Supply, Direct FX, Risk-Off, Trade Route — using STL decomposition and 1-week exogenous lags to eliminate look-ahead bias. SARIMA/ARIMAX/Lasso/Gradient Boosting ensemble with 52-week rolling backtest. Lasso model outperformed SARIMA baseline by 17.3pp directional accuracy and generated a backtested trading strategy with positive Sharpe and cumulative return.
+        </p>
+        <div class="proj-tags">
+          <span class="proj-tag">Python</span>
+          <span class="proj-tag">FRED API</span>
+          <span class="proj-tag">SARIMA · ARIMAX</span>
+          <span class="proj-tag">Lasso</span>
+          <span class="proj-tag">Gradient Boosting</span>
+          <span class="proj-tag">Streamlit</span>
+          <span class="proj-tag">yfinance</span>
+        </div>
+      </div>
+      <div>
+        <div class="proj-metrics" style="flex-direction:column; gap: 1.5rem;">
+          <div>
+            <div class="metric-val">0.458%</div>
+            <div class="metric-label">MAPE</div>
+          </div>
+          <div>
+            <div class="metric-val">73.08%</div>
+            <div class="metric-label">Directional Accuracy</div>
+          </div>
+          <div>
+            <div class="metric-val">2.68</div>
+            <div class="metric-label">Sharpe Ratio</div>
+          </div>
+          <div>
+            <div class="metric-val">+11.70%</div>
+            <div class="metric-label">Cumulative Return</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- IndiaShield -->
+    <div class="proj-card">
+      <div class="proj-header">
+        <span class="proj-num">002</span>
+        <div class="proj-links">
+          <a href="https://github.com/srishti7103" target="_blank" class="proj-link">GitHub ↗</a>
+        </div>
+      </div>
+      <div class="proj-status">In progress</div>
+      <div class="proj-title">IndiaShield</div>
+      <div class="proj-subtitle">Strategic Defence Intelligence & Security Analytics</div>
+      <p class="proj-desc">5-module Streamlit dashboard consolidating 25 years of subcontinent military expenditure, SIPRI arms transfers, Union Budget allocations (FY16–FY25), and NSE defence equity data. Introduced the SIDS metric — a novel composite modelling India's arms supply-chain vulnerability per supplier. Quantified a Modernisation Paradox: CapEx share fell 38.3%→28.9% despite 5× budget growth.</p>
+      <div class="proj-metrics">
+        <div>
+          <div class="metric-val">+23%</div>
+          <div class="metric-label">Avg equity gain — border escalations</div>
+        </div>
+        <div>
+          <div class="metric-val">SIDS 72</div>
+          <div class="metric-label">Russia lock-in risk (Critical)</div>
+        </div>
+      </div>
+      <div class="proj-tags">
+        <span class="proj-tag">SIPRI Data</span>
+        <span class="proj-tag">yfinance</span>
+        <span class="proj-tag">Plotly</span>
+        <span class="proj-tag">Streamlit</span>
+        <span class="proj-tag">NumPy · pandas</span>
+      </div>
+    </div>
+
+    <!-- LogiSense -->
+    <div class="proj-card">
+      <div class="proj-header">
+        <span class="proj-num">003</span>
+        <div class="proj-links">
+          <a href="https://github.com/srishti7103" target="_blank" class="proj-link">GitHub ↗</a>
+          <a href="https://logiisense.netlify.app" target="_blank" class="proj-link">Live ↗</a>
+        </div>
+      </div>
+      <div class="proj-title">LogiSense</div>
+      <div class="proj-subtitle">Logistics Intelligence & Analytics Platform</div>
+      <p class="proj-desc">Proposed and implemented IQR-based charge outlier detection across a 7-table BCNF-normalised schema, validated against 50K+ shipment records. Led query refinement discussions, contributing 20+ queries. Built an AI-enhanced demo interface for schema comprehension — adopted for team presentations.</p>
+      <div class="proj-tags">
+        <span class="proj-tag">PostgreSQL</span>
+        <span class="proj-tag">BCNF Normalisation</span>
+        <span class="proj-tag">Advanced SQL</span>
+        <span class="proj-tag">Customer Segmentation</span>
+        <span class="proj-tag">HTML Dashboard</span>
+      </div>
+    </div>
+
+    <!-- Global Inequality -->
+    <div class="proj-card">
+      <div class="proj-header">
+        <span class="proj-num">004</span>
+      </div>
+      <div class="proj-title">A World in Numbers</div>
+      <div class="proj-subtitle">Global Inequality, Health &amp; the Planet</div>
+      <p class="proj-desc">Led causal inference analysis across 195 countries — applied DAG methodology to identify Out-of-Pocket expenditure as a confounder masking the tax–health relationship (R²=0.13). Built dual-axis Tableau visualisations; outlined a policy framework for health financing reform.</p>
+      <div class="proj-tags">
+        <span class="proj-tag">Python</span>
+        <span class="proj-tag">Tableau</span>
+        <span class="proj-tag">DAG Causal Inference</span>
+        <span class="proj-tag">Hypothesis Testing</span>
+        <span class="proj-tag">WHO GHE-D</span>
+      </div>
+    </div>
+
+    <!-- Screen Time -->
+    <div class="proj-card">
+      <div class="proj-header">
+        <span class="proj-num">005</span>
+      </div>
+      <div class="proj-status">Ongoing · DAU Minor Research</div>
+      <div class="proj-title">Screen Time &amp; Academic Performance</div>
+      <div class="proj-subtitle">Longitudinal Research · Behavioural Analytics</div>
+      <p class="proj-desc">3-wave longitudinal survey (n=30–35) at DAU. Applying Bland-Altman analysis to quantify self-report bias in screen time measurement and OLS predictive modelling to estimate effects on academic performance and mental wellbeing — with student-facing recommendations.</p>
+      <div class="proj-tags">
+        <span class="proj-tag">Python · R</span>
+        <span class="proj-tag">OLS Regression</span>
+        <span class="proj-tag">Bland-Altman</span>
+        <span class="proj-tag">DAG Causal Inference</span>
+        <span class="proj-tag">Predictive Modelling</span>
+      </div>
+    </div>
+
+  </div>
+</div>
+</section>
+
+<hr class="divider" />
+
+<!-- ABOUT -->
+<div class="about-bg" id="about">
+<div class="section-wrap">
+  <div class="section-num">01 — Who I am</div>
+  <h2 class="section-title">About me</h2>
+  <div class="about-inner">
+    <div class="about-text">
+      <p>I'm a data scientist with a <strong>Statistics Honours foundation</strong> and a deep curiosity about how numbers explain the world — whether it's a rupee moving on a geopolitical event, India's defence supply-chain exposed to a single supplier, or a student's screen habits quietly affecting their grades.</p>
+      <p>My work spans <strong>fintech, strategic intelligence, public health, and logistics</strong> — not because I couldn't pick a lane, but because I believe the most interesting insights live at intersections. Every project I've built starts with a genuine question, not a tech stack.</p>
+      <p>Before data science, I cleared the <strong>AFCAT and CDS written examinations</strong> and progressed to SSB selection for the Indian Air Force. That process taught me more about <strong>structured thinking under pressure, long-term discipline, and operating in ambiguous environments</strong> than any classroom assignment has since.</p>
+      <p>I'm currently open to <strong>Data Analyst, Risk Analyst, Quant Analyst, and Data Scientist</strong> roles — especially in fintech, financial analytics, and research-driven teams.</p>
+      <div class="achievement-list">
+        <div class="achievement-item">Cleared AFCAT &amp; CDS Written Examinations · SSB Selection, Indian Air Force Commission</div>
+        <div class="achievement-item">Supported 50+ families at a Vadodara humanitarian NGO — data entry, supply coordination, intake records (2024)</div>
+        <div class="achievement-item">School Captain &amp; House Captain · Jawahar Navodaya Vidyalaya · 3rd Place, Regional Science Exhibition</div>
+      </div>
+    </div>
+    <div>
+      <div class="edu-block">
+        <div class="edu-item">
+          <div class="edu-dot"></div>
+          <div>
+            <div class="edu-title">M.Sc. Data Science · CGPA 8.6/10</div>
+            <div class="edu-sub">Dhirubhai Ambani University, Gandhinagar · Jul 2025 – Present</div>
+            <div class="edu-sub" style="margin-top:0.3rem; line-height:1.6;">Machine Learning · NLP · Statistical Modelling · Big Data Analytics · Causal Inference · Interactive Data Visualisation</div>
+          </div>
+        </div>
+        <div class="edu-item">
+          <div class="edu-dot"></div>
+          <div>
+            <div class="edu-title">B.Sc. Statistics (Honours)</div>
+            <div class="edu-sub">Maharaja Sayajirao University of Baroda · Jun 2021 – May 2024</div>
+            <div class="edu-sub" style="margin-top:0.3rem; line-height:1.6;">Probability Theory · Regression Analysis · Time Series · Design of Experiments · R Programming</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<hr class="divider" />
+
+<!-- SKILLS -->
+<section id="skills">
+<div class="section-wrap">
+  <div class="section-num">03 — Technical fluency</div>
+  <h2 class="section-title">Skills</h2>
+  <p class="section-sub">Tools I've used in production-grade projects, not just tutorials.</p>
+  <div class="skills-grid">
+    <div class="skill-card">
+      <div class="skill-head">Languages &amp; Tools</div>
+      <div class="skill-pills">
+        <span class="skill-pill">Python</span>
+        <span class="skill-pill">R</span>
+        <span class="skill-pill">SQL</span>
+        <span class="skill-pill">PostgreSQL</span>
+        <span class="skill-pill">Excel</span>
+        <span class="skill-pill">Git / GitHub</span>
+        <span class="skill-pill">Jupyter</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-head">ML &amp; Analytics</div>
+      <div class="skill-pills">
+        <span class="skill-pill">Lasso Regression</span>
+        <span class="skill-pill">Gradient Boosting</span>
+        <span class="skill-pill">Random Forest</span>
+        <span class="skill-pill">SARIMA · ARIMAX</span>
+        <span class="skill-pill">Feature Engineering</span>
+        <span class="skill-pill">ADF Testing</span>
+        <span class="skill-pill">Customer Segmentation</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-head">BI &amp; Visualisation</div>
+      <div class="skill-pills">
+        <span class="skill-pill">Tableau</span>
+        <span class="skill-pill">Power BI</span>
+        <span class="skill-pill">Streamlit</span>
+        <span class="skill-pill">Plotly</span>
+        <span class="skill-pill">Matplotlib</span>
+        <span class="skill-pill">Seaborn</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-head">Statistics</div>
+      <div class="skill-pills">
+        <span class="skill-pill">Causal Inference (DAGs)</span>
+        <span class="skill-pill">STL Decomposition</span>
+        <span class="skill-pill">Hypothesis Testing</span>
+        <span class="skill-pill">OLS / Multivariate Regression</span>
+        <span class="skill-pill">Bland-Altman Analysis</span>
+        <span class="skill-pill">Time Series Analysis</span>
+        <span class="skill-pill">Event Study Methodology</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="certs-row">
+    <div class="cert-badge"><span class="cert-dot"></span><div><strong>Google Business Intelligence Certificate</strong> · Google · 2026</div></div>
+    <div class="cert-badge"><span class="cert-dot"></span><div><strong>Product Analytics Certification</strong> · Pendo &amp; Mind the Product · 2026</div></div>
+    <div class="cert-badge"><span class="cert-dot"></span><div><strong>Databricks Data Analyst</strong> · In Progress</div></div>
+  </div>
+</div>
+</section>
+
+<hr class="divider" />
+
+<!-- CONTACT -->
+<div class="contact-bg" id="contact">
+<div class="section-wrap">
+  <div class="section-num">04 — Get in touch</div>
+  <h2 class="section-title">Let's talk</h2>
+  <p class="section-sub">Open to Data Analyst, Risk Analyst, Quant Analyst, and Data Scientist roles. If you're building something interesting — or just want to talk data — reach out.</p>
+  <div class="contact-grid">
+    <div class="contact-links-list">
+      <a href="mailto:srrml10@gmail.com" class="contact-link-item">
+        <div>
+          <span class="link-type">Email</span>
+          <span class="link-val">srrml10@gmail.com</span>
+        </div>
+      </a>
+      <a href="https://www.linkedin.com/in/srishti-lamba-864709145" target="_blank" class="contact-link-item">
+        <div>
+          <span class="link-type">LinkedIn</span>
+          <span class="link-val">linkedin.com/in/srishti-lamba-864709145</span>
+        </div>
+      </a>
+      <a href="https://github.com/srishti7103" target="_blank" class="contact-link-item">
+        <div>
+          <span class="link-type">GitHub</span>
+          <span class="link-val">github.com/srishti7103</span>
+        </div>
+      </a>
+      <a href="tel:+917698961905" class="contact-link-item">
+        <div>
+          <span class="link-type">Phone</span>
+          <span class="link-val">+91 76989 61905</span>
+        </div>
+      </a>
+    </div>
+    <div>
+      <form class="contact-form" onsubmit="handleForm(event)">
+        <div class="form-row">
+          <input type="text" placeholder="Your name" required />
+          <input type="email" placeholder="Your email" required />
+        </div>
+        <input type="text" placeholder="Subject" />
+        <textarea placeholder="Your message…"></textarea>
+        <button type="submit" class="btn-send">Send message →</button>
+      </form>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <span class="footer-text">© 2026 Srishti Lamba · Gandhinagar, Gujarat · Open to remote &amp; hybrid roles</span>
+  <ul class="footer-links">
+    <li><a href="#projects">Work</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="https://github.com/srishti7103" target="_blank">GitHub</a></li>
+    <li><a href="https://www.linkedin.com/in/srishti-lamba-864709145" target="_blank">LinkedIn</a></li>
+  </ul>
+</footer>
+
+<script>
+function handleForm(e) {
+  e.preventDefault();
+  const btn = e.target.querySelector('.btn-send');
+  btn.textContent = 'Message sent ✓';
+  btn.style.background = '#4a7c59';
+  setTimeout(() => {
+    btn.textContent = 'Send message →';
+    btn.style.background = '';
+    e.target.reset();
+  }, 3000);
+}
+</script>
+</body>
+</html>
