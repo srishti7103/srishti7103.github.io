@@ -219,45 +219,6 @@ nav{
 .tl-title{font-family:var(--serif);font-size:1.25rem;margin-bottom:0.35rem}
 .tl-body{font-size:0.875rem;color:var(--muted);max-width:540px;line-height:1.75}
 
-/* BEYOND DATA - typographic collage */
-#beyond{padding:5.5rem 5rem;max-width:1180px;margin:0 auto}
-.beyond-intro{
-  max-width:480px;
-  font-size:1rem;color:var(--muted);line-height:1.8;margin-bottom:4rem;
-}
-.collage{
-  display:grid;
-  grid-template-columns:repeat(12,1fr);
-  gap:1.5rem 1rem;
-  align-items:start;
-}
-.col-word{
-  font-family:var(--serif);
-  font-style:italic;
-  color:var(--text);
-  line-height:1.15;
-}
-.col-note{
-  font-size:0.85rem;
-  color:var(--muted);
-  line-height:1.6;
-  font-style:normal;
-  font-family:var(--sans);
-  padding-top:0.5rem;
-}
-.col-tag-pill{
-  font-size:0.78rem;font-weight:500;
-  border:1.5px solid var(--border);
-  padding:0.4rem 1rem;border-radius:999px;
-  color:var(--muted);
-  font-family:var(--sans);
-  background:#fff;
-  white-space:nowrap;
-  display:inline-block;
-}
-.col-gold{color:var(--gold)}
-.col-tags-cell{display:flex;gap:0.6rem;flex-wrap:wrap;align-items:center}
-
 /* SKILLS */
 .skills-grid{
   display:grid;
@@ -316,8 +277,6 @@ footer{
   .drives-strip{grid-template-columns:1fr}
   .drive-item{border-right:none;border-bottom:1px solid var(--border)}
   .project-case{grid-template-columns:1fr}
-  .collage{grid-template-columns:1fr}
-  .collage > *{grid-column:1 / -1 !important}
   .skills-grid{grid-template-columns:1fr}
   #beyond{padding:4rem 1.5rem}
   #contact{padding:5rem 1.5rem}
@@ -338,6 +297,7 @@ footer{
     <li><a href="#projects">Projects</a></li>
     <li><a href="#journey">Journey</a></li>
     <li><a href="#skills">Skills</a></li>
+    <li><a href="resume.pdf" target="_blank">Resume</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
 </nav>
@@ -374,7 +334,7 @@ footer{
       <p>I started with Statistics - not because someone told me to, but because I genuinely wanted to understand <strong>why things happen the way they do</strong>. Three years at MS University Baroda gave me the foundations: probability theory, regression, time series, the patience to sit with data until it tells you something true.</p>
       <p>Then came DA-IICT, Gandhinagar - and everything accelerated. Machine learning, NLP, causal inference, big data. But more than the coursework, it was the <strong>projects</strong>: forex intelligence platforms, defence analytics, an AI copilot for worker rights, logistics dashboards that got picked up for pilot evaluation. Real problems, real data, real stakes.</p>
       <p>I have also cleared AFCAT and CDS written examinations and made it to SSB selection - which, alongside being School Captain at Jawahar Navodaya Vidyalaya, taught me more about <em>working under pressure and leading without authority</em> than any classroom could. A stint volunteering at a Vadodara NGO - supporting 50+ families through data coordination - gave those skills a human context I haven't forgotten.</p>
-      <p>I build things, I ask questions, and I laugh a lot. That combination, I've found, makes for good data science.</p>
+      <p>I build things, I ask questions, and outside of work I play strategy games and laugh more than is probably professional to admit.</p>
     </div>
     <div class="about-aside">
       <div class="aside-stat">
@@ -478,6 +438,8 @@ footer{
         </div>
       </div>
       <div class="proj-links">
+        <a href="https://indiashield-h4uhwhqbpkaf9tibxlcefp.streamlit.app/" target="_blank">Live App &rarr;</a>
+        <a href="https://public.tableau.com/app/profile/srishti.lamba7274/viz/IndiaShield/StockPriceHistory" target="_blank">Tableau &rarr;</a>
         <a href="https://github.com/srishti7103" target="_blank">GitHub &rarr;</a>
       </div>
     </div>
@@ -671,45 +633,6 @@ footer{
     </div>
   </div>
 </div>
-
-<!-- BEYOND DATA -->
-<section id="beyond" class="reveal">
-  <span class="label">Beyond Data</span>
-  <h2 class="sec-title" style="max-width:420px">The person behind the projects.</h2>
-  <p class="beyond-intro">
-    Some things don't fit neatly into a resume. Here's what actually makes me, me.
-  </p>
-
-  <div class="collage">
-    <div class="col-word" style="grid-column:1 / 6;font-size:3.4rem;color:var(--text)">Curious.</div>
-    <div class="col-note" style="grid-column:7 / 11">"Why does this actually work?" is my most-used sentence.</div>
-
-    <div class="col-tags-cell" style="grid-column:1 / 9">
-      <span class="col-tag-pill">Strategy gamer</span>
-      <span class="col-tag-pill">Perpetual learner</span>
-      <span class="col-tag-pill">Laughs too much</span>
-    </div>
-    <div></div>
-
-    <div class="col-note" style="grid-column:1 / 5">Analysis that doesn't ship isn't finished.</div>
-    <div class="col-word" style="grid-column:6 / 12;font-size:3rem;color:var(--accent);text-align:right"><em>Builder.</em></div>
-
-    <div class="col-word" style="grid-column:2 / 12;font-size:2.1rem;line-height:1.35">Hard problems are just <em style="color:var(--accent)">unsolved</em> problems.</div>
-
-    <div></div>
-    <div class="col-tags-cell" style="grid-column:4 / 13">
-      <span class="col-tag-pill">School Captain</span>
-      <span class="col-tag-pill">Science Exhibition - 3rd Place</span>
-      <span class="col-tag-pill">SSB Qualified</span>
-    </div>
-
-    <div class="col-word col-gold" style="grid-column:1 / 4;font-size:2.2rem">Optimist.</div>
-    <div class="col-note" style="grid-column:5 / 11">Teams that laugh together debug faster. I bring both the rigour and the energy.</div>
-
-    <div></div>
-    <div class="col-word" style="grid-column:7 / 12;font-size:1.8rem;opacity:0.55;text-align:right"><em>Ambitious. Authentic.</em></div>
-  </div>
-</section>
 
 <!-- CONTACT -->
 <section id="contact" class="reveal">
