@@ -1,546 +1,751 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Srishti Lamba — Data Scientist</title>
-<meta name="description" content="M.Sc. Data Science student at DAU. Forex risk modelling, strategic analytics, causal inference. Open to Data Analyst, Risk Analyst, Quant Analyst, and Data Scientist roles." />
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Bricolage+Grotesque:opsz,wght@12..96,300;12..96,400;12..96,500;12..96,600&display=swap" rel="stylesheet" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Srishti Lamba - Data Scientist</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 
-:root {
-  --bg: #F9F7F3;
-  --surface: #FFFFFF;
-  --surface2: #F2EFE9;
-  --ink: #18120A;
-  --ink2: #5A4D3B;
-  --ink3: #9A8C78;
-  --accent: #1C3D60;
-  --accent2: #2B5F8E;
-  --gold: #B07A40;
-  --gold-lt: #EFD9B8;
-  --green: #2E6B4A;
-  --border: rgba(24,18,10,0.10);
-  --border2: rgba(24,18,10,0.06);
-  --tag-bg: #EAE6DC;
-  --tag: #4A3D28;
-  --r: 10px;
-  --r-lg: 18px;
+:root{
+  --bg:#FAFAF7;
+  --bg2:#F3F3EE;
+  --text:#1A1A18;
+  --muted:#6B6B65;
+  --accent:#3730A3;
+  --accent-light:#EEEEFF;
+  --gold:#B45309;
+  --border:rgba(26,26,24,0.09);
+  --serif:'DM Serif Display',Georgia,serif;
+  --sans:'Inter',system-ui,sans-serif;
 }
 
-html { scroll-behavior: smooth; }
-body {
-  font-family: 'Bricolage Grotesque', sans-serif;
-  background: var(--bg);
-  color: var(--ink);
-  line-height: 1.65;
-  font-size: 15px;
-  -webkit-font-smoothing: antialiased;
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--bg);color:var(--text);font-size:16px;line-height:1.7;overflow-x:hidden}
+
+/* NAV */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  display:flex;justify-content:space-between;align-items:center;
+  padding:1.1rem 5rem;
+  background:rgba(250,250,247,0.88);
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--border);
+}
+.nav-logo{font-family:var(--serif);font-size:1.1rem;color:var(--text);text-decoration:none}
+.nav-links{display:flex;gap:2.5rem;list-style:none}
+.nav-links a{font-size:0.82rem;font-weight:500;color:var(--muted);text-decoration:none;letter-spacing:0.02em;transition:color 0.2s}
+.nav-links a:hover{color:var(--text)}
+
+/* HERO */
+#hero{
+  min-height:100vh;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  align-items:center;
+  padding:8rem 5rem 4rem;
+  gap:5rem;
+  max-width:1180px;
+  margin:0 auto;
+}
+.hero-eyebrow{
+  font-size:0.72rem;font-weight:600;letter-spacing:0.18em;
+  text-transform:uppercase;color:var(--accent);margin-bottom:1.25rem;
+}
+.hero-headline{
+  font-family:var(--serif);
+  font-size:clamp(3rem,5vw,4.5rem);
+  line-height:1.08;
+  margin-bottom:1.5rem;
+}
+.hero-headline em{font-style:italic;color:var(--accent)}
+.hero-sub{
+  font-size:1rem;color:var(--muted);
+  max-width:440px;margin-bottom:2.5rem;line-height:1.8;
+}
+.hero-cta{display:flex;gap:1rem;flex-wrap:wrap}
+.btn-p{
+  background:var(--accent);color:#fff;
+  padding:0.7rem 1.6rem;border-radius:6px;
+  text-decoration:none;font-size:0.85rem;font-weight:500;
+  transition:background 0.2s,transform 0.15s;
+}
+.btn-p:hover{background:#2e2990;transform:translateY(-1px)}
+.btn-o{
+  border:1.5px solid var(--border);color:var(--text);
+  padding:0.7rem 1.6rem;border-radius:6px;
+  text-decoration:none;font-size:0.85rem;font-weight:500;
+  transition:border-color 0.2s,color 0.2s,transform 0.15s;
+}
+.btn-o:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-1px)}
+
+.hero-img-wrap{display:flex;justify-content:center;align-items:center}
+.hero-photo{
+  width:340px;height:420px;
+  border-radius:180px 180px 140px 140px;
+  object-fit:cover;object-position:center top;
+  border:4px solid #fff;
+  box-shadow:0 24px 64px rgba(55,48,163,0.13);
+}
+.hero-photo-ph{
+  width:340px;height:420px;
+  border-radius:180px 180px 140px 140px;
+  background:var(--accent-light);
+  border:2px dashed rgba(55,48,163,0.2);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:0.75rem;color:var(--accent);font-size:0.8rem;text-align:center;padding:2rem;
 }
 
-/* ── NAV ── */
-nav {
-  position: sticky; top: 0; z-index: 200;
-  background: rgba(249,247,243,0.90);
-  backdrop-filter: blur(18px);
-  border-bottom: 1px solid var(--border);
-  padding: 0 3rem;
-  height: 58px;
-  display: flex; align-items: center; justify-content: space-between;
+/* SHARED SECTION */
+.sec{padding:5.5rem 5rem;max-width:1180px;margin:0 auto}
+.sec-full{background:var(--bg2);padding:5.5rem 0}
+.sec-full .inner{max-width:1180px;margin:0 auto;padding:0 5rem}
+.label{
+  font-size:0.7rem;font-weight:600;letter-spacing:0.18em;
+  text-transform:uppercase;color:var(--accent);margin-bottom:0.9rem;display:block;
 }
-.nav-logo { font-family:'Instrument Serif',serif; font-size:1.05rem; color:var(--ink); text-decoration:none; }
-.nav-links { display:flex; align-items:center; gap:2.25rem; list-style:none; }
-.nav-links a { color:var(--ink2); text-decoration:none; font-size:0.78rem; font-weight:400; letter-spacing:0.07em; text-transform:uppercase; transition:color 0.18s; }
-.nav-links a:hover { color:var(--accent); }
-.nav-resume { background:var(--accent)!important; color:#fff!important; padding:0.4rem 1rem; border-radius:6px; font-size:0.76rem!important; }
-.nav-resume:hover { background:var(--accent2)!important; }
-
-/* ── HERO ── */
-.hero-wrap { max-width:1120px; margin:0 auto; padding:5.5rem 3rem 3.5rem; }
-.hero-eyebrow { display:flex; align-items:center; gap:0.7rem; font-size:0.75rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--gold); font-weight:500; margin-bottom:1.4rem; }
-.hero-eyebrow span { display:inline-block; width:28px; height:1px; background:var(--gold); }
-
-.hero-grid { display:grid; grid-template-columns:1fr auto; gap:4rem; align-items:start; }
-.hero-h1 { font-family:'Instrument Serif',serif; font-size:clamp(2.8rem,5.5vw,5rem); line-height:1.05; letter-spacing:-0.03em; color:var(--ink); font-weight:400; margin-bottom:1.4rem; }
-.hero-h1 em { font-style:italic; color:var(--accent); }
-.hero-sub { font-size:1rem; color:var(--ink2); line-height:1.8; max-width:500px; margin-bottom:2rem; font-weight:300; }
-.hero-btns { display:flex; gap:0.85rem; flex-wrap:wrap; margin-bottom:2.75rem; }
-.btn-dark { background:var(--ink); color:var(--bg); padding:0.75rem 1.75rem; border-radius:7px; text-decoration:none; font-size:0.86rem; font-weight:500; transition:background 0.18s,transform 0.14s; display:inline-flex; align-items:center; gap:0.35rem; }
-.btn-dark:hover { background:var(--accent); transform:translateY(-1px); }
-.btn-ghost { color:var(--ink2); border:1px solid var(--border); padding:0.75rem 1.75rem; border-radius:7px; text-decoration:none; font-size:0.86rem; font-weight:400; transition:border-color 0.18s,color 0.18s; display:inline-flex; align-items:center; gap:0.35rem; }
-.btn-ghost:hover { border-color:var(--accent); color:var(--accent); }
-
-/* hero photo */
-.hero-photo { width:180px; height:180px; border-radius:50%; object-fit:cover; border:3px solid var(--gold-lt); flex-shrink:0; background:var(--surface2); display:flex; align-items:center; justify-content:center; overflow:hidden; }
-.hero-photo-placeholder { width:180px; height:180px; border-radius:50%; border:3px solid var(--gold-lt); background:linear-gradient(135deg,var(--surface2) 0%,var(--gold-lt) 100%); display:flex; align-items:center; justify-content:center; flex-shrink:0; }
-.hero-photo-placeholder span { font-family:'Instrument Serif',serif; font-size:3.5rem; color:var(--gold); user-select:none; }
-
-/* hero stats row */
-.hero-stats { display:flex; gap:2.5rem; flex-wrap:wrap; padding-top:2.25rem; border-top:1px solid var(--border); }
-.stat-num { font-family:'Instrument Serif',serif; font-size:2rem; color:var(--ink); line-height:1; letter-spacing:-0.02em; }
-.stat-num sup { font-size:0.85rem; color:var(--gold); }
-.stat-lbl { font-size:0.72rem; color:var(--ink3); text-transform:uppercase; letter-spacing:0.07em; margin-top:0.18rem; }
-
-/* ── SECTION SHARED ── */
-.section-wrap { max-width:1120px; margin:0 auto; padding:5.5rem 3rem; }
-.sec-kicker { font-size:0.72rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--ink3); margin-bottom:0.35rem; }
-.sec-title { font-family:'Instrument Serif',serif; font-size:clamp(1.9rem,3.5vw,2.7rem); letter-spacing:-0.025em; font-weight:400; color:var(--ink); margin-bottom:0.6rem; line-height:1.1; }
-.sec-sub { font-size:0.92rem; color:var(--ink2); max-width:520px; line-height:1.8; margin-bottom:2.75rem; font-weight:300; }
-.divider { border:none; border-top:1px solid var(--border); }
-
-/* ── PROJECTS ── */
-.proj-grid { display:grid; grid-template-columns:1fr 1fr; gap:1.1rem; }
-
-/* featured card spans full width, dark bg */
-.proj-card { background:var(--surface); border:1px solid var(--border); border-radius:var(--r-lg); padding:1.85rem; display:flex; flex-direction:column; transition:border-color 0.2s, box-shadow 0.2s; position:relative; }
-.proj-card:hover { border-color:rgba(28,61,96,0.35); box-shadow:0 4px 24px rgba(24,18,10,0.07); }
-.proj-card.feat { grid-column:1/-1; background:var(--ink); border-color:transparent; display:grid; grid-template-columns:1.1fr 0.9fr; gap:2.5rem; align-items:start; }
-.proj-card.feat:hover { box-shadow:0 8px 40px rgba(24,18,10,0.18); border-color:rgba(44,95,142,0.5); }
-
-/* card header */
-.proj-top { display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:1.1rem; }
-.proj-idx { font-size:0.68rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--ink3); }
-.feat .proj-idx { color:rgba(255,255,255,0.35); }
-.proj-links-row { display:flex; gap:0.9rem; }
-.proj-lnk { font-size:0.72rem; color:var(--ink3); text-decoration:none; font-weight:500; letter-spacing:0.04em; transition:color 0.15s; }
-.proj-lnk:hover { color:var(--accent); }
-.feat .proj-lnk { color:rgba(255,255,255,0.5); }
-.feat .proj-lnk:hover { color:#fff; }
-
-/* live badge */
-.live-badge { display:inline-flex; align-items:center; gap:0.3rem; font-size:0.68rem; color:var(--green); font-weight:500; background:rgba(46,107,74,0.1); padding:0.2rem 0.55rem; border-radius:20px; margin-bottom:0.55rem; }
-.live-badge::before { content:''; width:5px; height:5px; border-radius:50%; background:var(--green); animation:pulse 2s infinite; }
-.wip-badge { display:inline-flex; align-items:center; gap:0.3rem; font-size:0.68rem; color:var(--gold); font-weight:500; background:rgba(176,122,64,0.1); padding:0.2rem 0.55rem; border-radius:20px; margin-bottom:0.55rem; }
-.wip-badge::before { content:''; width:5px; height:5px; border-radius:50%; background:var(--gold); animation:pulse 2s infinite; }
-@keyframes pulse { 0%,100%{opacity:1}50%{opacity:0.35} }
-
-.proj-title { font-family:'Instrument Serif',serif; font-size:1.4rem; color:var(--ink); letter-spacing:-0.02em; font-weight:400; margin-bottom:0.25rem; line-height:1.2; }
-.feat .proj-title { color:#fff; }
-.proj-sub { font-size:0.73rem; color:var(--gold); font-weight:500; text-transform:uppercase; letter-spacing:0.07em; margin-bottom:0.8rem; }
-.proj-desc { font-size:0.87rem; color:var(--ink2); line-height:1.75; margin-bottom:1.1rem; font-weight:300; flex:1; }
-.feat .proj-desc { color:rgba(255,255,255,0.7); }
-
-/* metrics block */
-.proj-metrics { display:flex; flex-direction:column; gap:1.25rem; justify-content:center; }
-.m-val { font-family:'Instrument Serif',serif; font-size:1.75rem; color:#fff; line-height:1; letter-spacing:-0.02em; }
-.m-lbl { font-size:0.67rem; color:rgba(255,255,255,0.45); text-transform:uppercase; letter-spacing:0.07em; margin-top:0.12rem; }
-
-/* tags */
-.proj-tags { display:flex; gap:0.35rem; flex-wrap:wrap; margin-top:auto; padding-top:0.9rem; }
-.tag { font-size:0.69rem; padding:0.22rem 0.6rem; border-radius:20px; background:var(--tag-bg); color:var(--tag); }
-.feat .tag { background:rgba(255,255,255,0.1); color:rgba(255,255,255,0.65); }
-
-/* contribution note */
-.contrib { font-size:0.75rem; color:var(--ink3); margin-top:0.5rem; font-style:italic; }
-.feat .contrib { color:rgba(255,255,255,0.35); }
-
-/* ── ABOUT ── */
-.about-bg { background:var(--surface2); }
-.about-grid { display:grid; grid-template-columns:1.1fr 0.9fr; gap:4.5rem; align-items:start; }
-.about-body p { font-size:0.97rem; color:var(--ink2); line-height:1.85; margin-bottom:1rem; font-weight:300; }
-.about-body p strong { color:var(--ink); font-weight:500; }
-.about-body p:first-child { font-size:1.05rem; }
-.achieve-list { display:flex; flex-direction:column; gap:0.6rem; margin-top:1.5rem; }
-.achieve-item { display:flex; gap:0.6rem; font-size:0.84rem; color:var(--ink2); line-height:1.6; align-items:flex-start; }
-.achieve-item::before { content:'→'; color:var(--gold); flex-shrink:0; font-size:0.78rem; margin-top:0.15rem; }
-.edu-stack { display:flex; flex-direction:column; gap:0.9rem; }
-.edu-card { background:var(--surface); border:1px solid var(--border); border-radius:var(--r); padding:1.1rem 1.35rem; display:flex; gap:0.85rem; align-items:flex-start; }
-.edu-dot { width:7px; height:7px; border-radius:50%; background:var(--gold); flex-shrink:0; margin-top:0.42rem; }
-.edu-t { font-size:0.88rem; font-weight:500; color:var(--ink); margin-bottom:0.15rem; }
-.edu-s { font-size:0.77rem; color:var(--ink3); line-height:1.55; }
-
-/* ── SKILLS ── */
-.skills-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:1rem; }
-.skill-card { background:var(--surface); border:1px solid var(--border); border-radius:var(--r); padding:1.2rem 1.35rem; }
-.skill-head { font-size:0.7rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--gold); font-weight:500; margin-bottom:0.8rem; padding-bottom:0.55rem; border-bottom:1px solid var(--border2); }
-.skill-pills { display:flex; flex-wrap:wrap; gap:0.32rem; }
-.skill-pill { font-size:0.72rem; padding:0.22rem 0.62rem; border-radius:20px; background:var(--tag-bg); color:var(--tag); }
-.certs-row { display:flex; gap:0.9rem; flex-wrap:wrap; margin-top:2.25rem; }
-.cert { background:var(--surface); border:1px solid var(--border); border-radius:var(--r); padding:0.7rem 1.15rem; display:flex; align-items:center; gap:0.55rem; font-size:0.8rem; color:var(--ink2); }
-.cert-dot { width:6px; height:6px; border-radius:50%; background:var(--gold); flex-shrink:0; }
-.cert strong { color:var(--ink); font-weight:500; font-size:0.8rem; }
-
-/* ── CONTACT ── */
-.contact-bg { background:var(--ink); }
-.contact-bg .sec-kicker { color:rgba(255,255,255,0.3); }
-.contact-bg .sec-title { color:#fff; }
-.contact-bg .sec-sub { color:rgba(255,255,255,0.5); }
-.contact-grid { display:grid; grid-template-columns:1fr 1fr; gap:4rem; align-items:start; }
-.c-links { display:flex; flex-direction:column; gap:0.7rem; }
-.c-link { display:flex; flex-direction:column; padding:0.9rem 1.15rem; background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.08); border-radius:var(--r); text-decoration:none; transition:background 0.18s; }
-.c-link:hover { background:rgba(255,255,255,0.09); }
-.c-type { font-size:0.67rem; text-transform:uppercase; letter-spacing:0.1em; color:var(--gold); margin-bottom:0.12rem; }
-.c-val { font-size:0.86rem; color:rgba(255,255,255,0.75); }
-
-/* form */
-.c-form { display:flex; flex-direction:column; gap:0.7rem; }
-.form-row2 { display:grid; grid-template-columns:1fr 1fr; gap:0.7rem; }
-.c-form input, .c-form textarea {
-  background:rgba(255,255,255,0.07); border:1px solid rgba(255,255,255,0.12);
-  border-radius:7px; padding:0.8rem 1rem;
-  color:#fff; font-family:inherit; font-size:0.86rem; outline:none; resize:none; width:100%;
-  transition:border-color 0.18s;
+.sec-title{
+  font-family:var(--serif);
+  font-size:clamp(1.9rem,3vw,2.6rem);
+  line-height:1.2;margin-bottom:2.5rem;
 }
-.c-form input::placeholder, .c-form textarea::placeholder { color:rgba(255,255,255,0.28); }
-.c-form input:focus, .c-form textarea:focus { border-color:rgba(255,255,255,0.32); }
-.c-form textarea { min-height:110px; }
-.btn-send { background:var(--gold); color:var(--ink); padding:0.8rem 1.75rem; border-radius:7px; border:none; cursor:pointer; font-family:inherit; font-size:0.86rem; font-weight:500; transition:opacity 0.18s; align-self:flex-start; }
-.btn-send:hover { opacity:0.85; }
 
-/* ── FOOTER ── */
-footer { background:var(--ink); border-top:1px solid rgba(255,255,255,0.06); padding:1.6rem 3rem; display:flex; justify-content:space-between; align-items:center; }
-.ft { font-size:0.75rem; color:rgba(255,255,255,0.3); }
-.ft-links { list-style:none; display:flex; gap:1.5rem; }
-.ft-links a { font-size:0.75rem; color:rgba(255,255,255,0.3); text-decoration:none; transition:color 0.18s; }
-.ft-links a:hover { color:rgba(255,255,255,0.65); }
+/* ABOUT */
+.about-layout{display:grid;grid-template-columns:1fr 340px;gap:5rem;align-items:start}
+.about-prose p{color:var(--muted);margin-bottom:1.1rem;font-size:1rem;line-height:1.85}
+.about-prose p strong{color:var(--text);font-weight:600}
+.about-prose p em{font-style:italic;color:var(--text)}
 
-/* ── ANIMATIONS ── */
-@keyframes fadeUp { from{opacity:0;transform:translateY(22px)} to{opacity:1;transform:translateY(0)} }
-.hero-eyebrow{animation:fadeUp 0.55s ease both}
-.hero-h1{animation:fadeUp 0.55s 0.1s ease both}
-.hero-sub{animation:fadeUp 0.55s 0.18s ease both}
-.hero-btns{animation:fadeUp 0.55s 0.26s ease both}
-.hero-photo-placeholder{animation:fadeUp 0.55s 0.12s ease both}
-.hero-stats{animation:fadeUp 0.55s 0.34s ease both}
-
-/* ── RESPONSIVE ── */
-@media(max-width:960px){
-  nav{padding:0 1.5rem}
-  .section-wrap,.hero-wrap{padding-left:1.5rem;padding-right:1.5rem}
-  .hero-grid{grid-template-columns:1fr;gap:2rem}
-  .hero-photo-placeholder{display:none}
-  .proj-grid{grid-template-columns:1fr}
-  .proj-card.feat{grid-column:1;grid-template-columns:1fr}
-  .proj-metrics{flex-direction:row;gap:2rem}
-  .m-val{font-size:1.4rem}
-  .about-grid{grid-template-columns:1fr;gap:2.5rem}
-  .skills-grid{grid-template-columns:1fr 1fr}
-  .contact-grid{grid-template-columns:1fr;gap:2.5rem}
-  footer{flex-direction:column;gap:1rem;text-align:center}
+.about-aside{display:flex;flex-direction:column;gap:1.25rem}
+.aside-stat{
+  background:#fff;border:1px solid var(--border);
+  border-radius:12px;padding:1.4rem 1.5rem;
 }
-@media(max-width:540px){
-  .skills-grid{grid-template-columns:1fr}
-  .form-row2{grid-template-columns:1fr}
-  .nav-links .hm{display:none}
+.aside-num{
+  font-family:var(--serif);font-size:2.2rem;color:var(--accent);
+  line-height:1;margin-bottom:0.3rem;
+}
+.aside-lbl{font-size:0.82rem;color:var(--muted);line-height:1.45}
+
+/* DRIVES */
+.drives-strip{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:0;border:1px solid var(--border);border-radius:16px;overflow:hidden;
+  background:#fff;
+}
+.drive-item{
+  padding:2.5rem 2rem;
+  border-right:1px solid var(--border);
+  transition:background 0.2s;
+}
+.drive-item:last-child{border-right:none}
+.drive-item:hover{background:var(--accent-light)}
+.drive-num{
+  font-family:var(--serif);font-size:3.5rem;
+  color:rgba(55,48,163,0.12);line-height:1;margin-bottom:1.25rem;
+}
+.drive-title{font-family:var(--serif);font-size:1.2rem;margin-bottom:0.5rem}
+.drive-desc{font-size:0.875rem;color:var(--muted);line-height:1.7}
+
+/* PROJECTS */
+.project-case{
+  display:grid;grid-template-columns:0.35fr 1fr;
+  margin-bottom:4rem;
+  border:1px solid var(--border);border-radius:20px;
+  overflow:hidden;background:#fff;
+}
+.proj-left{
+  background:var(--accent-light);
+  padding:2.75rem 2.25rem;
+  display:flex;flex-direction:column;justify-content:space-between;
+}
+.proj-num{
+  font-family:var(--serif);font-size:3.5rem;
+  color:rgba(55,48,163,0.14);line-height:1;margin-bottom:1.5rem;
+}
+.proj-name{font-family:var(--serif);font-size:1.6rem;color:var(--accent);margin-bottom:0.3rem;line-height:1.2}
+.proj-sub{font-size:0.8rem;color:var(--muted);margin-bottom:1.25rem;line-height:1.5}
+.proj-tags{display:flex;flex-wrap:wrap;gap:0.4rem}
+.tag{
+  font-size:0.68rem;font-weight:500;letter-spacing:0.04em;
+  background:#fff;color:var(--accent);
+  padding:0.25rem 0.65rem;border-radius:999px;
+  border:1px solid rgba(55,48,163,0.18);
+}
+.proj-links{display:flex;gap:1rem;margin-top:2rem}
+.proj-links a{
+  font-size:0.78rem;font-weight:500;color:var(--accent);
+  text-decoration:none;transition:opacity 0.2s;
+}
+.proj-links a:hover{opacity:0.6}
+
+.proj-right{padding:2.75rem;display:flex;flex-direction:column;gap:1.75rem}
+.case-label{
+  font-size:0.68rem;font-weight:600;letter-spacing:0.12em;
+  text-transform:uppercase;color:var(--gold);margin-bottom:0.4rem;
+}
+.case-head{font-family:var(--serif);font-size:1.15rem;margin-bottom:0.4rem}
+.case-text{font-size:0.875rem;color:var(--muted);line-height:1.78}
+
+.metrics{
+  display:flex;gap:1.5rem;flex-wrap:wrap;
+  padding:1.25rem 1.5rem;background:var(--bg);border-radius:10px;
+}
+.met{flex:1;min-width:90px}
+.met-val{font-family:var(--serif);font-size:1.5rem;color:var(--accent);line-height:1}
+.met-key{font-size:0.72rem;color:var(--muted);margin-top:0.2rem}
+
+/* TIMELINE */
+.timeline{position:relative;padding-left:1.75rem}
+.timeline::before{
+  content:'';position:absolute;left:0;top:0.5rem;bottom:0;
+  width:1px;background:var(--border);
+}
+.tl-item{position:relative;padding:0 0 2.75rem 2.25rem}
+.tl-item::before{
+  content:'';position:absolute;left:-0.35rem;top:0.45rem;
+  width:0.7rem;height:0.7rem;border-radius:50%;
+  background:#fff;border:1.5px solid var(--border);
+  transition:border-color 0.2s,background 0.2s;
+}
+.tl-item:hover::before{border-color:var(--accent);background:var(--accent)}
+.tl-date{
+  font-size:0.72rem;font-weight:600;letter-spacing:0.1em;
+  color:var(--muted);margin-bottom:0.3rem;text-transform:uppercase;
+}
+.tl-title{font-family:var(--serif);font-size:1.25rem;margin-bottom:0.35rem}
+.tl-body{font-size:0.875rem;color:var(--muted);max-width:540px;line-height:1.75}
+
+/* BEYOND DATA - typographic collage */
+#beyond{padding:5.5rem 5rem;max-width:1180px;margin:0 auto}
+.beyond-intro{
+  max-width:480px;
+  font-size:1rem;color:var(--muted);line-height:1.8;margin-bottom:4rem;
+}
+.collage{
+  position:relative;
+  min-height:460px;
+}
+.col-item{
+  position:absolute;
+  cursor:default;
+  transition:opacity 0.2s;
+}
+.col-item:hover{opacity:0.7}
+
+/* big word items */
+.col-word{
+  font-family:var(--serif);
+  font-style:italic;
+  color:var(--text);
+  line-height:1;
+}
+.col-note{
+  font-size:0.78rem;
+  color:var(--muted);
+  max-width:160px;
+  line-height:1.5;
+  font-style:normal;
+  font-family:var(--sans);
+}
+.col-tag-pill{
+  font-size:0.75rem;font-weight:500;
+  border:1.5px solid var(--border);
+  padding:0.4rem 1rem;border-radius:999px;
+  color:var(--muted);
+  font-family:var(--sans);
+  background:#fff;
+}
+.col-accent{color:var(--accent)}
+.col-gold{color:var(--gold)}
+
+/* SKILLS */
+.skills-wrap{display:flex;flex-direction:column;gap:1.25rem}
+.skill-row{display:flex;align-items:baseline;gap:1.5rem;flex-wrap:wrap}
+.skill-cat{
+  font-size:0.72rem;font-weight:600;letter-spacing:0.12em;
+  text-transform:uppercase;color:var(--muted);
+  min-width:160px;flex-shrink:0;
+}
+.skill-pills{display:flex;flex-wrap:wrap;gap:0.5rem}
+.skill-pill{
+  font-size:0.8rem;color:var(--text);
+  background:#fff;border:1px solid var(--border);
+  padding:0.3rem 0.85rem;border-radius:6px;
+}
+
+/* CONTACT */
+#contact{text-align:center;padding:6rem 5rem 7rem;max-width:680px;margin:0 auto}
+.contact-head{
+  font-family:var(--serif);
+  font-size:clamp(2rem,3.5vw,2.8rem);
+  margin-bottom:1.1rem;line-height:1.2;
+}
+.contact-body{font-size:1rem;color:var(--muted);margin-bottom:2.25rem;line-height:1.8}
+.contact-links{display:flex;justify-content:center;gap:1rem;flex-wrap:wrap}
+
+footer{
+  border-top:1px solid var(--border);text-align:center;
+  padding:1.75rem 4rem;font-size:0.78rem;color:var(--muted);
+}
+
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(20px);transition:opacity 0.6s ease,transform 0.6s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  nav{padding:1rem 1.5rem}
+  .nav-links{display:none}
+  #hero{grid-template-columns:1fr;padding:7rem 1.5rem 3rem;text-align:center}
+  .hero-img-wrap{order:-1}
+  .hero-photo,.hero-photo-ph{width:220px;height:280px}
+  .hero-cta{justify-content:center}
+  .hero-sub{margin:0 auto 2rem}
+  .sec{padding:4rem 1.5rem}
+  .sec-full .inner{padding:0 1.5rem}
+  .about-layout{grid-template-columns:1fr;gap:3rem}
+  .drives-strip{grid-template-columns:1fr}
+  .drive-item{border-right:none;border-bottom:1px solid var(--border)}
+  .project-case{grid-template-columns:1fr}
+  .collage{min-height:700px}
+  .skill-cat{min-width:120px}
+  #beyond{padding:4rem 1.5rem}
+  #contact{padding:5rem 1.5rem}
+}
+
+@media(prefers-reduced-motion:reduce){
+  .reveal{opacity:1;transform:none;transition:none}
+  *{transition-duration:0.01ms !important}
 }
 </style>
 </head>
 <body>
 
-<!-- NAV -->
 <nav>
-  <a href="#" class="nav-logo">Srishti Lamba</a>
+  <a href="#hero" class="nav-logo">Srishti Lamba</a>
   <ul class="nav-links">
-    <li class="hm"><a href="#about">About</a></li>
-    <li class="hm"><a href="#projects">Projects</a></li>
-    <li class="hm"><a href="#skills">Skills</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#journey">Journey</a></li>
+    <li><a href="#skills">Skills</a></li>
     <li><a href="#contact">Contact</a></li>
-    <li><a href="resume.pdf" target="_blank" class="nav-resume">Resume ↗</a></li>
   </ul>
 </nav>
 
 <!-- HERO -->
-<div class="hero-wrap">
-  <div class="hero-eyebrow"><span></span>M.Sc. Data Science · DAU, Gandhinagar · Open to roles</div>
-  <div class="hero-grid">
-    <div>
-      <h1 class="hero-h1">Turning messy data<br />into <em>decisions that matter.</em></h1>
-      <p class="hero-sub">I build analytics systems at the intersection of finance, policy, and statistics — from forex risk models with geopolitical features to strategic defence intelligence. Statistics background, production mindset.</p>
-      <div class="hero-btns">
-        <a href="#projects" class="btn-dark">View my work ↓</a>
-        <a href="https://www.linkedin.com/in/srishti-lamba-864709145" target="_blank" class="btn-ghost">LinkedIn ↗</a>
-        <a href="https://github.com/srishti7103" target="_blank" class="btn-ghost">GitHub ↗</a>
-      </div>
-      <div class="hero-stats">
-        <div><div class="stat-num">6<sup>+</sup></div><div class="stat-lbl">Projects shipped</div></div>
-        <div><div class="stat-num">0.458<sup>%</sup></div><div class="stat-lbl">MAPE — RupeeRisk</div></div>
-        <div><div class="stat-num">2.68</div><div class="stat-lbl">Sharpe ratio — backtested</div></div>
-        <div><div class="stat-num">73<sup>%</sup></div><div class="stat-lbl">Directional accuracy</div></div>
-      </div>
+<div id="hero">
+  <div>
+    <p class="hero-eyebrow">M.Sc. Data Science - DA-IICT, Gandhinagar</p>
+    <h1 class="hero-headline">
+      I find the story<br>
+      <em>hiding inside</em><br>
+      the numbers.
+    </h1>
+    <p class="hero-sub">
+      Statistics gave me the language. Data Science gave me the canvas.
+      I build things that make patterns visible and decisions easier.
+    </p>
+    <div class="hero-cta">
+      <a href="#projects" class="btn-p">See My Work</a>
+      <a href="#contact" class="btn-o">Let's Talk</a>
     </div>
-    <!-- Replace src with assets/photo.jpg once uploaded -->
-    <img src="assets/photo.jpg" alt="Srishti Lamba" class="hero-photo-placeholder" />
-</div>
-
-<hr class="divider" />
-
-<!-- PROJECTS -->
-<section id="projects">
-<div class="section-wrap">
-  <div class="sec-kicker">02 — Selected work</div>
-  <h2 class="sec-title">Projects</h2>
-  <p class="sec-sub">End-to-end projects across finance, defence, logistics, public health, and AI — real data, real methods, deployed outputs.</p>
-
-  <div class="proj-grid">
-
-    <!-- 001 RupeeRisk — FEATURED -->
-    <div class="proj-card feat">
-      <div>
-        <div class="proj-top">
-          <span class="proj-idx">001 — Featured</span>
-          <div class="proj-links-row">
-            <a href="https://github.com/srishti7103/RupeeRisk" target="_blank" class="proj-lnk">GitHub ↗</a>
-            <a href="https://rupeerisk.streamlit.app" target="_blank" class="proj-lnk">Live ↗</a>
-          </div>
-        </div>
-        <div class="live-badge" style="background:rgba(255,255,255,0.08);color:rgba(255,255,255,0.7)">● Live on Streamlit</div>
-        <div class="proj-title">RupeeRisk</div>
-        <div class="proj-sub">India Macro & Geopolitical Forex Intelligence</div>
-        <p class="proj-desc">Engineered 15 geopolitical tension indicators across 4 transmission channels — Oil Supply, Direct FX, Risk-Off, Trade Route — using STL decomposition and 1-week exogenous lags to eliminate look-ahead bias. SARIMA / ARIMAX / Lasso / Gradient Boosting ensemble evaluated on a 52-week rolling backtest. Lasso model confirmed geopolitical tension as a statistically significant INR predictor, improving directional accuracy by 17.3pp over the SARIMA baseline.</p>
-        <div class="proj-tags">
-          <span class="tag">Python</span><span class="tag">FRED API</span><span class="tag">yfinance</span>
-          <span class="tag">SARIMA · ARIMAX</span><span class="tag">Lasso</span>
-          <span class="tag">Gradient Boosting</span><span class="tag">Streamlit</span><span class="tag">ADF Diagnostics</span>
-        </div>
-      </div>
-      <div class="proj-metrics">
-        <div><div class="m-val">0.458%</div><div class="m-lbl">MAPE</div></div>
-        <div><div class="m-val">73.08%</div><div class="m-lbl">Directional Accuracy</div></div>
-        <div><div class="m-val">2.68</div><div class="m-lbl">Sharpe Ratio</div></div>
-        <div><div class="m-val">+11.70%</div><div class="m-lbl">Cumulative Return</div></div>
-      </div>
+  </div>
+  <div class="hero-img-wrap">
+    <!-- To add your photo: replace the div below with <img src="assets/photo.jpg" alt="Srishti Lamba" class="hero-photo"> -->
+    <div class="hero-photo-ph">
+      <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" opacity="0.35">
+        <circle cx="20" cy="15" r="8" stroke="#3730A3" stroke-width="1.5"/>
+        <path d="M5 36c0-8.284 6.716-15 15-15s15 6.716 15 15" stroke="#3730A3" stroke-width="1.5" stroke-linecap="round"/>
+      </svg>
+      <span style="font-size:0.75rem;color:var(--accent);opacity:0.6">Add photo here</span>
     </div>
-
-    <!-- 002 IndiaShield -->
-    <div class="proj-card">
-      <div class="proj-top">
-        <span class="proj-idx">002</span>
-        <div class="proj-links-row">
-          <a href="https://github.com/srishti7103/IndiaShield" target="_blank" class="proj-lnk">GitHub ↗</a>
-          <a href="https://indiashield-h4uhwhqbpkaf9tibxlcefp.streamlit.app/" target="_blank" class="proj-lnk">Live ↗</a>
-        </div>
-      </div>
-      <div class="live-badge">● Live on Streamlit</div>
-      <div class="proj-title">IndiaShield</div>
-      <div class="proj-sub">Strategic Defence Intelligence & Security Analytics</div>
-      <p class="proj-desc">5-module Streamlit dashboard consolidating 25 years of subcontinent military expenditure, SIPRI arms transfers, Union Budget allocations (FY16–FY25), and NSE defence equity data. Introduced the SIDS metric — a novel composite scoring India's arms supply-chain vulnerability per supplier. Quantified a Modernisation Paradox: CapEx share fell 38.3%→28.9% despite 5× budget growth. Russian supply-chain lock-in identified at SIDS=72 (Critical).</p>
-      <div class="proj-tags">
-        <span class="tag">Python</span><span class="tag">SIPRI Data</span><span class="tag">yfinance</span>
-        <span class="tag">Plotly</span><span class="tag">Streamlit</span><span class="tag">pandas · NumPy</span>
-      </div>
-    </div>
-
-    <!-- 003 ShramikSaathi -->
-    <div class="proj-card">
-      <div class="proj-top">
-        <span class="proj-idx">003</span>
-        <div class="proj-links-row">
-          <a href="https://github.com/srishti7103/shramiksaathi" target="_blank" class="proj-lnk">GitHub ↗</a>
-        </div>
-      </div>
-      <div class="proj-title">ShramikSaathi</div>
-      <div class="proj-sub">Indian Worker Rights AI Copilot · RAG + LLM</div>
-      <p class="proj-desc">Grounded conversational AI copilot covering PF/EPFO, payslip audit, labour rights, and income tax — built on LLaMA 3.1 8B with LoRA SFT + DPO alignment. 9-layer pipeline with a novel Procedural Eligibility Reasoner that verifies IF/THEN conditions before answering. Condition Coverage Score improved from 0.000 (vanilla RAG) to 0.714.</p>
-      <div class="contrib">4-person team · Contributed to evaluation framework and data pipeline.</div>
-      <div class="proj-tags">
-        <span class="tag">LLaMA 3.1 8B</span><span class="tag">LoRA SFT</span><span class="tag">DPO</span>
-        <span class="tag">FAISS</span><span class="tag">RAG</span><span class="tag">Gradio</span><span class="tag">LangChain</span>
-      </div>
-    </div>
-
-    <!-- 004 LogiSense -->
-    <div class="proj-card">
-      <div class="proj-top">
-        <span class="proj-idx">004</span>
-        <div class="proj-links-row">
-          <a href="https://github.com/srishti7103/LogiSense" target="_blank" class="proj-lnk">GitHub ↗</a>
-          <a href="https://logiisense.netlify.app" target="_blank" class="proj-lnk">Live ↗</a>
-        </div>
-      </div>
-      <div class="live-badge">● Live on Netlify</div>
-      <div class="proj-title">LogiSense</div>
-      <div class="proj-sub">Logistics Intelligence & Analytics Platform</div>
-      <p class="proj-desc">IQR-based charge outlier detection across a 7-table BCNF-normalised schema, validated against 50K+ shipment records. Contributed 20+ optimised queries. Built an AI-enhanced demo interface for schema comprehension — adopted for live team presentations.</p>
-      <div class="contrib">3-person team · Led query refinement, IQR outlier logic, and demo interface.</div>
-      <div class="proj-tags">
-        <span class="tag">PostgreSQL</span><span class="tag">BCNF Normalisation</span>
-        <span class="tag">Advanced SQL</span><span class="tag">Customer Segmentation</span>
-      </div>
-    </div>
-
-    <!-- 005 Global Inequality -->
-    <div class="proj-card">
-      <div class="proj-top">
-        <span class="proj-idx">005</span>
-      </div>
-      <div class="proj-title">A World in Numbers</div>
-      <div class="proj-sub">Global Inequality, Health & the Planet</div>
-      <p class="proj-desc">Led causal inference analysis across 195 countries — identified Out-of-Pocket health expenditure as a confounder masking the tax–health relationship using DAG methodology (R²=0.13 without confounder control). Built dual-axis Tableau visualisations for WHO GHE-D and Global Carbon Project data.</p>
-      <div class="contrib">4-person team · Led Hypothesis 3, DAG causal inference, Tableau visualisations.</div>
-      <div class="proj-tags">
-        <span class="tag">Python</span><span class="tag">Tableau</span>
-        <span class="tag">DAG Causal Inference</span><span class="tag">WHO GHE-D</span><span class="tag">Choropleth</span>
-      </div>
-    </div>
-
-    <!-- 006 Screen Time -->
-    <div class="proj-card">
-      <div class="proj-top">
-        <span class="proj-idx">006</span>
-      </div>
-      <div class="wip-badge">● In progress · Minor Research</div>
-      <div class="proj-title">Screen Time & Academic Performance</div>
-      <div class="proj-sub">Longitudinal Behavioural Analytics · DAU</div>
-      <p class="proj-desc">3-wave longitudinal survey (n=30–35) at DAU. Applying Bland-Altman analysis to quantify self-report bias in screen time measurement; building an OLS predictive model to estimate effects on academic performance and mental wellbeing — with actionable student-facing recommendations.</p>
-      <div class="proj-tags">
-        <span class="tag">Python · R</span><span class="tag">OLS Regression</span>
-        <span class="tag">Bland-Altman</span><span class="tag">DAG Causal Inference</span>
-      </div>
-    </div>
-
   </div>
 </div>
-</section>
-
-<hr class="divider" />
 
 <!-- ABOUT -->
-<div class="about-bg" id="about">
-<div class="section-wrap">
-  <div class="sec-kicker">01 — Who I am</div>
-  <h2 class="sec-title">About me</h2>
-  <div class="about-grid">
-    <div class="about-body">
-      <p>I'm a data scientist with a <strong>Statistics Honours foundation</strong> and a genuine curiosity for how numbers explain the world — whether that's a rupee moving on a geopolitical event, India's defence supply-chain exposed to a single nation, or a student's screen habits quietly shaping their grades.</p>
-      <p>My work spans <strong>fintech, strategic intelligence, NLP, public health, and logistics</strong>. Not because I can't pick a lane, but because I believe the most interesting insights live at intersections. Every project I've built starts with a real question, not a tech stack.</p>
-      <p>Before data science, I cleared the <strong>AFCAT and CDS written examinations</strong> and progressed to SSB selection for the Indian Air Force. That process taught me more about structured thinking under pressure, operating in ambiguity, and long-term discipline than any classroom assignment.</p>
-      <p>Currently open to <strong>Data Analyst, Risk Analyst, Quant Analyst, and Data Scientist</strong> roles — especially in fintech, financial analytics, and research-driven teams.</p>
-      <div class="achieve-list">
-        <div class="achieve-item">Cleared AFCAT & CDS Written Examinations · Progressed to SSB Selection for Indian Air Force Commission</div>
-        <div class="achieve-item">Supported 50+ economically disadvantaged families at a Vadodara humanitarian NGO — data entry, supply coordination, intake records (2024)</div>
-        <div class="achieve-item">School Captain & House Captain · Jawahar Navodaya Vidyalaya · 3rd Place, Regional Science Exhibition</div>
-      </div>
+<section id="about" class="sec reveal">
+  <span class="label">Who I Am</span>
+  <div class="about-layout">
+    <div class="about-prose">
+      <h2 class="sec-title">From probability tables<br>to production models.</h2>
+      <p>I started with Statistics - not because someone told me to, but because I genuinely wanted to understand <strong>why things happen the way they do</strong>. Three years at MS University Baroda gave me the foundations: probability theory, regression, time series, the patience to sit with data until it tells you something true.</p>
+      <p>Then came DA-IICT, Gandhinagar - and everything accelerated. Machine learning, NLP, causal inference, big data. But more than the coursework, it was the <strong>projects</strong>: forex intelligence platforms, defence analytics, an AI copilot for worker rights, logistics dashboards that got picked up for pilot evaluation. Real problems, real data, real stakes.</p>
+      <p>I have also cleared AFCAT and CDS written examinations and made it to SSB selection - which, alongside being School Captain at Jawahar Navodaya Vidyalaya, taught me more about <em>working under pressure and leading without authority</em> than any classroom could. A stint volunteering at a Vadodara NGO - supporting 50+ families through data coordination - gave those skills a human context I haven't forgotten.</p>
+      <p>I build things, I ask questions, and I laugh a lot. That combination, I've found, makes for good data science.</p>
     </div>
-    <div class="edu-stack">
-      <div class="edu-card">
-        <div class="edu-dot"></div>
-        <div>
-          <div class="edu-t">M.Sc. Data Science · CGPA 8.6/10</div>
-          <div class="edu-s">Dhirubhai Ambani University, Gandhinagar · Jul 2025 – Present<br/>Machine Learning · NLP · Statistical Modelling · Big Data Analytics · Causal Inference · Interactive Data Visualisation</div>
-        </div>
+    <div class="about-aside">
+      <div class="aside-stat">
+        <div class="aside-num">8.6</div>
+        <div class="aside-lbl">CGPA - M.Sc. Data Science, DA-IICT</div>
       </div>
-      <div class="edu-card">
-        <div class="edu-dot"></div>
-        <div>
-          <div class="edu-t">B.Sc. Statistics (Honours)</div>
-          <div class="edu-s">Maharaja Sayajirao University of Baroda · Jun 2021 – May 2024<br/>Probability Theory · Regression · Time Series · Design of Experiments · R Programming</div>
-        </div>
+      <div class="aside-stat">
+        <div class="aside-num">4+</div>
+        <div class="aside-lbl">Deployed projects across Streamlit, Netlify, Tableau Public</div>
+      </div>
+      <div class="aside-stat">
+        <div class="aside-num">200</div>
+        <div class="aside-lbl">Week out-of-sample rolling backtest on RupeeRisk</div>
       </div>
     </div>
   </div>
-</div>
-</div>
-
-<hr class="divider" />
-
-<!-- SKILLS -->
-<section id="skills">
-<div class="section-wrap">
-  <div class="sec-kicker">03 — Technical fluency</div>
-  <h2 class="sec-title">Skills</h2>
-  <p class="sec-sub">Tools used in production projects, not just tutorials.</p>
-  <div class="skills-grid">
-    <div class="skill-card">
-      <div class="skill-head">Languages & Tools</div>
-      <div class="skill-pills">
-        <span class="skill-pill">Python</span><span class="skill-pill">R</span>
-        <span class="skill-pill">SQL</span><span class="skill-pill">PostgreSQL</span>
-        <span class="skill-pill">Excel</span><span class="skill-pill">Git / GitHub</span>
-        <span class="skill-pill">Jupyter</span>
-      </div>
-    </div>
-    <div class="skill-card">
-      <div class="skill-head">ML & Analytics</div>
-      <div class="skill-pills">
-        <span class="skill-pill">Lasso Regression</span><span class="skill-pill">Gradient Boosting</span>
-        <span class="skill-pill">Random Forest</span><span class="skill-pill">SARIMA · ARIMAX</span>
-        <span class="skill-pill">Feature Engineering</span><span class="skill-pill">ADF Testing</span>
-        <span class="skill-pill">Customer Segmentation</span>
-      </div>
-    </div>
-    <div class="skill-card">
-      <div class="skill-head">BI & Visualisation</div>
-      <div class="skill-pills">
-        <span class="skill-pill">Tableau</span><span class="skill-pill">Power BI</span>
-        <span class="skill-pill">Streamlit</span><span class="skill-pill">Plotly</span>
-        <span class="skill-pill">Matplotlib</span><span class="skill-pill">Seaborn</span>
-        <span class="skill-pill">Gradio</span>
-      </div>
-    </div>
-    <div class="skill-card">
-      <div class="skill-head">Statistics</div>
-      <div class="skill-pills">
-        <span class="skill-pill">Causal Inference (DAGs)</span>
-        <span class="skill-pill">STL Decomposition</span>
-        <span class="skill-pill">Hypothesis Testing</span>
-        <span class="skill-pill">OLS / Multivariate Regression</span>
-        <span class="skill-pill">Bland-Altman Analysis</span>
-        <span class="skill-pill">Time Series Analysis</span>
-        <span class="skill-pill">Event Study Methodology</span>
-      </div>
-    </div>
-  </div>
-  <div class="certs-row">
-    <div class="cert"><span class="cert-dot"></span><div><strong>Google Business Intelligence Certificate</strong> · 2026</div></div>
-    <div class="cert"><span class="cert-dot"></span><div><strong>Product Analytics Certification</strong> · Pendo & Mind the Product · 2026</div></div>
-    <div class="cert"><span class="cert-dot"></span><div><strong>Databricks Data Analyst</strong> · In Progress</div></div>
-  </div>
-</div>
 </section>
 
-<hr class="divider" />
-
-<!-- CONTACT -->
-<div class="contact-bg" id="contact">
-<div class="section-wrap">
-  <div class="sec-kicker">04 — Get in touch</div>
-  <h2 class="sec-title">Let's talk</h2>
-  <p class="sec-sub">Open to Data Analyst, Risk Analyst, Quant Analyst, and Data Scientist roles. Reach out directly or drop a message below.</p>
-  <div class="contact-grid">
-    <div class="c-links">
-      <a href="mailto:srrml10@gmail.com" class="c-link">
-        <span class="c-type">Email</span>
-        <span class="c-val">srrml10@gmail.com</span>
-      </a>
-      <a href="https://www.linkedin.com/in/srishti-lamba-864709145" target="_blank" class="c-link">
-        <span class="c-type">LinkedIn</span>
-        <span class="c-val">linkedin.com/in/srishti-lamba-864709145</span>
-      </a>
-      <a href="https://github.com/srishti7103" target="_blank" class="c-link">
-        <span class="c-type">GitHub</span>
-        <span class="c-val">github.com/srishti7103</span>
-      </a>
-      <a href="tel:+917698961905" class="c-link">
-        <span class="c-type">Phone</span>
-        <span class="c-val">+91 76989 61905</span>
-      </a>
-    </div>
-    <!-- Replace YOUR_FORMSPREE_ID below after setting up at formspree.io -->
-    <form class="c-form" action="https://formspree.io/f/xnjyqwwd" method="POST">
-      <div class="form-row2">
-        <input type="text" name="name" placeholder="Your name" required />
-        <input type="email" name="email" placeholder="Your email" required />
+<!-- DRIVES -->
+<div class="sec-full reveal">
+  <div class="inner">
+    <span class="label">What Drives Me</span>
+    <div class="drives-strip">
+      <div class="drive-item">
+        <div class="drive-num">01</div>
+        <div class="drive-title">Rigour over shortcuts</div>
+        <div class="drive-desc">It's tempting to pick the model with the best accuracy number. I'd rather run the unit root test, check for look-ahead bias, and validate against a naive baseline first. The result means something only if the process does.</div>
       </div>
-      <input type="text" name="subject" placeholder="Subject" />
-      <textarea name="message" placeholder="Your message…" required></textarea>
-      <button type="submit" class="btn-send">Send message →</button>
-    </form>
+      <div class="drive-item">
+        <div class="drive-num">02</div>
+        <div class="drive-title">Building things people use</div>
+        <div class="drive-desc">A beautiful model that lives only in a notebook isn't finished. Every project I work on gets deployed - a Streamlit app, a live dashboard, a usable interface. The feedback loop between building and using is where real learning happens.</div>
+      </div>
+      <div class="drive-item">
+        <div class="drive-num">03</div>
+        <div class="drive-title">Problems with real stakes</div>
+        <div class="drive-desc">Worker rights, defence vulnerabilities, forex risks, health inequity - these aren't toy datasets. Choosing problems that matter to real people makes the analytical work feel like something worth getting right.</div>
+      </div>
+    </div>
   </div>
 </div>
+
+<!-- PROJECTS -->
+<section id="projects" class="sec reveal">
+  <span class="label">Projects</span>
+  <h2 class="sec-title">Case studies, not cards.</h2>
+
+  <!-- 01 RupeeRisk -->
+  <div class="project-case">
+    <div class="proj-left">
+      <div>
+        <div class="proj-num">01</div>
+        <div class="proj-name">RupeeRisk</div>
+        <div class="proj-sub">India Macro & Geopolitical Forex Intelligence Platform</div>
+        <div class="proj-tags">
+          <span class="tag">Time Series</span>
+          <span class="tag">ARIMA/ARIMAX</span>
+          <span class="tag">Ensemble</span>
+          <span class="tag">Geopolitics</span>
+          <span class="tag">Streamlit</span>
+        </div>
+      </div>
+      <div class="proj-links">
+        <a href="https://rupeerisk.streamlit.app" target="_blank">Live App &rarr;</a>
+        <a href="https://github.com/srishti7103" target="_blank">GitHub &rarr;</a>
+      </div>
+    </div>
+    <div class="proj-right">
+      <div>
+        <div class="case-label">The Problem</div>
+        <div class="case-head">Forex models treat the rupee as a statistical process and ignore what actually moves it.</div>
+        <div class="case-text">Oil supply shocks, trade route disruptions, risk-off sentiment - the geopolitical signals that cause large, sudden moves in USD/INR are almost universally absent from existing forecasting tools. No one was combining macro indicators with geopolitical tension scores in a rigorous, deployment-ready way.</div>
+      </div>
+      <div>
+        <div class="case-label">The Approach</div>
+        <div class="case-head">15 geopolitical indicators. 9 models. A 200-week rolling out-of-sample window.</div>
+        <div class="case-text">I engineered 15 tension indicators across 4 transmission channels (Oil Supply, Direct FX, Risk-Off, Trade Route) using STL decomposition and 1-week exogenous lags to eliminate look-ahead bias. After an ACF/PACF audit confirmed no meaningful seasonality, I replaced SARIMA with ARIMA(1,1,0) - the model the data actually supported - and benchmarked all 9 models against a naive random walk using Theil's U.</div>
+      </div>
+      <div class="metrics">
+        <div class="met"><div class="met-val">0.332%</div><div class="met-key">MAPE - best model</div></div>
+        <div class="met"><div class="met-val">59%</div><div class="met-key">Directional accuracy</div></div>
+        <div class="met"><div class="met-val">1.33</div><div class="met-key">Sharpe ratio</div></div>
+        <div class="met"><div class="met-val">+18%</div><div class="met-key">Cumulative return</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 02 IndiaShield -->
+  <div class="project-case">
+    <div class="proj-left">
+      <div>
+        <div class="proj-num">02</div>
+        <div class="proj-name">IndiaShield</div>
+        <div class="proj-sub">Strategic Defence Intelligence & Analytics Platform</div>
+        <div class="proj-tags">
+          <span class="tag">SIPRI Data</span>
+          <span class="tag">Event Study</span>
+          <span class="tag">Composite Index</span>
+          <span class="tag">Python</span>
+          <span class="tag">Plotly</span>
+        </div>
+      </div>
+      <div class="proj-links">
+        <a href="https://github.com/srishti7103" target="_blank">GitHub &rarr;</a>
+      </div>
+    </div>
+    <div class="proj-right">
+      <div>
+        <div class="case-label">The Problem</div>
+        <div class="case-head">India's defence data existed in fragments. No one had connected it into one analytical picture.</div>
+        <div class="case-text">Budget allocations, arms import flows, equity prices, and geopolitical events were scattered across SIPRI reports, NSE data feeds, and Union Budget PDFs - never synthesised. There was no quantitative way to measure how dependent India actually was on any single arms supplier, or how markets responded to border escalations.</div>
+      </div>
+      <div>
+        <div class="case-label">The Approach</div>
+        <div class="case-head">I built SIDS - a novel composite vulnerability metric - and ran event studies across 9 escalations.</div>
+        <div class="case-text">The Strategic Import Dependency Score quantifies arms supply-chain vulnerability per supplier using import concentration, single-source risk, geopolitical stability, and domestic substitution capacity. Russia scored SIDS = 72 (Critical) post-2022. The event study tracked cumulative alpha for 6 NSE defence equities across Uri, Balakot, and Galwan over a ±30 trading-day window - HAL and BEL generated positive alpha while Nifty 50 declined.</div>
+      </div>
+      <div class="metrics">
+        <div class="met"><div class="met-val">25 yrs</div><div class="met-key">SIPRI data processed</div></div>
+        <div class="met"><div class="met-val">SIDS 72</div><div class="met-key">Russia - Critical dependency</div></div>
+        <div class="met"><div class="met-val">9</div><div class="met-key">Geopolitical events studied</div></div>
+        <div class="met"><div class="met-val">6</div><div class="met-key">Dashboard modules</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 03 ShramikSaathi -->
+  <div class="project-case">
+    <div class="proj-left">
+      <div>
+        <div class="proj-num">03</div>
+        <div class="proj-name">ShramikSaathi</div>
+        <div class="proj-sub">Indian Worker Rights AI Copilot</div>
+        <div class="proj-tags">
+          <span class="tag">LLaMA 3.1 8B</span>
+          <span class="tag">LoRA</span>
+          <span class="tag">DPO</span>
+          <span class="tag">RAG</span>
+          <span class="tag">FAISS</span>
+        </div>
+      </div>
+      <div class="proj-links">
+        <a href="https://github.com/srishti7103" target="_blank">GitHub &rarr;</a>
+      </div>
+    </div>
+    <div class="proj-right">
+      <div>
+        <div class="case-label">The Problem</div>
+        <div class="case-head">Millions of Indian workers don't know their rights - and no one has made it easy to ask.</div>
+        <div class="case-text">PF/EPFO rules, income tax slabs, payslip audit rights, labour law protections - this information exists in scattered PDFs that workers in the informal economy can't navigate. The challenge wasn't building a chatbot. It was building one that gave legally grounded answers without hallucinating eligibility conditions.</div>
+      </div>
+      <div>
+        <div class="case-label">The Approach</div>
+        <div class="case-head">A 9-layer RAG + ReAct pipeline, and a novel metric to measure whether AI actually checks conditions before answering.</div>
+        <div class="case-text">Our team built the pipeline on LLaMA 3.1 8B with cross-domain routing, a sufficiency gate, and FAISS retrieval over 311 documents. I contributed the Condition Coverage Score - a metric measuring whether eligibility conditions are verified before generation. CCS improved from 0.000 to 0.714 through LoRA SFT and DPO alignment, with zero citation fabrications on the held-out set.</div>
+      </div>
+      <div class="metrics">
+        <div class="met"><div class="met-val">0 &rarr; 0.714</div><div class="met-key">Condition Coverage Score</div></div>
+        <div class="met"><div class="met-val">0.991</div><div class="met-key">Sufficiency gate accuracy</div></div>
+        <div class="met"><div class="met-val">311</div><div class="met-key">Docs in FAISS index</div></div>
+        <div class="met"><div class="met-val">0</div><div class="met-key">Citation fabrications</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 04 LogiSense -->
+  <div class="project-case">
+    <div class="proj-left">
+      <div>
+        <div class="proj-num">04</div>
+        <div class="proj-name">LogiSense</div>
+        <div class="proj-sub">Logistics Intelligence & Analytics Platform</div>
+        <div class="proj-tags">
+          <span class="tag">PostgreSQL</span>
+          <span class="tag">SQL</span>
+          <span class="tag">Analytics</span>
+          <span class="tag">HTML/JS</span>
+          <span class="tag">Netlify</span>
+        </div>
+      </div>
+      <div class="proj-links">
+        <a href="https://logiisense.netlify.app" target="_blank">Live Demo &rarr;</a>
+        <a href="https://github.com/srishti7103" target="_blank">GitHub &rarr;</a>
+      </div>
+    </div>
+    <div class="proj-right">
+      <div>
+        <div class="case-label">The Problem</div>
+        <div class="case-head">Logistics companies drown in operational data they have no clean way to interrogate.</div>
+        <div class="case-text">Branch performance, customer payment patterns, charge anomalies - all locked inside operational databases with no analytical layer. Smaller logistics companies especially lack tooling to turn raw transaction data into operational decisions.</div>
+      </div>
+      <div>
+        <div class="case-label">The Approach</div>
+        <div class="case-head">A BCNF-normalised schema, 20+ analytical queries, and a zero-backend dashboard anyone can use.</div>
+        <div class="case-text">We designed a 7-table schema and wrote queries covering branch failure analysis, IQR-based charge outlier detection, payment mismatch detection, and percentile-based customer segmentation. I built the HTML/JS dashboard on Netlify with a live SQL query viewer and demo mode. It was adopted for pilot evaluation by 2 logistics companies.</div>
+      </div>
+      <div class="metrics">
+        <div class="met"><div class="met-val">20+</div><div class="met-key">Analytical SQL queries</div></div>
+        <div class="met"><div class="met-val">9</div><div class="met-key">Dashboard tabs</div></div>
+        <div class="met"><div class="met-val">2</div><div class="met-key">Companies - pilot evaluation</div></div>
+        <div class="met"><div class="met-val">BCNF</div><div class="met-key">Normalisation level</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- JOURNEY -->
+<div class="sec-full reveal" id="journey">
+  <div class="inner">
+    <span class="label">Journey</span>
+    <h2 class="sec-title">The path that brought me here.</h2>
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-date">2021 - 2024</div>
+        <div class="tl-title">B.Sc. Statistics (Honours) - MS University, Baroda</div>
+        <div class="tl-body">Three years of rigorous statistical foundations - probability theory, regression, time series, experimental design. The kind of grounding that makes everything built later actually hold up.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-date">2022 - 2024</div>
+        <div class="tl-title">Cleared AFCAT & CDS - progressed to SSB</div>
+        <div class="tl-body">Simultaneously preparing for two of India's most competitive defence examinations while completing an Honours degree. Taught me more about discipline and time management than anything since.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-date">2024</div>
+        <div class="tl-title">NGO Volunteering, Vadodara</div>
+        <div class="tl-body">Data coordination and patient intake support for 50+ economically disadvantaged families. A grounding reminder that data work has human stakes.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-date">Jul 2025 - Present</div>
+        <div class="tl-title">M.Sc. Data Science - DA-IICT, Gandhinagar</div>
+        <div class="tl-body">CGPA 8.6/10. Machine Learning, NLP, Causal Inference, Big Data Analytics. More importantly - the space and expectation to build real things on real data.</div>
+      </div>
+
+    </div>
+  </div>
 </div>
 
+<!-- BEYOND DATA -->
+<section id="beyond" class="reveal">
+  <span class="label">Beyond Data</span>
+  <h2 class="sec-title" style="max-width:420px">The person behind the projects.</h2>
+  <p class="beyond-intro">
+    Some things don't fit neatly into a resume. Here's what actually makes me, me.
+  </p>
+
+  <div class="collage">
+    <!-- Big serif words -->
+    <div class="col-item col-word" style="font-size:4.5rem;top:0;left:0;color:var(--text)">Curious.</div>
+    <div class="col-item col-word" style="font-size:3rem;top:5rem;left:24rem;color:var(--accent)"><em>Builder.</em></div>
+    <div class="col-item col-word col-gold" style="font-size:2rem;top:0.5rem;left:38rem">Optimist.</div>
+
+    <!-- Small annotations -->
+    <div class="col-item col-note" style="top:5.5rem;left:1rem">
+      "Why does this actually work?" is my most-used sentence.
+    </div>
+    <div class="col-item col-note" style="top:9rem;left:27rem">
+      Analysis that doesn't ship isn't finished.
+    </div>
+
+    <!-- Pill tags -->
+    <div class="col-item col-tag-pill" style="top:9.5rem;left:2rem">Strategy gamer</div>
+    <div class="col-item col-tag-pill" style="top:9.5rem;left:11rem">Perpetual learner</div>
+    <div class="col-item col-tag-pill" style="top:13rem;left:28rem">Laughs too much</div>
+
+    <!-- Another large word -->
+    <div class="col-item col-word" style="font-size:5.5rem;top:12rem;left:0;opacity:0.08">DATA</div>
+    <div class="col-item col-word" style="font-size:2.2rem;top:13rem;left:4rem">Hard problems are just<br><em style="color:var(--accent)">unsolved</em> problems.</div>
+
+    <!-- More pills -->
+    <div class="col-item col-tag-pill" style="top:19rem;left:1rem">School Captain</div>
+    <div class="col-item col-tag-pill" style="top:19rem;left:9.5rem">Science Exhibition - 3rd Place</div>
+    <div class="col-item col-tag-pill" style="top:19rem;left:24rem">SSB Qualified</div>
+
+    <!-- Final note -->
+    <div class="col-item col-note" style="top:22rem;left:2rem;max-width:280px">
+      Teams that laugh together debug faster. I bring both the rigour and the energy.
+    </div>
+
+    <div class="col-item col-word" style="font-size:1.8rem;top:22.5rem;left:32rem;opacity:0.5">
+      <em>Ambitious.<br>Authentic.</em>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<div class="sec-full reveal" id="skills">
+  <div class="inner">
+    <span class="label">Skills</span>
+    <h2 class="sec-title">What I can actually do.</h2>
+    <div class="skills-wrap">
+      <div class="skill-row">
+        <span class="skill-cat">Statistics</span>
+        <div class="skill-pills">
+          <span class="skill-pill">Hypothesis Testing</span>
+          <span class="skill-pill">OLS & Multivariate Regression</span>
+          <span class="skill-pill">Causal Inference (DAGs)</span>
+          <span class="skill-pill">Time Series - ADF, STL, ARIMA</span>
+          <span class="skill-pill">Bland-Altman Analysis</span>
+        </div>
+      </div>
+      <div class="skill-row">
+        <span class="skill-cat">Machine Learning</span>
+        <div class="skill-pills">
+          <span class="skill-pill">Lasso</span>
+          <span class="skill-pill">Gradient Boosting</span>
+          <span class="skill-pill">Random Forest</span>
+          <span class="skill-pill">LLM Fine-tuning (LoRA, DPO)</span>
+          <span class="skill-pill">RAG Pipelines & FAISS</span>
+          <span class="skill-pill">Feature Engineering</span>
+        </div>
+      </div>
+      <div class="skill-row">
+        <span class="skill-cat">Data Engineering</span>
+        <div class="skill-pills">
+          <span class="skill-pill">Python</span>
+          <span class="skill-pill">SQL & PostgreSQL</span>
+          <span class="skill-pill">R</span>
+          <span class="skill-pill">Git & GitHub</span>
+          <span class="skill-pill">API Integration</span>
+          <span class="skill-pill">Database Design</span>
+        </div>
+      </div>
+      <div class="skill-row">
+        <span class="skill-cat">Visualisation & BI</span>
+        <div class="skill-pills">
+          <span class="skill-pill">Tableau</span>
+          <span class="skill-pill">Power BI</span>
+          <span class="skill-pill">Streamlit</span>
+          <span class="skill-pill">Plotly</span>
+          <span class="skill-pill">Google Analytics 4</span>
+        </div>
+      </div>
+      <div class="skill-row">
+        <span class="skill-cat">Certifications</span>
+        <div class="skill-pills">
+          <span class="skill-pill">Google Business Intelligence</span>
+          <span class="skill-pill">Product Analytics - Pendo</span>
+          <span class="skill-pill">Databricks Data Analyst (in progress)</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CONTACT -->
+<section id="contact" class="reveal">
+  <span class="label">Contact</span>
+  <h2 class="contact-head">Let's work on something that matters.</h2>
+  <p class="contact-body">
+    I'm looking for Data Analyst, Business Analyst, and Data Scientist roles.
+    If you're working on problems that involve real data and real decisions,
+    I'd love to hear about them. No formalities needed.
+  </p>
+  <div class="contact-links">
+    <a href="mailto:srrml10@gmail.com" class="btn-p">srrml10@gmail.com</a>
+    <a href="https://linkedin.com/in/srishti-lamba-864709145" target="_blank" class="btn-o">LinkedIn</a>
+    <a href="https://github.com/srishti7103" target="_blank" class="btn-o">GitHub</a>
+  </div>
+</section>
+
 <footer>
-  <span class="ft">© 2026 Srishti Lamba · Gandhinagar, Gujarat </span>
-  <ul class="ft-links">
-    <li><a href="#projects">Work</a></li>
-    <li><a href="#about">About</a></li>
-    <li><a href="https://github.com/srishti7103" target="_blank">GitHub</a></li>
-    <li><a href="https://www.linkedin.com/in/srishti-lamba-864709145" target="_blank">LinkedIn</a></li>
-  </ul>
+  <p>Srishti Lamba &middot; 2026</p>
 </footer>
+
+<script>
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible') });
+}, { threshold: 0.07 });
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
 
 </body>
 </html>
