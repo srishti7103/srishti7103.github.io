@@ -39,6 +39,14 @@ nav{
 .nav-links{display:flex;gap:2.5rem;list-style:none}
 .nav-links a{font-size:0.82rem;font-weight:500;color:var(--muted);text-decoration:none;letter-spacing:0.02em;transition:color 0.2s}
 .nav-links a:hover{color:var(--text)}
+.nav-resume-btn{
+  background:var(--text);
+  color:#fff !important;
+  padding:0.45rem 1.1rem;
+  border-radius:6px;
+  transition:background 0.2s;
+}
+.nav-resume-btn:hover{background:var(--accent) !important}
 
 /* HERO */
 #hero{
@@ -297,8 +305,8 @@ footer{
     <li><a href="#projects">Projects</a></li>
     <li><a href="#journey">Journey</a></li>
     <li><a href="#skills">Skills</a></li>
-    <li><a href="resume.pdf" target="_blank">Resume</a></li>
     <li><a href="#contact">Contact</a></li>
+    <li><a href="resume.pdf" target="_blank" class="nav-resume-btn">Resume</a></li>
   </ul>
 </nav>
 
@@ -321,7 +329,7 @@ footer{
     </div>
   </div>
   <div class="hero-img-wrap">
-    <img src="assets/photo.jpeg" alt="Srishti Lamba" class="hero-photo">
+    <img src="assets/photo.jpg" alt="Srishti Lamba" class="hero-photo">
   </div>
 </div>
 
