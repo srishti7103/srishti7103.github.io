@@ -1,6 +1,6 @@
 ## Hi, I'm Srishti 👋
 
-M.Sc. Data Science @ DA-IICT (CPI 8.66 / 10) · B.Sc. Statistics (Honours)  
+M.Sc. Data Science @ DA-IICT · B.Sc. Statistics (Honours)  
 Building at the intersection of **econometrics, statistical modeling, behavioral telemetry, and creative web engineering**.
 
 **Open to:** Quantitative Analyst · Data Scientist · Financial Risk Analyst · Data Engineer roles
