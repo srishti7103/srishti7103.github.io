@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" width="100%" height="100%">
+  <defs>
+    <radialGradient id="cardGlow_patr" cx="50%" cy="40%" r="60%">
+      <stop offset="0%" stop-color="#7FD8BE" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#081C24" stop-opacity="0.95"/>
+    </radialGradient>
+  </defs>
+  <rect width="400" height="500" rx="16" fill="#081C24" stroke="#7FD8BE" stroke-width="3"/>
+  <rect x="15" y="15" width="370" height="470" rx="10" fill="url(#cardGlow_patr)" stroke="#7FD8BE" stroke-width="1" stroke-opacity="0.6"/>
+  <circle cx="200" cy="200" r="85" fill="none" stroke="#7FD8BE" stroke-width="2" stroke-dasharray="6,4"/>
+  <text x="200" y="208" fill="#7FD8BE" font-family="Cinzel, serif" font-size="32" font-weight="bold" text-anchor="middle" letter-spacing="4">&#9876;</text>
+  <text x="200" y="340" fill="#7FD8BE" font-family="Cinzel, serif" font-size="22" font-weight="bold" text-anchor="middle" letter-spacing="3">EXPECTO PATRONUM</text>
+  <text x="200" y="380" fill="#EADBC8" font-family="IM Fell English, serif" font-size="15" font-style="italic" text-anchor="middle">Pure Positive Force</text>
+</svg>

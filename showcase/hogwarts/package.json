@@ -1,0 +1,36 @@
+{
+  "name": "hogwarts-wizarding-experience",
+  "version": "1.2.0",
+  "private": true,
+  "description": "An interactive multi-scene Hogwarts wizarding web experience with modular vanilla ES6, CSS3 3D transitions, Web Audio API, and modern React architecture.",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "lint": "eslint src --ext js,jsx"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "lucide-react": "^0.344.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "@vitejs/plugin-react": "^4.3.0",
+    "eslint": "^8.57.0",
+    "vite": "^5.2.0"
+  },
+  "keywords": [
+    "react",
+    "javascript",
+    "interactive-web",
+    "canvas-particles",
+    "web-audio",
+    "ai-assisted-development",
+    "creative-technologist"
+  ],
+  "author": "Srishti Lamba",
+  "license": "MIT"
+}

@@ -1,0 +1,875 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aria &amp; Reyansh — We Are Getting Married!</title>
+    <meta name="description"
+        content="Together with their families, Aria &amp; Reyansh invite you to celebrate their sacred wedding journey on Winter Celebration 2026, New Delhi.">
+
+    <!-- OpenGraph & WhatsApp Social Share Preview Tags -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="💍 Aria &amp; Reyansh — Wedding Invitation">
+    <meta property="og:description" content="Together with their families, Aria &amp; Reyansh invite you to celebrate their sacred wedding journey on Winter Celebration 2026, New Delhi.">
+    <meta property="og:image" content="./assets/images/hero.jpg">
+    <meta property="og:image:type" content="image/jpeg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="💍 Aria &amp; Reyansh — Wedding Invitation">
+    <meta name="twitter:description" content="Together with their families, Aria &amp; Reyansh invite you to celebrate their sacred wedding journey on Winter Celebration 2026, New Delhi.">
+    <meta name="twitter:image" content="./assets/images/hero.jpg">
+    <meta name="theme-color" content="#B8915A">
+
+    <script>
+        window.HOST_CONFIG = {
+            googleSheetWebhookURL: "https://script.google.com/macros/s/AKfycbzJN5ytU9FlsoOSL2U-I-pxmDkR6DKNAE9GouAv-x5F0RbZ5bTC4DQjGIpI-jK_aSqETg/exec"
+        };
+    </script>
+
+    <!-- Premium Wedding Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cinzel+Decorative:wght@600;700;900&family=Cinzel:wght@400;500;600;700;800&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Italiana&family=Pinyon+Script&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body class="is-intro-locked">
+
+    <!-- Paper Grain & Ambient Floating Petals -->
+    <div class="paper-grain"></div>
+    <canvas id="petals-canvas"></canvas>
+
+    <!-- =========================================================================
+         ACT 1: PHOTOREALISTIC SLOW SKYWRITING CLOUD HEART (SINGLE HELICOPTER)
+         ========================================================================= -->
+    <div class="sky-intro-overlay" id="sky-intro-overlay">
+        <!-- Crisp Azure Sky & Ambient Cirrus Clouds Canvas -->
+        <canvas id="sky-clouds-canvas"></canvas>
+        <canvas id="sky-smoke-canvas"></canvas>
+
+        <!-- Single Realistic Golden Helicopter that Skywrites the Heart -->
+        <div class="sky-intro-heli" id="sky-intro-heli">
+            <div class="heli-rotor-blur"></div>
+            <img src="./assets/images/golden_helicopter.png" alt="Golden Wedding Helicopter" class="sky-heli-img">
+            <div class="heli-pulse-beacon"></div>
+        </div>
+
+        <!-- The Skywritten Heart Calligraphy (Pure white with delicate gold border) -->
+        <div class="sky-heart-content" id="sky-heart-content">
+            <h1 class="sky-announcement-calligraphy" id="sky-title-type"></h1>
+            <p class="sky-date-calligraphy" id="sky-date-type"></p>
+        </div>
+    </div>
+
+    <!-- =========================================================================
+         TOP LUXURY EDITORIAL HEADER (Brand Logo on Side + Nav Links + Audio)
+         ========================================================================= -->
+    <header class="site-header" id="site-header">
+        <div class="header-inner">
+            <!-- Sleek Corner Monogram Logo -->
+            <a href="#couple" class="header-logo-brand" aria-label="Aria &amp; Reyansh Home">
+                <img src="./assets/images/logo_clean.png" alt="Aria &amp; Reyansh Monogram" class="header-logo-img">
+                <div class="header-brand-text">
+                    <span class="brand-names">Aria &amp; Reyansh</span>
+                    <span class="brand-date">11 &amp; 12 · 12 · 2026</span>
+                </div>
+            </a>
+
+            <!-- Quick Navigation Menu -->
+            <nav class="header-nav-menu" id="header-nav">
+                <a href="#couple" class="header-nav__link is-active" data-section="couple">The Couple</a>
+                <a href="#ceremonies" class="header-nav__link" data-section="ceremonies">Ceremonies</a>
+                <a href="#rsvp" class="header-nav__link" data-section="rsvp">Boarding Pass RSVP</a>
+                <a href="#details" class="header-nav__link" data-section="details">Destination</a>
+                <a href="#blessing" class="header-nav__link" data-section="blessing">Blessings</a>
+            </nav>
+
+            <!-- Floating Audio Ambient Toggle -->
+            <div class="header-audio-box">
+                <audio id="wedding-audio" src="./assets/audio/music.mp3" loop preload="auto" playsinline></audio>
+                <button class="audio-btn" id="audio-btn" aria-label="Play Music">
+                    <svg class="audio-icon audio-icon--mute" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="1.8">
+                        <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                        <line x1="23" y1="9" x2="17" y2="15"></line>
+                        <line x1="17" y1="9" x2="23" y2="15"></line>
+                    </svg>
+                    <svg class="audio-icon audio-icon--play" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="1.8">
+                        <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                        <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+                        <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+                    </svg>
+                    <span class="audio-label">Music</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- =========================================================================
+         THE SINGLE GOLDEN HELICOPTER & DYNAMIC WINDING SVG FLIGHT TRAIL
+         ========================================================================= -->
+    <div class="golden-helicopter-unit" id="golden-heli">
+        <div class="heli-rotor-blur"></div>
+        <img src="./assets/images/golden_helicopter.png" alt="Golden Wedding Helicopter" class="heli-sprite-img">
+        <div class="heli-pulse-beacon"></div>
+    </div>
+
+    <svg class="flight-trail-svg" id="flight-trail-svg">
+        <path id="flight-trail-path" class="flight-trail-path" d="" fill="none" />
+    </svg>
+
+    <!-- =========================================================================
+         ACT 2: DIRECTLY MEET YOGESH & MEHEK (Arched Royal Jharokha Silhouettes)
+         ========================================================================= -->
+    <section class="couple-section couple-section--first" id="couple">
+        <div class="container">
+            <div class="section-header" data-reveal>
+                <span class="section-pretitle">The Co-Pilots of Life</span>
+                <h2 class="section-title">Meet Reyansh &amp; Aria</h2>
+                <p class="section-subtitle">Two lives entwined by destiny, beginning a lifetime of love, laughter, and
+                    shared dreams.</p>
+                <div class="ornament-divider">
+                    <svg width="120" height="24" viewBox="0 0 120 24" fill="none">
+                        <path d="M0 12h45M75 12h45M48 12c0-3.3 2.7-6 6-6s6 2.7 6 6-2.7 6-6 6-6-2.7-6-6z"
+                            stroke="var(--gold-antique)" stroke-width="1.2" />
+                        <circle cx="60" cy="12" r="3" fill="var(--dusty-rose)" />
+                    </svg>
+                </div>
+            </div>
+
+            <!-- Couple Organic Flow (Arched Jharokha Frames) -->
+            <div class="couple-organic-flow">
+
+                <!-- THE GROOM: YOGESH -->
+                <div class="couple-organic-card couple-organic-card--groom" id="groom-card" data-reveal>
+                    <div class="couple-arch-frame">
+                        <img src="./assets/images/groom.jpeg" alt="Reyansh" class="couple-arch-photo">
+                        <div class="arch-gold-filigree"></div>
+                    </div>
+                    <div class="couple-organic-body">
+                        <span class="couple-role-badge">The Groom</span>
+                        <h3 class="couple-person-name">Reyansh</h3>
+
+                        <div class="couple-quote-block">
+                            <span class="quote-symbol">“</span>
+                            <p class="couple-story-text">
+                                The day Aria walked into my life, everything found its true meaning. She brings calm to
+                                every storm and warmth to every moment. I cannot wait to begin this incredible journey
+                                of a lifetime with her by my side.
+                            </p>
+                        </div>
+
+                        <div class="couple-sign-box">
+                            <span class="sign-handwritten">Reyansh</span>
+                            <span class="sign-subtext">— Forever Yours</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- THE BRIDE: MEHEK -->
+                <div class="couple-organic-card couple-organic-card--bride couple-organic-card--reverse" id="bride-card"
+                    data-reveal>
+                    <div class="couple-arch-frame">
+                        <img src="./assets/images/bride.jpeg" alt="Aria" class="couple-arch-photo">
+                        <div class="arch-gold-filigree arch-gold-filigree--rose"></div>
+                    </div>
+                    <div class="couple-organic-body">
+                        <span class="couple-role-badge couple-role-badge--rose">The Bride</span>
+                        <h3 class="couple-person-name couple-person-name--rose">Aria</h3>
+
+                        <div class="couple-quote-block">
+                            <span class="quote-symbol">“</span>
+                            <p class="couple-story-text">
+                                With Reyansh, love feels effortless, comforting, and beautiful. He is my best friend, my
+                                greatest comfort, and the one my heart chose without a single hesitation. Here is to our
+                                forever.
+                            </p>
+                        </div>
+
+                        <div class="couple-sign-box">
+                            <span class="sign-handwritten sign-handwritten--rose">Aria</span>
+                            <span class="sign-subtext">— With All My Love</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Romantic ECG Pulse Line -->
+            <div class="story-synthesis" data-reveal>
+                <div class="pulse-line-wrapper">
+                    <svg class="ecg-pulse-svg" viewBox="0 0 600 40" preserveAspectRatio="none">
+                        <path class="ecg-path"
+                            d="M0,20 L180,20 L195,5 L205,35 L215,10 L225,28 L235,20 L370,20 L385,5 L395,35 L405,10 L415,28 L425,20 L600,20" />
+                    </svg>
+                </div>
+                <p class="synthesis-quote">
+                    "When two hearts beat as one, forever is only the beginning."
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- =========================================================================
+         ACT 3: THE CEREMONIES (Symmetrical Itinerary)
+         ========================================================================= -->
+    <section class="ceremonies-section" id="ceremonies">
+        <div class="container">
+            <div class="section-header" data-reveal>
+                <span class="section-pretitle">Auspicious Celebrations</span>
+                <h2 class="section-title">Wedding Ceremonies</h2>
+                <p class="section-subtitle">Join us across each milestone as our journey unfolds.</p>
+                <div class="ornament-divider">
+                    <svg width="120" height="24" viewBox="0 0 120 24" fill="none">
+                        <path d="M0 12h45M75 12h45M48 12c0-3.3 2.7-6 6-6s6 2.7 6 6-2.7 6-6 6-6-2.7-6-6z"
+                            stroke="var(--gold-antique)" stroke-width="1.2" />
+                        <circle cx="60" cy="12" r="3" fill="var(--dusty-rose)" />
+                    </svg>
+                </div>
+                    <!-- Ceremonies Flow (6 Complete Events) -->
+            <div class="ceremonies-flow">
+
+                <!-- 1. MEHENDI MELA -->
+                <article class="ceremony-card" id="ceremony-1" data-waypoint="1" data-reveal>
+                    <div class="ceremony-landing-pad" id="landing-pad-1"></div>
+                    <div class="waypoint-indicator">
+                        <span class="waypoint-pin">1</span>
+                        <span class="waypoint-label">Floral Fiesta</span>
+                    </div>
+
+                    <div class="ceremony-card__image-box">
+                        <img src="./assets/images/mehendi.jpg" alt="The Mehendi Mela" class="ceremony-card__img" loading="lazy">
+                        <div class="ceremony-card__tag">
+                            <span class="tag-icon">🌸</span>
+                            <span class="tag-text">The Floral Fiesta</span>
+                        </div>
+                    </div>
+
+                    <div class="ceremony-card__body">
+                        <div class="ceremony-card__top">
+                            <div class="ceremony-header-row">
+                                <span class="ceremony-number">EVENT · 01</span>
+                            </div>
+
+                            <div class="ceremony-titles-wrapper">
+                                <h3 class="ceremony-name">The Mehendi Mela</h3>
+                                <p class="ceremony-verse">“Rang, phool, mehendi aur dher saara pyaar.”</p>
+                            </div>
+
+                            <div class="ceremony-specs">
+                                <div class="spec-item">
+                                    <span class="spec-label">Auspicious Date</span>
+                                    <span class="spec-value">Friday, 11th December 2026</span>
+                                </div>
+                                <div class="spec-item">
+                                    <span class="spec-label">Celebration Time</span>
+                                    <span class="spec-value">1:00 PM Onwards</span>
+                                </div>
+                                <div class="spec-item">
+                                    <span class="spec-label">Venue</span>
+                                    <span class="spec-value">Pool Front Area · The Grand Heritage Palace, New Delhi</span>
+                                </div>
+                                <div class="spec-item">
+                                    <span class="spec-label">Theme</span>
+                                    <span class="spec-value">The Floral &amp; Vibrant Indian Attire</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="ceremony-card__footer">
+                            <div class="thematic-badge">
+                                <span class="badge-dot"></span>
+                                <span>Status: In Full Floral Bloom</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 2. THE ROYAL PROMISE (TILAK & RING) -->
+                <article class="ceremony-card ceremony-card--reverse" id="ceremony-2" data-waypoint="2" data-reveal>
+                    <div class="ceremony-landing-pad" id="landing-pad-2"></div>
+                    <div class="waypoint-indicator">
+                        <span class="waypoint-pin">2</span>
+                        <span class="waypoint-label">Royal Promise</span>
+                    </div>
+
+                    <div class="ceremony-card__image-box">
+                        <img src="./assets/images/engagement.jpg" alt="Tilak and Ring Ceremony" class="ceremony-card__img" loading="lazy">
+                        <div class="ceremony-card__tag">
+                            <span class="tag-icon">💍</span>
+                            <span class="tag-text">Tilak &amp; Ring Ceremony</span>
+                        </div>
+                    </div>
+
+                    <div class="ceremony-card__body">
+                        <div class="ceremony-card__top">
+                            <div class="ceremony-header-row">
+                                <span class="ceremony-number">EVENT · 02</span>
+                            </div>
+
+                            <div class="ceremony-titles-wrapper">
+                                <h3 class="ceremony-name">The Royal Promise</h3>
+                                <p class="ceremony-verse">“Blessed by tradition. Sealed with love.”</p>
+                            </div>
+
+                            <div class="ceremony-specs">
+                                <div class="spec-item">
+                                    <span class="spec-label">Auspicious Date</span>
+                                    <span class="spec-value">Friday, 11th December 2026</span>
+                                </div>
+                                <div class="spec-item">
+                                    <span class="spec-label">Ceremony Time</span>
+                                    <span class="spec-value">5:00 PM Onwards</span>
+                                </div>
+                                <div class="spec-item">
+                                    <span class="spec-label">Venue</span>
+                                    <span class="spec-value">The Imperial Hall · The Grand Heritage Palace, New Delhi</span>
+                                </div>
+                                <div class="spec-item">
+                                    <span class="spec-label">Dress Code</span>
+                                    <span class="spec-value">Royal Ethnic &amp; Indowestern Elegance</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="ceremony-card__footer">
+                            <div class="thematic-badge">
+                                <span class="badge-dot"></span>
+                                <span>Status: Rings Blessed &amp; Exchanged</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 3. GLITZ, GLAM & FOREVER (SANGEET) -->
+                <article class="ceremony-card" id="ceremony-3" data-waypoint="3" data-reveal>
+                    <div class="ceremony-landing-pad" id="landing-pad-3"></div>
+                    <div class="waypoint-indicator">
+                        <span class="waypoint-pin">3</span>
+                        <span class="waypoint-label">Glitz &amp; Glam</span>
+                    </div>
+
+                    <div class="ceremony-card__image-box">
+                        <img src="./assets/images/sangeet.jpg" alt="Sangeet Night Celebration" class="ceremony-card__img" loading="lazy">
+                        <div class="ceremony-card__tag">
+                            <span class="tag-icon">✨</span>
+                            <span class="tag-text">Sangeet Ceremony</span>
+                        </div>
+                    </div>
+
+                    <div class="ceremony-card__body">
+                        <div class="ceremony-card__top">
+                            <div class="ceremony-header-row">
+                                <span class="ceremony-number">EVENT · 03</span>
+                            </div>
+
+                            <div class="ceremony-titles-wrapper">
+                                <h3 class="ceremony-name">Glitz, Glam &amp; Forever</h3>
+                                <p class="ceremony-verse">“Lights. Music. Dance. Drama. And a whole lot of love.”</p>
+                            </div>
+
+                            <div class="ceremony-specs">
+                                <div class="spec-item">
+                                    <span class="spec-label">Auspicious Date</span>
+                                    <span class="spec-value">Friday, 11th December 2026</span>
+                                </div>
+                                <div class="spec-item">
+                                    <span class="spec-label">Celebration Time</span>
+                                    <span class="spec-value">7:30 PM Onwards</span>
+                                </div>
+                                <div class="spec-item">
+                                    <span class="spec-label">Venue</span>
+                                    <span class="spec-value">The Imperial Hall · The Grand Heritage Palace, New Delhi</span>
+                                </div>
+                                <div class="spec-item">
+                                    <span class="spec-label">Theme</span>
+                                    <span class="spec-value">Glitz &amp; Glamorous Evening Wear</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="ceremony-card__footer">
+                            <div class="thematic-badge">
+                                <span class="badge-dot"></span>
+                                <span>Pulse: High-Energy Euphoria</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 4. THE PASTEL STORY (HALDI) -->
+                <article class="ceremony-card ceremony-card--reverse" id="ceremony-4" data-waypoint="4" data-reveal>
+                    <div class="ceremony-landing-pad" id="landing-pad-4"></div>
+                    <div class="waypoint-indicator">
+                        <span class="waypoint-pin">4</span>
+                        <span class="waypoint-label">Pastel Story</span>
+                    </div>
+
+                    <div class="ceremony-card__image-box">
+                        <img src="./assets/images/haldi.jpg" alt="Haldi Ceremony Setup" class="ceremony-card__img" loading="lazy">
+                        <div class="ceremony-card__tag">
+                            <span class="tag-icon">🌿</span>
+                            <span class="tag-text">The Pastel Story</span>
+                        </div>
+                    </div>
+
+                    <div class="ceremony-card__body">
+                        <div class="ceremony-card__top">
+                            <div class="ceremony-header-row">
+                                <span class="ceremony-number">EVENT · 04</span>
+                            </div>
+
+                            <div class="ceremony-titles-wrapper">
+                                <h3 class="ceremony-name">The Pastel Story</h3>
+                                <p class="ceremony-verse">“Paint us in sunshine, laughter and every colour of happiness.”</p>
+                            </div>
+
+                            <div class="ceremony-specs">
+                                <div class="spec-item">
+                                    <span class="spec-label">Auspicious Date</span>
+                                    <span class="spec-value">Saturday, 12th December 2026</span>
+                                </div>
+                                <div class="spec-item">
+                                    <span class="spec-label">Morning Muhurat</span>
+                                    <span class="spec-value">11:00 AM Onwards</span>
+                                </div>
+                                <div class="spec-item">
+                                    <span class="spec-label">Venue</span>
+                                    <span class="spec-value">Pool Front Area · The Grand Heritage Palace, New Delhi</span>
+                                </div>
+                                <div class="spec-item">
+                                    <span class="spec-label">Dress Code</span>
+                                    <span class="spec-value">
+                                        Women: Pastels (Pink, Blue, Green, Purple)<br>
+                                        Men: Classic White Kurta Pajama
+                                        <span class="color-swatches-row">
+                                            <span class="color-swatch-dot" style="background:#F4C2C2;" title="Pastel Pink"></span>
+                                            <span class="color-swatch-dot" style="background:#AEC6CF;" title="Pastel Blue"></span>
+                                            <span class="color-swatch-dot" style="background:#B2D8B2;" title="Pastel Green"></span>
+                                            <span class="color-swatch-dot" style="background:#D8BFD8;" title="Pastel Purple"></span>
+                                            <span class="color-swatch-dot" style="background:#FFFFFF; border-color:#CCC;" title="White"></span>
+                                        </span>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="ceremony-card__footer">
+                            <div class="thematic-badge">
+                                <span class="badge-dot"></span>
+                                <span>Remedy: 100% Sunshine &amp; Pure Joy</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 5. THE SACRED WEDDING (DWAR CHAAR, VARMALA, PHERAS COMBINED) -->
+                <article class="ceremony-card ceremony-card--featured" id="ceremony-5" data-waypoint="5" data-reveal>
+                    <div class="ceremony-landing-pad" id="landing-pad-5"></div>
+                    <div class="waypoint-indicator waypoint-indicator--gold">
+                        <span class="waypoint-pin">★</span>
+                        <span class="waypoint-label">The Sacred Wedding</span>
+                    </div>
+
+                    <div class="ceremony-card__image-box">
+                        <img src="./assets/images/pheras.jpg" alt="Sacred Pheras &amp; Gathbandhan" class="ceremony-card__img" loading="lazy">
+                        <div class="ceremony-card__tag">
+                            <span class="tag-icon">👑</span>
+                            <span class="tag-text">Sacred Mandap &amp; Pheras</span>
+                        </div>
+                    </div>
+
+                    <div class="ceremony-card__body">
+                        <div class="ceremony-card__top">
+                            <div class="ceremony-header-row">
+                                <span class="ceremony-number">EVENT · 05</span>
+                            </div>
+
+                            <div class="ceremony-titles-wrapper">
+                                <h3 class="ceremony-name">The Sacred Wedding</h3>
+                                <p class="ceremony-verse">“Under the open sky, seven sacred promises that begin our forever.”</p>
+                            </div>
+
+                            <!-- Clean 3-in-1 Shaadi Milestone Timeline -->
+                            <div class="shaadi-timeline-strip">
+                                <div class="shaadi-event-pill">
+                                    <span class="shaadi-pill-time">5:00 PM</span>
+                                    <span class="shaadi-pill-title">Dwar Chaar</span>
+                                    <span class="shaadi-pill-desc">Royal Arrival</span>
+                                </div>
+                                <div class="shaadi-event-pill">
+                                    <span class="shaadi-pill-time">5:30 PM</span>
+                                    <span class="shaadi-pill-title">Varmala</span>
+                                    <span class="shaadi-pill-desc">Pool Deck</span>
+                                </div>
+                                <div class="shaadi-event-pill is-highlight">
+                                    <span class="shaadi-pill-time">6:00 – 8:00 PM</span>
+                                    <span class="shaadi-pill-title">Sacred Pheras</span>
+                                    <span class="shaadi-pill-desc">Seven Vows</span>
+                                </div>
+                            </div>
+
+                            <div class="ceremony-specs">
+                                <div class="spec-item">
+                                    <span class="spec-label">Auspicious Date</span>
+                                    <span class="spec-value">Saturday, 12th December 2026</span>
+                                </div>
+                                <div class="spec-item">
+                                    <span class="spec-label">Venue</span>
+                                    <span class="spec-value">Pool Deck &amp; Mandap · Hotel Pride</span>
+                                </div>
+                                <div class="spec-item" style="grid-column: 1 / -1;">
+                                    <span class="spec-label">Dress Code</span>
+                                    <span class="spec-value">Traditional Royal Regal Sherwani &amp; Lehenga</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="ceremony-card__footer">
+                            <div class="thematic-badge">
+                                <span class="badge-dot"></span>
+                                <span>Status: Bound Together for Eternity</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 6. THE GRAND FINALE (RECEPTION & DINNER) -->
+                <article class="ceremony-card ceremony-card--reverse" id="ceremony-6" data-waypoint="6" data-reveal>
+                    <div class="ceremony-landing-pad" id="landing-pad-6"></div>
+                    <div class="waypoint-indicator">
+                        <span class="waypoint-pin">6</span>
+                        <span class="waypoint-label">The Grand Finale</span>
+                    </div>
+
+                    <div class="ceremony-card__image-box">
+                        <img src="./assets/images/reception.jpg" alt="Reception &amp; Dinner" class="ceremony-card__img" loading="lazy">
+                        <div class="ceremony-card__tag">
+                            <span class="tag-icon">🥂</span>
+                            <span class="tag-text">Reception &amp; Dinner</span>
+                        </div>
+                    </div>
+
+                    <div class="ceremony-card__body">
+                        <div class="ceremony-card__top">
+                            <div class="ceremony-header-row">
+                                <span class="ceremony-number">EVENT · 06</span>
+                            </div>
+
+                            <div class="ceremony-titles-wrapper">
+                                <h3 class="ceremony-name">The Grand Finale</h3>
+                                <p class="ceremony-verse">“From ‘I do’ to ‘Let’s celebrate!’”</p>
+                            </div>
+
+                            <div class="ceremony-specs">
+                                <div class="spec-item">
+                                    <span class="spec-label">Auspicious Date</span>
+                                    <span class="spec-value">Saturday, 12th December 2026</span>
+                                </div>
+                                <div class="spec-item">
+                                    <span class="spec-label">Celebration Time</span>
+                                    <span class="spec-value">8:00 PM Onwards</span>
+                                </div>
+                                <div class="spec-item">
+                                    <span class="spec-label">Venue</span>
+                                    <span class="spec-value">The Grand Lawn · The Grand Heritage Palace, New Delhi</span>
+                                </div>
+                                <div class="spec-item">
+                                    <span class="spec-label">Theme</span>
+                                    <span class="spec-value">Royal Evening Elegance &amp; Cocktail Attire</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="ceremony-card__footer">
+                            <div class="thematic-badge">
+                                <span class="badge-dot"></span>
+                                <span>Status: Toast to Forever</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- =========================================================================
+         ACT 4: SLEEK FIRST-CLASS BOARDING PASS RSVP (COMPACT & LUXURIOUS)
+         ========================================================================= -->
+    <section class="rsvp-section" id="rsvp">
+        <div class="container container--narrow">
+            <div class="section-header" data-reveal>
+                <span class="section-pretitle">Mission Clearance</span>
+                <h2 class="section-title">Boarding Pass &amp; RSVP</h2>
+                <div class="ornament-divider">
+                    <svg width="120" height="24" viewBox="0 0 120 24" fill="none">
+                        <path d="M0 12h45M75 12h45M48 12c0-3.3 2.7-6 6-6s6 2.7 6 6-2.7 6-6 6-6-2.7-6-6z"
+                            stroke="var(--gold-antique)" stroke-width="1.2" />
+                        <circle cx="60" cy="12" r="3" fill="var(--dusty-rose)" />
+                    </svg>
+                </div>
+            </div>
+
+            <!-- Sleek Compact Boarding Pass / Prescription Card (Dynamic Realtime Morphing) -->
+            <div class="boarding-pass-card theme--pilot" id="boarding-pass-card" data-reveal>
+                <div class="boarding-pass__header" id="pass-header-strip">
+                    <div class="pass-brand">
+                        <span class="pass-brand__airline" id="pass-brand-airline">ROYAL WEDDING AIRWAYS</span>
+                        <span class="pass-brand__class" id="pass-brand-class">FIRST CLASS · MY-2026</span>
+                    </div>
+                    <div class="pass-code" id="pass-code-badge">11 &amp; 12 DEC 2026 · BHOPAL</div>
+                </div>
+
+                <div class="boarding-pass__body">
+                    <!-- Main Ticket Form -->
+                    <div class="boarding-pass__main">
+                        <form id="rsvp-form" class="rsvp-form" onsubmit="event.preventDefault();">
+                            <!-- Team Groom vs Team Bride Selector -->
+                            <div class="form-group" style="margin-bottom: 18px;">
+                                <label class="form-label">Whose Guest Are You?</label>
+                                <div class="team-selector-row" style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+                                    <label class="team-option is-active" id="team-groom-opt" style="cursor: pointer; display: flex; align-items: center; gap: 10px; background: rgba(27,38,64,0.08); border: 2px solid var(--navy-pilot); padding: 12px 14px; border-radius: 10px; transition: all 0.35s ease;">
+                                        <input type="radio" name="wedding_side" value="Team Groom (Pilot)" checked style="accent-color: var(--navy-pilot);">
+                                        <div>
+                                            <strong style="display: block; font-family: var(--font-heading); font-size: 0.88rem; color: var(--navy-pilot);">✈️ Team Groom</strong>
+                                            <span style="font-size: 0.72rem; color: var(--charcoal-soft);">Pilot's Boarding Pass</span>
+                                        </div>
+                                    </label>
+                                    <label class="team-option" id="team-bride-opt" style="cursor: pointer; display: flex; align-items: center; gap: 10px; background: transparent; border: 1.5px solid rgba(200,138,148,0.4); padding: 12px 14px; border-radius: 10px; transition: all 0.35s ease;">
+                                        <input type="radio" name="wedding_side" value="Team Bride (Doctor)" style="accent-color: var(--dusty-rose-deep);">
+                                        <div>
+                                            <strong style="display: block; font-family: var(--font-heading); font-size: 0.88rem; color: var(--dusty-rose-deep);">🩺 Team Bride</strong>
+                                            <span style="font-size: 0.72rem; color: var(--charcoal-soft);">Doctor's Rx Pass</span>
+                                        </div>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="form-grid">
+                                <div class="form-group">
+                                    <label class="form-label" for="guest-name" id="form-name-label">Passenger / Family Name *</label>
+                                    <input type="text" id="guest-name" class="form-input"
+                                        placeholder="e.g. Mr. &amp; Mrs. Sharma" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label" for="guest-count" id="form-count-label">Number of Passengers *</label>
+                                    <select id="guest-count" class="form-select">
+                                        <option value="1">1 Guest</option>
+                                        <option value="2" selected>2 Guests (Couple)</option>
+                                        <option value="3">3 Guests</option>
+                                        <option value="4">4 Guests (Family)</option>
+                                        <option value="5+">5+ Guests</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <!-- Ceremonies Compact Multi-Select -->
+                            <div class="form-group">
+                                <label class="form-label">Attending Ceremonies</label>
+                                <div class="ceremony-checkbox-group" style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px;">
+                                    <label class="custom-checkbox">
+                                        <input type="checkbox" name="ceremonies" value="Mehendi" checked>
+                                        <span>Mehendi (11 Dec)</span>
+                                    </label>
+                                    <label class="custom-checkbox">
+                                        <input type="checkbox" name="ceremonies" value="Tilak & Ring" checked>
+                                        <span>Tilak &amp; Ring (11 Dec)</span>
+                                    </label>
+                                    <label class="custom-checkbox">
+                                        <input type="checkbox" name="ceremonies" value="Sangeet" checked>
+                                        <span>Sangeet (11 Dec)</span>
+                                    </label>
+                                    <label class="custom-checkbox">
+                                        <input type="checkbox" name="ceremonies" value="Haldi" checked>
+                                        <span>Haldi (12 Dec)</span>
+                                    </label>
+                                    <label class="custom-checkbox">
+                                        <input type="checkbox" name="ceremonies" value="Shaadi & Pheras" checked>
+                                        <span>Shaadi &amp; Pheras (12 Dec)</span>
+                                    </label>
+                                    <label class="custom-checkbox">
+                                        <input type="checkbox" name="ceremonies" value="Reception & Dinner" checked>
+                                        <span>Reception &amp; Dinner (12 Dec)</span>
+                                    </label>
+                                </div>
+                            </div>     </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label" for="guest-wishes">Warm Wishes / Notes</label>
+                                <input type="text" id="guest-wishes" class="form-input"
+                                    placeholder="Send your warm blessings to the couple...">
+                            </div>
+
+                            <div class="form-actions">
+                                <button type="button" id="confirm-rsvp-btn" class="btn-royal btn-royal--gold">
+                                    <span id="confirm-btn-text">✦ Confirm &amp; Download Boarding Pass ✦</span>
+                                </button>
+                            </div>
+                        </form>
+
+                        <!-- Live Generated Confirmation Overlay -->
+                        <div class="boarding-confirmation" id="boarding-confirmation">
+                            <div class="confirmed-stamp" id="confirmed-stamp-text">CLEARED FOR BOARDING</div>
+                            <h3 class="confirmed-title" id="confirmed-title-text">Boarding Pass Confirmed!</h3>
+                            <p class="confirmed-desc" id="confirmed-guest-name">Welcome aboard, esteemed guests. Your
+                                personalized pass is ready below.</p>
+                            
+                            <!-- Live Ticket Image Preview -->
+                            <div class="ticket-preview-wrap" id="ticket-preview-wrap" style="margin: 16px auto; max-width: 520px; border-radius: 12px; overflow: hidden; border: 1.5px solid var(--gold-antique); box-shadow: 0 8px 24px rgba(184,145,90,0.25);">
+                                <img id="confirmed-pass-preview-img" src="" alt="Your Wedding Pass" style="width: 100%; height: auto; display: block;">
+                            </div>
+
+                            <div class="confirmed-actions" style="display: flex; justify-content: center; margin-top: 14px;">
+                                <a id="download-pass-link" href="#" download="Aria_Reyansh_Wedding_Pass.jpg" class="btn-royal btn-royal--gold">
+                                    <span id="re-download-btn-text">📥 Download Pass Image (JPG)</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Flight / Prescription Stub -->
+                    <div class="boarding-pass__stub" id="pass-stub-panel">
+                        <div class="stub-notch stub-notch--top"></div>
+                        <div class="stub-notch stub-notch--bottom"></div>
+
+                        <div class="stub-content">
+                            <div class="stub-field">
+                                <span class="stub-label" id="stub-label-1">GATE</span>
+                                <span class="stub-val" id="stub-val-1">HOTEL PRIDE</span>
+                            </div>
+                            <div class="stub-field">
+                                <span class="stub-label" id="stub-label-2">CLASS</span>
+                                <span class="stub-val" id="stub-val-2">FIRST CLASS VIP</span>
+                            </div>
+                            <div class="aviation-barcode" id="stub-graphic-container">
+                                <div class="barcode-lines" id="barcode-lines-el"></div>
+                                <span class="barcode-number" id="barcode-number-el">||| 1212 2026 YM |||</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- =========================================================================
+         ACT 5: SLEEK COMPACT DESTINATION & LIVE COUNTDOWN
+         ========================================================================= -->
+    <section class="venue-section" id="details">
+        <div class="container container--narrow">
+            <div class="section-header" data-reveal>
+                <span class="section-pretitle">Landing Coordinates</span>
+                <h2 class="section-title">The Destination</h2>
+                <div class="ornament-divider">
+                    <svg width="120" height="24" viewBox="0 0 120 24" fill="none">
+                        <path d="M0 12h45M75 12h45M48 12c0-3.3 2.7-6 6-6s6 2.7 6 6-2.7 6-6 6-6-2.7-6-6z"
+                            stroke="var(--gold-antique)" stroke-width="1.2" />
+                        <circle cx="60" cy="12" r="3" fill="var(--dusty-rose)" />
+                    </svg>
+                </div>
+            </div>
+
+            <!-- Symmetrical Venue Card -->
+            <div class="venue-clean-card" data-reveal>
+                <h3 class="venue-clean-title">The Grand Heritage Palace, New Delhi</h3>
+                <p class="venue-clean-address">Hoshangabad Road, Near R.R. Arcade, New Delhi, Madhya Pradesh 462026</p>
+
+                <!-- Compact Badges -->
+                <div class="venue-pills-row">
+                    <span class="venue-pill">📍 Grand Emerald Lawns &amp; Ballroom</span>
+                    <span class="venue-pill">✈ 25 Mins from Airport (BHO)</span>
+                    <span class="venue-pill">🌤 22°C Clear Skies</span>
+                </div>
+
+                <!-- Sleek Countdown -->
+                <div class="countdown-clean-wrap">
+                    <span class="countdown-clean-label">Counting Down to the Muhurat</span>
+                    <div class="countdown-timer countdown-timer--compact" id="countdown-timer">
+                        <div class="countdown-item">
+                            <span class="countdown-number" id="days">--</span>
+                            <span class="countdown-unit">Days</span>
+                        </div>
+                        <div class="countdown-item">
+                            <span class="countdown-number" id="hours">--</span>
+                            <span class="countdown-unit">Hours</span>
+                        </div>
+                        <div class="countdown-item">
+                            <span class="countdown-number" id="minutes">--</span>
+                            <span class="countdown-unit">Mins</span>
+                        </div>
+                        <div class="countdown-item">
+                            <span class="countdown-number" id="seconds">--</span>
+                            <span class="countdown-unit">Secs</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="venue-clean-actions">
+                    <a href="https://maps.google.com/?q=Hotel+Pride+New Delhi" target="_blank" rel="noopener noreferrer"
+                        class="btn-royal btn-royal--gold">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <polygon points="3 11 22 2 13 21 11 13 3 11"></polygon>
+                        </svg>
+                        <span>Open in Google Maps</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- =========================================================================
+         ACT 6: BLESSINGS & FINALE (THE LAMBA & MALIK FAMILIES)
+         ========================================================================= -->
+    <section class="finale-section" id="blessing">
+        <div class="container container--narrow">
+            <div class="finale-card" data-reveal>
+                <span class="sacred-invocation-inline">|| ॐ श्री गणेशाय नमः ||</span>
+                <h2 class="finale-heading">With Boundless Love &amp; Blessings</h2>
+
+                <div class="ornament-divider" style="margin-top: 8px; margin-bottom: 24px;">
+                    <svg width="120" height="24" viewBox="0 0 120 24" fill="none">
+                        <path d="M0 12h45M75 12h45M48 12c0-3.3 2.7-6 6-6s6 2.7 6 6-2.7 6-6 6-6-2.7-6-6z" stroke="var(--gold-antique)" stroke-width="1.2"/>
+                        <circle cx="60" cy="12" r="3" fill="var(--dusty-rose)"/>
+                    </svg>
+                </div>
+
+                <p class="finale-quote-text">
+                    “As two beautiful souls unite to chart a lifetime of shared laughter, healing, and boundless skies, your gracious presence and warm blessings will be the greatest gift on their sacred day.”
+                </p>
+
+                <div class="finale-family-box">
+                    <span class="family-intro-label">Cordially Invited by</span>
+                    <h3 class="family-names-title">The Lamba &amp; Malik Families</h3>
+                    <p class="family-sub-note">Looking forward to celebrating this auspicious milestone together with you.</p>
+                </div>
+
+                <div class="finale-signature-line">
+                    <span class="signature-tag">Aria &amp; Reyansh · 12th December 2026 · New Delhi</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer with Minimal Creator Credit for Srishti -->
+    <footer class="site-footer">
+        <p class="site-footer__copyright">© 2026 Aria &amp; Reyansh · Forever, Our Journey</p>
+        <p class="site-footer__credit">Designed with love by Srishti</p>
+    </footer>
+
+    <!-- GSAP & Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="./js/flight.js"></script>
+</body>
+
+</html>

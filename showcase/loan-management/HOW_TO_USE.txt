@@ -1,0 +1,78 @@
+========================================================================
+LAMBA ENTERPRISES — LOAN MANAGEMENT SYSTEM (OFFLINE)
+========================================================================
+
+Welcome to your Offline Loan Management System. Everything is stored
+locally on your computer — no internet connection is required.
+
+------------------------------------------------------------------------
+QUICK START GUIDE (HOW TO OPEN & RUN)
+------------------------------------------------------------------------
+1. Open the file: "index.html"
+   Double-click on "index.html" to open it in Google Chrome or Microsoft Edge.
+
+2. Connect to your Excel file & Assets Folder:
+   Click the gold "⚡ Connect Local Excel" button in the top right (or in Settings),
+   and select this "Loan Management" project folder / "loan_data.xlsx".
+   Now, any payment or change you make in the web app will AUTOMATICALLY 
+   save directly into "loan_data.xlsx" and the "assets/" folder on your computer!
+
+------------------------------------------------------------------------
+KEY FEATURES & HOW TO USE
+------------------------------------------------------------------------
+
+1. DASHBOARD:
+   - View Total Disbursed Principal, Total Collected, Balance Left,
+     Interest/Profit earned, and Recovery %.
+   - See "Today & Overdue Collections" with 1-click "Collect" buttons.
+   - See portfolio breakdown across different Groups/Areas.
+
+2. BORROWERS & ASSETS FOLDERS:
+   - View borrowers in big visual cards with their photos/faces,
+     full address, phone number, and guarantor/witness details.
+   - Physical documents are organized in "assets/<PersonID_Name>/".
+   - Person ID is a rigid, permanent primary key (e.g. P001, R001, REG-102)
+     matching your physical paper ledger register.
+   - Switch between "🗂️ Cards View" and "📋 Table View" anytime.
+   - Add new borrowers with the "➕ Add New Borrower" button (1-click creates KYC and dispatches Loan #1).
+
+3. PAYMENT TRACKING & MISSED FEEDING:
+   - Click "💰 Collect Payment" on any card or timeline installment.
+   - Record exact Date Paid, Amount, Mode (Cash, UPI, Cheque), and Notes.
+   - If an installment is unpaid, click "🔴 Missed (₹0)" to log missed status with reason notes.
+   - The system automatically calculates on-time / late days and color-codes:
+     * 🟢 GREEN  = Paid in full on time
+     * 🟡 ORANGE = Partial payment or paid late
+     * 🔴 RED    = Missed / Overdue payment
+
+4. EARLY FORECLOSURE & SETTLEMENT ("🛑 Settle Early"):
+   - If a borrower wants to clear their entire remaining balance at once,
+     click "🛑 Settle Early" on their loan card.
+   - Enter the lump-sum settlement amount and payment mode.
+   - Clears debt to ₹0, marks status as Completed, and immediately unlocks
+     the "🆕 Disburse Next Loan" button!
+
+5. WHATSAPP PAYMENT REMINDERS:
+   - Click "📲 WhatsApp" on any borrower card.
+   - Generates a respectful, pre-filled Hindi/English reminder with installment #,
+     due date, amount due, remaining balance, and overdue days.
+
+6. PRINTABLE PASSBOOKS & RECEIPTS:
+   - Open any borrower profile and click "🖨 Statement" to generate
+     and print an official A4 Loan Passbook & Repayment Statement.
+
+7. EXCEL FILE STRUCTURE ("loan_data.xlsx"):
+   - Sheet 1: "Borrowers" (Customer directory with full KYC & witness info)
+   - Sheet 2: "Loans" (Loan accounts, principal, weekly due, balances)
+   - Sheet 3: "Payment_Matrix" (Visual weekly spreadsheet grid with payment date stamps)
+   - Sheet 4: "Payment_Transactions" (Audit log with exact dates & receipt numbers)
+   - Sheet 5: "Settings" (Company name and configurations)
+
+8. BACKUP & EXPORT OPTIONS:
+   - "Export Full Backup ZIP": Downloads master Excel + all photo folders.
+   - "Export Assets Folders": Downloads clean profile folders for company records.
+
+------------------------------------------------------------------------
+Ready to share?
+Simply zip this entire "Loan Management" folder and send it! It is 100% self-contained.
+========================================================================
