@@ -362,35 +362,50 @@
           if (Math.random() > 0.5) env.classList.add('tint-1');
           else if (Math.random() > 0.5) env.classList.add('tint-2');
 
-          var rot = (Math.random() - 0.5) * 14;
-          var xOff = (Math.random() - 0.5) * 16;
-          var yOff = (Math.random() - 0.5) * 12;
-          env.style.transform = 'translate(' + xOff + 'px, ' + yOff + 'px) rotate(' + rot + 'deg)';
+          var rot = (Math.random() - 0.5) * 24;
+          var xOff = (Math.random() - 0.5) * 45;
+          var yOff = sortPosition * 5 + Math.random() * 8;
+
+          env.style.setProperty('--dx', xOff + 'px');
+          env.style.setProperty('--dy', '-' + yOff + 'px');
+          env.style.setProperty('--rot', rot + 'deg');
           env.style.zIndex = sortPosition + 1;
 
-          var st = stamps[index % stamps.length];
-          var sl = seals[index % seals.length];
-          var sg = sealGold[index % sealGold.length];
+          var si = index % stamps.length;
+          var stmps = '';
+          stamps[si].forEach(function (s) {
+            stmps += '<div class="stmp">' + s + '<div class="pmk">OWL POST</div></div>';
+          });
 
-          var stampHtml = st.map(function (s, si) {
-            return '<div class="env-stamp" style="top:' + (8 + si * 2) + 'px;right:' + (8 + si * 25) + 'px;">' + s + '</div>';
-          }).join('');
-
-          env.innerHTML =
-            '<div class="env-back">' +
-            '<div class="env-wax' + (sg ? ' gold' : '') + '">' + sl + '</div>' +
+          env.innerHTML = '<div class="env-body">' +
+            '<div class="ev-l"></div><div class="ev-r"></div><div class="ev-bot"></div><div class="ev-flap"></div>' +
+            '<div class="ev-face">' +
+              '<div class="stamps">' + stmps + '</div>' +
+              '<div class="addr"><span class="addr-n">Miss Srishti,</span>From: ' + esc(d.from) + '</div>' +
             '</div>' +
-            '<div class="env-front">' +
-            stampHtml +
-            '<div class="env-addr">' +
-            '<div class="addr-name">' + esc(d.from) + '</div>' +
-            '<div class="addr-line">' + esc(d.head || 'Hogwarts Post') + '</div>' +
-            '<div class="addr-line">By Special Owl Delivery</div>' +
-            '</div>' +
-            '</div>';
+          '</div>' +
+          '<div class="seal' + (sealGold[index % sealGold.length] ? ' gold' : '') + '">' +
+            '<div class="seal-sh"></div><span>' + seals[index % seals.length] + '</span>' +
+          '</div>';
 
-          env.addEventListener('click', function () {
-            openLetter(d, env, readPile);
+          env.addEventListener('click', function (e) {
+            e.stopPropagation();
+            env.classList.add('open');
+
+            if (env.parentNode === unreadPile) {
+              readPile.appendChild(env);
+              var nrot = (Math.random() - 0.5) * 28;
+              var nxOff = (Math.random() - 0.5) * 45;
+              var nyOff = readPile.children.length * 6 + Math.random() * 8;
+              env.style.setProperty('--dx', nxOff + 'px');
+              env.style.setProperty('--dy', '-' + nyOff + 'px');
+              env.style.setProperty('--rot', nrot + 'deg');
+              env.style.zIndex = readPile.children.length;
+            }
+
+            setTimeout(function () {
+              openLetter(d, env, readPile);
+            }, 550);
           });
 
           unreadPile.appendChild(env);
@@ -398,9 +413,11 @@
       }
 
       var currentLtrTick = 0;
+      var isFastForward = false;
       function openLetter(d, envEl, readPile) {
         currentLtrTick++;
         var myTick = currentLtrTick;
+        isFastForward = false;
 
         var ov = document.getElementById('ltr-ov');
         var paper = document.getElementById('ltr-paper');
@@ -408,55 +425,70 @@
         var head = document.getElementById('ltr-head');
         var body = document.getElementById('ltr-body');
 
-        if (envEl && !envEl.classList.contains('read-state')) {
-          envEl.classList.add('read-state');
-          setTimeout(function () {
-            readPile.appendChild(envEl);
-            var rot = (Math.random() - 0.5) * 16;
-            var xOff = (Math.random() - 0.5) * 14;
-            var yOff = (Math.random() - 0.5) * 10;
-            envEl.style.transform = 'translate(' + xOff + 'px, ' + yOff + 'px) rotate(' + rot + 'deg)';
-            envEl.style.zIndex = readPile.children.length;
-          }, 600);
-        }
-
         ov.classList.add('active');
         paper.classList.remove('unfolded');
         meta.innerHTML = ''; head.innerHTML = ''; body.innerHTML = '';
 
         setTimeout(function () {
           paper.classList.add('unfolded');
-          setTimeout(function () {
-            meta.innerHTML = '<span class="ltr-from">' + esc(d.from) + '</span><span class="ltr-date">' + esc(d.date || '') + '</span>';
-            head.innerHTML = esc(d.head || '');
+          meta.innerHTML = '<span class="ltr-from">' + esc(d.from) + '</span><span class="ltr-date">' + esc(d.date || '') + '</span>';
+          head.innerHTML = esc(d.head || '');
 
-            var rawBody = d.body || '';
-            var lines = rawBody.split('\n');
-            var pi = 0;
-            function nl() {
-              if (myTick !== currentLtrTick) return;
-              if (pi >= lines.length) {
-                if (d.sig) {
-                  var sEl = document.createElement('div');
-                  sEl.className = 'ltr-sig';
-                  sEl.innerHTML = esc(d.sig).replace(/\n/g, '<br>');
-                  body.appendChild(sEl);
-                }
-                return;
-              }
-              var ln = lines[pi++];
-              if (!ln.trim()) {
+          var rawBody = d.body || '';
+          var lines = rawBody.split('\n');
+          var pi = 0;
+
+          function renderAllInstantly() {
+            if (myTick !== currentLtrTick) return;
+            body.innerHTML = '';
+            lines.forEach(function (l) {
+              if (!l.trim()) {
                 body.appendChild(document.createElement('br'));
-                setTimeout(nl, 150);
-                return;
+              } else {
+                var p = document.createElement('p');
+                p.textContent = l;
+                body.appendChild(p);
               }
-              var p = document.createElement('p');
-              body.appendChild(p);
-              tw(p, ln, nl, myTick);
+            });
+            if (d.sig) {
+              var sEl = document.createElement('div');
+              sEl.className = 'ltr-sig';
+              sEl.innerHTML = esc(d.sig).replace(/\n/g, '<br>');
+              body.appendChild(sEl);
             }
-            nl();
-          }, 800);
-        }, 400);
+          }
+
+          paper.onclick = function (e) {
+            e.stopPropagation();
+            if (!isFastForward) {
+              isFastForward = true;
+              renderAllInstantly();
+            }
+          };
+
+          function nl() {
+            if (myTick !== currentLtrTick || isFastForward) return;
+            if (pi >= lines.length) {
+              if (d.sig) {
+                var sEl = document.createElement('div');
+                sEl.className = 'ltr-sig';
+                sEl.innerHTML = esc(d.sig).replace(/\n/g, '<br>');
+                body.appendChild(sEl);
+              }
+              return;
+            }
+            var ln = lines[pi++];
+            if (!ln.trim()) {
+              body.appendChild(document.createElement('br'));
+              setTimeout(nl, 40);
+              return;
+            }
+            var p = document.createElement('p');
+            body.appendChild(p);
+            tw(p, ln, nl, myTick);
+          }
+          nl();
+        }, 280);
 
         ov.onclick = function (e) {
           if (e.target === ov || e.target.id === 'ltr-wrap') {
@@ -607,8 +639,18 @@
         var i = 0;
         function t() {
           if (tick && tick !== currentLtrTick) return;
-          if (i <= str.length) { el.textContent = str.slice(0, i); i++; setTimeout(t, 22 + Math.random() * 18); }
-          else if (cb) cb();
+          if (isFastForward) {
+            el.textContent = str;
+            if (cb) cb();
+            return;
+          }
+          if (i <= str.length) {
+            el.textContent = str.slice(0, i);
+            i += (str.length > 70 ? 2 : 1);
+            setTimeout(t, 12);
+          } else if (cb) {
+            cb();
+          }
         }
         t();
       }

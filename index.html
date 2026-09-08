@@ -1065,7 +1065,7 @@ footer {
         <span class="hero-tag">✨ STATISTICS &middot; DATA SCIENCE &middot; QUANTITATIVE ANALYTICS</span>
         <h1 class="hero-title">I find the story in complex data and build <span class="rotating-word-wrap"><em id="rotatingWord">predictive systems</em><span class="type-cursor">|</span></span> that matter.</h1>
         <p class="hero-lead">
-          <strong>M.Sc. Data Science</strong> at DA-IICT (CPI 8.66 / 10) &amp; <strong>B.Sc. Statistics Honours</strong> (MSU Baroda). Combining rigorous statistical inference, econometric forecasting, machine learning, and data analytics with bespoke, interactive web craftsmanship.
+          <strong>M.Sc. Data Science</strong> (DA-IICT) &amp; <strong>B.Sc. Statistics Honours</strong> (MSU Baroda). Combining statistical inference, econometric forecasting, machine learning, and data analytics with bespoke, interactive web craftsmanship.
         </p>
         <div class="hero-actions">
           <a href="#projects" class="btn-primary">View Selected Work &darr;</a>
@@ -1085,38 +1085,6 @@ footer {
       </div>
     </div>
   </section>
-
-  <!-- KEY METRICS STRIP -->
-  <div class="metrics-strip">
-    <div class="metric-item">
-      <span class="metric-val">8.66 / 10</span>
-      <span class="metric-lbl">DA-IICT Graduate CPI (Top Academic Standing)</span>
-    </div>
-    <div class="metric-item">
-      <span class="metric-val">89,019</span>
-      <span class="metric-lbl">UK Road Collisions Modeled (CatBoost &amp; XGBoost)</span>
-    </div>
-    <div class="metric-item">
-      <span class="metric-val">200 Wks</span>
-      <span class="metric-lbl">USD/INR Forex Backtest (+17.67% return vs hurdle)</span>
-    </div>
-    <div class="metric-item">
-      <span class="metric-val">26</span>
-      <span class="metric-lbl">Empirical Hypotheses Validated (DA-IICT Research)</span>
-    </div>
-  </div>
-
-  <!-- ABOUT / PHILOSOPHY -->
-  <div class="about-card">
-    <div class="about-block">
-      <h4>📐 Mathematical Intuition</h4>
-      <p>My statistical training at The Maharaja Sayajirao University of Baroda established deep rigour in probability theory, linear models, and hypothesis testing. I approach data not as abstract numbers, but as underlying physical and human behavioral phenomena.</p>
-    </div>
-    <div class="about-block">
-      <h4>⚡ Applied Systems &amp; Web Craft</h4>
-      <p>At DA-IICT, I expanded into distributed systems, parameter-efficient deep learning (LoRA, DPO), and cloud pipelines. I believe data without intuitive, responsive interfaces stays locked away&mdash;so I build systems that make models tangible.</p>
-    </div>
-  </div>
 
   <!-- PROJECTS SHOWCASE -->
   <section id="projects">
@@ -1640,58 +1608,55 @@ function typeRotate() {
 setTimeout(typeRotate, 2500);
 
 // ==========================================
-// DYNAMIC CANVAS ENGINES FOR CREATIVE SHOWCASE
+// DYNAMIC CANVAS ENGINES FOR CREATIVE SHOWCASE (OPTIMIZED & LAG-FREE)
 // ==========================================
 function setupCreativeCanvases() {
+  const creativeSection = document.getElementById('creative');
+  let isVisible = false;
+
   // 1. HOGWARTS: Golden Spell Sparks & Floating Lumos Embers
   const cHogwarts = document.getElementById('canvas-hogwarts');
+  let loopHActive = false;
   if (cHogwarts) {
     const ctx = cHogwarts.getContext('2d');
-    let w = 0, h = 0;
+    let w = cHogwarts.width = cHogwarts.offsetWidth || 340;
+    let h = cHogwarts.height = cHogwarts.offsetHeight || 180;
     let particles = [];
     let sparks = [];
     let mouse = { x: -100, y: -100, active: false };
 
-    function checkSize() {
-      const rect = cHogwarts.getBoundingClientRect();
-      const rw = Math.round(rect.width) || cHogwarts.offsetWidth || 340;
-      const rh = Math.round(rect.height) || cHogwarts.offsetHeight || 180;
-      if (w !== rw || h !== rh) {
-        w = cHogwarts.width = rw;
-        h = cHogwarts.height = rh;
-        if (particles.length === 0) {
-          for (let i = 0; i < 28; i++) {
-            particles.push({
-              x: Math.random() * w,
-              y: Math.random() * h,
-              size: Math.random() * 2.8 + 1.2,
-              speedY: Math.random() * 0.7 + 0.35,
-              speedX: (Math.random() - 0.5) * 0.4,
-              opacity: Math.random() * 0.7 + 0.3,
-              pulse: Math.random() * Math.PI * 2,
-              color: Math.random() > 0.3 ? '#FFD700' : '#FFA500'
-            });
-          }
-        }
+    function initHogwartsParticles() {
+      w = cHogwarts.width = cHogwarts.offsetWidth || 340;
+      h = cHogwarts.height = cHogwarts.offsetHeight || 180;
+      particles = [];
+      for (let i = 0; i < 24; i++) {
+        particles.push({
+          x: Math.random() * w,
+          y: Math.random() * h,
+          size: Math.random() * 2.5 + 1.2,
+          speedY: Math.random() * 0.6 + 0.3,
+          speedX: (Math.random() - 0.5) * 0.3,
+          opacity: Math.random() * 0.6 + 0.3,
+          pulse: Math.random() * Math.PI * 2,
+          color: Math.random() > 0.3 ? '#FFD700' : '#FFA500'
+        });
       }
     }
-    checkSize();
-    window.addEventListener('resize', checkSize);
+    initHogwartsParticles();
 
     cHogwarts.addEventListener('mousemove', (e) => {
-      const rect = cHogwarts.getBoundingClientRect();
-      mouse.x = e.clientX - rect.x;
-      mouse.y = e.clientY - rect.y;
+      mouse.x = e.offsetX;
+      mouse.y = e.offsetY;
       mouse.active = true;
-      for (let i = 0; i < 4; i++) {
+      for (let i = 0; i < 3; i++) {
         sparks.push({
           x: mouse.x,
           y: mouse.y,
-          vx: (Math.random() - 0.5) * 4.2,
-          vy: (Math.random() - 0.5) * 4.2 - 0.8,
-          size: Math.random() * 3 + 1.5,
+          vx: (Math.random() - 0.5) * 3.8,
+          vy: (Math.random() - 0.5) * 3.8 - 0.6,
+          size: Math.random() * 2.8 + 1.4,
           life: 1,
-          decay: Math.random() * 0.035 + 0.02,
+          decay: Math.random() * 0.04 + 0.025,
           color: Math.random() > 0.3 ? '#FFF4B8' : '#FFB703'
         });
       }
@@ -1699,13 +1664,14 @@ function setupCreativeCanvases() {
     cHogwarts.addEventListener('mouseleave', () => { mouse.active = false; });
 
     function loopH() {
-      checkSize();
+      if (!isVisible) { loopHActive = false; return; }
       ctx.clearRect(0, 0, w, h);
 
       // Ambient golden Lumos embers
-      particles.forEach(p => {
+      for (let i = 0; i < particles.length; i++) {
+        const p = particles[i];
         p.y -= p.speedY;
-        p.x += p.speedX + Math.sin(p.pulse) * 0.35;
+        p.x += p.speedX + Math.sin(p.pulse) * 0.3;
         p.pulse += 0.04;
         if (p.y < -10) {
           p.y = h + 10;
@@ -1717,11 +1683,11 @@ function setupCreativeCanvases() {
         ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
         ctx.fillStyle = p.color;
         ctx.globalAlpha = alpha;
-        ctx.shadowBlur = 12;
+        ctx.shadowBlur = 10;
         ctx.shadowColor = p.color;
         ctx.fill();
         ctx.restore();
-      });
+      }
 
       // Interactive Wand Sparks
       for (let i = sparks.length - 1; i >= 0; i--) {
@@ -1738,69 +1704,65 @@ function setupCreativeCanvases() {
         ctx.arc(s.x, s.y, s.size * s.life, 0, Math.PI * 2);
         ctx.fillStyle = s.color;
         ctx.globalAlpha = s.life;
-        ctx.shadowBlur = 14;
+        ctx.shadowBlur = 12;
         ctx.shadowColor = s.color;
         ctx.fill();
         ctx.restore();
       }
       requestAnimationFrame(loopH);
     }
-    requestAnimationFrame(loopH);
+
+    window.addEventListener('resize', initHogwartsParticles, { passive: true });
   }
 
   // 2. WEDDING: 3D Fluttering Rose Petals & Wind Dynamics
   const cWedding = document.getElementById('canvas-wedding');
+  let loopWActive = false;
   if (cWedding) {
     const ctx = cWedding.getContext('2d');
-    let w = 0, h = 0;
+    let w = cWedding.width = cWedding.offsetWidth || 340;
+    let h = cWedding.height = cWedding.offsetHeight || 180;
     let petals = [];
     let mouse = { x: -100, y: -100, active: false };
 
-    function checkSizeW() {
-      const rect = cWedding.getBoundingClientRect();
-      const rw = Math.round(rect.width) || cWedding.offsetWidth || 340;
-      const rh = Math.round(rect.height) || cWedding.offsetHeight || 180;
-      if (w !== rw || h !== rh) {
-        w = cWedding.width = rw;
-        h = cWedding.height = rh;
-        if (petals.length === 0) {
-          const colors = ['#D90429', '#EF233C', '#FF4D6D', '#FF758F', '#FFD166'];
-          for (let i = 0; i < 24; i++) {
-            petals.push({
-              x: Math.random() * w,
-              y: Math.random() * h,
-              pw: Math.random() * 8 + 7,
-              ph: Math.random() * 13 + 10,
-              color: colors[Math.floor(Math.random() * colors.length)],
-              speedY: Math.random() * 0.9 + 0.55,
-              speedX: (Math.random() - 0.5) * 0.5,
-              angle: Math.random() * Math.PI * 2,
-              angularSpeed: (Math.random() - 0.5) * 0.04,
-              flip: Math.random() * Math.PI,
-              flipSpeed: Math.random() * 0.05 + 0.025
-            });
-          }
-        }
+    function initWeddingPetals() {
+      w = cWedding.width = cWedding.offsetWidth || 340;
+      h = cWedding.height = cWedding.offsetHeight || 180;
+      petals = [];
+      const colors = ['#D90429', '#EF233C', '#FF4D6D', '#FF758F', '#FFD166'];
+      for (let i = 0; i < 20; i++) {
+        petals.push({
+          x: Math.random() * w,
+          y: Math.random() * h,
+          pw: Math.random() * 7 + 6,
+          ph: Math.random() * 12 + 9,
+          color: colors[Math.floor(Math.random() * colors.length)],
+          speedY: Math.random() * 0.8 + 0.45,
+          speedX: (Math.random() - 0.5) * 0.4,
+          angle: Math.random() * Math.PI * 2,
+          angularSpeed: (Math.random() - 0.5) * 0.035,
+          flip: Math.random() * Math.PI,
+          flipSpeed: Math.random() * 0.045 + 0.02
+        });
       }
     }
-    checkSizeW();
-    window.addEventListener('resize', checkSizeW);
+    initWeddingPetals();
 
     cWedding.addEventListener('mousemove', (e) => {
-      const rect = cWedding.getBoundingClientRect();
-      mouse.x = e.clientX - rect.x;
-      mouse.y = e.clientY - rect.y;
+      mouse.x = e.offsetX;
+      mouse.y = e.offsetY;
       mouse.active = true;
     });
     cWedding.addEventListener('mouseleave', () => { mouse.active = false; });
 
     function loopW() {
-      checkSizeW();
+      if (!isVisible) { loopWActive = false; return; }
       ctx.clearRect(0, 0, w, h);
 
-      petals.forEach(p => {
+      for (let i = 0; i < petals.length; i++) {
+        const p = petals[i];
         p.y += p.speedY;
-        p.x += p.speedX + Math.sin(p.angle) * 0.6;
+        p.x += p.speedX + Math.sin(p.angle) * 0.5;
         p.angle += p.angularSpeed;
         p.flip += p.flipSpeed;
 
@@ -1808,9 +1770,9 @@ function setupCreativeCanvases() {
           const dx = p.x - mouse.x;
           const dy = p.y - mouse.y;
           const dist = Math.sqrt(dx * dx + dy * dy);
-          if (dist < 65) {
-            p.x += (dx / dist) * 2.5;
-            p.y += (dy / dist) * 2.5;
+          if (dist < 60) {
+            p.x += (dx / dist) * 2.2;
+            p.y += (dy / dist) * 2.2;
           }
         }
 
@@ -1829,47 +1791,43 @@ function setupCreativeCanvases() {
         ctx.quadraticCurveTo(p.pw / 2, p.ph / 2, 0, 0);
         ctx.fillStyle = p.color;
         ctx.globalAlpha = 0.88;
-        ctx.shadowBlur = 6;
-        ctx.shadowColor = 'rgba(0, 0, 0, 0.35)';
+        ctx.shadowBlur = 4;
+        ctx.shadowColor = 'rgba(0, 0, 0, 0.3)';
         ctx.fill();
         ctx.restore();
-      });
+      }
 
       requestAnimationFrame(loopW);
     }
-    requestAnimationFrame(loopW);
+
+    window.addEventListener('resize', initWeddingPetals, { passive: true });
   }
 
   // 3. LOAN PORTAL: Real-Time Financial Waveform & HUD Crosshair
   const cLoan = document.getElementById('canvas-loan');
+  let loopLActive = false;
   if (cLoan) {
     const ctx = cLoan.getContext('2d');
-    let w = 0, h = 0;
+    let w = cLoan.width = cLoan.offsetWidth || 340;
+    let h = cLoan.height = cLoan.offsetHeight || 180;
     let offset = 0;
     let mouse = { x: -100, y: -100, active: false };
 
-    function checkSizeL() {
-      const rect = cLoan.getBoundingClientRect();
-      const rw = Math.round(rect.width) || cLoan.offsetWidth || 340;
-      const rh = Math.round(rect.height) || cLoan.offsetHeight || 180;
-      if (w !== rw || h !== rh) {
-        w = cLoan.width = rw;
-        h = cLoan.height = rh;
-      }
+    function initLoanCanvas() {
+      w = cLoan.width = cLoan.offsetWidth || 340;
+      h = cLoan.height = cLoan.offsetHeight || 180;
     }
-    checkSizeL();
-    window.addEventListener('resize', checkSizeL);
+    initLoanCanvas();
 
     cLoan.addEventListener('mousemove', (e) => {
-      const rect = cLoan.getBoundingClientRect();
-      mouse.x = e.clientX - rect.x;
-      mouse.y = e.clientY - rect.y;
+      mouse.x = e.offsetX;
+      mouse.y = e.offsetY;
       mouse.active = true;
     });
     cLoan.addEventListener('mouseleave', () => { mouse.active = false; });
 
     function loopL() {
-      checkSizeL();
+      if (!isVisible) { loopLActive = false; return; }
       ctx.clearRect(0, 0, w, h);
 
       // Cyber Grid Lines
@@ -1892,18 +1850,18 @@ function setupCreativeCanvases() {
       // Dynamic Mathematical Spline Curve
       offset += 0.038;
       const points = [];
-      const numPoints = 26;
+      const numPoints = 24;
       for (let i = 0; i <= numPoints; i++) {
         const x = (i / numPoints) * w;
-        const wave1 = Math.sin(i * 0.45 + offset) * 20;
-        const wave2 = Math.cos(i * 0.85 - offset * 0.8) * 11;
+        const wave1 = Math.sin(i * 0.45 + offset) * 18;
+        const wave2 = Math.cos(i * 0.85 - offset * 0.8) * 10;
         const y = h * 0.60 + wave1 + wave2;
         points.push({ x, y });
       }
 
       // Emerald Area Glow Fill
       const grad = ctx.createLinearGradient(0, h * 0.35, 0, h);
-      grad.addColorStop(0, 'rgba(16, 185, 129, 0.42)');
+      grad.addColorStop(0, 'rgba(16, 185, 129, 0.35)');
       grad.addColorStop(1, 'rgba(16, 185, 129, 0.0)');
       ctx.beginPath();
       ctx.moveTo(0, h);
@@ -1929,11 +1887,8 @@ function setupCreativeCanvases() {
         }
       });
       ctx.strokeStyle = '#34D399';
-      ctx.lineWidth = 2.6;
-      ctx.shadowColor = '#10B981';
-      ctx.shadowBlur = 12;
+      ctx.lineWidth = 2.4;
       ctx.stroke();
-      ctx.shadowBlur = 0;
 
       // Live pulsing head beacon node on graph
       const leadNode = points[points.length - 3];
@@ -1941,10 +1896,7 @@ function setupCreativeCanvases() {
         ctx.beginPath();
         ctx.arc(leadNode.x, leadNode.y, 4, 0, Math.PI * 2);
         ctx.fillStyle = '#FFFFFF';
-        ctx.shadowBlur = 10;
-        ctx.shadowColor = '#34D399';
         ctx.fill();
-        ctx.shadowBlur = 0;
       }
 
       // Interactive Crosshair on Hover
@@ -1961,15 +1913,34 @@ function setupCreativeCanvases() {
         ctx.beginPath();
         ctx.arc(closest.x, closest.y, 5, 0, Math.PI * 2);
         ctx.fillStyle = '#FFFFFF';
-        ctx.shadowBlur = 14;
-        ctx.shadowColor = '#10B981';
         ctx.fill();
-        ctx.shadowBlur = 0;
       }
 
       requestAnimationFrame(loopL);
     }
-    requestAnimationFrame(loopL);
+
+    window.addEventListener('resize', initLoanCanvas, { passive: true });
+  }
+
+  // IntersectionObserver: Only animate canvases when the Creative section is on screen!
+  if ('IntersectionObserver' in window && creativeSection) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        isVisible = entry.isIntersecting;
+        if (isVisible) {
+          if (!loopHActive && cHogwarts) { loopHActive = true; requestAnimationFrame(loopH); }
+          if (!loopWActive && cWedding) { loopWActive = true; requestAnimationFrame(loopW); }
+          if (!loopLActive && cLoan) { loopLActive = true; requestAnimationFrame(loopL); }
+        }
+      });
+    }, { threshold: 0.05 });
+    observer.observe(creativeSection);
+  } else {
+    // Fallback if IntersectionObserver is unsupported
+    isVisible = true;
+    if (cHogwarts) requestAnimationFrame(loopH);
+    if (cWedding) requestAnimationFrame(loopW);
+    if (cLoan) requestAnimationFrame(loopL);
   }
 }
 
