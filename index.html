@@ -559,49 +559,70 @@ section {
   font-weight: 500;
 }
 
-/* UNIFIED ACADEMIC & LEADERSHIP (2-COL) */
-.dual-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1.5rem;
-}
-.dual-card {
+/* UNIFIED JOURNEY & BACKGROUND TIMELINE */
+.timeline-card {
   background: var(--bg-card);
   border: 1px solid var(--border);
-  border-radius: var(--radius-md);
-  padding: 1.6rem;
+  border-radius: var(--radius-lg);
+  padding: 2.2rem 2.5rem;
   box-shadow: var(--shadow-sm);
-}
-.dual-card h3 {
-  font-family: var(--serif);
-  font-size: 1.1rem;
-  font-weight: 600;
-  color: var(--text-main);
-  margin-bottom: 1.2rem;
-  display: flex;
-  align-items: center;
-  gap: 0.45rem;
 }
 .timeline-item {
   position: relative;
-  padding-left: 1.2rem;
+  padding-left: 1.8rem;
   border-left: 2px solid var(--border);
-  margin-bottom: 1.2rem;
+  padding-bottom: 2rem;
 }
-.timeline-item:last-child { margin-bottom: 0; }
+.timeline-item:last-child {
+  padding-bottom: 0;
+  border-left-color: transparent;
+}
 .timeline-item::before {
   content: '';
   position: absolute;
-  left: -5px;
-  top: 5px;
-  width: 8px;
-  height: 8px;
+  left: -6px;
+  top: 4px;
+  width: 10px;
+  height: 10px;
   border-radius: 50%;
   background: var(--terracotta);
+  box-shadow: 0 0 0 3px rgba(168, 90, 42, 0.15);
 }
-.ti-degree { font-size: 0.92rem; font-weight: 700; color: var(--text-main); }
-.ti-school { font-size: 0.8rem; color: var(--terracotta); font-weight: 600; margin-bottom: 0.2rem; }
-.ti-desc { font-size: 0.82rem; color: var(--text-muted); line-height: 1.55; }
+.ti-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 0.2rem;
+}
+.ti-degree {
+  font-family: var(--serif);
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--text-main);
+}
+.ti-badge {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  color: var(--terracotta);
+  background: var(--terracotta-soft);
+  border: 1px solid var(--terracotta-border);
+  padding: 0.18rem 0.6rem;
+  border-radius: var(--radius-sm);
+  font-weight: 500;
+}
+.ti-school {
+  font-size: 0.84rem;
+  color: var(--terracotta);
+  font-weight: 600;
+  margin-bottom: 0.45rem;
+}
+.ti-desc {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
 
 /* CREATIVE WEB LAB */
 .creative-strip {
@@ -854,7 +875,7 @@ footer {
   .about-card { grid-template-columns: 1fr; gap: 1.4rem; }
   .projects-grid { grid-template-columns: 1fr; }
   .skills-grid { grid-template-columns: repeat(2, 1fr); }
-  .dual-grid { grid-template-columns: 1fr; }
+  .timeline-card { padding: 1.8rem 1.6rem; }
   .creative-strip { grid-template-columns: 1fr; }
   .contact-wrap { grid-template-columns: 1fr; gap: 2rem; }
 }
@@ -863,6 +884,7 @@ footer {
   .hero { padding: 3rem 0 2rem; }
   .hero-title { font-size: 2.1rem; }
   .metrics-strip { grid-template-columns: 1fr; }
+  .timeline-card { padding: 1.4rem 1.1rem; }
   .footer-inner { flex-direction: column; gap: 1rem; text-align: center; }
 }
 </style>
@@ -1198,51 +1220,58 @@ footer {
     </div>
   </section>
 
-  <!-- ACADEMIC & LEADERSHIP (DUAL GRID) -->
+  <!-- UNIFIED EDUCATION & LEADERSHIP TIMELINE -->
   <section id="background">
     <div class="section-header">
-      <span class="section-label">Trajectory</span>
-      <h2 class="section-title">Education &amp; Community Stewardship</h2>
+      <span class="section-label">Trajectory &amp; Milestones</span>
+      <h2 class="section-title">Education &amp; Leadership Journey</h2>
+      <p class="section-desc">Academic training in data science and statistical inference, combined with proactive student governance, scientific mentorship, and community service.</p>
     </div>
-    <div class="dual-grid">
-      <!-- Left: Academic Education -->
-      <div class="dual-card">
-        <h3>🎓 Academic Milestones</h3>
-        <div class="timeline-item">
-          <div class="ti-degree">M.Sc. in Data Science (Ongoing)</div>
-          <div class="ti-school">DA-IICT &middot; CPI 8.66 / 10</div>
-          <div class="ti-desc">Big Data, Deep Learning, Cloud Computing, Numerical Optimization, and Behavioral Telemetry under Prof. Bhaskar Chaudhury.</div>
+
+    <div class="timeline-card">
+      <div class="timeline-item">
+        <div class="ti-header">
+          <div class="ti-degree">M.Sc. in Data Science</div>
+          <span class="ti-badge">2023 &ndash; Present &middot; Ongoing</span>
         </div>
-        <div class="timeline-item">
-          <div class="ti-degree">B.Sc. (Honours) in Statistics</div>
-          <div class="ti-school">The Maharaja Sayajirao University of Baroda &middot; CPI 6.57 / 10</div>
-          <div class="ti-desc">Grounding in probability theory, linear regression, distribution theory, survey sampling, and statistical inference.</div>
-        </div>
-        <div class="timeline-item">
-          <div class="ti-degree">Secondary &amp; Senior Secondary</div>
-          <div class="ti-school">Jawahar Navodaya Vidyalaya (JNV)</div>
-          <div class="ti-desc">Merit residential schooling. School Captain leading student assemblies and house coordination.</div>
-        </div>
+        <div class="ti-school">Dhirubhai Ambani Institute of Information and Communication Technology (DA-IICT) &middot; CPI 8.66 / 10</div>
+        <div class="ti-desc">Specializing in Machine Learning, Statistical Inference, Deep Learning, Cloud Computing, and Big Data Engineering. Longitudinal minor research under Prof. Bhaskar Chaudhury formulating and validating 26 empirical hypotheses across smartphone telemetry and cognitive battery.</div>
       </div>
 
-      <!-- Right: Leadership & Impact -->
-      <div class="dual-card">
-        <h3>🤝 Leadership &amp; Impact</h3>
-        <div class="timeline-item">
-          <div class="ti-degree">School Captain</div>
-          <div class="ti-school">Jawahar Navodaya Vidyalaya</div>
-          <div class="ti-desc">Elected representative for the student body. Managed morning assemblies, coordinated campus events, and represented student welfare.</div>
+      <div class="timeline-item">
+        <div class="ti-header">
+          <div class="ti-degree">B.Sc. (Honours) in Statistics</div>
+          <span class="ti-badge">2020 &ndash; 2023</span>
         </div>
-        <div class="timeline-item">
-          <div class="ti-degree">President &mdash; Science Club</div>
-          <div class="ti-school">Student Innovation &amp; Peer Mentorship</div>
-          <div class="ti-desc">Spearheaded scientific exhibitions. Designed a Green Hydrogen Smart Village model earning 3rd Place at Regional Science Exhibition.</div>
+        <div class="ti-school">The Maharaja Sayajirao University of Baroda &middot; CPI 6.57 / 10</div>
+        <div class="ti-desc">Deep theoretical and applied grounding in probability theory, mathematical statistics, linear regression, distribution theory, sampling methods, and econometric modeling.</div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="ti-header">
+          <div class="ti-degree">President &mdash; Science Club &amp; Peer Mentorship</div>
+          <span class="ti-badge">Leadership</span>
         </div>
-        <div class="timeline-item">
-          <div class="ti-degree">Humanitarian Volunteering</div>
-          <div class="ti-school">Vadodara Community NGO</div>
-          <div class="ti-desc">Managed supply chain data for ration distribution and organized patient intake records for 50+ economically vulnerable families.</div>
+        <div class="ti-school">Student Innovation &amp; Academic Outreach</div>
+        <div class="ti-desc">Spearheaded student-led science exhibitions and workshops. Designed and presented a Green Hydrogen Smart Village model, earning 3rd Place at the Regional Science Exhibition. Mentored junior peers in math and scientific inquiry.</div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="ti-header">
+          <div class="ti-degree">School Captain &mdash; Senior Secondary</div>
+          <span class="ti-badge">Governance</span>
         </div>
+        <div class="ti-school">Jawahar Navodaya Vidyalaya (JNV)</div>
+        <div class="ti-desc">Selected through national merit residential schooling. Elected by faculty and students to lead the student council, manage daily morning assemblies, coordinate campus cultural/athletic events, and represent student welfare.</div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="ti-header">
+          <div class="ti-degree">Humanitarian Volunteering &amp; Data Coordination</div>
+          <span class="ti-badge">Community Impact</span>
+        </div>
+        <div class="ti-school">Vadodara Community Outreach</div>
+        <div class="ti-desc">Structured supply chain spreadsheets and intake logs for essential ration distribution, supporting health aid and relief tracking for 50+ economically vulnerable families.</div>
       </div>
     </div>
   </section>
