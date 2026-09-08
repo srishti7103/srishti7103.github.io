@@ -242,7 +242,7 @@
             if (smokeCanvas) smokeCanvas.classList.add('is-fading'); // Cloud heart smoothly fades away!
 
             const text1 = "We Are Getting Married!";
-            const text2 = "12th December 2026";
+            const text2 = "21st November 2027";
 
             function typeString(targetEl, str, speed, callback) {
                 if (!targetEl) return;
@@ -373,11 +373,11 @@
                 passCard.classList.remove('theme--pilot');
                 passCard.classList.add('theme--doctor');
 
-                if (passBrandAirline) passBrandAirline.innerText = "DR. MEHEK'S WELLNESS CLINIC";
-                if (passBrandClass) passBrandClass.innerText = "WEDDING PRESCRIPTION (℞) · REG-2026";
-                if (passCodeBadge) passCodeBadge.innerText = "11 & 12 DEC 2026 · BHOPAL";
+                if (passBrandAirline) passBrandAirline.innerText = "DR. ARIA'S WELLNESS CLINIC";
+                if (passBrandClass) passBrandClass.innerText = "WEDDING PRESCRIPTION (℞) · REG-2027";
+                if (passCodeBadge) passCodeBadge.innerText = "20 & 21 NOV 2027 · NEW DELHI";
                 if (stubLabel1) stubLabel1.innerText = "PHYSICIAN";
-                if (stubVal1) stubVal1.innerText = "DR. MEHEK MALIK";
+                if (stubVal1) stubVal1.innerText = "DR. ARIA SEN";
                 if (stubLabel2) stubLabel2.innerText = "SPECIALITY";
                 if (stubVal2) stubVal2.innerText = "WEDDING CARDIOLOGY (℞)";
                 if (formNameLabel) formNameLabel.innerText = "Patient / VIP Guest Name *";
@@ -390,7 +390,7 @@
                         <svg width="120" height="22" viewBox="0 0 120 22" fill="none" style="margin: 0 auto; display: block;">
                             <path d="M0,11 L35,11 L42,3 L48,19 L54,6 L60,16 L66,11 L120,11" stroke="var(--dusty-rose-deep)" stroke-width="2" stroke-linecap="round"/>
                         </svg>
-                        <span style="font-family: monospace; font-size: 0.62rem; color: var(--charcoal-soft); display: block; margin-top: 3px;">||| RX-2026-MED |||</span>
+                        <span style="font-family: monospace; font-size: 0.62rem; color: var(--charcoal-soft); display: block; margin-top: 3px;">||| RX-2027-MED |||</span>
                     `;
                 }
 
@@ -407,10 +407,10 @@
                 passCard.classList.add('theme--pilot');
 
                 if (passBrandAirline) passBrandAirline.innerText = "ROYAL WEDDING AIRWAYS";
-                if (passBrandClass) passBrandClass.innerText = "FIRST CLASS · MY-2026";
-                if (passCodeBadge) passCodeBadge.innerText = "12 DEC 2026 · BHOPAL";
+                if (passBrandClass) passBrandClass.innerText = "FIRST CLASS · AR-2027";
+                if (passCodeBadge) passCodeBadge.innerText = "20 & 21 NOV 2027 · NEW DELHI";
                 if (stubLabel1) stubLabel1.innerText = "GATE";
-                if (stubVal1) stubVal1.innerText = "HOTEL PRIDE";
+                if (stubVal1) stubVal1.innerText = "ROYAL HERITAGE";
                 if (stubLabel2) stubLabel2.innerText = "CLASS";
                 if (stubVal2) stubVal2.innerText = "FIRST CLASS VIP";
                 if (formNameLabel) formNameLabel.innerText = "Passenger / Family Name *";
@@ -420,7 +420,7 @@
                 if (stubGraphicContainer) {
                     stubGraphicContainer.innerHTML = `
                         <div class="barcode-lines"></div>
-                        <span class="barcode-number">||| 1212 2026 YM |||</span>
+                        <span class="barcode-number">||| 2111 2027 AR |||</span>
                     `;
                 }
 
@@ -466,9 +466,9 @@
             ctx.fillStyle = '#D4AF37'; ctx.font = 'bold 22px "Cinzel", Georgia, serif';
             ctx.fillText('ROYAL WEDDING AIRWAYS · FIRST CLASS BOARDING PASS', 50, 60);
             ctx.fillStyle = '#FAF5EE'; ctx.font = '14px "Plus Jakarta Sans", sans-serif';
-            ctx.fillText('SPECIAL CHARTER FLIGHT · 12TH DECEMBER 2026', 50, 85);
+            ctx.fillText('SPECIAL CHARTER FLIGHT · 21ST NOVEMBER 2027', 50, 85);
             ctx.fillStyle = '#D4AF37'; ctx.font = 'bold 16px monospace';
-            ctx.fillText('PASS: MY-2026-VIP', width - 240, 68);
+            ctx.fillText('PASS: AR-2027-VIP', width - 240, 68);
 
             // Passenger Name
             ctx.fillStyle = '#8A817A'; ctx.font = 'bold 13px "Cinzel", Georgia, serif';
@@ -480,7 +480,7 @@
             ctx.fillStyle = '#8A817A'; ctx.font = 'bold 12px "Cinzel", Georgia, serif';
             ctx.fillText('FLIGHT', 50, 230);
             ctx.fillStyle = '#1B2640'; ctx.font = 'bold 20px "Plus Jakarta Sans", sans-serif';
-            ctx.fillText('MY-1212', 50, 255);
+            ctx.fillText('AR-2111', 50, 255);
 
             ctx.fillStyle = '#8A817A'; ctx.font = 'bold 12px "Cinzel", Georgia, serif';
             ctx.fillText('PASSENGERS', 190, 230);
@@ -490,12 +490,12 @@
             ctx.fillStyle = '#8A817A'; ctx.font = 'bold 12px "Cinzel", Georgia, serif';
             ctx.fillText('DATES', 350, 230);
             ctx.fillStyle = '#1B2640'; ctx.font = 'bold 20px "Plus Jakarta Sans", sans-serif';
-            ctx.fillText('11 & 12 DEC 2026', 350, 255);
+            ctx.fillText('20 & 21 NOV 2027', 350, 255);
 
             ctx.fillStyle = '#8A817A'; ctx.font = 'bold 12px "Cinzel", Georgia, serif';
             ctx.fillText('DESTINATION', 560, 230);
             ctx.fillStyle = '#1B2640'; ctx.font = 'bold 18px "Plus Jakarta Sans", sans-serif';
-            ctx.fillText('HOTEL PRIDE, BHOPAL', 560, 255);
+            ctx.fillText('THE GRAND HERITAGE, NEW DELHI', 560, 255);
 
             // Ceremonies
             ctx.fillStyle = '#8A817A'; ctx.font = 'bold 12px "Cinzel", Georgia, serif';
@@ -518,7 +518,7 @@
             ctx.fillStyle = '#8A817A'; ctx.font = 'bold 11px "Cinzel", Georgia, serif';
             ctx.fillText('GATE', 890, 150);
             ctx.fillStyle = '#1B2640'; ctx.font = 'bold 18px "Plus Jakarta Sans", sans-serif';
-            ctx.fillText('HOTEL PRIDE', 890, 175);
+            ctx.fillText('ROYAL HERITAGE', 890, 175);
 
             ctx.fillStyle = '#8A817A'; ctx.font = 'bold 11px "Cinzel", Georgia, serif';
             ctx.fillText('CLASS / SEAT', 890, 220);
@@ -532,10 +532,10 @@
                 ctx.fillRect(x, 300, barW, 60);
             }
             ctx.fillStyle = '#8A817A'; ctx.font = '11px monospace';
-            ctx.fillText('||| 1212 2026 YM 01 |||', 930, 380);
+            ctx.fillText('||| 2111 2027 AR 01 |||', 930, 380);
 
             ctx.fillStyle = '#B8915A'; ctx.font = 'bold 13px "Cinzel", Georgia, serif';
-            ctx.fillText('FOREVER, OUR JOURNEY · MEHEK & YOGESH', 50, 480);
+            ctx.fillText('FOREVER, OUR JOURNEY · ARIA & REYANSH', 50, 480);
 
             return canvas;
         }
@@ -557,11 +557,11 @@
             ctx.beginPath(); ctx.moveTo(20, 105); ctx.lineTo(width - 20, 105); ctx.stroke();
 
             ctx.fillStyle = '#D4AF37'; ctx.font = 'bold 22px "Cinzel", Georgia, serif';
-            ctx.fillText("DR. MEHEK'S ROYAL WEDDING WELLNESS CLINIC", 50, 60);
+            ctx.fillText("DR. ARIA'S ROYAL WEDDING WELLNESS CLINIC", 50, 60);
             ctx.fillStyle = '#FAF5EE'; ctx.font = '14px "Plus Jakarta Sans", sans-serif';
             ctx.fillText('OFFICIAL WEDDING WELLNESS & HEALTH PRESCRIPTION (℞)', 50, 85);
             ctx.fillStyle = '#D4AF37'; ctx.font = 'bold 16px monospace';
-            ctx.fillText('REG: DR-MEHEK-2026', width - 260, 68);
+            ctx.fillText('REG: DR-ARIA-2027', width - 260, 68);
 
             // Classic Latin Medical Symbol ℞
             ctx.fillStyle = '#A76571'; ctx.font = 'bold 44px "Playfair Display", Georgia, serif';
@@ -578,21 +578,21 @@
             ctx.fillText('PRESCRIBED CELEBRATION DOSAGES:', 50, 225);
 
             ctx.fillStyle = '#2D2622'; ctx.font = '14px "Plus Jakarta Sans", sans-serif';
-            ctx.fillText('• Dosage 1: Floral Mehendi Fiesta & Royal Tilak-Ring Traditions (11 Dec)', 50, 252);
-            ctx.fillText('• Dosage 2: 100% Sangeet Cardiac Euphoria & High-BPM Dancing (11 Dec)', 50, 276);
-            ctx.fillText('• Dosage 3: Pastel Haldi Radiance, Dwar Chaar, Varmala & Sacred Pheras (12 Dec)', 50, 300);
-            ctx.fillText('• Dosage 4: Grand Finale Reception, Heartfelt Toasts & Lifetime Happiness (12 Dec)', 50, 324);
+            ctx.fillText('• Dosage 1: Floral Mehendi Fiesta & Royal Tilak-Ring Traditions (20 Nov)', 50, 252);
+            ctx.fillText('• Dosage 2: 100% Sangeet Cardiac Euphoria & High-BPM Dancing (20 Nov)', 50, 276);
+            ctx.fillText('• Dosage 3: Pastel Haldi Radiance, Dwar Chaar, Varmala & Sacred Pheras (21 Nov)', 50, 300);
+            ctx.fillText('• Dosage 4: Grand Finale Reception, Heartfelt Toasts & Lifetime Happiness (21 Nov)', 50, 324);
 
             // Venue & Validity
             ctx.fillStyle = '#8A817A'; ctx.font = 'bold 12px "Cinzel", Georgia, serif';
             ctx.fillText('CLINIC LOCATION / VENUE', 50, 375);
             ctx.fillStyle = '#480C14'; ctx.font = 'bold 16px "Plus Jakarta Sans", sans-serif';
-            ctx.fillText('HOTEL PRIDE, BHOPAL', 50, 400);
+            ctx.fillText('THE GRAND HERITAGE, NEW DELHI', 50, 400);
 
             ctx.fillStyle = '#8A817A'; ctx.font = 'bold 12px "Cinzel", Georgia, serif';
             ctx.fillText('VALIDITY DATES', 320, 375);
             ctx.fillStyle = '#480C14'; ctx.font = 'bold 16px "Plus Jakarta Sans", sans-serif';
-            ctx.fillText('11TH & 12TH DEC 2026', 320, 400);
+            ctx.fillText('20TH & 21ST NOV 2027', 320, 400);
 
             // Right Stub
             ctx.strokeStyle = '#A76571'; ctx.setLineDash([8, 6]); ctx.lineWidth = 2;
@@ -602,7 +602,7 @@
             ctx.fillStyle = '#8A817A'; ctx.font = 'bold 11px "Cinzel", Georgia, serif';
             ctx.fillText('ATTENDING PHYSICIAN', 890, 150);
             ctx.fillStyle = '#480C14'; ctx.font = 'bold 18px "Playfair Display", Georgia, serif';
-            ctx.fillText('DR. MEHEK MALIK', 890, 178);
+            ctx.fillText('DR. ARIA SEN', 890, 178);
             ctx.fillStyle = '#8A817A'; ctx.font = '12px "Plus Jakarta Sans", sans-serif';
             ctx.fillText('M.D. (The Bride)', 890, 198);
 
@@ -638,8 +638,8 @@
             const isBride = data.side && data.side.includes('Bride');
             const canvas = isBride ? renderBridePrescriptionCanvas(data) : renderGroomBoardingPassCanvas(data);
             const fileName = isBride
-                ? `Dr_Mehek_Wedding_Prescription_${sanitizeName(data.name)}.jpg`
-                : `Mehek_Yogesh_Boarding_Pass_${sanitizeName(data.name)}.jpg`;
+                ? `Dr_Aria_Wedding_Prescription_${sanitizeName(data.name)}.jpg`
+                : `Aria_Reyansh_Boarding_Pass_${sanitizeName(data.name)}.jpg`;
 
             const dataURL = canvas.toDataURL('image/jpeg', 0.95);
 
@@ -1026,7 +1026,7 @@
        ACT 6: LIVE WEDDING COUNTDOWN CLOCK
        ========================================================================= */
     function initCountdown() {
-        const weddingDate = new Date('December 12, 2026 19:30:00 GMT+0530').getTime();
+        const weddingDate = new Date('November 21, 2027 19:30:00 GMT+0530').getTime();
         const daysEl = document.getElementById('days');
         const hoursEl = document.getElementById('hours');
         const minutesEl = document.getElementById('minutes');
