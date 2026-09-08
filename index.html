@@ -666,14 +666,17 @@ section {
 .cc-cover-hogwarts {
   background-image: url('showcase/hogwarts/assets/bg-platform.jpg');
   animation: panZoomHogwarts 16s ease-in-out infinite alternate;
+  filter: brightness(0.72) contrast(1.1);
 }
 .cc-cover-wedding {
   background-image: url('showcase/invitation/assets/images/hero.jpg');
   animation: panZoomWedding 20s ease-in-out infinite alternate;
+  filter: brightness(0.75) contrast(1.05);
 }
 .cc-cover-loan {
   background-image: url('showcase/loan-management/assets/cover.png');
   animation: panZoomLoan 14s ease-in-out infinite alternate;
+  filter: brightness(0.68) contrast(1.15);
 }
 
 @keyframes panZoomHogwarts {
@@ -715,14 +718,41 @@ section {
   transition: left 0.85s ease-in-out;
 }
 
+.cc-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  pointer-events: auto;
+}
+
 .cc-cover-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(24, 18, 14, 0.1) 0%, rgba(24, 18, 14, 0.65) 100%);
+  background: linear-gradient(180deg, rgba(24, 18, 14, 0.05) 0%, rgba(24, 18, 14, 0.72) 100%);
   display: flex;
   align-items: flex-end;
+  justify-content: space-between;
   padding: 0.75rem 0.95rem;
   pointer-events: none;
+  z-index: 3;
+}
+.cc-hint {
+  font-family: var(--mono);
+  font-size: 0.65rem;
+  color: rgba(255, 255, 255, 0.85);
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(4px);
+  padding: 0.15rem 0.55rem;
+  border-radius: 999px;
+  opacity: 0.8;
+  transition: all 0.2s;
+}
+.creative-card:hover .cc-hint {
+  opacity: 1;
+  background: rgba(168, 90, 42, 0.65);
+  color: #FFFFFF;
 }
 .cc-badge {
   display: inline-flex;
@@ -1406,8 +1436,10 @@ footer {
       <div class="creative-card">
         <div class="cc-cover-wrap">
           <div class="cc-cover-img cc-cover-hogwarts"></div>
+          <canvas class="cc-canvas" id="canvas-hogwarts"></canvas>
           <div class="cc-cover-overlay">
-            <span class="cc-badge"><span class="pulse-dot red"></span> Wizarding Realm &middot; Audio &amp; Canvas</span>
+            <span class="cc-badge"><span class="pulse-dot red"></span> Wizarding Realm &middot; Spell Sparks</span>
+            <span class="cc-hint">Hover to cast spell &rarr;</span>
           </div>
         </div>
         <div class="cc-content">
@@ -1427,8 +1459,10 @@ footer {
       <div class="creative-card">
         <div class="cc-cover-wrap">
           <div class="cc-cover-img cc-cover-wedding"></div>
+          <canvas class="cc-canvas" id="canvas-wedding"></canvas>
           <div class="cc-cover-overlay">
             <span class="cc-badge"><span class="pulse-dot gold"></span> Luxury Event &middot; Petal Physics</span>
+            <span class="cc-hint">Hover to swirl &rarr;</span>
           </div>
         </div>
         <div class="cc-content">
@@ -1448,8 +1482,10 @@ footer {
       <div class="creative-card">
         <div class="cc-cover-wrap">
           <div class="cc-cover-img cc-cover-loan"></div>
+          <canvas class="cc-canvas" id="canvas-loan"></canvas>
           <div class="cc-cover-overlay">
-            <span class="cc-badge"><span class="pulse-dot green"></span> Fintech &middot; Offline Excel Sync</span>
+            <span class="cc-badge"><span class="pulse-dot green"></span> Live Telemetry &middot; Dynamic Sync HUD</span>
+            <span class="cc-hint">Live Data Stream</span>
           </div>
         </div>
         <div class="cc-content">
@@ -1602,6 +1638,346 @@ function typeRotate() {
   }
 }
 setTimeout(typeRotate, 2500);
+
+// ==========================================
+// DYNAMIC CANVAS ENGINES FOR CREATIVE SHOWCASE
+// ==========================================
+function setupCreativeCanvases() {
+  // 1. HOGWARTS: Golden Spell Sparks & Floating Lumos Embers
+  const cHogwarts = document.getElementById('canvas-hogwarts');
+  if (cHogwarts) {
+    const ctx = cHogwarts.getContext('2d');
+    let w = 0, h = 0;
+    let particles = [];
+    let sparks = [];
+    let mouse = { x: -100, y: -100, active: false };
+
+    function checkSize() {
+      const rect = cHogwarts.getBoundingClientRect();
+      const rw = Math.round(rect.width) || cHogwarts.offsetWidth || 340;
+      const rh = Math.round(rect.height) || cHogwarts.offsetHeight || 180;
+      if (w !== rw || h !== rh) {
+        w = cHogwarts.width = rw;
+        h = cHogwarts.height = rh;
+        if (particles.length === 0) {
+          for (let i = 0; i < 28; i++) {
+            particles.push({
+              x: Math.random() * w,
+              y: Math.random() * h,
+              size: Math.random() * 2.8 + 1.2,
+              speedY: Math.random() * 0.7 + 0.35,
+              speedX: (Math.random() - 0.5) * 0.4,
+              opacity: Math.random() * 0.7 + 0.3,
+              pulse: Math.random() * Math.PI * 2,
+              color: Math.random() > 0.3 ? '#FFD700' : '#FFA500'
+            });
+          }
+        }
+      }
+    }
+    checkSize();
+    window.addEventListener('resize', checkSize);
+
+    cHogwarts.addEventListener('mousemove', (e) => {
+      const rect = cHogwarts.getBoundingClientRect();
+      mouse.x = e.clientX - rect.x;
+      mouse.y = e.clientY - rect.y;
+      mouse.active = true;
+      for (let i = 0; i < 4; i++) {
+        sparks.push({
+          x: mouse.x,
+          y: mouse.y,
+          vx: (Math.random() - 0.5) * 4.2,
+          vy: (Math.random() - 0.5) * 4.2 - 0.8,
+          size: Math.random() * 3 + 1.5,
+          life: 1,
+          decay: Math.random() * 0.035 + 0.02,
+          color: Math.random() > 0.3 ? '#FFF4B8' : '#FFB703'
+        });
+      }
+    });
+    cHogwarts.addEventListener('mouseleave', () => { mouse.active = false; });
+
+    function loopH() {
+      checkSize();
+      ctx.clearRect(0, 0, w, h);
+
+      // Ambient golden Lumos embers
+      particles.forEach(p => {
+        p.y -= p.speedY;
+        p.x += p.speedX + Math.sin(p.pulse) * 0.35;
+        p.pulse += 0.04;
+        if (p.y < -10) {
+          p.y = h + 10;
+          p.x = Math.random() * w;
+        }
+        const alpha = p.opacity * (0.55 + 0.45 * Math.sin(p.pulse));
+        ctx.save();
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+        ctx.fillStyle = p.color;
+        ctx.globalAlpha = alpha;
+        ctx.shadowBlur = 12;
+        ctx.shadowColor = p.color;
+        ctx.fill();
+        ctx.restore();
+      });
+
+      // Interactive Wand Sparks
+      for (let i = sparks.length - 1; i >= 0; i--) {
+        const s = sparks[i];
+        s.x += s.vx;
+        s.y += s.vy;
+        s.life -= s.decay;
+        if (s.life <= 0) {
+          sparks.splice(i, 1);
+          continue;
+        }
+        ctx.save();
+        ctx.beginPath();
+        ctx.arc(s.x, s.y, s.size * s.life, 0, Math.PI * 2);
+        ctx.fillStyle = s.color;
+        ctx.globalAlpha = s.life;
+        ctx.shadowBlur = 14;
+        ctx.shadowColor = s.color;
+        ctx.fill();
+        ctx.restore();
+      }
+      requestAnimationFrame(loopH);
+    }
+    requestAnimationFrame(loopH);
+  }
+
+  // 2. WEDDING: 3D Fluttering Rose Petals & Wind Dynamics
+  const cWedding = document.getElementById('canvas-wedding');
+  if (cWedding) {
+    const ctx = cWedding.getContext('2d');
+    let w = 0, h = 0;
+    let petals = [];
+    let mouse = { x: -100, y: -100, active: false };
+
+    function checkSizeW() {
+      const rect = cWedding.getBoundingClientRect();
+      const rw = Math.round(rect.width) || cWedding.offsetWidth || 340;
+      const rh = Math.round(rect.height) || cWedding.offsetHeight || 180;
+      if (w !== rw || h !== rh) {
+        w = cWedding.width = rw;
+        h = cWedding.height = rh;
+        if (petals.length === 0) {
+          const colors = ['#D90429', '#EF233C', '#FF4D6D', '#FF758F', '#FFD166'];
+          for (let i = 0; i < 24; i++) {
+            petals.push({
+              x: Math.random() * w,
+              y: Math.random() * h,
+              pw: Math.random() * 8 + 7,
+              ph: Math.random() * 13 + 10,
+              color: colors[Math.floor(Math.random() * colors.length)],
+              speedY: Math.random() * 0.9 + 0.55,
+              speedX: (Math.random() - 0.5) * 0.5,
+              angle: Math.random() * Math.PI * 2,
+              angularSpeed: (Math.random() - 0.5) * 0.04,
+              flip: Math.random() * Math.PI,
+              flipSpeed: Math.random() * 0.05 + 0.025
+            });
+          }
+        }
+      }
+    }
+    checkSizeW();
+    window.addEventListener('resize', checkSizeW);
+
+    cWedding.addEventListener('mousemove', (e) => {
+      const rect = cWedding.getBoundingClientRect();
+      mouse.x = e.clientX - rect.x;
+      mouse.y = e.clientY - rect.y;
+      mouse.active = true;
+    });
+    cWedding.addEventListener('mouseleave', () => { mouse.active = false; });
+
+    function loopW() {
+      checkSizeW();
+      ctx.clearRect(0, 0, w, h);
+
+      petals.forEach(p => {
+        p.y += p.speedY;
+        p.x += p.speedX + Math.sin(p.angle) * 0.6;
+        p.angle += p.angularSpeed;
+        p.flip += p.flipSpeed;
+
+        if (mouse.active) {
+          const dx = p.x - mouse.x;
+          const dy = p.y - mouse.y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+          if (dist < 65) {
+            p.x += (dx / dist) * 2.5;
+            p.y += (dy / dist) * 2.5;
+          }
+        }
+
+        if (p.y > h + 15) {
+          p.y = -15;
+          p.x = Math.random() * w;
+        }
+
+        ctx.save();
+        ctx.translate(p.x, p.y);
+        ctx.rotate(p.angle);
+        ctx.scale(1, Math.cos(p.flip));
+        ctx.beginPath();
+        ctx.moveTo(0, 0);
+        ctx.quadraticCurveTo(p.pw / 2, -p.ph / 2, p.pw, 0);
+        ctx.quadraticCurveTo(p.pw / 2, p.ph / 2, 0, 0);
+        ctx.fillStyle = p.color;
+        ctx.globalAlpha = 0.88;
+        ctx.shadowBlur = 6;
+        ctx.shadowColor = 'rgba(0, 0, 0, 0.35)';
+        ctx.fill();
+        ctx.restore();
+      });
+
+      requestAnimationFrame(loopW);
+    }
+    requestAnimationFrame(loopW);
+  }
+
+  // 3. LOAN PORTAL: Real-Time Financial Waveform & HUD Crosshair
+  const cLoan = document.getElementById('canvas-loan');
+  if (cLoan) {
+    const ctx = cLoan.getContext('2d');
+    let w = 0, h = 0;
+    let offset = 0;
+    let mouse = { x: -100, y: -100, active: false };
+
+    function checkSizeL() {
+      const rect = cLoan.getBoundingClientRect();
+      const rw = Math.round(rect.width) || cLoan.offsetWidth || 340;
+      const rh = Math.round(rect.height) || cLoan.offsetHeight || 180;
+      if (w !== rw || h !== rh) {
+        w = cLoan.width = rw;
+        h = cLoan.height = rh;
+      }
+    }
+    checkSizeL();
+    window.addEventListener('resize', checkSizeL);
+
+    cLoan.addEventListener('mousemove', (e) => {
+      const rect = cLoan.getBoundingClientRect();
+      mouse.x = e.clientX - rect.x;
+      mouse.y = e.clientY - rect.y;
+      mouse.active = true;
+    });
+    cLoan.addEventListener('mouseleave', () => { mouse.active = false; });
+
+    function loopL() {
+      checkSizeL();
+      ctx.clearRect(0, 0, w, h);
+
+      // Cyber Grid Lines
+      ctx.strokeStyle = 'rgba(16, 185, 129, 0.12)';
+      ctx.lineWidth = 1;
+      const step = 20;
+      for (let x = 0; x < w; x += step) {
+        ctx.beginPath();
+        ctx.moveTo(x, 0);
+        ctx.lineTo(x, h);
+        ctx.stroke();
+      }
+      for (let y = 0; y < h; y += step) {
+        ctx.beginPath();
+        ctx.moveTo(0, y);
+        ctx.lineTo(w, y);
+        ctx.stroke();
+      }
+
+      // Dynamic Mathematical Spline Curve
+      offset += 0.038;
+      const points = [];
+      const numPoints = 26;
+      for (let i = 0; i <= numPoints; i++) {
+        const x = (i / numPoints) * w;
+        const wave1 = Math.sin(i * 0.45 + offset) * 20;
+        const wave2 = Math.cos(i * 0.85 - offset * 0.8) * 11;
+        const y = h * 0.60 + wave1 + wave2;
+        points.push({ x, y });
+      }
+
+      // Emerald Area Glow Fill
+      const grad = ctx.createLinearGradient(0, h * 0.35, 0, h);
+      grad.addColorStop(0, 'rgba(16, 185, 129, 0.42)');
+      grad.addColorStop(1, 'rgba(16, 185, 129, 0.0)');
+      ctx.beginPath();
+      ctx.moveTo(0, h);
+      points.forEach((p, idx) => {
+        if (idx === 0) ctx.lineTo(p.x, p.y);
+        else {
+          const prev = points[idx - 1];
+          ctx.quadraticCurveTo(prev.x, prev.y, (prev.x + p.x) / 2, (prev.y + p.y) / 2);
+        }
+      });
+      ctx.lineTo(w, h);
+      ctx.closePath();
+      ctx.fillStyle = grad;
+      ctx.fill();
+
+      // Glowing Neon Emerald Chart Line
+      ctx.beginPath();
+      points.forEach((p, idx) => {
+        if (idx === 0) ctx.moveTo(p.x, p.y);
+        else {
+          const prev = points[idx - 1];
+          ctx.quadraticCurveTo(prev.x, prev.y, (prev.x + p.x) / 2, (prev.y + p.y) / 2);
+        }
+      });
+      ctx.strokeStyle = '#34D399';
+      ctx.lineWidth = 2.6;
+      ctx.shadowColor = '#10B981';
+      ctx.shadowBlur = 12;
+      ctx.stroke();
+      ctx.shadowBlur = 0;
+
+      // Live pulsing head beacon node on graph
+      const leadNode = points[points.length - 3];
+      if (leadNode) {
+        ctx.beginPath();
+        ctx.arc(leadNode.x, leadNode.y, 4, 0, Math.PI * 2);
+        ctx.fillStyle = '#FFFFFF';
+        ctx.shadowBlur = 10;
+        ctx.shadowColor = '#34D399';
+        ctx.fill();
+        ctx.shadowBlur = 0;
+      }
+
+      // Interactive Crosshair on Hover
+      if (mouse.active) {
+        ctx.strokeStyle = 'rgba(255, 255, 255, 0.55)';
+        ctx.setLineDash([3, 3]);
+        ctx.beginPath();
+        ctx.moveTo(mouse.x, 0);
+        ctx.lineTo(mouse.x, h);
+        ctx.stroke();
+        ctx.setLineDash([]);
+
+        const closest = points.reduce((prev, curr) => Math.abs(curr.x - mouse.x) < Math.abs(prev.x - mouse.x) ? curr : prev);
+        ctx.beginPath();
+        ctx.arc(closest.x, closest.y, 5, 0, Math.PI * 2);
+        ctx.fillStyle = '#FFFFFF';
+        ctx.shadowBlur = 14;
+        ctx.shadowColor = '#10B981';
+        ctx.fill();
+        ctx.shadowBlur = 0;
+      }
+
+      requestAnimationFrame(loopL);
+    }
+    requestAnimationFrame(loopL);
+  }
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', setupCreativeCanvases);
+} else {
+  setupCreativeCanvases();
+}
 </script>
 
 </body>
