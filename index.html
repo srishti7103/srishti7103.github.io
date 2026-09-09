@@ -425,108 +425,29 @@
       background: var(--bg-card);
       border: 1px solid var(--border);
       border-radius: var(--radius-lg);
-      padding: 2.2rem 2.5rem;
+      padding: 2.2rem 2.6rem;
       box-shadow: var(--shadow-sm);
       margin-bottom: 2rem;
     }
 
     .about-narrative {
-      font-size: 1.05rem;
-      line-height: 1.76;
+      font-size: 1.08rem;
+      line-height: 1.85;
       color: var(--text-main);
-      margin-bottom: 1.8rem;
     }
 
     .about-narrative p {
       margin-bottom: 0;
     }
 
-    .about-pillars {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.25rem;
-    }
-
-    .about-pillar-card {
-      background: var(--bg);
-      border: 1px solid var(--border-light);
-      border-radius: var(--radius-md);
-      padding: 1.5rem 1.4rem;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-
-    .about-pillar-card:hover {
-      border-color: var(--terracotta-border);
-      transform: translateY(-3px);
-      box-shadow: var(--shadow-md);
-      background: #FFFDF9;
-    }
-
-    .about-pillar-header {
-      margin-bottom: 0.85rem;
-    }
-
-    .about-pillar-top {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 0.75rem;
-    }
-
-    .about-pillar-icon {
-      font-size: 1.5rem;
-      line-height: 1;
-      display: inline-flex;
-    }
-
-    .about-pillar-tag {
-      font-family: var(--mono);
-      font-size: 0.68rem;
-      color: var(--terracotta);
-      background: var(--terracotta-soft);
-      border: 1px solid var(--terracotta-border);
-      padding: 0.18rem 0.55rem;
-      border-radius: var(--radius-sm);
-      display: inline-block;
-      font-weight: 600;
-      letter-spacing: 0.02em;
-    }
-
-    .about-pillar-title {
-      font-family: var(--serif);
-      font-size: 1.12rem;
-      font-weight: 600;
+    .about-narrative strong {
       color: var(--text-main);
-      line-height: 1.35;
-      margin-bottom: 0.55rem;
+      font-weight: 600;
     }
 
-    .about-pillar-desc {
-      font-size: 0.88rem;
-      color: var(--text-muted);
-      line-height: 1.62;
-    }
-
-    .about-pillar-chips {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.35rem;
-      margin-top: 1rem;
-      padding-top: 0.85rem;
-      border-top: 1px solid var(--border-light);
-    }
-
-    .about-chip {
-      font-size: 0.72rem;
-      font-weight: 500;
-      background: var(--bg-subtle);
-      color: var(--text-muted);
-      padding: 0.18rem 0.5rem;
-      border-radius: var(--radius-sm);
-      border: 1px solid var(--border-light);
+    .about-narrative em {
+      color: var(--terracotta);
+      font-style: italic;
     }
 
     /* FILTER TABS */
@@ -1338,11 +1259,6 @@
         padding: 1.8rem 1.4rem;
       }
 
-      .about-pillars {
-        grid-template-columns: 1fr;
-        gap: 1rem;
-      }
-
       .projects-grid {
         grid-template-columns: 1fr;
       }
@@ -1477,69 +1393,8 @@
       <div class="about-card">
         <div class="about-narrative">
           <p>
-            I am a statistician and data scientist working at the intersection of <strong>first-principles mathematical rigor</strong>, <strong>empirical research</strong>, and <strong>creative digital craft</strong>.
-            Algorithms crunch numbers, but mathematical intuition asks the right questions &mdash; and thoughtful engineering ensures the answers resonate with human beings.
+            I am a statistician and data scientist pursuing my <strong>M.Sc. in Data Science at DA-IICT</strong> (2025&ndash;2027), where I conduct longitudinal research investigating smartphone application telemetry and cognitive attention dynamics using Linear Mixed Models. Grounded in a rigorous <strong>B.Sc. (Honours) in Statistics from MSU Baroda</strong> (2021&ndash;2024), I approach machine learning through probability theory, matrix geometry, and econometric causality rather than black-box shortcuts. Beyond quantitative modeling, I express my creative craft through modern frontend engineering and <em>vibecoding</em>&mdash;architecting fluid, responsive web worlds where mathematical first-principles meet tactile, human-centered storytelling.
           </p>
-        </div>
-
-        <!-- 3 Core Pillars -->
-        <div class="about-pillars">
-          <!-- Pillar 1: Education & Research -->
-          <div class="about-pillar-card">
-            <div class="about-pillar-header">
-              <div class="about-pillar-top">
-                <span class="about-pillar-icon">🎓</span>
-                <span class="about-pillar-tag">DA-IICT &middot; MSU Baroda</span>
-              </div>
-              <h3 class="about-pillar-title">Academic Trajectory &amp; Research</h3>
-              <p class="about-pillar-desc"><strong>M.Sc. in Data Science</strong> at DA-IICT (2025&ndash;2027) &amp; <strong>B.Sc. (Honours) in Statistics</strong> from MSU Baroda (2021&ndash;2024). Conducting faculty-guided longitudinal research analyzing smartphone telemetry and cognitive dynamics using Linear Mixed Models.</p>
-            </div>
-            <div class="about-pillar-chips">
-              <span class="about-chip">M.Sc. Data Science</span>
-              <span class="about-chip">B.Sc. Statistics (Hons)</span>
-              <span class="about-chip">DA-IICT</span>
-              <span class="about-chip">MSU Baroda</span>
-              <span class="about-chip">Longitudinal Telemetry</span>
-            </div>
-          </div>
-
-          <!-- Pillar 2: Mathematical Intuition -->
-          <div class="about-pillar-card">
-            <div class="about-pillar-header">
-              <div class="about-pillar-top">
-                <span class="about-pillar-icon">📐</span>
-                <span class="about-pillar-tag">First-Principles Mindset</span>
-              </div>
-              <h3 class="about-pillar-title">Statistical &amp; Maths Intuition</h3>
-              <p class="about-pillar-desc">Viewing machine learning through probability spaces, matrix geometry, and causal structures. Rejecting black-box shortcuts to deeply understand distributional assumptions, collinearity hazards, and true out-of-sample generalization.</p>
-            </div>
-            <div class="about-pillar-chips">
-              <span class="about-chip">Probability Theory</span>
-              <span class="about-chip">Linear Mixed Models</span>
-              <span class="about-chip">Econometric Forecasting</span>
-              <span class="about-chip">Hypothesis Testing</span>
-              <span class="about-chip">Causal Structures</span>
-            </div>
-          </div>
-
-          <!-- Pillar 3: Creative Web Craft -->
-          <div class="about-pillar-card">
-            <div class="about-pillar-header">
-              <div class="about-pillar-top">
-                <span class="about-pillar-icon">🎨</span>
-                <span class="about-pillar-tag">Art Meets Algorithms</span>
-              </div>
-              <h3 class="about-pillar-title">Creative Web Craft &amp; Vibecoding</h3>
-              <p class="about-pillar-desc">Channeling creative passion into bespoke frontend web worlds. Building fluid canvas particle physics, dynamic audio/visual engines, and intuitive interfaces where analytical complexity transforms into engaging human experiences.</p>
-            </div>
-            <div class="about-pillar-chips">
-              <span class="about-chip">Interactive Web Worlds</span>
-              <span class="about-chip">Canvas Physics</span>
-              <span class="about-chip">Vibecoding</span>
-              <span class="about-chip">Audio &amp; Micro-UI</span>
-              <span class="about-chip">Tactile Web Craft</span>
-            </div>
-          </div>
         </div>
       </div>
     </section>
