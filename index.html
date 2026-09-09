@@ -215,7 +215,7 @@
 
     .rotating-word-wrap {
       display: inline-block;
-      min-width: 15.2ch;
+      min-width: 19ch;
       text-align: left;
       position: relative;
       white-space: nowrap;
@@ -1332,6 +1332,10 @@
         font-size: 2.1rem;
       }
 
+      .rotating-word-wrap {
+        min-width: unset;
+      }
+
       .metrics-strip {
         grid-template-columns: 1fr;
       }
@@ -2038,8 +2042,10 @@
     // Dynamic Hero Headline Rotating Words
     const dynamicWords = [
       "statistical models",
-      "predictive models",
-      "econometric models"
+      "predictive systems",
+      "econometric forecasts",
+      "deep learning pipelines",
+      "interactive data worlds"
     ];
     let wordIdx = 0;
     let charIdx = dynamicWords[0].length;
