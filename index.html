@@ -257,7 +257,7 @@
 
     .hero-actions {
       display: flex;
-      gap: 0.85rem;
+      gap: 0.55rem;
       align-items: center;
       flex-wrap: wrap;
       margin-bottom: 0;
@@ -267,15 +267,16 @@
       background: var(--terracotta);
       color: #FFFFFF;
       font-weight: 600;
-      padding: 0.72rem 1.55rem;
+      padding: 0.58rem 1.12rem;
       border-radius: 999px;
       text-decoration: none;
-      font-size: 0.88rem;
-      transition: all 0.2s;
+      font-size: 0.82rem;
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
       display: inline-flex;
       align-items: center;
-      gap: 0.4rem;
+      gap: 0.32rem;
       box-shadow: 0 4px 12px rgba(168, 90, 42, 0.22);
+      white-space: nowrap;
     }
 
     .btn-primary:hover {
@@ -289,21 +290,28 @@
       border: 1px solid var(--border);
       color: var(--text-main);
       font-weight: 600;
-      padding: 0.7rem 1.35rem;
+      padding: 0.56rem 1.02rem;
       border-radius: 999px;
       text-decoration: none;
-      font-size: 0.88rem;
-      transition: all 0.2s;
+      font-size: 0.82rem;
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
       box-shadow: var(--shadow-sm);
       display: inline-flex;
       align-items: center;
-      gap: 0.35rem;
+      gap: 0.3rem;
+      white-space: nowrap;
     }
 
     .btn-secondary:hover {
       border-color: var(--terracotta);
       color: var(--terracotta);
       transform: translateY(-1px);
+    }
+
+    .btn-primary:active,
+    .btn-secondary:active,
+    .filter-tab:active {
+      transform: scale(0.97);
     }
 
     /* HERO PHOTO COLUMN */
@@ -379,6 +387,7 @@
     /* SECTION COMMONS */
     section {
       padding: 3rem 0 2rem;
+      scroll-margin-top: 80px;
     }
 
     .section-header {
@@ -460,10 +469,17 @@
       margin-bottom: 0.85rem;
     }
 
+    .about-pillar-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 0.75rem;
+    }
+
     .about-pillar-icon {
-      font-size: 1.65rem;
-      margin-bottom: 0.6rem;
-      display: inline-block;
+      font-size: 1.5rem;
+      line-height: 1;
+      display: inline-flex;
     }
 
     .about-pillar-tag {
@@ -472,11 +488,11 @@
       color: var(--terracotta);
       background: var(--terracotta-soft);
       border: 1px solid var(--terracotta-border);
-      padding: 0.15rem 0.55rem;
+      padding: 0.18rem 0.55rem;
       border-radius: var(--radius-sm);
       display: inline-block;
-      margin-bottom: 0.55rem;
-      font-weight: 500;
+      font-weight: 600;
+      letter-spacing: 0.02em;
     }
 
     .about-pillar-title {
@@ -1374,6 +1390,23 @@
         padding: 1.4rem 1.1rem;
       }
 
+      .filter-tabs {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        padding-bottom: 0.5rem;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+      }
+
+      .filter-tabs::-webkit-scrollbar {
+        display: none;
+      }
+
+      .filter-tab {
+        white-space: nowrap;
+        flex-shrink: 0;
+      }
+
       .footer-inner {
         flex-direction: column;
         gap: 1rem;
@@ -1419,8 +1452,8 @@
           <div class="hero-actions">
             <a href="#about" class="btn-primary">About Me &darr;</a>
             <a href="#projects" class="btn-secondary">Selected Work &rarr;</a>
-            <a href="#creative" class="btn-secondary">Creative Web Lab ⚡</a>
-            <a href="resume.pdf" target="_blank" class="btn-secondary">Resume &#8599;</a>
+            <a href="#creative" class="btn-secondary">Creative Lab ⚡</a>
+            <a href="Resume.pdf" target="_blank" class="btn-secondary">Resume &#8599;</a>
           </div>
         </div>
 
@@ -1454,10 +1487,12 @@
           <!-- Pillar 1: Education & Research -->
           <div class="about-pillar-card">
             <div class="about-pillar-header">
-              <span class="about-pillar-icon">🎓</span>
-              <span class="about-pillar-tag">DA-IICT &middot; MSU Baroda</span>
+              <div class="about-pillar-top">
+                <span class="about-pillar-icon">🎓</span>
+                <span class="about-pillar-tag">DA-IICT &middot; MSU Baroda</span>
+              </div>
               <h3 class="about-pillar-title">Academic Trajectory &amp; Research</h3>
-              <p class="about-pillar-desc"><strong>M.Sc. in Data Science</strong> at DA-IICT (2025&ndash;2027) &amp; <strong>B.Sc. (Honours) in Statistics</strong> from MSU Baroda (2021&ndash;2024). Currently conducting faculty-guided longitudinal research analyzing smartphone telemetry and cognitive dynamics using Linear Mixed Models.</p>
+              <p class="about-pillar-desc"><strong>M.Sc. in Data Science</strong> at DA-IICT (2025&ndash;2027) &amp; <strong>B.Sc. (Honours) in Statistics</strong> from MSU Baroda (2021&ndash;2024). Conducting faculty-guided longitudinal research analyzing smartphone telemetry and cognitive dynamics using Linear Mixed Models.</p>
             </div>
             <div class="about-pillar-chips">
               <span class="about-chip">M.Sc. Data Science</span>
@@ -1471,8 +1506,10 @@
           <!-- Pillar 2: Mathematical Intuition -->
           <div class="about-pillar-card">
             <div class="about-pillar-header">
-              <span class="about-pillar-icon">📐</span>
-              <span class="about-pillar-tag">First-Principles Mindset</span>
+              <div class="about-pillar-top">
+                <span class="about-pillar-icon">📐</span>
+                <span class="about-pillar-tag">First-Principles Mindset</span>
+              </div>
               <h3 class="about-pillar-title">Statistical &amp; Maths Intuition</h3>
               <p class="about-pillar-desc">Viewing machine learning through probability spaces, matrix geometry, and causal structures. Rejecting black-box shortcuts to deeply understand distributional assumptions, collinearity hazards, and true out-of-sample generalization.</p>
             </div>
@@ -1488,8 +1525,10 @@
           <!-- Pillar 3: Creative Web Craft -->
           <div class="about-pillar-card">
             <div class="about-pillar-header">
-              <span class="about-pillar-icon">🎨</span>
-              <span class="about-pillar-tag">Art Meets Algorithms</span>
+              <div class="about-pillar-top">
+                <span class="about-pillar-icon">🎨</span>
+                <span class="about-pillar-tag">Art Meets Algorithms</span>
+              </div>
               <h3 class="about-pillar-title">Creative Web Craft &amp; Vibecoding</h3>
               <p class="about-pillar-desc">Channeling creative passion into bespoke frontend web worlds. Building fluid canvas particle physics, dynamic audio/visual engines, and intuitive interfaces where analytical complexity transforms into engaging human experiences.</p>
             </div>
@@ -2000,7 +2039,7 @@
         </p>
 
         <div class="contact-actions">
-          <a href="mailto:[EMAIL_ADDRESS]" class="btn-primary">
+          <a href="mailto:srrml10@gmail.com" class="btn-primary">
             Mail &rarr;
           </a>
           <a href="https://linkedin.com" target="_blank" class="btn-secondary">
@@ -2009,7 +2048,7 @@
           <a href="https://github.com/srishti7103" target="_blank" class="btn-secondary">
             GitHub &#8599;
           </a>
-          <a href="resume.pdf" target="_blank" class="btn-secondary">
+          <a href="Resume.pdf" target="_blank" class="btn-secondary">
             Resume (PDF) &#8599;
           </a>
         </div>
