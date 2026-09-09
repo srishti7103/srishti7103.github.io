@@ -257,7 +257,7 @@
 
     .hero-actions {
       display: flex;
-      gap: 0.55rem;
+      gap: 0.45rem;
       align-items: center;
       flex-wrap: wrap;
       margin-bottom: 0;
@@ -267,14 +267,14 @@
       background: var(--terracotta);
       color: #FFFFFF;
       font-weight: 600;
-      padding: 0.58rem 1.12rem;
+      padding: 0.54rem 0.95rem;
       border-radius: 999px;
       text-decoration: none;
-      font-size: 0.82rem;
+      font-size: 0.8rem;
       transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
       display: inline-flex;
       align-items: center;
-      gap: 0.32rem;
+      gap: 0.3rem;
       box-shadow: 0 4px 12px rgba(168, 90, 42, 0.22);
       white-space: nowrap;
     }
@@ -290,15 +290,15 @@
       border: 1px solid var(--border);
       color: var(--text-main);
       font-weight: 600;
-      padding: 0.56rem 1.02rem;
+      padding: 0.52rem 0.88rem;
       border-radius: 999px;
       text-decoration: none;
-      font-size: 0.82rem;
+      font-size: 0.8rem;
       transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
       box-shadow: var(--shadow-sm);
       display: inline-flex;
       align-items: center;
-      gap: 0.3rem;
+      gap: 0.28rem;
       white-space: nowrap;
     }
 
@@ -546,7 +546,42 @@
       font-weight: 600;
       color: var(--text-main);
       line-height: 1.32;
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .project-stat-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.38rem;
+      background: var(--terracotta-soft);
+      border: 1px solid var(--terracotta-border);
+      color: var(--terracotta);
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      font-weight: 600;
+      padding: 0.2rem 0.58rem;
+      border-radius: 6px;
+      margin-bottom: 0.65rem;
+      letter-spacing: 0.01em;
+      line-height: 1.35;
+      width: fit-content;
+    }
+
+    .project-stat-badge::before {
+      content: '';
+      display: inline-block;
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--terracotta);
+      opacity: 0.85;
+      flex-shrink: 0;
+    }
+
+    .project-stat-badge em {
+      font-style: italic;
+      font-family: var(--serif);
+      font-weight: 600;
     }
 
     .project-desc {
@@ -1359,7 +1394,8 @@
       <div class="hero-grid">
         <div class="hero-content">
           <span class="hero-tag">✨ STATISTICS &middot; DATA SCIENCE &middot; QUANTITATIVE ANALYTICS</span>
-          <h1 class="hero-title">I find the story in complex data and build <em>statistical models</em> that matter.</h1>
+          <h1 class="hero-title">I find the story in complex data and build <em>statistical models</em> that matter.
+          </h1>
           <p class="hero-lead">
             <strong>M.Sc. Data Science</strong> (DA-IICT) &amp; <strong>B.Sc. Statistics Honours</strong> (MSU Baroda).
             Combining statistical inference, econometric forecasting, machine learning, and data analytics with bespoke,
@@ -1367,9 +1403,11 @@
           </p>
           <div class="hero-actions">
             <a href="#about" class="btn-primary">About Me &darr;</a>
-            <a href="#projects" class="btn-secondary">Selected Work &rarr;</a>
+            <a href="#projects" class="btn-secondary">Projects &rarr;</a>
             <a href="#creative" class="btn-secondary">Creative Lab ⚡</a>
             <a href="Resume.pdf" target="_blank" class="btn-secondary">Resume &#8599;</a>
+            <a href="https://linkedin.com/in/srishti-lamba" target="_blank" rel="noopener noreferrer"
+              class="btn-secondary">LinkedIn &#8599;</a>
           </div>
         </div>
 
@@ -1393,7 +1431,14 @@
       <div class="about-card">
         <div class="about-narrative">
           <p>
-            I am a statistician and data scientist pursuing my <strong>M.Sc. in Data Science at DA-IICT</strong> (2025&ndash;2027), where I conduct longitudinal research investigating smartphone application telemetry and cognitive attention dynamics using Linear Mixed Models. Grounded in a rigorous <strong>B.Sc. (Honours) in Statistics from MSU Baroda</strong> (2021&ndash;2024), I approach machine learning through probability theory, matrix geometry, and econometric causality rather than black-box shortcuts. Beyond quantitative modeling, I express my creative craft through modern frontend engineering and <em>vibecoding</em>&mdash;architecting fluid, responsive web worlds where mathematical first-principles meet tactile, human-centered storytelling.
+            I am a statistician and data scientist pursuing my <strong>M.Sc. in Data Science at DA-IICT</strong>
+            (2025&ndash;2027), where I conduct longitudinal research investigating smartphone application telemetry and
+            cognitive attention dynamics using Linear Mixed Models. Grounded in a rigorous <strong>B.Sc. (Honours) in
+              Statistics from MSU Baroda</strong> (2021&ndash;2024), I approach machine learning through probability
+            theory, matrix geometry, and econometric causality rather than black-box shortcuts. Beyond quantitative
+            modeling, I express my creative craft through modern frontend engineering and
+            <em>vibecoding</em>&mdash;architecting fluid, responsive web worlds where mathematical first-principles meet
+            tactile, human-centered storytelling.
           </p>
         </div>
       </div>
@@ -1427,6 +1472,7 @@
           <div class="project-top">
             <span class="project-category">Data Analytics &amp; Econometrics &middot; DA-IICT Minor Project</span>
             <h3 class="project-title">Digital Consumption &amp; Academic Performance</h3>
+            <div class="project-stat-badge"><em>p</em> = 0.0015 &middot; <em>N</em> = 32</div>
             <p class="project-desc">Official DA-IICT longitudinal research ($N=32$) under Prof. Bhaskar Chaudhury
               combining smartphone telemetry and cognitive battery (SART, PVT-B). Uncovered an 8.32 hrs/day self-report
               screen time underestimation bias ($p = 0.0015$) using Linear Mixed Models.</p>
@@ -1448,6 +1494,7 @@
             <span class="project-category">Data Analytics &amp; Geopolitical Telemetry &middot; SIPRI &amp;
               Tableau</span>
             <h3 class="project-title">IndiaShield &mdash; National Defense &amp; Cybercrime Telemetry</h3>
+            <div class="project-stat-badge">24-Yr SIPRI &middot; 50K+ Incidents &middot; 36 States</div>
             <p class="project-desc">Macroeconomic and security analytics platform analyzing 24-year SIPRI defense budget
               datasets and 50,000+ national cybercrime incidents. Uncovered the Capital Outlay paradox and modeled state
               vulnerability indices across 36 Indian states.</p>
@@ -1469,6 +1516,7 @@
           <div class="project-top">
             <span class="project-category">Data Analytics &amp; Visualization &middot; Tamara Munzner Framework</span>
             <h3 class="project-title">A World in Numbers &mdash; Global Development Atlas</h3>
+            <div class="project-stat-badge">195 Nations &middot; Munzner Framework</div>
             <p class="project-desc">Interactive socio-economic dashboard modeling 195 nations across GDP per capita,
               education indices, and health capital using the Tamara Munzner visualization framework with dynamic Plotly
               correlation matrices.</p>
@@ -1490,6 +1538,7 @@
           <div class="project-top">
             <span class="project-category">ML &amp; Predictive Modeling &middot; Department for Transport (UK)</span>
             <h3 class="project-title">UK Road Accident Severity &amp; Collision Risk</h3>
+            <div class="project-stat-badge">89,019 Collisions &middot; 23 Roadway Factors</div>
             <p class="project-desc">Engineered predictive severity classification across 89,019 collisions and 23
               roadway attributes. Deployed CatBoost and XGBoost with SMOTE balancing, identifying rural 60mph limits and
               unlit junctions as prime fatality drivers.</p>
@@ -1510,6 +1559,7 @@
           <div class="project-top">
             <span class="project-category">Forex Econometrics &amp; ML &middot; BigQuery &amp; GDELT</span>
             <h3 class="project-title">RupeeRisk &mdash; USD/INR Econometric Forecasting</h3>
+            <div class="project-stat-badge">+17.67% Return &middot; Sharpe 1.30</div>
             <p class="project-desc">Macroeconomic currency forecasting pipeline analyzing GDELT geopolitical tension
               indices across 4 transmission channels. Backtested over 200 rolling weeks, achieving 58.5% directional
               accuracy, Sharpe ratio 1.30, and +17.67% return.</p>
@@ -1532,6 +1582,7 @@
           <div class="project-top">
             <span class="project-category">Deep Learning &amp; GenAI &middot; Fine-Tuned LLaMA 3.1</span>
             <h3 class="project-title">ShramikSaathi &mdash; Legal Rights AI for Workers</h3>
+            <div class="project-stat-badge">LLaMA 3.1 8B &middot; LoRA + DPO &middot; 9-Layer FAISS</div>
             <p class="project-desc">Multilingual legal chatbot fine-tuned on LLaMA 3.1 8B using LoRA SFT and Direct
               Preference Optimization (DPO). Coupled with 9-layer FAISS dense vector retrieval over the Code on Wages to
               provide instant, uncorrupted worker rights aid.</p>
@@ -1553,6 +1604,7 @@
           <div class="project-top">
             <span class="project-category">Data Management &amp; BDE &middot; Semantic Vector Search</span>
             <h3 class="project-title">Faculty Finder &mdash; Big Data Semantic Recommender</h3>
+            <div class="project-stat-badge">&lt; 1s Latency &middot; Semantic Search &middot; Docker</div>
             <p class="project-desc">End-to-end data recommendation pipeline connecting graduate applicants to
               specialized faculty based on research statement semantics. Employs vector indexing over academic
               publication databases, containerized with Docker and served via FastAPI on Railway.</p>
@@ -1573,6 +1625,7 @@
           <div class="project-top">
             <span class="project-category">Data Management &amp; BDE &middot; PostgreSQL (BCNF)</span>
             <h3 class="project-title">LogiSense &mdash; Supply Chain Database &amp; Analytics</h3>
+            <div class="project-stat-badge">7-Table BCNF &middot; IQR Anomaly Engine &middot; PostgreSQL</div>
             <p class="project-desc">Enterprise supply chain intelligence system built over a Boyce-Codd Normal Form
               (BCNF) normalized PostgreSQL warehouse. Engineered high-performance analytical SQL queries and IQR anomaly
               detection pipelines for real-time freight and inventory tracking.</p>
@@ -1595,6 +1648,7 @@
           <div class="project-top">
             <span class="project-category">Behavioral Data Science &middot; Multimodal Telemetry</span>
             <h3 class="project-title">Behavioral Sensing Telemetry Framework</h3>
+            <div class="project-stat-badge">26 Hypotheses &middot; BSMAS, PHQ-4 &amp; CFS Battery</div>
             <p class="project-desc">Continuous background tracking engine monitoring StayFree smartphone app events,
               circadian phase delays, and cognitive fatigue. Validated across BSMAS, PHQ-4, and CFS psychometric
               scales&mdash;bridging statistics, ML, and behavioral sensing.</p>
@@ -1897,10 +1951,11 @@
           <a href="mailto:srrml10@gmail.com" class="btn-primary">
             Mail &rarr;
           </a>
-          <a href="https://linkedin.com" target="_blank" class="btn-secondary">
+          <a href="https://linkedin.com/in/srishti-lamba" target="_blank" rel="noopener noreferrer"
+            class="btn-secondary">
             LinkedIn &#8599;
           </a>
-          <a href="https://github.com/srishti7103" target="_blank" class="btn-secondary">
+          <a href="https://github.com/srishti7103" target="_blank" rel="noopener noreferrer" class="btn-secondary">
             GitHub &#8599;
           </a>
           <a href="Resume.pdf" target="_blank" class="btn-secondary">
@@ -1918,8 +1973,8 @@
     <div class="container footer-inner">
       <div>&copy; 2026 Srishti Lamba &middot; Crafted with Vanilla HTML, CSS &amp; JS</div>
       <div class="footer-socials">
-        <a href="https://github.com/srishti7103" target="_blank">GitHub</a>
-        <a href="https://linkedin.com" target="_blank">LinkedIn</a>
+        <a href="https://github.com/srishti7103" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a href="https://linkedin.com/in/srishti-lamba" target="_blank" rel="noopener noreferrer">LinkedIn</a>
         <a href="mailto:srrml10@gmail.com">Email</a>
       </div>
     </div>
