@@ -33,4 +33,4 @@ Building at the intersection of **econometrics, statistical modeling, behavioral
 
 🌐 **Live Portfolio:** [srishti7103.github.io](https://srishti7103.github.io)  
 💼 **LinkedIn:** [linkedin.com/in/srishti-lamba-864709145](https://www.linkedin.com/in/srishti-lamba-864709145)  
-📄 **Resume:** [View PDF](resume.pdf)
+📄 **Resume:** [View PDF](Resume.pdf)
