@@ -1,4 +1,4 @@
-## Hi, I'm Srishti 👋
+## Hi, I'm Srishti 
 
 M.Sc. Data Science @ DA-IICT · B.Sc. Statistics (Honours)  
 Building at the intersection of **econometrics, statistical modeling, behavioral telemetry, and creative web engineering**.

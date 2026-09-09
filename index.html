@@ -214,10 +214,12 @@
     }
 
     .rotating-word-wrap {
-      display: inline-flex;
-      align-items: baseline;
+      display: inline-block;
+      min-width: 15.2ch;
+      text-align: left;
       position: relative;
       white-space: nowrap;
+      vertical-align: baseline;
     }
 
     .type-cursor {
@@ -318,7 +320,7 @@
     .hero-photo-wrap {
       position: relative;
       display: flex;
-      justify-content: center;
+      justify-content: flex-end;
       align-items: center;
       align-self: center;
     }
@@ -326,9 +328,9 @@
     .photo-frame {
       position: relative;
       width: 100%;
-      max-width: 310px;
+      max-width: 320px;
       aspect-ratio: 4 / 5;
-      border-radius: 42px;
+      border-radius: 40px;
       overflow: hidden;
       background: var(--border-light);
       box-shadow: 0 20px 44px rgba(60, 45, 30, 0.12), 0 6px 16px rgba(60, 45, 30, 0.06);
@@ -336,15 +338,16 @@
       isolation: isolate;
       -webkit-mask-image: -webkit-radial-gradient(white, black);
       flex-shrink: 0;
+      margin-left: auto;
     }
 
     .hero-photo {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      object-position: center 68%;
+      object-position: 55% 42%;
       display: block;
-      border-radius: 38px;
+      border-radius: 36px;
       transition: transform 0.4s ease;
     }
 
@@ -1276,6 +1279,7 @@
 
       .hero-photo-wrap {
         order: -1;
+        justify-content: center;
       }
 
       .photo-frame {
@@ -1394,8 +1398,8 @@
       <div class="hero-grid">
         <div class="hero-content">
           <span class="hero-tag">✨ STATISTICS &middot; DATA SCIENCE &middot; QUANTITATIVE ANALYTICS</span>
-          <h1 class="hero-title">I find the story in complex data and build <em>statistical models</em> that matter.
-          </h1>
+          <h1 class="hero-title">I find the story in complex data and build <span class="rotating-word-wrap"><em
+                id="rotatingWord">statistical models</em><span class="type-cursor">|</span></span> that matter.</h1>
           <p class="hero-lead">
             <strong>M.Sc. Data Science</strong> (DA-IICT) &amp; <strong>B.Sc. Statistics Honours</strong> (MSU Baroda).
             Combining statistical inference, econometric forecasting, machine learning, and data analytics with bespoke,
@@ -1404,7 +1408,7 @@
           <div class="hero-actions">
             <a href="#about" class="btn-primary">About Me &darr;</a>
             <a href="#projects" class="btn-secondary">Projects &rarr;</a>
-            <a href="#creative" class="btn-secondary">Creative Lab ⚡</a>
+            <a href="#creative" class="btn-secondary">Creative Lab </a>
             <a href="Resume.pdf" target="_blank" class="btn-secondary">Resume &#8599;</a>
             <a href="https://www.linkedin.com/in/srishti-lamba-864709145/" target="_blank" rel="noopener noreferrer"
               class="btn-secondary">LinkedIn &#8599;</a>
@@ -1974,7 +1978,8 @@
       <div>&copy; 2026 Srishti Lamba &middot; Crafted with Vanilla HTML, CSS &amp; JS</div>
       <div class="footer-socials">
         <a href="https://github.com/srishti7103" target="_blank" rel="noopener noreferrer">GitHub</a>
-        <a href="https://www.linkedin.com/in/srishti-lamba-864709145/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="https://www.linkedin.com/in/srishti-lamba-864709145/" target="_blank"
+          rel="noopener noreferrer">LinkedIn</a>
         <a href="mailto:srrml10@gmail.com">Email</a>
       </div>
     </div>
@@ -2030,6 +2035,44 @@
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') closeEmulator();
     });
+
+    // Dynamic Hero Headline Rotating Words
+    const dynamicWords = [
+      "statistical models",
+      "predictive models",
+      "econometric models"
+    ];
+    let wordIdx = 0;
+    let charIdx = dynamicWords[0].length;
+    let isDeleting = true;
+    const rotatingEl = document.getElementById('rotatingWord');
+
+    function typeRotate() {
+      if (!rotatingEl) return;
+      const currentWord = dynamicWords[wordIdx];
+
+      if (isDeleting) {
+        charIdx--;
+        rotatingEl.textContent = currentWord.substring(0, charIdx);
+        if (charIdx <= 0) {
+          isDeleting = false;
+          wordIdx = (wordIdx + 1) % dynamicWords.length;
+          setTimeout(typeRotate, 350);
+          return;
+        }
+        setTimeout(typeRotate, 45);
+      } else {
+        charIdx++;
+        rotatingEl.textContent = dynamicWords[wordIdx].substring(0, charIdx);
+        if (charIdx >= dynamicWords[wordIdx].length) {
+          isDeleting = true;
+          setTimeout(typeRotate, 2600);
+          return;
+        }
+        setTimeout(typeRotate, 75);
+      }
+    }
+    setTimeout(typeRotate, 2600);
 
 
 
