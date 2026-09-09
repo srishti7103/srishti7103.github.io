@@ -350,32 +350,109 @@ section {
   max-width: 600px;
 }
 
-/* ABOUT NUGGET */
+/* ABOUT ME SECTION */
 .about-card {
   background: var(--bg-card);
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
-  padding: 2rem 2.2rem;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 2.2rem;
+  padding: 2.2rem 2.5rem;
   box-shadow: var(--shadow-sm);
-  margin-bottom: 3rem;
+  margin-bottom: 2rem;
 }
-.about-block h4 {
-  font-family: var(--serif);
-  font-size: 1.1rem;
+.about-narrative {
+  font-size: 1.02rem;
+  line-height: 1.82;
   color: var(--text-main);
-  margin-bottom: 0.5rem;
-  font-weight: 600;
-  display: flex;
-  align-items: center;
-  gap: 0.45rem;
+  margin-bottom: 2rem;
 }
-.about-block p {
-  color: var(--text-muted);
-  font-size: 0.9rem;
+.about-narrative p {
+  margin-bottom: 1.15rem;
+}
+.about-narrative p:last-child {
+  margin-bottom: 0;
+}
+.about-quote-box {
+  background: var(--terracotta-soft);
+  border-left: 3px solid var(--terracotta);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  padding: 1.15rem 1.5rem;
+  margin: 1.6rem 0;
+  font-family: var(--serif);
+  font-size: 1.08rem;
+  font-style: italic;
+  color: var(--text-main);
   line-height: 1.65;
+}
+.about-pillars {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+}
+.about-pillar-card {
+  background: var(--bg);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+  padding: 1.5rem 1.4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.about-pillar-card:hover {
+  border-color: var(--terracotta-border);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+  background: #FFFDF9;
+}
+.about-pillar-header {
+  margin-bottom: 0.85rem;
+}
+.about-pillar-icon {
+  font-size: 1.65rem;
+  margin-bottom: 0.6rem;
+  display: inline-block;
+}
+.about-pillar-tag {
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  color: var(--terracotta);
+  background: var(--terracotta-soft);
+  border: 1px solid var(--terracotta-border);
+  padding: 0.15rem 0.55rem;
+  border-radius: var(--radius-sm);
+  display: inline-block;
+  margin-bottom: 0.55rem;
+  font-weight: 500;
+}
+.about-pillar-title {
+  font-family: var(--serif);
+  font-size: 1.12rem;
+  font-weight: 600;
+  color: var(--text-main);
+  line-height: 1.35;
+  margin-bottom: 0.55rem;
+}
+.about-pillar-desc {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  line-height: 1.62;
+}
+.about-pillar-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin-top: 1rem;
+  padding-top: 0.85rem;
+  border-top: 1px solid var(--border-light);
+}
+.about-chip {
+  font-size: 0.72rem;
+  font-weight: 500;
+  background: var(--bg-subtle);
+  color: var(--text-muted);
+  padding: 0.18rem 0.5rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-light);
 }
 
 /* FILTER TABS */
@@ -1019,7 +1096,8 @@ footer {
   .hero-photo-wrap { order: -1; }
   .photo-frame { max-width: 250px; margin: 0 auto; }
   .metrics-strip { grid-template-columns: repeat(2, 1fr); gap: 1.4rem; }
-  .about-card { grid-template-columns: 1fr; gap: 1.4rem; }
+  .about-card { padding: 1.8rem 1.4rem; }
+  .about-pillars { grid-template-columns: 1fr; gap: 1rem; }
   .projects-grid { grid-template-columns: 1fr; }
   .skills-grid { grid-template-columns: repeat(2, 1fr); }
   .timeline-card { padding: 1.8rem 1.6rem; }
@@ -1047,6 +1125,7 @@ footer {
       Srishti Lamba <span class="brand-pill">Data &middot; Stats &middot; Analytics</span>
     </a>
     <div class="nav-links">
+      <a href="#about">About</a>
       <a href="#projects">Work</a>
       <a href="#skills">Toolkit</a>
       <a href="#background">Background</a>
@@ -1068,7 +1147,8 @@ footer {
           <strong>M.Sc. Data Science</strong> (DA-IICT) &amp; <strong>B.Sc. Statistics Honours</strong> (MSU Baroda). Combining statistical inference, econometric forecasting, machine learning, and data analytics with bespoke, interactive web craftsmanship.
         </p>
         <div class="hero-actions">
-          <a href="#projects" class="btn-primary">View Selected Work &darr;</a>
+          <a href="#about" class="btn-primary">About Me &darr;</a>
+          <a href="#projects" class="btn-secondary">Selected Work &rarr;</a>
           <a href="#creative" class="btn-secondary">Creative Web Lab ⚡</a>
           <a href="resume.pdf" target="_blank" class="btn-secondary">Resume &#8599;</a>
         </div>
@@ -1077,6 +1157,91 @@ footer {
       <div class="hero-photo-wrap">
         <div class="photo-frame">
           <img src="assets/photo.jpeg" alt="Srishti Lamba &mdash; Data Scientist, Analyst &amp; Quantitative Modeler" class="hero-photo">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT ME SECTION -->
+  <section id="about">
+    <div class="section-header">
+      <span class="section-label">✦ Philosophy &amp; Background</span>
+      <h2 class="section-title">The Mind Behind the Models</h2>
+      <p class="section-desc">Who I am, what drives my intellectual curiosity, and how mathematical first-principles and creative craft shape everything I build.</p>
+    </div>
+
+    <div class="about-card">
+      <div class="about-narrative">
+        <p>
+          I am a statistician and data scientist who believes that the most transformative technological breakthroughs happen at the crossroads of <strong>first-principles mathematical rigor</strong>, <strong>empirical scientific research</strong>, and <strong>creative digital storytelling</strong>.
+        </p>
+        <p>
+          Currently, I am pursuing my <strong>M.Sc. in Data Science at Dhirubhai Ambani Institute of Information and Communication Technology (DA-IICT)</strong> (2025&ndash;2027), where I conduct longitudinal research investigating smartphone application telemetry and cognitive attention dynamics using Linear Mixed Models. My academic foundation was built during an intensive <strong>B.Sc. (Honours) in Statistics from The Maharaja Sayajirao University of Baroda (MSU Baroda)</strong> (2021&ndash;2024), where I immersed myself in mathematical statistics, probability theory, regression analysis, sampling distributions, and econometric forecasting.
+        </p>
+
+        <div class="about-quote-box">
+          &ldquo;Algorithms can crunch numbers, but mathematical intuition asks the right questions &mdash; and creative craft ensures the answers resonate with human beings.&rdquo;
+        </div>
+
+        <p>
+          To me, mathematics and statistics are far more than mechanical formulas or imported software libraries&mdash;they are an intuitive lens for understanding uncertainty and real-world systems. Before training a single model, I instinctively seek the underlying geometry: distribution shapes, matrix rank, collinearity hazards, and causal structures. This intuition enables me to diagnose why models behave the way they do, spot invisible data leaks, and build resilient predictive architectures that truly generalize to reality.
+        </p>
+        <p>
+          Beyond quantitative modeling, I express my creative instincts through modern frontend engineering and <strong>&ldquo;vibecoding&rdquo;</strong>. I love crafting interactive web worlds that feel responsive, tactile, and alive&mdash;whether that means coding canvas sparklers over Hogwarts Castle, orchestrating falling rose petal physics for a luxury wedding experience, or architecting offline-first FinTech loan portals with live Excel synchronization. For me, code is both a scientific instrument and an artistic canvas.
+        </p>
+      </div>
+
+      <!-- 3 Core Pillars -->
+      <div class="about-pillars">
+        <!-- Pillar 1: Education & Research -->
+        <div class="about-pillar-card">
+          <div class="about-pillar-header">
+            <span class="about-pillar-icon">🎓</span>
+            <span class="about-pillar-tag">Current Scholar &middot; 2025&ndash;2027</span>
+            <h3 class="about-pillar-title">Academic Trajectory &amp; Research</h3>
+            <p class="about-pillar-desc">Pursuing master’s studies at <strong>DA-IICT</strong> in Machine Learning, Deep Learning, Cloud Data Systems, and Big Data Engineering. Preceded by a rigorous <strong>B.Sc. (Honours) in Statistics from MSU Baroda</strong> (2021&ndash;2024), conducting published faculty-guided longitudinal research.</p>
+          </div>
+          <div class="about-pillar-chips">
+            <span class="about-chip">DA-IICT</span>
+            <span class="about-chip">MSU Baroda</span>
+            <span class="about-chip">M.Sc. Data Science</span>
+            <span class="about-chip">B.Sc. Statistics (Hons)</span>
+            <span class="about-chip">Longitudinal Telemetry</span>
+          </div>
+        </div>
+
+        <!-- Pillar 2: Mathematical Intuition -->
+        <div class="about-pillar-card">
+          <div class="about-pillar-header">
+            <span class="about-pillar-icon">📐</span>
+            <span class="about-pillar-tag">First-Principles Mindset</span>
+            <h3 class="about-pillar-title">Statistical &amp; Maths Intuition</h3>
+            <p class="about-pillar-desc">Viewing machine learning through probability spaces, matrix decomposition, and econometric causality. Rejecting the black-box shortcut to deeply understand variance trade-offs, distributional assumptions, and the exact mechanics that govern predictive performance.</p>
+          </div>
+          <div class="about-pillar-chips">
+            <span class="about-chip">Probability Theory</span>
+            <span class="about-chip">Linear Mixed Models</span>
+            <span class="about-chip">Econometric Forecasting</span>
+            <span class="about-chip">Hypothesis Testing</span>
+            <span class="about-chip">Stochastic Processes</span>
+          </div>
+        </div>
+
+        <!-- Pillar 3: Creative Web Craft -->
+        <div class="about-pillar-card">
+          <div class="about-pillar-header">
+            <span class="about-pillar-icon">🎨</span>
+            <span class="about-pillar-tag">Art Meets Algorithms</span>
+            <h3 class="about-pillar-title">Creative Web Craft &amp; Vibecoding</h3>
+            <p class="about-pillar-desc">Passionate about bringing imagination to life through bespoke frontend web engineering. Creating fluid canvas particle physics, dynamic audio/visual engines, and intuitive micro-interactions where complex data transforms into engaging interactive experiences.</p>
+          </div>
+          <div class="about-pillar-chips">
+            <span class="about-chip">Interactive Web Worlds</span>
+            <span class="about-chip">Canvas Particle Physics</span>
+            <span class="about-chip">Vibecoding</span>
+            <span class="about-chip">Audio &amp; Micro-UI</span>
+            <span class="about-chip">Tactile Web Craft</span>
+          </div>
         </div>
       </div>
     </div>
