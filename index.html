@@ -1,2116 +1,2522 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Srishti Lamba &mdash; Data Scientist, Analyst &amp; Statistician</title>
-<meta name="description" content="Portfolio of Srishti Lamba. M.Sc. Data Science (DA-IICT) &amp; B.Sc. Statistics Honours (MSU Baroda). Quantitative modeling, statistical analysis, econometric forecasting, machine learning, and creative web development.">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Srishti Lamba &mdash; Data Scientist, Analyst &amp; Statistician</title>
+  <meta name="description"
+    content="Portfolio of Srishti Lamba. M.Sc. Data Science (DA-IICT) &amp; B.Sc. Statistics Honours (MSU Baroda). Quantitative modeling, statistical analysis, econometric forecasting, machine learning, and creative web development.">
 
-<!-- Google Fonts: Playfair Display + Plus Jakarta Sans + JetBrains Mono -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400;1,500&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <!-- Google Fonts: Playfair Display + Plus Jakarta Sans + JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400;1,500&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap"
+    rel="stylesheet">
 
-<style>
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-:root {
-  /* Warm Editorial Beige Design System */
-  --bg: #F5EFEB;
-  --bg-subtle: #ECE4D8;
-  --bg-card: #FCFAF6;
-  --bg-card-hover: #FFFDF9;
-  
-  --text-main: #241F19;
-  --text-muted: #5A5247;
-  --text-dim: #8A8174;
-  
-  --border: #E5DDD0;
-  --border-light: #EDE6DC;
-  --border-hover: #D2C6B6;
-  
-  --terracotta: #A85A2A;
-  --terracotta-hover: #8D471E;
-  --terracotta-soft: rgba(168, 90, 42, 0.08);
-  --terracotta-border: rgba(168, 90, 42, 0.2);
-  
-  --forest: #2A5641;
-  --forest-soft: #EDF5F0;
-  --forest-border: rgba(42, 86, 65, 0.2);
-  
-  --shadow-sm: 0 2px 8px rgba(60, 45, 30, 0.03);
-  --shadow-md: 0 8px 24px rgba(60, 45, 30, 0.06), 0 2px 6px rgba(60, 45, 30, 0.03);
-  --shadow-lg: 0 16px 40px rgba(60, 45, 30, 0.09), 0 4px 12px rgba(60, 45, 30, 0.04);
-  
-  --serif: 'Playfair Display', Georgia, serif;
-  --sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
-  --mono: 'JetBrains Mono', monospace;
-  
-  --radius-sm: 8px;
-  --radius-md: 16px;
-  --radius-lg: 20px;
-}
+    :root {
+      /* Warm Editorial Beige Design System */
+      --bg: #F5EFEB;
+      --bg-subtle: #ECE4D8;
+      --bg-card: #FCFAF6;
+      --bg-card-hover: #FFFDF9;
 
-html { scroll-behavior: smooth; }
-body {
-  font-family: var(--sans);
-  background-color: var(--bg);
-  color: var(--text-main);
-  font-size: 15px;
-  line-height: 1.65;
-  overflow-x: hidden;
-  -webkit-font-smoothing: antialiased;
-}
+      --text-main: #241F19;
+      --text-muted: #5A5247;
+      --text-dim: #8A8174;
 
-/* Subtle Warm Ambient Backdrop */
-.ambient-bg {
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: 0;
-  background: 
-    radial-gradient(circle at 12% 10%, rgba(192, 138, 62, 0.05) 0%, transparent 40%),
-    radial-gradient(circle at 88% 65%, rgba(168, 90, 42, 0.05) 0%, transparent 45%);
-}
+      --border: #E5DDD0;
+      --border-light: #EDE6DC;
+      --border-hover: #D2C6B6;
 
-.container {
-  max-width: 1040px;
-  margin: 0 auto;
-  padding: 0 1.5rem;
-  position: relative;
-  z-index: 1;
-}
+      --terracotta: #A85A2A;
+      --terracotta-hover: #8D471E;
+      --terracotta-soft: rgba(168, 90, 42, 0.08);
+      --terracotta-border: rgba(168, 90, 42, 0.2);
 
-/* NAVIGATION */
-nav {
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  background: rgba(245, 239, 235, 0.92);
-  border-bottom: 1px solid var(--border);
-}
-.nav-inner {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  height: 68px;
-}
-.nav-brand {
-  font-family: var(--serif);
-  font-weight: 700;
-  font-size: 1.25rem;
-  color: var(--text-main);
-  text-decoration: none;
-  letter-spacing: -0.01em;
-  display: flex;
-  align-items: center;
-  gap: 0.6rem;
-}
-.brand-pill {
-  font-family: var(--sans);
-  font-weight: 600;
-  font-size: 0.72rem;
-  color: var(--terracotta);
-  background: var(--terracotta-soft);
-  border: 1px solid var(--terracotta-border);
-  padding: 0.2rem 0.55rem;
-  border-radius: 999px;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-}
-.nav-links {
-  display: flex;
-  gap: 1.6rem;
-  align-items: center;
-}
-.nav-links a {
-  color: var(--text-muted);
-  text-decoration: none;
-  font-size: 0.88rem;
-  font-weight: 500;
-  transition: color 0.2s;
-}
-.nav-links a:hover { color: var(--terracotta); }
-.nav-cta {
-  background: var(--terracotta) !important;
-  color: #FFFFFF !important;
-  padding: 0.45rem 1.15rem;
-  border-radius: 999px;
-  font-weight: 600 !important;
-  transition: all 0.2s !important;
-  box-shadow: 0 2px 8px rgba(168, 90, 42, 0.2);
-}
-.nav-cta:hover {
-  background: var(--terracotta-hover) !important;
-  transform: translateY(-1px);
-}
+      --forest: #2A5641;
+      --forest-soft: #EDF5F0;
+      --forest-border: rgba(42, 86, 65, 0.2);
 
-/* HERO SECTION */
-.hero {
-  padding: 4.5rem 0 3.5rem;
-}
-.hero-grid {
-  display: grid;
-  grid-template-columns: 1.28fr 0.82fr;
-  gap: 3.5rem;
-  align-items: center;
-}
-.hero-tag {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.45rem;
-  background: var(--terracotta-soft);
-  border: 1px solid var(--terracotta-border);
-  padding: 0.3rem 0.85rem;
-  border-radius: 999px;
-  font-size: 0.76rem;
-  font-weight: 600;
-  color: var(--terracotta);
-  margin-bottom: 1.2rem;
-  letter-spacing: 0.03em;
-}
-.hero-title {
-  font-family: var(--serif);
-  font-size: clamp(2.3rem, 4.4vw, 3.3rem);
-  font-weight: 600;
-  line-height: 1.18;
-  letter-spacing: -0.02em;
-  color: var(--text-main);
-  margin-bottom: 1.1rem;
-}
-.hero-title em {
-  font-style: italic;
-  font-weight: 400;
-  color: var(--terracotta);
-}
-.rotating-word-wrap {
-  display: inline-flex;
-  align-items: baseline;
-  position: relative;
-  white-space: nowrap;
-}
-.type-cursor {
-  display: inline-block;
-  color: var(--terracotta);
-  font-weight: 300;
-  font-style: normal;
-  margin-left: 2px;
-  animation: blinkCursor 0.9s infinite;
-  user-select: none;
-}
-@keyframes blinkCursor {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0; }
-}
-.hero-lead {
-  font-size: 1.05rem;
-  color: var(--text-muted);
-  line-height: 1.7;
-  margin-bottom: 1.8rem;
-  max-width: 560px;
-}
-.hero-lead strong {
-  color: var(--text-main);
-  font-weight: 600;
-}
-.hero-actions {
-  display: flex;
-  gap: 0.85rem;
-  align-items: center;
-  flex-wrap: wrap;
-  margin-bottom: 0;
-}
-.btn-primary {
-  background: var(--terracotta);
-  color: #FFFFFF;
-  font-weight: 600;
-  padding: 0.72rem 1.55rem;
-  border-radius: 999px;
-  text-decoration: none;
-  font-size: 0.88rem;
-  transition: all 0.2s;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  box-shadow: 0 4px 12px rgba(168, 90, 42, 0.22);
-}
-.btn-primary:hover {
-  background: var(--terracotta-hover);
-  transform: translateY(-1px);
-  box-shadow: 0 6px 16px rgba(168, 90, 42, 0.3);
-}
-.btn-secondary {
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  color: var(--text-main);
-  font-weight: 600;
-  padding: 0.7rem 1.35rem;
-  border-radius: 999px;
-  text-decoration: none;
-  font-size: 0.88rem;
-  transition: all 0.2s;
-  box-shadow: var(--shadow-sm);
-  display: inline-flex;
-  align-items: center;
-  gap: 0.35rem;
-}
-.btn-secondary:hover {
-  border-color: var(--terracotta);
-  color: var(--terracotta);
-  transform: translateY(-1px);
-}
+      --shadow-sm: 0 2px 8px rgba(60, 45, 30, 0.03);
+      --shadow-md: 0 8px 24px rgba(60, 45, 30, 0.06), 0 2px 6px rgba(60, 45, 30, 0.03);
+      --shadow-lg: 0 16px 40px rgba(60, 45, 30, 0.09), 0 4px 12px rgba(60, 45, 30, 0.04);
 
-/* HERO PHOTO COLUMN */
-.hero-photo-wrap {
-  position: relative;
-  display: flex;
-  justify-content: center;
-}
-.photo-frame {
-  position: relative;
-  width: 100%;
-  max-width: 310px;
-  aspect-ratio: 1 / 1.05;
-  border-radius: 28px;
-  overflow: hidden;
-  background: var(--border-light);
-  box-shadow: 0 16px 36px rgba(60, 45, 30, 0.08), 0 4px 12px rgba(60, 45, 30, 0.04);
-  border: 4px solid var(--bg-card);
-  isolation: isolate;
-  -webkit-mask-image: -webkit-radial-gradient(white, black);
-}
-.hero-photo {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center 20%;
-  display: block;
-  border-radius: 24px;
-}
+      --serif: 'Playfair Display', Georgia, serif;
+      --sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      --mono: 'JetBrains Mono', monospace;
 
-/* METRICS STRIP */
-.metrics-strip {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1.2rem;
-  padding: 2rem 0;
-  border-top: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
-  margin-bottom: 3.5rem;
-}
-.metric-item {
-  display: flex;
-  flex-direction: column;
-}
-.metric-val {
-  font-family: var(--mono);
-  font-size: 1.65rem;
-  font-weight: 700;
-  color: var(--terracotta);
-  line-height: 1.2;
-}
-.metric-lbl {
-  font-size: 0.78rem;
-  color: var(--text-muted);
-  margin-top: 0.3rem;
-  line-height: 1.4;
-  font-weight: 500;
-}
+      --radius-sm: 8px;
+      --radius-md: 16px;
+      --radius-lg: 20px;
+    }
 
-/* SECTION COMMONS */
-section {
-  padding: 3rem 0 2rem;
-}
-.section-header {
-  margin-bottom: 1.8rem;
-}
-.section-label {
-  font-family: var(--mono);
-  font-size: 0.72rem;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: var(--terracotta);
-  margin-bottom: 0.35rem;
-  display: block;
-  font-weight: 600;
-}
-.section-title {
-  font-family: var(--serif);
-  font-size: 2rem;
-  font-weight: 600;
-  color: var(--text-main);
-  letter-spacing: -0.01em;
-}
-.section-desc {
-  color: var(--text-muted);
-  font-size: 0.92rem;
-  margin-top: 0.3rem;
-  max-width: 600px;
-}
+    html {
+      scroll-behavior: smooth;
+    }
 
-/* ABOUT ME SECTION */
-.about-card {
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
-  padding: 2.2rem 2.5rem;
-  box-shadow: var(--shadow-sm);
-  margin-bottom: 2rem;
-}
-.about-narrative {
-  font-size: 1.02rem;
-  line-height: 1.82;
-  color: var(--text-main);
-  margin-bottom: 2rem;
-}
-.about-narrative p {
-  margin-bottom: 1.15rem;
-}
-.about-narrative p:last-child {
-  margin-bottom: 0;
-}
-.about-quote-box {
-  background: var(--terracotta-soft);
-  border-left: 3px solid var(--terracotta);
-  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
-  padding: 1.15rem 1.5rem;
-  margin: 1.6rem 0;
-  font-family: var(--serif);
-  font-size: 1.08rem;
-  font-style: italic;
-  color: var(--text-main);
-  line-height: 1.65;
-}
-.about-pillars {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.25rem;
-}
-.about-pillar-card {
-  background: var(--bg);
-  border: 1px solid var(--border-light);
-  border-radius: var(--radius-md);
-  padding: 1.5rem 1.4rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
-}
-.about-pillar-card:hover {
-  border-color: var(--terracotta-border);
-  transform: translateY(-3px);
-  box-shadow: var(--shadow-md);
-  background: #FFFDF9;
-}
-.about-pillar-header {
-  margin-bottom: 0.85rem;
-}
-.about-pillar-icon {
-  font-size: 1.65rem;
-  margin-bottom: 0.6rem;
-  display: inline-block;
-}
-.about-pillar-tag {
-  font-family: var(--mono);
-  font-size: 0.68rem;
-  color: var(--terracotta);
-  background: var(--terracotta-soft);
-  border: 1px solid var(--terracotta-border);
-  padding: 0.15rem 0.55rem;
-  border-radius: var(--radius-sm);
-  display: inline-block;
-  margin-bottom: 0.55rem;
-  font-weight: 500;
-}
-.about-pillar-title {
-  font-family: var(--serif);
-  font-size: 1.12rem;
-  font-weight: 600;
-  color: var(--text-main);
-  line-height: 1.35;
-  margin-bottom: 0.55rem;
-}
-.about-pillar-desc {
-  font-size: 0.88rem;
-  color: var(--text-muted);
-  line-height: 1.62;
-}
-.about-pillar-chips {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.35rem;
-  margin-top: 1rem;
-  padding-top: 0.85rem;
-  border-top: 1px solid var(--border-light);
-}
-.about-chip {
-  font-size: 0.72rem;
-  font-weight: 500;
-  background: var(--bg-subtle);
-  color: var(--text-muted);
-  padding: 0.18rem 0.5rem;
-  border-radius: var(--radius-sm);
-  border: 1px solid var(--border-light);
-}
+    body {
+      font-family: var(--sans);
+      background-color: var(--bg);
+      color: var(--text-main);
+      font-size: 15px;
+      line-height: 1.65;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
 
-/* FILTER TABS */
-.filter-tabs {
-  display: flex;
-  gap: 0.5rem;
-  margin-bottom: 1.8rem;
-  flex-wrap: wrap;
-}
-.filter-tab {
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  color: var(--text-muted);
-  padding: 0.42rem 0.95rem;
-  border-radius: 999px;
-  font-size: 0.78rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.2s;
-  font-family: var(--sans);
-  box-shadow: var(--shadow-sm);
-}
-.filter-tab:hover {
-  color: var(--terracotta);
-  border-color: var(--terracotta-border);
-}
-.filter-tab.active {
-  background: var(--terracotta);
-  border-color: var(--terracotta);
-  color: #FFFFFF;
-  box-shadow: 0 2px 10px rgba(168, 90, 42, 0.25);
-}
+    /* Subtle Warm Ambient Backdrop */
+    .ambient-bg {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      background:
+        radial-gradient(circle at 12% 10%, rgba(192, 138, 62, 0.05) 0%, transparent 40%),
+        radial-gradient(circle at 88% 65%, rgba(168, 90, 42, 0.05) 0%, transparent 45%);
+    }
 
-/* PROJECTS GRID (2-COLUMN COMPACT CLEAN CARDS) */
-.projects-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1.3rem;
-}
-.project-card {
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-md);
-  padding: 1.5rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  transition: all 0.22s ease;
-  box-shadow: var(--shadow-sm);
-}
-.project-card:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-md);
-  border-color: var(--border-hover);
-}
-@keyframes cardFadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-.project-card.animate-in {
-  animation: cardFadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-}
-.project-top {
-  margin-bottom: 1rem;
-}
-.project-category {
-  font-family: var(--mono);
-  font-size: 0.68rem;
-  color: var(--terracotta);
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  margin-bottom: 0.4rem;
-  display: block;
-  font-weight: 600;
-}
-.project-title {
-  font-family: var(--serif);
-  font-size: 1.2rem;
-  font-weight: 600;
-  color: var(--text-main);
-  line-height: 1.32;
-  margin-bottom: 0.5rem;
-}
-.project-desc {
-  font-size: 0.86rem;
-  color: var(--text-muted);
-  line-height: 1.6;
-}
-.project-badges {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.35rem;
-  margin: 0.9rem 0 1rem;
-}
-.badge {
-  background: var(--bg-subtle);
-  border: 1px solid var(--border-light);
-  color: var(--text-muted);
-  font-size: 0.7rem;
-  padding: 0.2rem 0.55rem;
-  border-radius: var(--radius-sm);
-  font-family: var(--mono);
-  font-weight: 500;
-}
-.project-links {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding-top: 0.85rem;
-  border-top: 1px solid var(--border-light);
-}
-.project-link {
-  font-size: 0.8rem;
-  font-weight: 600;
-  color: var(--terracotta);
-  text-decoration: none;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.25rem;
-  transition: color 0.2s;
-}
-.project-link:hover { color: var(--terracotta-hover); }
+    .container {
+      max-width: 1040px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+      position: relative;
+      z-index: 1;
+    }
 
-/* SKILLS SECTION (COMPACT 4-GRID) */
-.skills-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1rem;
-}
-.skill-box {
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-md);
-  padding: 1.3rem;
-  box-shadow: var(--shadow-sm);
-}
-.skill-box-title {
-  font-family: var(--serif);
-  font-size: 0.95rem;
-  font-weight: 600;
-  color: var(--text-main);
-  margin-bottom: 0.8rem;
-  display: flex;
-  align-items: center;
-  gap: 0.4rem;
-}
-.skill-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.35rem;
-}
-.skill-tag {
-  background: var(--bg-subtle);
-  color: var(--text-muted);
-  font-size: 0.74rem;
-  padding: 0.22rem 0.5rem;
-  border-radius: var(--radius-sm);
-  border: 1px solid var(--border-light);
-  font-weight: 500;
-}
+    /* NAVIGATION */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      background: rgba(245, 239, 235, 0.92);
+      border-bottom: 1px solid var(--border);
+    }
 
-/* UNIFIED JOURNEY & BACKGROUND TIMELINE */
-.timeline-card {
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
-  padding: 2.2rem 2.5rem;
-  box-shadow: var(--shadow-sm);
-}
-.timeline-item {
-  position: relative;
-  padding-left: 1.8rem;
-  border-left: 2px solid var(--border);
-  padding-bottom: 2rem;
-}
-.timeline-item:last-child {
-  padding-bottom: 0;
-  border-left-color: transparent;
-}
-.timeline-item::before {
-  content: '';
-  position: absolute;
-  left: -6px;
-  top: 4px;
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background: var(--terracotta);
-  box-shadow: 0 0 0 3px rgba(168, 90, 42, 0.15);
-}
-.ti-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  margin-bottom: 0.2rem;
-}
-.ti-degree {
-  font-family: var(--serif);
-  font-size: 1.05rem;
-  font-weight: 600;
-  color: var(--text-main);
-}
-.ti-badge {
-  font-family: var(--mono);
-  font-size: 0.72rem;
-  color: var(--terracotta);
-  background: var(--terracotta-soft);
-  border: 1px solid var(--terracotta-border);
-  padding: 0.18rem 0.6rem;
-  border-radius: var(--radius-sm);
-  font-weight: 500;
-}
-.ti-school {
-  font-size: 0.84rem;
-  color: var(--terracotta);
-  font-weight: 600;
-  margin-bottom: 0.45rem;
-}
-.ti-desc {
-  font-size: 0.88rem;
-  color: var(--text-muted);
-  line-height: 1.6;
-}
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 68px;
+    }
 
-/* CREATIVE WEB LAB */
-.creative-strip {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.3rem;
-}
-.creative-card {
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-md);
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
-  box-shadow: var(--shadow-sm);
-}
-.creative-card:hover {
-  border-color: var(--terracotta-border);
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-md);
-}
+    .nav-brand {
+      font-family: var(--serif);
+      font-weight: 700;
+      font-size: 1.25rem;
+      color: var(--text-main);
+      text-decoration: none;
+      letter-spacing: -0.01em;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
 
-/* MOVING VISUAL COVERS */
-.cc-cover-wrap {
-  position: relative;
-  width: 100%;
-  height: 180px;
-  overflow: hidden;
-  background: #191410;
-  border-bottom: 1px solid var(--border-light);
-  cursor: pointer;
-  user-select: none;
-}
-.cc-cover-img {
-  position: absolute;
-  inset: -12px;
-  background-size: cover;
-  background-position: center;
-  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), filter 0.4s ease;
-}
-.cc-cover-hogwarts {
-  background-image: url('showcase/hogwarts/assets/hogwarts_castle.jpg');
-  animation: panZoomHogwarts 16s ease-in-out infinite alternate;
-  filter: brightness(0.92) contrast(1.04);
-}
-.cc-cover-wedding {
-  background-image: url('showcase/invitation/assets/images/royal_palace.jpg');
-  animation: panZoomWedding 20s ease-in-out infinite alternate;
-  filter: brightness(0.94) contrast(1.02);
-}
-.cc-cover-loan {
-  background-image: url('showcase/loan-management/assets/fintech_cover.jpg');
-  animation: panZoomLoan 14s ease-in-out infinite alternate;
-  filter: brightness(0.9) contrast(1.05);
-}
+    .brand-pill {
+      font-family: var(--sans);
+      font-weight: 600;
+      font-size: 0.72rem;
+      color: var(--terracotta);
+      background: var(--terracotta-soft);
+      border: 1px solid var(--terracotta-border);
+      padding: 0.2rem 0.55rem;
+      border-radius: 999px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
 
-@keyframes panZoomHogwarts {
-  0% { transform: scale(1.05) translate(0, 0); filter: brightness(0.9) contrast(1.05); }
-  50% { transform: scale(1.15) translate(-2%, -2%); filter: brightness(0.98) contrast(1.1); }
-  100% { transform: scale(1.08) translate(2%, 1%); filter: brightness(0.9) contrast(1.05); }
-}
+    .nav-links {
+      display: flex;
+      gap: 1.6rem;
+      align-items: center;
+    }
 
-@keyframes panZoomWedding {
-  0% { transform: scale(1.04) translate(0, 0); filter: brightness(0.95) saturate(1.05); }
-  50% { transform: scale(1.16) translate(2%, -2%); filter: brightness(1.02) saturate(1.1); }
-  100% { transform: scale(1.06) translate(-2%, 2%); filter: brightness(0.95) saturate(1.05); }
-}
+    .nav-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.88rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
 
-@keyframes panZoomLoan {
-  0% { transform: scale(1.02) translate(0, 0); }
-  50% { transform: scale(1.08) translate(1%, -2%); }
-  100% { transform: scale(1.04) translate(-2%, 1%); }
-}
+    .nav-links a:hover {
+      color: var(--terracotta);
+    }
 
-.creative-card:hover .cc-cover-img {
-  filter: brightness(1.05) saturate(1.15);
-  transform: scale(1.18);
-}
+    .nav-cta {
+      background: var(--terracotta) !important;
+      color: #FFFFFF !important;
+      padding: 0.45rem 1.15rem;
+      border-radius: 999px;
+      font-weight: 600 !important;
+      transition: all 0.2s !important;
+      box-shadow: 0 2px 8px rgba(168, 90, 42, 0.2);
+    }
 
-.cc-cover-wrap::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 60%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.25), transparent);
-  transform: skewX(-20deg);
-  pointer-events: none;
-}
-.creative-card:hover .cc-cover-wrap::after {
-  left: 160%;
-  transition: left 0.85s ease-in-out;
-}
+    .nav-cta:hover {
+      background: var(--terracotta-hover) !important;
+      transform: translateY(-1px);
+    }
 
-.cc-canvas {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 2;
-  pointer-events: auto;
-  cursor: pointer;
-}
+    /* HERO SECTION */
+    .hero {
+      padding: 4.5rem 0 3.5rem;
+    }
 
-.cc-cover-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(180deg, rgba(24, 18, 14, 0.05) 0%, rgba(24, 18, 14, 0.72) 100%);
-  display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
-  padding: 0.75rem 0.95rem;
-  pointer-events: none;
-  z-index: 3;
-}
-.cc-hint {
-  font-family: var(--mono);
-  font-size: 0.68rem;
-  font-weight: 600;
-  color: rgba(255, 255, 255, 0.9);
-  background: rgba(0, 0, 0, 0.45);
-  backdrop-filter: blur(4px);
-  padding: 0.2rem 0.6rem;
-  border-radius: 999px;
-  opacity: 0.85;
-  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-}
-.creative-card:hover .cc-hint {
-  opacity: 1;
-  background: var(--terracotta);
-  color: #FFFFFF;
-  box-shadow: 0 4px 12px rgba(168, 90, 42, 0.4);
-  transform: translateY(-1px);
-}
-.creative-card .cc-title {
-  cursor: pointer;
-  transition: color 0.2s ease;
-}
-.creative-card:hover .cc-title {
-  color: var(--terracotta);
-}
-.cc-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.45rem;
-  background: rgba(255, 255, 255, 0.94);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  padding: 0.22rem 0.65rem;
-  border-radius: 999px;
-  font-family: var(--mono);
-  font-size: 0.68rem;
-  font-weight: 600;
-  color: var(--text-main);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
-}
-.pulse-dot {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  display: inline-block;
-  animation: pulseDot 2s infinite ease-in-out;
-}
-.pulse-dot.red { background: #E05A47; box-shadow: 0 0 0 2px rgba(224, 90, 71, 0.25); }
-.pulse-dot.gold { background: #D4AF37; box-shadow: 0 0 0 2px rgba(212, 175, 55, 0.25); }
-.pulse-dot.green { background: #2A8C5B; box-shadow: 0 0 0 2px rgba(42, 140, 91, 0.25); }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.28fr 0.82fr;
+      gap: 3.5rem;
+      align-items: center;
+    }
 
-@keyframes pulseDot {
-  0%, 100% { transform: scale(1); opacity: 0.85; }
-  50% { transform: scale(1.4); opacity: 1; }
-}
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      background: var(--terracotta-soft);
+      border: 1px solid var(--terracotta-border);
+      padding: 0.3rem 0.85rem;
+      border-radius: 999px;
+      font-size: 0.76rem;
+      font-weight: 600;
+      color: var(--terracotta);
+      margin-bottom: 1.2rem;
+      letter-spacing: 0.03em;
+    }
 
-.cc-content {
-  padding: 1.35rem 1.4rem 1.4rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  flex: 1;
-}
-.cc-tag {
-  font-family: var(--mono);
-  font-size: 0.68rem;
-  color: var(--terracotta);
-  text-transform: uppercase;
-  margin-bottom: 0.35rem;
-  display: block;
-  font-weight: 600;
-}
-.cc-title {
-  font-family: var(--serif);
-  font-size: 1.12rem;
-  font-weight: 600;
-  color: var(--text-main);
-  margin-bottom: 0.4rem;
-  line-height: 1.3;
-}
-.cc-desc {
-  font-size: 0.84rem;
-  color: var(--text-muted);
-  line-height: 1.55;
-  margin-bottom: 1.2rem;
-}
-.cc-actions {
-  display: flex;
-  gap: 0.55rem;
-}
-.btn-sm {
-  font-size: 0.76rem;
-  font-weight: 600;
-  padding: 0.42rem 0.9rem;
-  border-radius: 999px;
-  text-decoration: none;
-  cursor: pointer;
-  border: none;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.3rem;
-  transition: all 0.2s;
-}
-.btn-sm-primary {
-  background: var(--terracotta);
-  color: #FFFFFF;
-}
-.btn-sm-primary:hover {
-  background: var(--terracotta-hover);
-}
-.btn-sm-secondary {
-  background: var(--bg-subtle);
-  color: var(--text-main);
-  border: 1px solid var(--border);
-}
-.btn-sm-secondary:hover {
-  border-color: var(--terracotta);
-  color: var(--terracotta);
-}
-.creative-disclaimer {
-  font-size: 0.78rem;
-  color: var(--text-dim);
-  margin-top: 1.1rem;
-  text-align: center;
-}
+    .hero-title {
+      font-family: var(--serif);
+      font-size: clamp(2.3rem, 4.4vw, 3.3rem);
+      font-weight: 600;
+      line-height: 1.18;
+      letter-spacing: -0.02em;
+      color: var(--text-main);
+      margin-bottom: 1.1rem;
+    }
 
-/* UNIFIED CONTACT CARD */
-#contact {
-  margin: 4.5rem 0 2rem;
-}
-.contact-card {
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
-  padding: 4rem 2.5rem;
-  text-align: center;
-  max-width: 760px;
-  margin: 0 auto;
-  box-shadow: 0 4px 20px rgba(36, 31, 25, 0.04);
-  position: relative;
-}
-.contact-tag {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  background: var(--terracotta-soft);
-  border: 1px solid var(--terracotta-border);
-  padding: 0.28rem 0.85rem;
-  border-radius: 999px;
-  font-family: var(--mono);
-  font-size: 0.72rem;
-  color: var(--terracotta);
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  font-weight: 600;
-  margin-bottom: 1.2rem;
-}
-.contact-title {
-  font-family: var(--serif);
-  font-size: clamp(2.1rem, 4vw, 2.7rem);
-  font-weight: 600;
-  color: var(--text-main);
-  line-height: 1.2;
-  margin-bottom: 1rem;
-  letter-spacing: -0.02em;
-}
-.contact-lead {
-  font-size: 1.02rem;
-  color: var(--text-muted);
-  line-height: 1.7;
-  max-width: 580px;
-  margin: 0 auto 2.4rem;
-}
-.contact-actions {
-  display: flex;
-  gap: 0.85rem;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-  margin-bottom: 2rem;
-}
-.contact-status {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-size: 0.82rem;
-  color: var(--forest);
-  background: var(--forest-soft);
-  border: 1px solid var(--forest-border);
-  padding: 0.35rem 0.95rem;
-  border-radius: 999px;
-  font-weight: 600;
-}
-.status-dot {
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background: var(--forest);
-  display: inline-block;
-  box-shadow: 0 0 0 3px rgba(42, 86, 65, 0.2);
-}
+    .hero-title em {
+      font-style: italic;
+      font-weight: 400;
+      color: var(--terracotta);
+    }
 
-/* FOOTER */
-footer {
-  border-top: 1px solid var(--border);
-  padding: 2rem 0;
-  margin-top: 3.5rem;
-  background: rgba(245, 239, 235, 0.7);
-}
-.footer-inner {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 0.82rem;
-  color: var(--text-dim);
-}
-.footer-socials {
-  display: flex;
-  gap: 1.4rem;
-}
-.footer-socials a {
-  color: var(--text-muted);
-  text-decoration: none;
-  transition: color 0.2s;
-  font-weight: 500;
-}
-.footer-socials a:hover { color: var(--terracotta); }
+    .rotating-word-wrap {
+      display: inline-flex;
+      align-items: baseline;
+      position: relative;
+      white-space: nowrap;
+    }
 
-/* MODAL EMULATOR (FOR CREATIVE TEST DRIVE) */
-.emulator-modal {
-  position: fixed;
-  inset: 0;
-  background: rgba(36, 31, 25, 0.7);
-  backdrop-filter: blur(8px);
-  z-index: 9999;
-  display: none;
-  align-items: center;
-  justify-content: center;
-  padding: 1.5rem;
-}
-.emulator-modal.open { display: flex; }
-.emulator-frame-wrap {
-  width: min(94vw, 1100px);
-  height: min(90vh, 780px);
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.3);
-}
-.emulator-header {
-  height: 48px;
-  background: var(--bg);
-  border-bottom: 1px solid var(--border);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 1.4rem;
-}
-.emulator-title {
-  font-size: 0.88rem;
-  font-weight: 600;
-  color: var(--text-main);
-  font-family: var(--serif);
-}
-.emulator-close {
-  background: transparent;
-  border: none;
-  color: var(--text-muted);
-  font-size: 1.4rem;
-  cursor: pointer;
-  padding: 0.2rem 0.5rem;
-  line-height: 1;
-}
-.emulator-close:hover { color: var(--terracotta); }
-.emulator-iframe {
-  width: 100%;
-  flex: 1;
-  border: none;
-  background: #000;
-}
+    .type-cursor {
+      display: inline-block;
+      color: var(--terracotta);
+      font-weight: 300;
+      font-style: normal;
+      margin-left: 2px;
+      animation: blinkCursor 0.9s infinite;
+      user-select: none;
+    }
 
-/* RESPONSIVE BREAKPOINTS */
-@media (max-width: 900px) {
-  .hero-grid { grid-template-columns: 1fr; gap: 2.2rem; }
-  .hero-photo-wrap { order: -1; }
-  .photo-frame { max-width: 250px; margin: 0 auto; }
-  .metrics-strip { grid-template-columns: repeat(2, 1fr); gap: 1.4rem; }
-  .about-card { padding: 1.8rem 1.4rem; }
-  .about-pillars { grid-template-columns: 1fr; gap: 1rem; }
-  .projects-grid { grid-template-columns: 1fr; }
-  .skills-grid { grid-template-columns: repeat(2, 1fr); }
-  .timeline-card { padding: 1.8rem 1.6rem; }
-  .creative-strip { grid-template-columns: 1fr; }
-  .contact-wrap { grid-template-columns: 1fr; gap: 2rem; }
-}
-@media (max-width: 600px) {
-  .nav-links a:not(.nav-cta) { display: none; }
-  .hero { padding: 3rem 0 2rem; }
-  .hero-title { font-size: 2.1rem; }
-  .metrics-strip { grid-template-columns: 1fr; }
-  .timeline-card { padding: 1.4rem 1.1rem; }
-  .footer-inner { flex-direction: column; gap: 1rem; text-align: center; }
-}
-</style>
+    @keyframes blinkCursor {
+
+      0%,
+      100% {
+        opacity: 1;
+      }
+
+      50% {
+        opacity: 0;
+      }
+    }
+
+    .hero-lead {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+      margin-bottom: 1.8rem;
+      max-width: 560px;
+    }
+
+    .hero-lead strong {
+      color: var(--text-main);
+      font-weight: 600;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 0.85rem;
+      align-items: center;
+      flex-wrap: wrap;
+      margin-bottom: 0;
+    }
+
+    .btn-primary {
+      background: var(--terracotta);
+      color: #FFFFFF;
+      font-weight: 600;
+      padding: 0.72rem 1.55rem;
+      border-radius: 999px;
+      text-decoration: none;
+      font-size: 0.88rem;
+      transition: all 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      box-shadow: 0 4px 12px rgba(168, 90, 42, 0.22);
+    }
+
+    .btn-primary:hover {
+      background: var(--terracotta-hover);
+      transform: translateY(-1px);
+      box-shadow: 0 6px 16px rgba(168, 90, 42, 0.3);
+    }
+
+    .btn-secondary {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      color: var(--text-main);
+      font-weight: 600;
+      padding: 0.7rem 1.35rem;
+      border-radius: 999px;
+      text-decoration: none;
+      font-size: 0.88rem;
+      transition: all 0.2s;
+      box-shadow: var(--shadow-sm);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--terracotta);
+      color: var(--terracotta);
+      transform: translateY(-1px);
+    }
+
+    /* HERO PHOTO COLUMN */
+    .hero-photo-wrap {
+      position: relative;
+      display: flex;
+      justify-content: center;
+    }
+
+    .photo-frame {
+      position: relative;
+      width: 100%;
+      max-width: 310px;
+      aspect-ratio: 1 / 1.05;
+      border-radius: 28px;
+      overflow: hidden;
+      background: var(--border-light);
+      box-shadow: 0 16px 36px rgba(60, 45, 30, 0.08), 0 4px 12px rgba(60, 45, 30, 0.04);
+      border: 4px solid var(--bg-card);
+      isolation: isolate;
+      -webkit-mask-image: -webkit-radial-gradient(white, black);
+    }
+
+    .hero-photo {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 20%;
+      display: block;
+      border-radius: 24px;
+    }
+
+    /* METRICS STRIP */
+    .metrics-strip {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.2rem;
+      padding: 2rem 0;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 3.5rem;
+    }
+
+    .metric-item {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .metric-val {
+      font-family: var(--mono);
+      font-size: 1.65rem;
+      font-weight: 700;
+      color: var(--terracotta);
+      line-height: 1.2;
+    }
+
+    .metric-lbl {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      margin-top: 0.3rem;
+      line-height: 1.4;
+      font-weight: 500;
+    }
+
+    /* SECTION COMMONS */
+    section {
+      padding: 3rem 0 2rem;
+    }
+
+    .section-header {
+      margin-bottom: 1.8rem;
+    }
+
+    .section-label {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--terracotta);
+      margin-bottom: 0.35rem;
+      display: block;
+      font-weight: 600;
+    }
+
+    .section-title {
+      font-family: var(--serif);
+      font-size: 2rem;
+      font-weight: 600;
+      color: var(--text-main);
+      letter-spacing: -0.01em;
+    }
+
+    .section-desc {
+      color: var(--text-muted);
+      font-size: 0.92rem;
+      margin-top: 0.3rem;
+      max-width: 600px;
+    }
+
+    /* ABOUT ME SECTION */
+    .about-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 2.2rem 2.5rem;
+      box-shadow: var(--shadow-sm);
+      margin-bottom: 2rem;
+    }
+
+    .about-narrative {
+      font-size: 1.02rem;
+      line-height: 1.82;
+      color: var(--text-main);
+      margin-bottom: 2rem;
+    }
+
+    .about-narrative p {
+      margin-bottom: 1.15rem;
+    }
+
+    .about-narrative p:last-child {
+      margin-bottom: 0;
+    }
+
+    .about-quote-box {
+      background: var(--terracotta-soft);
+      border-left: 3px solid var(--terracotta);
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+      padding: 1.15rem 1.5rem;
+      margin: 1.6rem 0;
+      font-family: var(--serif);
+      font-size: 1.08rem;
+      font-style: italic;
+      color: var(--text-main);
+      line-height: 1.65;
+    }
+
+    .about-pillars {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+    }
+
+    .about-pillar-card {
+      background: var(--bg);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-md);
+      padding: 1.5rem 1.4rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .about-pillar-card:hover {
+      border-color: var(--terracotta-border);
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-md);
+      background: #FFFDF9;
+    }
+
+    .about-pillar-header {
+      margin-bottom: 0.85rem;
+    }
+
+    .about-pillar-icon {
+      font-size: 1.65rem;
+      margin-bottom: 0.6rem;
+      display: inline-block;
+    }
+
+    .about-pillar-tag {
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      color: var(--terracotta);
+      background: var(--terracotta-soft);
+      border: 1px solid var(--terracotta-border);
+      padding: 0.15rem 0.55rem;
+      border-radius: var(--radius-sm);
+      display: inline-block;
+      margin-bottom: 0.55rem;
+      font-weight: 500;
+    }
+
+    .about-pillar-title {
+      font-family: var(--serif);
+      font-size: 1.12rem;
+      font-weight: 600;
+      color: var(--text-main);
+      line-height: 1.35;
+      margin-bottom: 0.55rem;
+    }
+
+    .about-pillar-desc {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.62;
+    }
+
+    .about-pillar-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+      margin-top: 1rem;
+      padding-top: 0.85rem;
+      border-top: 1px solid var(--border-light);
+    }
+
+    .about-chip {
+      font-size: 0.72rem;
+      font-weight: 500;
+      background: var(--bg-subtle);
+      color: var(--text-muted);
+      padding: 0.18rem 0.5rem;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border-light);
+    }
+
+    /* FILTER TABS */
+    .filter-tabs {
+      display: flex;
+      gap: 0.5rem;
+      margin-bottom: 1.8rem;
+      flex-wrap: wrap;
+    }
+
+    .filter-tab {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      padding: 0.42rem 0.95rem;
+      border-radius: 999px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+      font-family: var(--sans);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .filter-tab:hover {
+      color: var(--terracotta);
+      border-color: var(--terracotta-border);
+    }
+
+    .filter-tab.active {
+      background: var(--terracotta);
+      border-color: var(--terracotta);
+      color: #FFFFFF;
+      box-shadow: 0 2px 10px rgba(168, 90, 42, 0.25);
+    }
+
+    /* PROJECTS GRID (2-COLUMN COMPACT CLEAN CARDS) */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.3rem;
+    }
+
+    .project-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: all 0.22s ease;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .project-card:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--border-hover);
+    }
+
+    @keyframes cardFadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .project-card.animate-in {
+      animation: cardFadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    .project-top {
+      margin-bottom: 1rem;
+    }
+
+    .project-category {
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      color: var(--terracotta);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.4rem;
+      display: block;
+      font-weight: 600;
+    }
+
+    .project-title {
+      font-family: var(--serif);
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--text-main);
+      line-height: 1.32;
+      margin-bottom: 0.5rem;
+    }
+
+    .project-desc {
+      font-size: 0.86rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    .project-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+      margin: 0.9rem 0 1rem;
+    }
+
+    .badge {
+      background: var(--bg-subtle);
+      border: 1px solid var(--border-light);
+      color: var(--text-muted);
+      font-size: 0.7rem;
+      padding: 0.2rem 0.55rem;
+      border-radius: var(--radius-sm);
+      font-family: var(--mono);
+      font-weight: 500;
+    }
+
+    .project-links {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 0.85rem;
+      border-top: 1px solid var(--border-light);
+    }
+
+    .project-link {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--terracotta);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+      transition: color 0.2s;
+    }
+
+    .project-link:hover {
+      color: var(--terracotta-hover);
+    }
+
+    /* SKILLS & TOOLKIT (BALANCED 3-COLUMN GRID) */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+    }
+
+    .skill-box {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 1.4rem 1.35rem;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.22s ease, border-color 0.22s ease, box-shadow 0.22s ease;
+    }
+
+    .skill-box:hover {
+      transform: translateY(-3px);
+      border-color: var(--terracotta-border);
+      box-shadow: var(--shadow-md);
+    }
+
+    .skill-box-title {
+      font-family: var(--serif);
+      font-size: 0.98rem;
+      font-weight: 600;
+      color: var(--text-main);
+      margin-bottom: 0.85rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid var(--border-light);
+    }
+
+    .skill-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.38rem;
+    }
+
+    .skill-tag {
+      background: var(--bg-subtle);
+      color: var(--text-muted);
+      font-size: 0.76rem;
+      padding: 0.24rem 0.54rem;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border-light);
+      font-weight: 500;
+      transition: all 0.15s ease;
+    }
+
+    .skill-tag:hover {
+      background: var(--terracotta-soft);
+      color: var(--terracotta);
+      border-color: var(--terracotta-border);
+    }
+
+    /* UNIFIED JOURNEY & BACKGROUND TIMELINE */
+    .timeline-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 2.2rem 2.5rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .timeline-item {
+      position: relative;
+      padding-left: 1.8rem;
+      border-left: 2px solid var(--border);
+      padding-bottom: 2rem;
+    }
+
+    .timeline-item:last-child {
+      padding-bottom: 0;
+      border-left-color: transparent;
+    }
+
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -6px;
+      top: 4px;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--terracotta);
+      box-shadow: 0 0 0 3px rgba(168, 90, 42, 0.15);
+    }
+
+    .ti-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 0.2rem;
+    }
+
+    .ti-degree {
+      font-family: var(--serif);
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--text-main);
+    }
+
+    .ti-badge {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      color: var(--terracotta);
+      background: var(--terracotta-soft);
+      border: 1px solid var(--terracotta-border);
+      padding: 0.18rem 0.6rem;
+      border-radius: var(--radius-sm);
+      font-weight: 500;
+    }
+
+    .ti-school {
+      font-size: 0.84rem;
+      color: var(--terracotta);
+      font-weight: 600;
+      margin-bottom: 0.45rem;
+    }
+
+    .ti-desc {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* CREATIVE WEB LAB */
+    .creative-strip {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.3rem;
+    }
+
+    .creative-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .creative-card:hover {
+      border-color: var(--terracotta-border);
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+    }
+
+    /* MOVING VISUAL COVERS */
+    .cc-cover-wrap {
+      position: relative;
+      width: 100%;
+      height: 180px;
+      overflow: hidden;
+      background: #191410;
+      border-bottom: 1px solid var(--border-light);
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .cc-cover-img {
+      position: absolute;
+      inset: -12px;
+      background-size: cover;
+      background-position: center;
+      transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), filter 0.4s ease;
+    }
+
+    .cc-cover-hogwarts {
+      background-image: url('showcase/hogwarts/assets/hogwarts_castle.jpg');
+      animation: panZoomHogwarts 16s ease-in-out infinite alternate;
+      filter: brightness(0.92) contrast(1.04);
+    }
+
+    .cc-cover-wedding {
+      background-image: url('showcase/invitation/assets/images/royal_palace.jpg');
+      animation: panZoomWedding 20s ease-in-out infinite alternate;
+      filter: brightness(0.94) contrast(1.02);
+    }
+
+    .cc-cover-loan {
+      background-image: url('showcase/loan-management/assets/fintech_cover.jpg');
+      animation: panZoomLoan 14s ease-in-out infinite alternate;
+      filter: brightness(0.9) contrast(1.05);
+    }
+
+    @keyframes panZoomHogwarts {
+      0% {
+        transform: scale(1.05) translate(0, 0);
+        filter: brightness(0.9) contrast(1.05);
+      }
+
+      50% {
+        transform: scale(1.15) translate(-2%, -2%);
+        filter: brightness(0.98) contrast(1.1);
+      }
+
+      100% {
+        transform: scale(1.08) translate(2%, 1%);
+        filter: brightness(0.9) contrast(1.05);
+      }
+    }
+
+    @keyframes panZoomWedding {
+      0% {
+        transform: scale(1.04) translate(0, 0);
+        filter: brightness(0.95) saturate(1.05);
+      }
+
+      50% {
+        transform: scale(1.16) translate(2%, -2%);
+        filter: brightness(1.02) saturate(1.1);
+      }
+
+      100% {
+        transform: scale(1.06) translate(-2%, 2%);
+        filter: brightness(0.95) saturate(1.05);
+      }
+    }
+
+    @keyframes panZoomLoan {
+      0% {
+        transform: scale(1.02) translate(0, 0);
+      }
+
+      50% {
+        transform: scale(1.08) translate(1%, -2%);
+      }
+
+      100% {
+        transform: scale(1.04) translate(-2%, 1%);
+      }
+    }
+
+    .creative-card:hover .cc-cover-img {
+      filter: brightness(1.05) saturate(1.15);
+      transform: scale(1.18);
+    }
+
+    .cc-cover-wrap::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 60%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.25), transparent);
+      transform: skewX(-20deg);
+      pointer-events: none;
+    }
+
+    .creative-card:hover .cc-cover-wrap::after {
+      left: 160%;
+      transition: left 0.85s ease-in-out;
+    }
+
+    .cc-canvas {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 2;
+      pointer-events: auto;
+      cursor: pointer;
+    }
+
+    .cc-cover-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(24, 18, 14, 0.05) 0%, rgba(24, 18, 14, 0.72) 100%);
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      padding: 0.75rem 0.95rem;
+      pointer-events: none;
+      z-index: 3;
+    }
+
+    .cc-hint {
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      font-weight: 600;
+      color: rgba(255, 255, 255, 0.9);
+      background: rgba(0, 0, 0, 0.45);
+      backdrop-filter: blur(4px);
+      padding: 0.2rem 0.6rem;
+      border-radius: 999px;
+      opacity: 0.85;
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .creative-card:hover .cc-hint {
+      opacity: 1;
+      background: var(--terracotta);
+      color: #FFFFFF;
+      box-shadow: 0 4px 12px rgba(168, 90, 42, 0.4);
+      transform: translateY(-1px);
+    }
+
+    .creative-card .cc-title {
+      cursor: pointer;
+      transition: color 0.2s ease;
+    }
+
+    .creative-card:hover .cc-title {
+      color: var(--terracotta);
+    }
+
+    .cc-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      background: rgba(255, 255, 255, 0.94);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      padding: 0.22rem 0.65rem;
+      border-radius: 999px;
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      font-weight: 600;
+      color: var(--text-main);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
+    }
+
+    .pulse-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      display: inline-block;
+      animation: pulseDot 2s infinite ease-in-out;
+    }
+
+    .pulse-dot.red {
+      background: #E05A47;
+      box-shadow: 0 0 0 2px rgba(224, 90, 71, 0.25);
+    }
+
+    .pulse-dot.gold {
+      background: #D4AF37;
+      box-shadow: 0 0 0 2px rgba(212, 175, 55, 0.25);
+    }
+
+    .pulse-dot.green {
+      background: #2A8C5B;
+      box-shadow: 0 0 0 2px rgba(42, 140, 91, 0.25);
+    }
+
+    @keyframes pulseDot {
+
+      0%,
+      100% {
+        transform: scale(1);
+        opacity: 0.85;
+      }
+
+      50% {
+        transform: scale(1.4);
+        opacity: 1;
+      }
+    }
+
+    .cc-content {
+      padding: 1.35rem 1.4rem 1.4rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      flex: 1;
+    }
+
+    .cc-tag {
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      color: var(--terracotta);
+      text-transform: uppercase;
+      margin-bottom: 0.35rem;
+      display: block;
+      font-weight: 600;
+    }
+
+    .cc-title {
+      font-family: var(--serif);
+      font-size: 1.12rem;
+      font-weight: 600;
+      color: var(--text-main);
+      margin-bottom: 0.4rem;
+      line-height: 1.3;
+    }
+
+    .cc-desc {
+      font-size: 0.84rem;
+      color: var(--text-muted);
+      line-height: 1.55;
+      margin-bottom: 1.2rem;
+    }
+
+    .cc-actions {
+      display: flex;
+      gap: 0.55rem;
+    }
+
+    .btn-sm {
+      font-size: 0.76rem;
+      font-weight: 600;
+      padding: 0.42rem 0.9rem;
+      border-radius: 999px;
+      text-decoration: none;
+      cursor: pointer;
+      border: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      transition: all 0.2s;
+    }
+
+    .btn-sm-primary {
+      background: var(--terracotta);
+      color: #FFFFFF;
+    }
+
+    .btn-sm-primary:hover {
+      background: var(--terracotta-hover);
+    }
+
+    .btn-sm-secondary {
+      background: var(--bg-subtle);
+      color: var(--text-main);
+      border: 1px solid var(--border);
+    }
+
+    .btn-sm-secondary:hover {
+      border-color: var(--terracotta);
+      color: var(--terracotta);
+    }
+
+    .creative-disclaimer {
+      font-size: 0.78rem;
+      color: var(--text-dim);
+      margin-top: 1.1rem;
+      text-align: center;
+    }
+
+    /* UNIFIED CONTACT CARD */
+    #contact {
+      margin: 4.5rem 0 2rem;
+    }
+
+    .contact-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 4rem 2.5rem;
+      text-align: center;
+      max-width: 760px;
+      margin: 0 auto;
+      box-shadow: 0 4px 20px rgba(36, 31, 25, 0.04);
+      position: relative;
+    }
+
+    .contact-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: var(--terracotta-soft);
+      border: 1px solid var(--terracotta-border);
+      padding: 0.28rem 0.85rem;
+      border-radius: 999px;
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      color: var(--terracotta);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-weight: 600;
+      margin-bottom: 1.2rem;
+    }
+
+    .contact-title {
+      font-family: var(--serif);
+      font-size: clamp(2.1rem, 4vw, 2.7rem);
+      font-weight: 600;
+      color: var(--text-main);
+      line-height: 1.2;
+      margin-bottom: 1rem;
+      letter-spacing: -0.02em;
+    }
+
+    .contact-lead {
+      font-size: 1.02rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+      max-width: 580px;
+      margin: 0 auto 2.4rem;
+    }
+
+    .contact-actions {
+      display: flex;
+      gap: 0.85rem;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      margin-bottom: 2rem;
+    }
+
+    .contact-status {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.82rem;
+      color: var(--forest);
+      background: var(--forest-soft);
+      border: 1px solid var(--forest-border);
+      padding: 0.35rem 0.95rem;
+      border-radius: 999px;
+      font-weight: 600;
+    }
+
+    .status-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--forest);
+      display: inline-block;
+      box-shadow: 0 0 0 3px rgba(42, 86, 65, 0.2);
+    }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 2rem 0;
+      margin-top: 3.5rem;
+      background: rgba(245, 239, 235, 0.7);
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.82rem;
+      color: var(--text-dim);
+    }
+
+    .footer-socials {
+      display: flex;
+      gap: 1.4rem;
+    }
+
+    .footer-socials a {
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: color 0.2s;
+      font-weight: 500;
+    }
+
+    .footer-socials a:hover {
+      color: var(--terracotta);
+    }
+
+    /* MODAL EMULATOR (FOR CREATIVE TEST DRIVE) */
+    .emulator-modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(36, 31, 25, 0.7);
+      backdrop-filter: blur(8px);
+      z-index: 9999;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+    }
+
+    .emulator-modal.open {
+      display: flex;
+    }
+
+    .emulator-frame-wrap {
+      width: min(94vw, 1100px);
+      height: min(90vh, 780px);
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.3);
+    }
+
+    .emulator-header {
+      height: 48px;
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 1.4rem;
+    }
+
+    .emulator-title {
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--text-main);
+      font-family: var(--serif);
+    }
+
+    .emulator-close {
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      font-size: 1.4rem;
+      cursor: pointer;
+      padding: 0.2rem 0.5rem;
+      line-height: 1;
+    }
+
+    .emulator-close:hover {
+      color: var(--terracotta);
+    }
+
+    .emulator-iframe {
+      width: 100%;
+      flex: 1;
+      border: none;
+      background: #000;
+    }
+
+    /* RESPONSIVE BREAKPOINTS */
+    @media (max-width: 900px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 2.2rem;
+      }
+
+      .hero-photo-wrap {
+        order: -1;
+      }
+
+      .photo-frame {
+        max-width: 250px;
+        margin: 0 auto;
+      }
+
+      .metrics-strip {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.4rem;
+      }
+
+      .about-card {
+        padding: 1.8rem 1.4rem;
+      }
+
+      .about-pillars {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+      }
+
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .skills-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .timeline-card {
+        padding: 1.8rem 1.6rem;
+      }
+
+      .creative-strip {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-wrap {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .nav-links a:not(.nav-cta) {
+        display: none;
+      }
+
+      .hero {
+        padding: 3rem 0 2rem;
+      }
+
+      .hero-title {
+        font-size: 2.1rem;
+      }
+
+      .metrics-strip {
+        grid-template-columns: 1fr;
+      }
+
+      .skills-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .timeline-card {
+        padding: 1.4rem 1.1rem;
+      }
+
+      .footer-inner {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+      }
+    }
+  </style>
 </head>
 
 <body>
-<div class="ambient-bg"></div>
+  <div class="ambient-bg"></div>
 
-<!-- NAVIGATION -->
-<nav>
-  <div class="container nav-inner">
-    <a href="#" class="nav-brand">
-      Srishti Lamba <span class="brand-pill">Data &middot; Stats &middot; Analytics</span>
-    </a>
-    <div class="nav-links">
-      <a href="#about">About</a>
-      <a href="#projects">Work</a>
-      <a href="#skills">Toolkit</a>
-      <a href="#background">Background</a>
-      <a href="#creative">Creative Lab</a>
-      <a href="#contact" class="nav-cta">Get in Touch</a>
+  <!-- NAVIGATION -->
+  <nav>
+    <div class="container nav-inner">
+      <a href="#" class="nav-brand">
+        Srishti Lamba <span class="brand-pill">Data &middot; Stats &middot; Analytics</span>
+      </a>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#projects">Work</a>
+        <a href="#skills">Toolkit</a>
+        <a href="#background">Background</a>
+        <a href="#creative">Creative Lab</a>
+        <a href="#contact" class="nav-cta">Get in Touch</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container">
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+      <div class="hero-grid">
+        <div class="hero-content">
+          <span class="hero-tag">✨ STATISTICS &middot; DATA SCIENCE &middot; QUANTITATIVE ANALYTICS</span>
+          <h1 class="hero-title">I find the story in complex data and build <span class="rotating-word-wrap"><em
+                id="rotatingWord">predictive systems</em><span class="type-cursor">|</span></span> that matter.</h1>
+          <p class="hero-lead">
+            <strong>M.Sc. Data Science</strong> (DA-IICT) &amp; <strong>B.Sc. Statistics Honours</strong> (MSU Baroda).
+            Combining statistical inference, econometric forecasting, machine learning, and data analytics with bespoke,
+            interactive web craftsmanship.
+          </p>
+          <div class="hero-actions">
+            <a href="#about" class="btn-primary">About Me &darr;</a>
+            <a href="#projects" class="btn-secondary">Selected Work &rarr;</a>
+            <a href="#creative" class="btn-secondary">Creative Web Lab ⚡</a>
+            <a href="resume.pdf" target="_blank" class="btn-secondary">Resume &#8599;</a>
+          </div>
+        </div>
+
+        <div class="hero-photo-wrap">
+          <div class="photo-frame">
+            <img src="assets/photo.jpeg" alt="Srishti Lamba &mdash; Data Scientist, Analyst &amp; Quantitative Modeler"
+              class="hero-photo">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT ME SECTION -->
+    <section id="about">
+      <div class="section-header">
+        <span class="section-label">✦ Philosophy &amp; Background</span>
+        <h2 class="section-title">The Mind Behind the Models</h2>
+        <p class="section-desc">Who I am, what drives my intellectual curiosity, and how mathematical first-principles
+          and creative craft shape everything I build.</p>
+      </div>
+
+      <div class="about-card">
+        <div class="about-narrative">
+          <p>
+            I am a statistician and data scientist who believes that the most transformative technological breakthroughs
+            happen at the crossroads of <strong>first-principles mathematical rigor</strong>, <strong>empirical
+              scientific research</strong>, and <strong>creative digital storytelling</strong>.
+          </p>
+          <p>
+            Currently, I am pursuing my <strong>M.Sc. in Data Science at Dhirubhai Ambani Institute of Information and
+              Communication Technology (DA-IICT)</strong> (2025&ndash;2027), where I conduct longitudinal research
+            investigating smartphone application telemetry and cognitive attention dynamics using Linear Mixed Models.
+            My academic foundation was built during an intensive <strong>B.Sc. (Honours) in Statistics from The Maharaja
+              Sayajirao University of Baroda (MSU Baroda)</strong> (2021&ndash;2024), where I immersed myself in
+            mathematical statistics, probability theory, regression analysis, sampling distributions, and econometric
+            forecasting.
+          </p>
+
+          <div class="about-quote-box">
+            &ldquo;Algorithms can crunch numbers, but mathematical intuition asks the right questions &mdash; and
+            creative craft ensures the answers resonate with human beings.&rdquo;
+          </div>
+
+          <p>
+            To me, mathematics and statistics are far more than mechanical formulas or imported software
+            libraries&mdash;they are an intuitive lens for understanding uncertainty and real-world systems. Before
+            training a single model, I instinctively seek the underlying geometry: distribution shapes, matrix rank,
+            collinearity hazards, and causal structures. This intuition enables me to diagnose why models behave the way
+            they do, spot invisible data leaks, and build resilient predictive architectures that truly generalize to
+            reality.
+          </p>
+          <p>
+            Beyond quantitative modeling, I express my creative instincts through modern frontend engineering and
+            <strong>&ldquo;vibecoding&rdquo;</strong>. I love crafting interactive web worlds that feel responsive,
+            tactile, and alive&mdash;whether that means coding canvas sparklers over Hogwarts Castle, orchestrating
+            falling rose petal physics for a luxury wedding experience, or architecting offline-first FinTech loan
+            portals with live Excel synchronization. For me, code is both a scientific instrument and an artistic
+            canvas.
+          </p>
+        </div>
+
+        <!-- 3 Core Pillars -->
+        <div class="about-pillars">
+          <!-- Pillar 1: Education & Research -->
+          <div class="about-pillar-card">
+            <div class="about-pillar-header">
+              <span class="about-pillar-icon">🎓</span>
+              <span class="about-pillar-tag">Current Scholar &middot; 2025&ndash;2027</span>
+              <h3 class="about-pillar-title">Academic Trajectory &amp; Research</h3>
+              <p class="about-pillar-desc">Pursuing master’s studies at <strong>DA-IICT</strong> in Machine Learning,
+                Deep Learning, Cloud Data Systems, and Big Data Engineering. Preceded by a rigorous <strong>B.Sc.
+                  (Honours) in Statistics from MSU Baroda</strong> (2021&ndash;2024), conducting published
+                faculty-guided longitudinal research.</p>
+            </div>
+            <div class="about-pillar-chips">
+              <span class="about-chip">DA-IICT</span>
+              <span class="about-chip">MSU Baroda</span>
+              <span class="about-chip">M.Sc. Data Science</span>
+              <span class="about-chip">B.Sc. Statistics (Hons)</span>
+              <span class="about-chip">Longitudinal Telemetry</span>
+            </div>
+          </div>
+
+          <!-- Pillar 2: Mathematical Intuition -->
+          <div class="about-pillar-card">
+            <div class="about-pillar-header">
+              <span class="about-pillar-icon">📐</span>
+              <span class="about-pillar-tag">First-Principles Mindset</span>
+              <h3 class="about-pillar-title">Statistical &amp; Maths Intuition</h3>
+              <p class="about-pillar-desc">Viewing machine learning through probability spaces, matrix decomposition,
+                and econometric causality. Rejecting the black-box shortcut to deeply understand variance trade-offs,
+                distributional assumptions, and the exact mechanics that govern predictive performance.</p>
+            </div>
+            <div class="about-pillar-chips">
+              <span class="about-chip">Probability Theory</span>
+              <span class="about-chip">Linear Mixed Models</span>
+              <span class="about-chip">Econometric Forecasting</span>
+              <span class="about-chip">Hypothesis Testing</span>
+              <span class="about-chip">Stochastic Processes</span>
+            </div>
+          </div>
+
+          <!-- Pillar 3: Creative Web Craft -->
+          <div class="about-pillar-card">
+            <div class="about-pillar-header">
+              <span class="about-pillar-icon">🎨</span>
+              <span class="about-pillar-tag">Art Meets Algorithms</span>
+              <h3 class="about-pillar-title">Creative Web Craft &amp; Vibecoding</h3>
+              <p class="about-pillar-desc">Passionate about bringing imagination to life through bespoke frontend web
+                engineering. Creating fluid canvas particle physics, dynamic audio/visual engines, and intuitive
+                micro-interactions where complex data transforms into engaging interactive experiences.</p>
+            </div>
+            <div class="about-pillar-chips">
+              <span class="about-chip">Interactive Web Worlds</span>
+              <span class="about-chip">Canvas Particle Physics</span>
+              <span class="about-chip">Vibecoding</span>
+              <span class="about-chip">Audio &amp; Micro-UI</span>
+              <span class="about-chip">Tactile Web Craft</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS SHOWCASE -->
+    <section id="projects">
+      <div class="section-header">
+        <span class="section-label">Selected Case Studies</span>
+        <h2 class="section-title">Research &amp; Engineering Projects</h2>
+        <p class="section-desc">9 rigorously validated projects divided strictly by primary domain&mdash;from analytics
+          and predictive modeling to deep learning, big data management, and behavioral sensing.</p>
+      </div>
+
+      <!-- Category Filter Tabs -->
+      <div class="filter-tabs">
+        <button class="filter-tab active" data-filter="all">All Projects (9)</button>
+        <button class="filter-tab" data-filter="bde">🗄️ Data Management &amp; BDE (2)</button>
+        <button class="filter-tab" data-filter="analytics">📊 Data Analytics &amp; Econometrics (3)</button>
+        <button class="filter-tab" data-filter="ml-forecast">🤖 ML &amp; Forecasting (2)</button>
+        <button class="filter-tab" data-filter="deep-learning">🧠 Deep Learning &amp; GenAI (1)</button>
+        <button class="filter-tab" data-filter="behavioral">📱 Behavioral Sensing (1)</button>
+      </div>
+
+      <!-- 2-Column Compact Grid -->
+      <div class="projects-grid">
+
+        <!-- CATEGORY 1: DATA ANALYTICS & ECONOMETRICS -->
+        <!-- Project 1: Minor Project -->
+        <div class="project-card" data-category="analytics">
+          <div class="project-top">
+            <span class="project-category">Data Analytics &amp; Econometrics &middot; DA-IICT Minor Project</span>
+            <h3 class="project-title">Digital Consumption &amp; Academic Performance</h3>
+            <p class="project-desc">Official DA-IICT longitudinal research ($N=32$) under Prof. Bhaskar Chaudhury
+              combining smartphone telemetry and cognitive battery (SART, PVT-B). Uncovered an 8.32 hrs/day self-report
+              screen time underestimation bias ($p = 0.0015$) using Linear Mixed Models.</p>
+            <div class="project-badges">
+              <span class="badge">Linear Mixed Models</span>
+              <span class="badge">App Telemetry</span>
+              <span class="badge">Cognitive Battery</span>
+              <span class="badge">26 Hypotheses</span>
+            </div>
+          </div>
+          <div class="project-links">
+            <a href="#contact" class="project-link">Academic Research Notes &rarr;</a>
+          </div>
+        </div>
+
+        <!-- Project 2: IndiaShield -->
+        <div class="project-card" data-category="analytics">
+          <div class="project-top">
+            <span class="project-category">Data Analytics &amp; Geopolitical Telemetry &middot; SIPRI &amp;
+              Tableau</span>
+            <h3 class="project-title">IndiaShield &mdash; National Defense &amp; Cybercrime Telemetry</h3>
+            <p class="project-desc">Macroeconomic and security analytics platform analyzing 24-year SIPRI defense budget
+              datasets and 50,000+ national cybercrime incidents. Uncovered the Capital Outlay paradox and modeled state
+              vulnerability indices across 36 Indian states.</p>
+            <div class="project-badges">
+              <span class="badge">SIPRI Analytics</span>
+              <span class="badge">Tableau Public</span>
+              <span class="badge">Pandas</span>
+              <span class="badge">NSE Event Study</span>
+            </div>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/srishti7103/IndiaShield" target="_blank" class="project-link">GitHub Repository
+              &rarr;</a>
+          </div>
+        </div>
+
+        <!-- Project 3: A World in Numbers -->
+        <div class="project-card" data-category="analytics">
+          <div class="project-top">
+            <span class="project-category">Data Analytics &amp; Visualization &middot; Tamara Munzner Framework</span>
+            <h3 class="project-title">A World in Numbers &mdash; Global Development Atlas</h3>
+            <p class="project-desc">Interactive socio-economic dashboard modeling 195 nations across GDP per capita,
+              education indices, and health capital using the Tamara Munzner visualization framework with dynamic Plotly
+              correlation matrices.</p>
+            <div class="project-badges">
+              <span class="badge">Macro Data</span>
+              <span class="badge">Plotly</span>
+              <span class="badge">Correlation Matrices</span>
+              <span class="badge">Netlify</span>
+            </div>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/srishti7103" target="_blank" class="project-link">Netlify Web Portal &rarr;</a>
+          </div>
+        </div>
+
+        <!-- CATEGORY 2: ML & PREDICTIVE FORECASTING -->
+        <!-- Project 4: UK Road Accidents -->
+        <div class="project-card" data-category="ml-forecast">
+          <div class="project-top">
+            <span class="project-category">ML &amp; Predictive Modeling &middot; Department for Transport (UK)</span>
+            <h3 class="project-title">UK Road Accident Severity &amp; Collision Risk</h3>
+            <p class="project-desc">Engineered predictive severity classification across 89,019 collisions and 23
+              roadway attributes. Deployed CatBoost and XGBoost with SMOTE balancing, identifying rural 60mph limits and
+              unlit junctions as prime fatality drivers.</p>
+            <div class="project-badges">
+              <span class="badge">CatBoost</span>
+              <span class="badge">XGBoost</span>
+              <span class="badge">SMOTE</span>
+              <span class="badge">89,019 Records</span>
+            </div>
+          </div>
+          <div class="project-links">
+            <a href="#contact" class="project-link">ML Research Benchmark &rarr;</a>
+          </div>
+        </div>
+
+        <!-- Project 5: RupeeRisk -->
+        <div class="project-card" data-category="ml-forecast">
+          <div class="project-top">
+            <span class="project-category">Forex Econometrics &amp; ML &middot; BigQuery &amp; GDELT</span>
+            <h3 class="project-title">RupeeRisk &mdash; USD/INR Econometric Forecasting</h3>
+            <p class="project-desc">Macroeconomic currency forecasting pipeline analyzing GDELT geopolitical tension
+              indices across 4 transmission channels. Backtested over 200 rolling weeks, achieving 58.5% directional
+              accuracy, Sharpe ratio 1.30, and +17.67% return.</p>
+            <div class="project-badges">
+              <span class="badge">ARIMAX</span>
+              <span class="badge">GARCH</span>
+              <span class="badge">GDELT BigQuery</span>
+              <span class="badge">Sharpe 1.30</span>
+            </div>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/srishti7103/RupeeRisk" target="_blank" class="project-link">View on GitHub
+              &rarr;</a>
+          </div>
+        </div>
+
+        <!-- CATEGORY 3: DEEP LEARNING & GENAI -->
+        <!-- Project 6: ShramikSaathi -->
+        <div class="project-card" data-category="deep-learning">
+          <div class="project-top">
+            <span class="project-category">Deep Learning &amp; GenAI &middot; Fine-Tuned LLaMA 3.1</span>
+            <h3 class="project-title">ShramikSaathi &mdash; Legal Rights AI for Workers</h3>
+            <p class="project-desc">Multilingual legal chatbot fine-tuned on LLaMA 3.1 8B using LoRA SFT and Direct
+              Preference Optimization (DPO). Coupled with 9-layer FAISS dense vector retrieval over the Code on Wages to
+              provide instant, uncorrupted worker rights aid.</p>
+            <div class="project-badges">
+              <span class="badge">LLaMA 3.1 8B</span>
+              <span class="badge">LoRA SFT / DPO</span>
+              <span class="badge">FAISS RAG</span>
+              <span class="badge">PyTorch</span>
+            </div>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/srishti7103" target="_blank" class="project-link">GitHub Repository &rarr;</a>
+          </div>
+        </div>
+
+        <!-- CATEGORY 4: DATA MANAGEMENT & BIG DATA ENGINEERING (BDE) -->
+        <!-- Project 7: Faculty Finder -->
+        <div class="project-card" data-category="bde">
+          <div class="project-top">
+            <span class="project-category">Data Management &amp; BDE &middot; Semantic Vector Search</span>
+            <h3 class="project-title">Faculty Finder &mdash; Big Data Semantic Recommender</h3>
+            <p class="project-desc">End-to-end data recommendation pipeline connecting graduate applicants to
+              specialized faculty based on research statement semantics. Employs vector indexing over academic
+              publication databases, containerized with Docker and served via FastAPI on Railway.</p>
+            <div class="project-badges">
+              <span class="badge">Vector Indexing</span>
+              <span class="badge">FastAPI</span>
+              <span class="badge">Docker</span>
+              <span class="badge">Railway</span>
+            </div>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/srishti7103" target="_blank" class="project-link">View Architecture &rarr;</a>
+          </div>
+        </div>
+
+        <!-- Project 8: LogiSense -->
+        <div class="project-card" data-category="bde">
+          <div class="project-top">
+            <span class="project-category">Data Management &amp; BDE &middot; PostgreSQL (BCNF)</span>
+            <h3 class="project-title">LogiSense &mdash; Supply Chain Database &amp; Analytics</h3>
+            <p class="project-desc">Enterprise supply chain intelligence system built over a Boyce-Codd Normal Form
+              (BCNF) normalized PostgreSQL warehouse. Engineered high-performance analytical SQL queries and IQR anomaly
+              detection pipelines for real-time freight and inventory tracking.</p>
+            <div class="project-badges">
+              <span class="badge">PostgreSQL (BCNF)</span>
+              <span class="badge">Advanced SQL</span>
+              <span class="badge">IQR Anomaly Detection</span>
+              <span class="badge">Netlify</span>
+            </div>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/srishti7103/LogiSense" target="_blank" class="project-link">View on GitHub
+              &rarr;</a>
+          </div>
+        </div>
+
+        <!-- CATEGORY 5: BEHAVIORAL SENSING (MULTIDISCIPLINARY) -->
+        <!-- Project 9: Behavioral Sensing -->
+        <div class="project-card" data-category="behavioral">
+          <div class="project-top">
+            <span class="project-category">Behavioral Data Science &middot; Multimodal Telemetry</span>
+            <h3 class="project-title">Behavioral Sensing Telemetry Framework</h3>
+            <p class="project-desc">Continuous background tracking engine monitoring StayFree smartphone app events,
+              circadian phase delays, and cognitive fatigue. Validated across BSMAS, PHQ-4, and CFS psychometric
+              scales&mdash;bridging statistics, ML, and behavioral sensing.</p>
+            <div class="project-badges">
+              <span class="badge">Circadian Telemetry</span>
+              <span class="badge">Causal Inference</span>
+              <span class="badge">Statistical Regressions</span>
+              <span class="badge">Psychometrics</span>
+            </div>
+          </div>
+          <div class="project-links">
+            <a href="#contact" class="project-link">Telemetry Methodology &rarr;</a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SKILLS & TOOLKIT -->
+    <section id="skills">
+      <div class="section-header">
+        <span class="section-label">Toolkit &amp; Coursework</span>
+        <h2 class="section-title">Technical Proficiency &amp; Core Competencies</h2>
+        <p class="section-desc">A rigorous synthesis of mathematical statistics, applied machine learning, big data
+          engineering, and computational analytics acquired through academic training (B.Sc. Statistics &amp; M.Sc. Data
+          Science) and end-to-end production implementations.</p>
+      </div>
+      <div class="skills-grid">
+        <!-- 1. STATS & MATH FOUNDATIONS -->
+        <div class="skill-box">
+          <div class="skill-box-title">📐 Mathematical &amp; Theoretical Statistics</div>
+          <div class="skill-tags">
+            <span class="skill-tag">Probability Theory &amp; Distributions</span>
+            <span class="skill-tag">Statistical Inference &amp; Estimation (MLE)</span>
+            <span class="skill-tag">Hypothesis Testing (Parametric / Non-Parametric)</span>
+            <span class="skill-tag">Linear Algebra &amp; Matrix Decompositions (SVD)</span>
+            <span class="skill-tag">Multivariate Calculus &amp; Optimization</span>
+            <span class="skill-tag">Sampling Theory &amp; ANOVA</span>
+            <span class="skill-tag">Resampling (Bootstrap, Jackknife)</span>
+          </div>
+        </div>
+
+        <!-- 2. ML & PREDICTIVE MODELING -->
+        <div class="skill-box">
+          <div class="skill-box-title">🧠 Machine Learning &amp; Predictive Modeling</div>
+          <div class="skill-tags">
+            <span class="skill-tag">Supervised Learning (Regression &amp; Classification)</span>
+            <span class="skill-tag">Ensemble Methods (Random Forest, XGBoost, CatBoost)</span>
+            <span class="skill-tag">Unsupervised Learning (K-Means, Hierarchical, DBSCAN)</span>
+            <span class="skill-tag">Dimensionality Reduction (PCA, t-SNE)</span>
+            <span class="skill-tag">Feature Engineering &amp; Selection</span>
+            <span class="skill-tag">Model Evaluation (K-Fold CV, ROC-AUC, F1)</span>
+            <span class="skill-tag">Scikit-Learn</span>
+          </div>
+        </div>
+
+        <!-- 3. DEEP LEARNING, NLP & GENAI -->
+        <div class="skill-box">
+          <div class="skill-box-title">🤖 Deep Learning, NLP &amp; GenAI</div>
+          <div class="skill-tags">
+            <span class="skill-tag">Neural Networks &amp; Backpropagation</span>
+            <span class="skill-tag">PyTorch</span>
+            <span class="skill-tag">Transformers &amp; Self-Attention Mechanisms</span>
+            <span class="skill-tag">Large Language Models (LLMs) &amp; Prompt Engineering</span>
+            <span class="skill-tag">Fine-Tuning (LoRA SFT, DPO)</span>
+            <span class="skill-tag">Retrieval-Augmented Generation (RAG)</span>
+            <span class="skill-tag">Vector Embeddings &amp; Similarity Search (FAISS)</span>
+          </div>
+        </div>
+
+        <!-- 4. STATISTICAL MODELING & ECONOMETRICS -->
+        <div class="skill-box">
+          <div class="skill-box-title">📈 Statistical Modeling, Econometrics &amp; Time Series</div>
+          <div class="skill-tags">
+            <span class="skill-tag">Time Series Forecasting (ARIMA, SARIMAX)</span>
+            <span class="skill-tag">Volatility &amp; Risk Modeling (GARCH, VaR)</span>
+            <span class="skill-tag">Linear Mixed Effects Models (LMM)</span>
+            <span class="skill-tag">Stationarity &amp; Unit Root Tests (ADF, KPSS)</span>
+            <span class="skill-tag">Econometric Modeling &amp; Backtesting</span>
+            <span class="skill-tag">Psychometrics &amp; Behavioral Telemetry</span>
+            <span class="skill-tag">Longitudinal Data Analysis</span>
+          </div>
+        </div>
+
+        <!-- 5. BIG DATA & DATA ENGINEERING -->
+        <div class="skill-box">
+          <div class="skill-box-title">🗄️ Big Data, Databases &amp; Data Engineering</div>
+          <div class="skill-tags">
+            <span class="skill-tag">Advanced SQL (Window Functions, CTEs, Joins)</span>
+            <span class="skill-tag">Relational Database Design &amp; Normalization (3NF, BCNF)</span>
+            <span class="skill-tag">PostgreSQL &amp; SQLite</span>
+            <span class="skill-tag">Google BigQuery &amp; Cloud Warehousing</span>
+            <span class="skill-tag">Distributed Computing (Apache Spark / PySpark)</span>
+            <span class="skill-tag">ETL Pipeline Automation</span>
+            <span class="skill-tag">Database Indexing &amp; Query Optimization</span>
+          </div>
+        </div>
+
+        <!-- 6. PROGRAMMING, ANALYTICS & TOOLS -->
+        <div class="skill-box">
+          <div class="skill-box-title">💻 Programming, Analytics &amp; MLOps</div>
+          <div class="skill-tags">
+            <span class="skill-tag">Python (Pandas, NumPy, SciPy, Statsmodels)</span>
+            <span class="skill-tag">R Programming (Tidyverse, lme4, ggplot2)</span>
+            <span class="skill-tag">Data Structures &amp; Algorithms (DSA), OOP</span>
+            <span class="skill-tag">Exploratory Data Analysis (EDA) &amp; Data Wrangling</span>
+            <span class="skill-tag">Data Visualization (Plotly, Matplotlib, Seaborn, Tableau)</span>
+            <span class="skill-tag">FastAPI &amp; RESTful Microservices</span>
+            <span class="skill-tag">Git / GitHub, Docker, Linux / Bash CLI</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- UNIFIED EDUCATION & LEADERSHIP TIMELINE -->
+    <section id="background">
+      <div class="section-header">
+        <span class="section-label">Trajectory &amp; Milestones</span>
+        <h2 class="section-title">Education &amp; Leadership Journey</h2>
+        <p class="section-desc">Academic training in data science and statistical inference, combined with proactive
+          student governance, scientific mentorship, and community service.</p>
+      </div>
+
+      <div class="timeline-card">
+        <div class="timeline-item">
+          <div class="ti-header">
+            <div class="ti-degree">M.Sc. in Data Science</div>
+            <span class="ti-badge">2025 &ndash; 2027</span>
+          </div>
+          <div class="ti-school">Dhirubhai Ambani Institute of Information and Communication Technology (DA-IICT)</div>
+          <div class="ti-desc">Specializing in Machine Learning, Statistical Inference, Deep Learning, Cloud Computing,
+            and Big Data Engineering. Longitudinal research formulating and validating 26 empirical hypotheses across
+            smartphone telemetry and cognitive analytics.</div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="ti-header">
+            <div class="ti-degree">Humanitarian Volunteering &amp; Data Coordination</div>
+            <span class="ti-badge">2024 &middot; Community Outreach</span>
+          </div>
+          <div class="ti-school">Community Relief &amp; Aid Outreach</div>
+          <div class="ti-desc">Structured supply chain spreadsheets and intake logs for essential ration distribution,
+            supporting health aid and relief tracking for 50+ economically vulnerable families.</div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="ti-header">
+            <div class="ti-degree">B.Sc. (Honours) in Statistics</div>
+            <span class="ti-badge">2021 &ndash; 2024</span>
+          </div>
+          <div class="ti-school">The Maharaja Sayajirao University of Baroda</div>
+          <div class="ti-desc">Rigorous theoretical and applied grounding in probability theory, mathematical
+            statistics, linear regression, distribution theory, sampling methods, and econometric modeling.</div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="ti-header">
+            <div class="ti-degree">Senior Secondary (12th Grade) &mdash; School Captain</div>
+            <span class="ti-badge">2021</span>
+          </div>
+          <div class="ti-school">Jawahar Navodaya Vidyalaya (JNV)</div>
+          <div class="ti-desc">Completed 12th Grade under national merit residential schooling. Elected School Captain
+            by faculty and students to lead the student council, manage daily assemblies, oversee student governance,
+            and coordinate cultural and athletic events.</div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="ti-header">
+            <div class="ti-degree">President &mdash; Science Club &amp; Peer Mentorship</div>
+            <span class="ti-badge">Leadership &amp; Outreach</span>
+          </div>
+          <div class="ti-school">Student Innovation &amp; Mentorship</div>
+          <div class="ti-desc">Spearheaded student-led science exhibitions and workshops. Designed and presented a Green
+            Hydrogen Smart Village model, earning 3rd Place at the Regional Science Exhibition. Mentored junior peers in
+            math and scientific inquiry.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CREATIVE WEB LAB -->
+    <section id="creative">
+      <div class="section-header">
+        <span class="section-label">Frontend &amp; Creative Engineering</span>
+        <h2 class="section-title">Interactive Web Worlds ("Vibecoding")</h2>
+        <p class="section-desc">Turning creative imagination into bespoke, responsive web worlds using modern audio,
+          canvas sparklers, and frontend APIs.</p>
+      </div>
+
+      <div class="creative-strip">
+        <!-- Card 1: Hogwarts -->
+        <div class="creative-card">
+          <div class="cc-cover-wrap" onclick="openEmulator('showcase/hogwarts/index.html', 'A Hogwarts Journey')"
+            role="button" tabindex="0" aria-label="Click to test-drive A Hogwarts Journey"
+            onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openEmulator('showcase/hogwarts/index.html', 'A Hogwarts Journey');}">
+            <div class="cc-cover-img cc-cover-hogwarts"></div>
+            <canvas class="cc-canvas" id="canvas-hogwarts"></canvas>
+            <div class="cc-cover-overlay">
+              <span class="cc-badge"><span class="pulse-dot red"></span> Wizarding Realm &middot; Spell Sparks</span>
+              <span class="cc-hint">⚡ Click to Test-Drive &rarr;</span>
+            </div>
+          </div>
+          <div class="cc-content">
+            <div>
+              <span class="cc-tag">Wizarding Realm &middot; Web Showcase</span>
+              <h4 class="cc-title" onclick="openEmulator('showcase/hogwarts/index.html', 'A Hogwarts Journey')"
+                title="Click to test-drive">A Hogwarts Journey</h4>
+              <p class="cc-desc">Interactive wizarding experience with canvas sparklers, Marauder's Map footsteps,
+                wax-sealed owl post, and memory staircase.</p>
+            </div>
+            <div class="cc-actions">
+              <button class="btn-sm btn-sm-primary"
+                onclick="openEmulator('showcase/hogwarts/index.html', 'A Hogwarts Journey')">⚡ Test-Drive</button>
+              <a href="showcase/hogwarts/index.html" target="_blank" class="btn-sm btn-sm-secondary">Full Screen
+                &#8599;</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2: Royal Wedding -->
+        <div class="creative-card">
+          <div class="cc-cover-wrap"
+            onclick="openEmulator('showcase/invitation/index.html', 'Royal Celebration Experience')" role="button"
+            tabindex="0" aria-label="Click to test-drive Royal Celebration Experience"
+            onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openEmulator('showcase/invitation/index.html', 'Royal Celebration Experience');}">
+            <div class="cc-cover-img cc-cover-wedding"></div>
+            <canvas class="cc-canvas" id="canvas-wedding"></canvas>
+            <div class="cc-cover-overlay">
+              <span class="cc-badge"><span class="pulse-dot gold"></span> Luxury Event &middot; Petal Physics</span>
+              <span class="cc-hint">⚡ Click to Test-Drive &rarr;</span>
+            </div>
+          </div>
+          <div class="cc-content">
+            <div>
+              <span class="cc-tag">Event Experience &middot; Web Showcase</span>
+              <h4 class="cc-title"
+                onclick="openEmulator('showcase/invitation/index.html', 'Royal Celebration Experience')"
+                title="Click to test-drive">Royal Celebration Platform</h4>
+              <p class="cc-desc">Luxury wedding web portal featuring falling rose petals canvas, skywriting cloud
+                engine, boarding-pass RSVP modal, and live countdown.</p>
+            </div>
+            <div class="cc-actions">
+              <button class="btn-sm btn-sm-primary"
+                onclick="openEmulator('showcase/invitation/index.html', 'Royal Celebration Experience')">⚡
+                Test-Drive</button>
+              <a href="showcase/invitation/index.html" target="_blank" class="btn-sm btn-sm-secondary">Full Screen
+                &#8599;</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 3: Loan Management -->
+        <div class="creative-card">
+          <div class="cc-cover-wrap"
+            onclick="openEmulator('showcase/loan-management/index.html', 'Lamba Enterprises Portal')" role="button"
+            tabindex="0" aria-label="Click to test-drive Micro-Lending Management Portal"
+            onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openEmulator('showcase/loan-management/index.html', 'Lamba Enterprises Portal');}">
+            <div class="cc-cover-img cc-cover-loan"></div>
+            <canvas class="cc-canvas" id="canvas-loan"></canvas>
+            <div class="cc-cover-overlay">
+              <span class="cc-badge"><span class="pulse-dot green"></span> Live Telemetry &middot; Dynamic Sync
+                HUD</span>
+              <span class="cc-hint">⚡ Click to Test-Drive &rarr;</span>
+            </div>
+          </div>
+          <div class="cc-content">
+            <div>
+              <span class="cc-tag">Microfinance &middot; Production Portal</span>
+              <h4 class="cc-title"
+                onclick="openEmulator('showcase/loan-management/index.html', 'Lamba Enterprises Portal')"
+                title="Click to test-drive">Micro-Lending Management Portal</h4>
+              <p class="cc-desc">Offline-first lending web application with real-time two-way Excel file synchronization
+                via File System Access API and printable passbooks.</p>
+            </div>
+            <div class="cc-actions">
+              <button class="btn-sm btn-sm-primary"
+                onclick="openEmulator('showcase/loan-management/index.html', 'Lamba Enterprises Portal')">⚡
+                Test-Drive</button>
+              <a href="showcase/loan-management/index.html" target="_blank" class="btn-sm btn-sm-secondary">Full Screen
+                &#8599;</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p class="creative-disclaimer">Privacy Note: Showcase templates above are sanitized with mock data. All client
+        production builds are 100% custom-crafted from scratch.</p>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section id="contact">
+      <div class="contact-card">
+        <span class="contact-tag">✦ Let's Connect</span>
+        <h2 class="contact-title">Let's build something meaningful.</h2>
+        <p class="contact-lead">
+          I am actively seeking full-time roles across <strong>Data Science</strong>, <strong>Data &amp; Business
+            Analytics</strong>, and <strong>Statistical Modeling</strong>, as well as quantitative research. Have an
+          opportunity or looking to collaborate? My inbox is always open.
+        </p>
+
+        <div class="contact-actions">
+          <a href="mailto:[EMAIL_ADDRESS]" class="btn-primary">
+            Mail &rarr;
+          </a>
+          <a href="https://linkedin.com" target="_blank" class="btn-secondary">
+            LinkedIn &#8599;
+          </a>
+          <a href="https://github.com/srishti7103" target="_blank" class="btn-secondary">
+            GitHub &#8599;
+          </a>
+          <a href="resume.pdf" target="_blank" class="btn-secondary">
+            Resume (PDF) &#8599;
+          </a>
+        </div>
+
+        <div class="contact-status">
+          <span class="status-dot"></span>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container footer-inner">
+      <div>&copy; 2026 Srishti Lamba &middot; Crafted with Vanilla HTML, CSS &amp; JS</div>
+      <div class="footer-socials">
+        <a href="https://github.com/srishti7103" target="_blank">GitHub</a>
+        <a href="https://linkedin.com" target="_blank">LinkedIn</a>
+        <a href="mailto:srrml10@gmail.com">Email</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- MODAL DEVICE EMULATOR FOR LIVE TEST-DRIVE -->
+  <div id="emulator-modal" class="emulator-modal">
+    <div class="emulator-frame-wrap">
+      <div class="emulator-header">
+        <span id="emulator-title" class="emulator-title">Live Preview</span>
+        <button class="emulator-close" onclick="closeEmulator()">&times;</button>
+      </div>
+      <iframe id="emulator-iframe" class="emulator-iframe" src=""></iframe>
     </div>
   </div>
-</nav>
 
-<main class="container">
+  <script>
+    // Filter Tabs Logic: Smooth animated 1-to-1 primary category filtering
+    document.querySelectorAll('.filter-tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+        const filter = tab.getAttribute('data-filter');
+        document.querySelectorAll('.project-card').forEach(card => {
+          card.classList.remove('animate-in');
+          const cat = card.getAttribute('data-category') || '';
+          if (filter === 'all' || cat === filter) {
+            card.style.display = 'flex';
+            void card.offsetWidth; // force reflow for smooth animation
+            card.classList.add('animate-in');
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
 
-  <!-- HERO SECTION -->
-  <section class="hero">
-    <div class="hero-grid">
-      <div class="hero-content">
-        <span class="hero-tag">✨ STATISTICS &middot; DATA SCIENCE &middot; QUANTITATIVE ANALYTICS</span>
-        <h1 class="hero-title">I find the story in complex data and build <span class="rotating-word-wrap"><em id="rotatingWord">predictive systems</em><span class="type-cursor">|</span></span> that matter.</h1>
-        <p class="hero-lead">
-          <strong>M.Sc. Data Science</strong> (DA-IICT) &amp; <strong>B.Sc. Statistics Honours</strong> (MSU Baroda). Combining statistical inference, econometric forecasting, machine learning, and data analytics with bespoke, interactive web craftsmanship.
-        </p>
-        <div class="hero-actions">
-          <a href="#about" class="btn-primary">About Me &darr;</a>
-          <a href="#projects" class="btn-secondary">Selected Work &rarr;</a>
-          <a href="#creative" class="btn-secondary">Creative Web Lab ⚡</a>
-          <a href="resume.pdf" target="_blank" class="btn-secondary">Resume &#8599;</a>
-        </div>
-      </div>
+    // Emulator Modal Logic
+    function openEmulator(url, title) {
+      document.getElementById('emulator-title').textContent = title;
+      document.getElementById('emulator-iframe').src = url;
+      document.getElementById('emulator-modal').classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeEmulator() {
+      document.getElementById('emulator-modal').classList.remove('open');
+      document.getElementById('emulator-iframe').src = '';
+      document.body.style.overflow = '';
+    }
+    document.getElementById('emulator-modal').addEventListener('click', (e) => {
+      if (e.target.id === 'emulator-modal') closeEmulator();
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeEmulator();
+    });
 
-      <div class="hero-photo-wrap">
-        <div class="photo-frame">
-          <img src="assets/photo.jpeg" alt="Srishti Lamba &mdash; Data Scientist, Analyst &amp; Quantitative Modeler" class="hero-photo">
-        </div>
-      </div>
-    </div>
-  </section>
+    // Dynamic Hero Headline Rotating Words
+    const dynamicWords = [
+      "predictive systems",
+      "statistical models",
+      "data analytics pipelines",
+      "econometric forecasts",
+      "interactive web worlds"
+    ];
+    let wordIdx = 0;
+    let charIdx = dynamicWords[0].length;
+    let isDeleting = true;
+    const rotatingEl = document.getElementById('rotatingWord');
 
-  <!-- ABOUT ME SECTION -->
-  <section id="about">
-    <div class="section-header">
-      <span class="section-label">✦ Philosophy &amp; Background</span>
-      <h2 class="section-title">The Mind Behind the Models</h2>
-      <p class="section-desc">Who I am, what drives my intellectual curiosity, and how mathematical first-principles and creative craft shape everything I build.</p>
-    </div>
+    function typeRotate() {
+      if (!rotatingEl) return;
+      const currentWord = dynamicWords[wordIdx];
 
-    <div class="about-card">
-      <div class="about-narrative">
-        <p>
-          I am a statistician and data scientist who believes that the most transformative technological breakthroughs happen at the crossroads of <strong>first-principles mathematical rigor</strong>, <strong>empirical scientific research</strong>, and <strong>creative digital storytelling</strong>.
-        </p>
-        <p>
-          Currently, I am pursuing my <strong>M.Sc. in Data Science at Dhirubhai Ambani Institute of Information and Communication Technology (DA-IICT)</strong> (2025&ndash;2027), where I conduct longitudinal research investigating smartphone application telemetry and cognitive attention dynamics using Linear Mixed Models. My academic foundation was built during an intensive <strong>B.Sc. (Honours) in Statistics from The Maharaja Sayajirao University of Baroda (MSU Baroda)</strong> (2021&ndash;2024), where I immersed myself in mathematical statistics, probability theory, regression analysis, sampling distributions, and econometric forecasting.
-        </p>
-
-        <div class="about-quote-box">
-          &ldquo;Algorithms can crunch numbers, but mathematical intuition asks the right questions &mdash; and creative craft ensures the answers resonate with human beings.&rdquo;
-        </div>
-
-        <p>
-          To me, mathematics and statistics are far more than mechanical formulas or imported software libraries&mdash;they are an intuitive lens for understanding uncertainty and real-world systems. Before training a single model, I instinctively seek the underlying geometry: distribution shapes, matrix rank, collinearity hazards, and causal structures. This intuition enables me to diagnose why models behave the way they do, spot invisible data leaks, and build resilient predictive architectures that truly generalize to reality.
-        </p>
-        <p>
-          Beyond quantitative modeling, I express my creative instincts through modern frontend engineering and <strong>&ldquo;vibecoding&rdquo;</strong>. I love crafting interactive web worlds that feel responsive, tactile, and alive&mdash;whether that means coding canvas sparklers over Hogwarts Castle, orchestrating falling rose petal physics for a luxury wedding experience, or architecting offline-first FinTech loan portals with live Excel synchronization. For me, code is both a scientific instrument and an artistic canvas.
-        </p>
-      </div>
-
-      <!-- 3 Core Pillars -->
-      <div class="about-pillars">
-        <!-- Pillar 1: Education & Research -->
-        <div class="about-pillar-card">
-          <div class="about-pillar-header">
-            <span class="about-pillar-icon">🎓</span>
-            <span class="about-pillar-tag">Current Scholar &middot; 2025&ndash;2027</span>
-            <h3 class="about-pillar-title">Academic Trajectory &amp; Research</h3>
-            <p class="about-pillar-desc">Pursuing master’s studies at <strong>DA-IICT</strong> in Machine Learning, Deep Learning, Cloud Data Systems, and Big Data Engineering. Preceded by a rigorous <strong>B.Sc. (Honours) in Statistics from MSU Baroda</strong> (2021&ndash;2024), conducting published faculty-guided longitudinal research.</p>
-          </div>
-          <div class="about-pillar-chips">
-            <span class="about-chip">DA-IICT</span>
-            <span class="about-chip">MSU Baroda</span>
-            <span class="about-chip">M.Sc. Data Science</span>
-            <span class="about-chip">B.Sc. Statistics (Hons)</span>
-            <span class="about-chip">Longitudinal Telemetry</span>
-          </div>
-        </div>
-
-        <!-- Pillar 2: Mathematical Intuition -->
-        <div class="about-pillar-card">
-          <div class="about-pillar-header">
-            <span class="about-pillar-icon">📐</span>
-            <span class="about-pillar-tag">First-Principles Mindset</span>
-            <h3 class="about-pillar-title">Statistical &amp; Maths Intuition</h3>
-            <p class="about-pillar-desc">Viewing machine learning through probability spaces, matrix decomposition, and econometric causality. Rejecting the black-box shortcut to deeply understand variance trade-offs, distributional assumptions, and the exact mechanics that govern predictive performance.</p>
-          </div>
-          <div class="about-pillar-chips">
-            <span class="about-chip">Probability Theory</span>
-            <span class="about-chip">Linear Mixed Models</span>
-            <span class="about-chip">Econometric Forecasting</span>
-            <span class="about-chip">Hypothesis Testing</span>
-            <span class="about-chip">Stochastic Processes</span>
-          </div>
-        </div>
-
-        <!-- Pillar 3: Creative Web Craft -->
-        <div class="about-pillar-card">
-          <div class="about-pillar-header">
-            <span class="about-pillar-icon">🎨</span>
-            <span class="about-pillar-tag">Art Meets Algorithms</span>
-            <h3 class="about-pillar-title">Creative Web Craft &amp; Vibecoding</h3>
-            <p class="about-pillar-desc">Passionate about bringing imagination to life through bespoke frontend web engineering. Creating fluid canvas particle physics, dynamic audio/visual engines, and intuitive micro-interactions where complex data transforms into engaging interactive experiences.</p>
-          </div>
-          <div class="about-pillar-chips">
-            <span class="about-chip">Interactive Web Worlds</span>
-            <span class="about-chip">Canvas Particle Physics</span>
-            <span class="about-chip">Vibecoding</span>
-            <span class="about-chip">Audio &amp; Micro-UI</span>
-            <span class="about-chip">Tactile Web Craft</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- PROJECTS SHOWCASE -->
-  <section id="projects">
-    <div class="section-header">
-      <span class="section-label">Selected Case Studies</span>
-      <h2 class="section-title">Research &amp; Engineering Projects</h2>
-      <p class="section-desc">9 rigorously validated projects divided strictly by primary domain&mdash;from analytics and predictive modeling to deep learning, big data management, and behavioral sensing.</p>
-    </div>
-
-    <!-- Category Filter Tabs -->
-    <div class="filter-tabs">
-      <button class="filter-tab active" data-filter="all">All Projects (9)</button>
-      <button class="filter-tab" data-filter="bde">🗄️ Data Management &amp; BDE (2)</button>
-      <button class="filter-tab" data-filter="analytics">📊 Data Analytics &amp; Econometrics (3)</button>
-      <button class="filter-tab" data-filter="ml-forecast">🤖 ML &amp; Forecasting (2)</button>
-      <button class="filter-tab" data-filter="deep-learning">🧠 Deep Learning &amp; GenAI (1)</button>
-      <button class="filter-tab" data-filter="behavioral">📱 Behavioral Sensing (1)</button>
-    </div>
-
-    <!-- 2-Column Compact Grid -->
-    <div class="projects-grid">
-
-      <!-- CATEGORY 1: DATA ANALYTICS & ECONOMETRICS -->
-      <!-- Project 1: Minor Project -->
-      <div class="project-card" data-category="analytics">
-        <div class="project-top">
-          <span class="project-category">Data Analytics &amp; Econometrics &middot; DA-IICT Minor Project</span>
-          <h3 class="project-title">Digital Consumption &amp; Academic Performance</h3>
-          <p class="project-desc">Official DA-IICT longitudinal research ($N=32$) under Prof. Bhaskar Chaudhury combining smartphone telemetry and cognitive battery (SART, PVT-B). Uncovered an 8.32 hrs/day self-report screen time underestimation bias ($p = 0.0015$) using Linear Mixed Models.</p>
-          <div class="project-badges">
-            <span class="badge">Linear Mixed Models</span>
-            <span class="badge">App Telemetry</span>
-            <span class="badge">Cognitive Battery</span>
-            <span class="badge">26 Hypotheses</span>
-          </div>
-        </div>
-        <div class="project-links">
-          <a href="#contact" class="project-link">Academic Research Notes &rarr;</a>
-        </div>
-      </div>
-
-      <!-- Project 2: IndiaShield -->
-      <div class="project-card" data-category="analytics">
-        <div class="project-top">
-          <span class="project-category">Data Analytics &amp; Geopolitical Telemetry &middot; SIPRI &amp; Tableau</span>
-          <h3 class="project-title">IndiaShield &mdash; National Defense &amp; Cybercrime Telemetry</h3>
-          <p class="project-desc">Macroeconomic and security analytics platform analyzing 24-year SIPRI defense budget datasets and 50,000+ national cybercrime incidents. Uncovered the Capital Outlay paradox and modeled state vulnerability indices across 36 Indian states.</p>
-          <div class="project-badges">
-            <span class="badge">SIPRI Analytics</span>
-            <span class="badge">Tableau Public</span>
-            <span class="badge">Pandas</span>
-            <span class="badge">NSE Event Study</span>
-          </div>
-        </div>
-        <div class="project-links">
-          <a href="https://github.com/srishti7103/IndiaShield" target="_blank" class="project-link">GitHub Repository &rarr;</a>
-        </div>
-      </div>
-
-      <!-- Project 3: A World in Numbers -->
-      <div class="project-card" data-category="analytics">
-        <div class="project-top">
-          <span class="project-category">Data Analytics &amp; Visualization &middot; Tamara Munzner Framework</span>
-          <h3 class="project-title">A World in Numbers &mdash; Global Development Atlas</h3>
-          <p class="project-desc">Interactive socio-economic dashboard modeling 195 nations across GDP per capita, education indices, and health capital using the Tamara Munzner visualization framework with dynamic Plotly correlation matrices.</p>
-          <div class="project-badges">
-            <span class="badge">Macro Data</span>
-            <span class="badge">Plotly</span>
-            <span class="badge">Correlation Matrices</span>
-            <span class="badge">Netlify</span>
-          </div>
-        </div>
-        <div class="project-links">
-          <a href="https://github.com/srishti7103" target="_blank" class="project-link">Netlify Web Portal &rarr;</a>
-        </div>
-      </div>
-
-      <!-- CATEGORY 2: ML & PREDICTIVE FORECASTING -->
-      <!-- Project 4: UK Road Accidents -->
-      <div class="project-card" data-category="ml-forecast">
-        <div class="project-top">
-          <span class="project-category">ML &amp; Predictive Modeling &middot; Department for Transport (UK)</span>
-          <h3 class="project-title">UK Road Accident Severity &amp; Collision Risk</h3>
-          <p class="project-desc">Engineered predictive severity classification across 89,019 collisions and 23 roadway attributes. Deployed CatBoost and XGBoost with SMOTE balancing, identifying rural 60mph limits and unlit junctions as prime fatality drivers.</p>
-          <div class="project-badges">
-            <span class="badge">CatBoost</span>
-            <span class="badge">XGBoost</span>
-            <span class="badge">SMOTE</span>
-            <span class="badge">89,019 Records</span>
-          </div>
-        </div>
-        <div class="project-links">
-          <a href="#contact" class="project-link">ML Research Benchmark &rarr;</a>
-        </div>
-      </div>
-
-      <!-- Project 5: RupeeRisk -->
-      <div class="project-card" data-category="ml-forecast">
-        <div class="project-top">
-          <span class="project-category">Forex Econometrics &amp; ML &middot; BigQuery &amp; GDELT</span>
-          <h3 class="project-title">RupeeRisk &mdash; USD/INR Econometric Forecasting</h3>
-          <p class="project-desc">Macroeconomic currency forecasting pipeline analyzing GDELT geopolitical tension indices across 4 transmission channels. Backtested over 200 rolling weeks, achieving 58.5% directional accuracy, Sharpe ratio 1.30, and +17.67% return.</p>
-          <div class="project-badges">
-            <span class="badge">ARIMAX</span>
-            <span class="badge">GARCH</span>
-            <span class="badge">GDELT BigQuery</span>
-            <span class="badge">Sharpe 1.30</span>
-          </div>
-        </div>
-        <div class="project-links">
-          <a href="https://github.com/srishti7103/RupeeRisk" target="_blank" class="project-link">View on GitHub &rarr;</a>
-        </div>
-      </div>
-
-      <!-- CATEGORY 3: DEEP LEARNING & GENAI -->
-      <!-- Project 6: ShramikSaathi -->
-      <div class="project-card" data-category="deep-learning">
-        <div class="project-top">
-          <span class="project-category">Deep Learning &amp; GenAI &middot; Fine-Tuned LLaMA 3.1</span>
-          <h3 class="project-title">ShramikSaathi &mdash; Legal Rights AI for Workers</h3>
-          <p class="project-desc">Multilingual legal chatbot fine-tuned on LLaMA 3.1 8B using LoRA SFT and Direct Preference Optimization (DPO). Coupled with 9-layer FAISS dense vector retrieval over the Code on Wages to provide instant, uncorrupted worker rights aid.</p>
-          <div class="project-badges">
-            <span class="badge">LLaMA 3.1 8B</span>
-            <span class="badge">LoRA SFT / DPO</span>
-            <span class="badge">FAISS RAG</span>
-            <span class="badge">PyTorch</span>
-          </div>
-        </div>
-        <div class="project-links">
-          <a href="https://github.com/srishti7103" target="_blank" class="project-link">GitHub Repository &rarr;</a>
-        </div>
-      </div>
-
-      <!-- CATEGORY 4: DATA MANAGEMENT & BIG DATA ENGINEERING (BDE) -->
-      <!-- Project 7: Faculty Finder -->
-      <div class="project-card" data-category="bde">
-        <div class="project-top">
-          <span class="project-category">Data Management &amp; BDE &middot; Semantic Vector Search</span>
-          <h3 class="project-title">Faculty Finder &mdash; Big Data Semantic Recommender</h3>
-          <p class="project-desc">End-to-end data recommendation pipeline connecting graduate applicants to specialized faculty based on research statement semantics. Employs vector indexing over academic publication databases, containerized with Docker and served via FastAPI on Railway.</p>
-          <div class="project-badges">
-            <span class="badge">Vector Indexing</span>
-            <span class="badge">FastAPI</span>
-            <span class="badge">Docker</span>
-            <span class="badge">Railway</span>
-          </div>
-        </div>
-        <div class="project-links">
-          <a href="https://github.com/srishti7103" target="_blank" class="project-link">View Architecture &rarr;</a>
-        </div>
-      </div>
-
-      <!-- Project 8: LogiSense -->
-      <div class="project-card" data-category="bde">
-        <div class="project-top">
-          <span class="project-category">Data Management &amp; BDE &middot; PostgreSQL (BCNF)</span>
-          <h3 class="project-title">LogiSense &mdash; Supply Chain Database &amp; Analytics</h3>
-          <p class="project-desc">Enterprise supply chain intelligence system built over a Boyce-Codd Normal Form (BCNF) normalized PostgreSQL warehouse. Engineered high-performance analytical SQL queries and IQR anomaly detection pipelines for real-time freight and inventory tracking.</p>
-          <div class="project-badges">
-            <span class="badge">PostgreSQL (BCNF)</span>
-            <span class="badge">Advanced SQL</span>
-            <span class="badge">IQR Anomaly Detection</span>
-            <span class="badge">Netlify</span>
-          </div>
-        </div>
-        <div class="project-links">
-          <a href="https://github.com/srishti7103/LogiSense" target="_blank" class="project-link">View on GitHub &rarr;</a>
-        </div>
-      </div>
-
-      <!-- CATEGORY 5: BEHAVIORAL SENSING (MULTIDISCIPLINARY) -->
-      <!-- Project 9: Behavioral Sensing -->
-      <div class="project-card" data-category="behavioral">
-        <div class="project-top">
-          <span class="project-category">Behavioral Data Science &middot; Multimodal Telemetry</span>
-          <h3 class="project-title">Behavioral Sensing Telemetry Framework</h3>
-          <p class="project-desc">Continuous background tracking engine monitoring StayFree smartphone app events, circadian phase delays, and cognitive fatigue. Validated across BSMAS, PHQ-4, and CFS psychometric scales&mdash;bridging statistics, ML, and behavioral sensing.</p>
-          <div class="project-badges">
-            <span class="badge">Circadian Telemetry</span>
-            <span class="badge">Causal Inference</span>
-            <span class="badge">Statistical Regressions</span>
-            <span class="badge">Psychometrics</span>
-          </div>
-        </div>
-        <div class="project-links">
-          <a href="#contact" class="project-link">Telemetry Methodology &rarr;</a>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- SKILLS & TOOLKIT -->
-  <section id="skills">
-    <div class="section-header">
-      <span class="section-label">Toolkit</span>
-      <h2 class="section-title">Technical Proficiency</h2>
-    </div>
-    <div class="skills-grid">
-      <div class="skill-box">
-        <div class="skill-box-title">☁️ Systems &amp; Cloud</div>
-        <div class="skill-tags">
-          <span class="skill-tag">Cloud Architecture</span>
-          <span class="skill-tag">Distributed Systems</span>
-          <span class="skill-tag">Socket Programming</span>
-          <span class="skill-tag">Docker</span>
-          <span class="skill-tag">GCP</span>
-          <span class="skill-tag">Railway</span>
-          <span class="skill-tag">Netlify</span>
-        </div>
-      </div>
-
-      <div class="skill-box">
-        <div class="skill-box-title">🧠 ML &amp; Deep Learning</div>
-        <div class="skill-tags">
-          <span class="skill-tag">Scikit-Learn</span>
-          <span class="skill-tag">XGBoost / CatBoost</span>
-          <span class="skill-tag">LLaMA 3.1 8B</span>
-          <span class="skill-tag">LoRA SFT / DPO</span>
-          <span class="skill-tag">FAISS RAG</span>
-          <span class="skill-tag">PyTorch</span>
-        </div>
-      </div>
-
-      <div class="skill-box">
-        <div class="skill-box-title">📐 Stats &amp; Econometrics</div>
-        <div class="skill-tags">
-          <span class="skill-tag">Linear Mixed Models</span>
-          <span class="skill-tag">ARIMAX &amp; GARCH</span>
-          <span class="skill-tag">Hypothesis Testing</span>
-          <span class="skill-tag">Stationarity Tests</span>
-          <span class="skill-tag">Psychometrics</span>
-        </div>
-      </div>
-
-      <div class="skill-box">
-        <div class="skill-box-title">🗄️ Data Management &amp; BDE</div>
-        <div class="skill-tags">
-          <span class="skill-tag">PostgreSQL (BCNF)</span>
-          <span class="skill-tag">Google BigQuery</span>
-          <span class="skill-tag">SQLite</span>
-          <span class="skill-tag">Vector Search</span>
-          <span class="skill-tag">FastAPI</span>
-          <span class="skill-tag">Python (Pandas, NumPy)</span>
-          <span class="skill-tag">R Programming</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- UNIFIED EDUCATION & LEADERSHIP TIMELINE -->
-  <section id="background">
-    <div class="section-header">
-      <span class="section-label">Trajectory &amp; Milestones</span>
-      <h2 class="section-title">Education &amp; Leadership Journey</h2>
-      <p class="section-desc">Academic training in data science and statistical inference, combined with proactive student governance, scientific mentorship, and community service.</p>
-    </div>
-
-    <div class="timeline-card">
-      <div class="timeline-item">
-        <div class="ti-header">
-          <div class="ti-degree">M.Sc. in Data Science</div>
-          <span class="ti-badge">2025 &ndash; 2027</span>
-        </div>
-        <div class="ti-school">Dhirubhai Ambani Institute of Information and Communication Technology (DA-IICT)</div>
-        <div class="ti-desc">Specializing in Machine Learning, Statistical Inference, Deep Learning, Cloud Computing, and Big Data Engineering. Longitudinal research formulating and validating 26 empirical hypotheses across smartphone telemetry and cognitive analytics.</div>
-      </div>
-
-      <div class="timeline-item">
-        <div class="ti-header">
-          <div class="ti-degree">Humanitarian Volunteering &amp; Data Coordination</div>
-          <span class="ti-badge">2024 &middot; Community Outreach</span>
-        </div>
-        <div class="ti-school">Community Relief &amp; Aid Outreach</div>
-        <div class="ti-desc">Structured supply chain spreadsheets and intake logs for essential ration distribution, supporting health aid and relief tracking for 50+ economically vulnerable families.</div>
-      </div>
-
-      <div class="timeline-item">
-        <div class="ti-header">
-          <div class="ti-degree">B.Sc. (Honours) in Statistics</div>
-          <span class="ti-badge">2021 &ndash; 2024</span>
-        </div>
-        <div class="ti-school">The Maharaja Sayajirao University of Baroda</div>
-        <div class="ti-desc">Rigorous theoretical and applied grounding in probability theory, mathematical statistics, linear regression, distribution theory, sampling methods, and econometric modeling.</div>
-      </div>
-
-      <div class="timeline-item">
-        <div class="ti-header">
-          <div class="ti-degree">Senior Secondary (12th Grade) &mdash; School Captain</div>
-          <span class="ti-badge">2021</span>
-        </div>
-        <div class="ti-school">Jawahar Navodaya Vidyalaya (JNV)</div>
-        <div class="ti-desc">Completed 12th Grade under national merit residential schooling. Elected School Captain by faculty and students to lead the student council, manage daily assemblies, oversee student governance, and coordinate cultural and athletic events.</div>
-      </div>
-
-      <div class="timeline-item">
-        <div class="ti-header">
-          <div class="ti-degree">President &mdash; Science Club &amp; Peer Mentorship</div>
-          <span class="ti-badge">Leadership &amp; Outreach</span>
-        </div>
-        <div class="ti-school">Student Innovation &amp; Mentorship</div>
-        <div class="ti-desc">Spearheaded student-led science exhibitions and workshops. Designed and presented a Green Hydrogen Smart Village model, earning 3rd Place at the Regional Science Exhibition. Mentored junior peers in math and scientific inquiry.</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CREATIVE WEB LAB -->
-  <section id="creative">
-    <div class="section-header">
-      <span class="section-label">Frontend &amp; Creative Engineering</span>
-      <h2 class="section-title">Interactive Web Worlds ("Vibecoding")</h2>
-      <p class="section-desc">Turning creative imagination into bespoke, responsive web worlds using modern audio, canvas sparklers, and frontend APIs.</p>
-    </div>
-
-    <div class="creative-strip">
-      <!-- Card 1: Hogwarts -->
-      <div class="creative-card">
-        <div class="cc-cover-wrap" onclick="openEmulator('showcase/hogwarts/index.html', 'A Hogwarts Journey')" role="button" tabindex="0" aria-label="Click to test-drive A Hogwarts Journey" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openEmulator('showcase/hogwarts/index.html', 'A Hogwarts Journey');}">
-          <div class="cc-cover-img cc-cover-hogwarts"></div>
-          <canvas class="cc-canvas" id="canvas-hogwarts"></canvas>
-          <div class="cc-cover-overlay">
-            <span class="cc-badge"><span class="pulse-dot red"></span> Wizarding Realm &middot; Spell Sparks</span>
-            <span class="cc-hint">⚡ Click to Test-Drive &rarr;</span>
-          </div>
-        </div>
-        <div class="cc-content">
-          <div>
-            <span class="cc-tag">Wizarding Realm &middot; Web Showcase</span>
-            <h4 class="cc-title" onclick="openEmulator('showcase/hogwarts/index.html', 'A Hogwarts Journey')" title="Click to test-drive">A Hogwarts Journey</h4>
-            <p class="cc-desc">Interactive wizarding experience with canvas sparklers, Marauder's Map footsteps, wax-sealed owl post, and memory staircase.</p>
-          </div>
-          <div class="cc-actions">
-            <button class="btn-sm btn-sm-primary" onclick="openEmulator('showcase/hogwarts/index.html', 'A Hogwarts Journey')">⚡ Test-Drive</button>
-            <a href="showcase/hogwarts/index.html" target="_blank" class="btn-sm btn-sm-secondary">Full Screen &#8599;</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Card 2: Royal Wedding -->
-      <div class="creative-card">
-        <div class="cc-cover-wrap" onclick="openEmulator('showcase/invitation/index.html', 'Royal Celebration Experience')" role="button" tabindex="0" aria-label="Click to test-drive Royal Celebration Experience" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openEmulator('showcase/invitation/index.html', 'Royal Celebration Experience');}">
-          <div class="cc-cover-img cc-cover-wedding"></div>
-          <canvas class="cc-canvas" id="canvas-wedding"></canvas>
-          <div class="cc-cover-overlay">
-            <span class="cc-badge"><span class="pulse-dot gold"></span> Luxury Event &middot; Petal Physics</span>
-            <span class="cc-hint">⚡ Click to Test-Drive &rarr;</span>
-          </div>
-        </div>
-        <div class="cc-content">
-          <div>
-            <span class="cc-tag">Event Experience &middot; Web Showcase</span>
-            <h4 class="cc-title" onclick="openEmulator('showcase/invitation/index.html', 'Royal Celebration Experience')" title="Click to test-drive">Royal Celebration Platform</h4>
-            <p class="cc-desc">Luxury wedding web portal featuring falling rose petals canvas, skywriting cloud engine, boarding-pass RSVP modal, and live countdown.</p>
-          </div>
-          <div class="cc-actions">
-            <button class="btn-sm btn-sm-primary" onclick="openEmulator('showcase/invitation/index.html', 'Royal Celebration Experience')">⚡ Test-Drive</button>
-            <a href="showcase/invitation/index.html" target="_blank" class="btn-sm btn-sm-secondary">Full Screen &#8599;</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Card 3: Loan Management -->
-      <div class="creative-card">
-        <div class="cc-cover-wrap" onclick="openEmulator('showcase/loan-management/index.html', 'Lamba Enterprises Portal')" role="button" tabindex="0" aria-label="Click to test-drive Micro-Lending Management Portal" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openEmulator('showcase/loan-management/index.html', 'Lamba Enterprises Portal');}">
-          <div class="cc-cover-img cc-cover-loan"></div>
-          <canvas class="cc-canvas" id="canvas-loan"></canvas>
-          <div class="cc-cover-overlay">
-            <span class="cc-badge"><span class="pulse-dot green"></span> Live Telemetry &middot; Dynamic Sync HUD</span>
-            <span class="cc-hint">⚡ Click to Test-Drive &rarr;</span>
-          </div>
-        </div>
-        <div class="cc-content">
-          <div>
-            <span class="cc-tag">Microfinance &middot; Production Portal</span>
-            <h4 class="cc-title" onclick="openEmulator('showcase/loan-management/index.html', 'Lamba Enterprises Portal')" title="Click to test-drive">Micro-Lending Management Portal</h4>
-            <p class="cc-desc">Offline-first lending web application with real-time two-way Excel file synchronization via File System Access API and printable passbooks.</p>
-          </div>
-          <div class="cc-actions">
-            <button class="btn-sm btn-sm-primary" onclick="openEmulator('showcase/loan-management/index.html', 'Lamba Enterprises Portal')">⚡ Test-Drive</button>
-            <a href="showcase/loan-management/index.html" target="_blank" class="btn-sm btn-sm-secondary">Full Screen &#8599;</a>
-          </div>
-        </div>
-      </div>
-    </div>
-    <p class="creative-disclaimer">Privacy Note: Showcase templates above are sanitized with mock data. All client production builds are 100% custom-crafted from scratch.</p>
-  </section>
-
-  <!-- CONTACT SECTION -->
-  <section id="contact">
-    <div class="contact-card">
-      <span class="contact-tag">✦ Let's Connect</span>
-      <h2 class="contact-title">Let's build something meaningful.</h2>
-      <p class="contact-lead">
-        I am actively seeking full-time roles across <strong>Data Science</strong>, <strong>Data &amp; Business Analytics</strong>, and <strong>Statistical Modeling</strong>, as well as quantitative research. Have an opportunity or looking to collaborate? My inbox is always open.
-      </p>
-      
-      <div class="contact-actions">
-        <a href="mailto:srishtilamba7103@gmail.com" class="btn-primary">
-          Say Hello (srishtilamba7103@gmail.com) &rarr;
-        </a>
-        <a href="https://linkedin.com" target="_blank" class="btn-secondary">
-          LinkedIn &#8599;
-        </a>
-        <a href="https://github.com/srishti7103" target="_blank" class="btn-secondary">
-          GitHub &#8599;
-        </a>
-        <a href="resume.pdf" target="_blank" class="btn-secondary">
-          Resume (PDF) &#8599;
-        </a>
-      </div>
-
-      <div class="contact-status">
-        <span class="status-dot"></span> Open for Data Scientist, Analyst &amp; Statistician Roles
-      </div>
-    </div>
-  </section>
-
-</main>
-
-<!-- FOOTER -->
-<footer>
-  <div class="container footer-inner">
-    <div>&copy; 2026 Srishti Lamba &middot; Crafted with Vanilla HTML, CSS &amp; JS</div>
-    <div class="footer-socials">
-      <a href="https://github.com/srishti7103" target="_blank">GitHub</a>
-      <a href="https://linkedin.com" target="_blank">LinkedIn</a>
-      <a href="mailto:srishtilamba7103@gmail.com">Email</a>
-    </div>
-  </div>
-</footer>
-
-<!-- MODAL DEVICE EMULATOR FOR LIVE TEST-DRIVE -->
-<div id="emulator-modal" class="emulator-modal">
-  <div class="emulator-frame-wrap">
-    <div class="emulator-header">
-      <span id="emulator-title" class="emulator-title">Live Preview</span>
-      <button class="emulator-close" onclick="closeEmulator()">&times;</button>
-    </div>
-    <iframe id="emulator-iframe" class="emulator-iframe" src=""></iframe>
-  </div>
-</div>
-
-<script>
-// Filter Tabs Logic: Smooth animated 1-to-1 primary category filtering
-document.querySelectorAll('.filter-tab').forEach(tab => {
-  tab.addEventListener('click', () => {
-    document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
-    tab.classList.add('active');
-    const filter = tab.getAttribute('data-filter');
-    document.querySelectorAll('.project-card').forEach(card => {
-      card.classList.remove('animate-in');
-      const cat = card.getAttribute('data-category') || '';
-      if (filter === 'all' || cat === filter) {
-        card.style.display = 'flex';
-        void card.offsetWidth; // force reflow for smooth animation
-        card.classList.add('animate-in');
+      if (isDeleting) {
+        charIdx--;
+        rotatingEl.textContent = currentWord.substring(0, charIdx);
+        if (charIdx <= 0) {
+          isDeleting = false;
+          wordIdx = (wordIdx + 1) % dynamicWords.length;
+          setTimeout(typeRotate, 350);
+          return;
+        }
+        setTimeout(typeRotate, 45);
       } else {
-        card.style.display = 'none';
-      }
-    });
-  });
-});
-
-// Emulator Modal Logic
-function openEmulator(url, title) {
-  document.getElementById('emulator-title').textContent = title;
-  document.getElementById('emulator-iframe').src = url;
-  document.getElementById('emulator-modal').classList.add('open');
-  document.body.style.overflow = 'hidden';
-}
-function closeEmulator() {
-  document.getElementById('emulator-modal').classList.remove('open');
-  document.getElementById('emulator-iframe').src = '';
-  document.body.style.overflow = '';
-}
-document.getElementById('emulator-modal').addEventListener('click', (e) => {
-  if (e.target.id === 'emulator-modal') closeEmulator();
-});
-document.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape') closeEmulator();
-});
-
-// Dynamic Hero Headline Rotating Words
-const dynamicWords = [
-  "predictive systems",
-  "statistical models",
-  "data analytics pipelines",
-  "econometric forecasts",
-  "interactive web worlds"
-];
-let wordIdx = 0;
-let charIdx = dynamicWords[0].length;
-let isDeleting = true;
-const rotatingEl = document.getElementById('rotatingWord');
-
-function typeRotate() {
-  if (!rotatingEl) return;
-  const currentWord = dynamicWords[wordIdx];
-
-  if (isDeleting) {
-    charIdx--;
-    rotatingEl.textContent = currentWord.substring(0, charIdx);
-    if (charIdx <= 0) {
-      isDeleting = false;
-      wordIdx = (wordIdx + 1) % dynamicWords.length;
-      setTimeout(typeRotate, 350);
-      return;
-    }
-    setTimeout(typeRotate, 45);
-  } else {
-    charIdx++;
-    rotatingEl.textContent = dynamicWords[wordIdx].substring(0, charIdx);
-    if (charIdx >= dynamicWords[wordIdx].length) {
-      isDeleting = true;
-      setTimeout(typeRotate, 2400);
-      return;
-    }
-    setTimeout(typeRotate, 75);
-  }
-}
-setTimeout(typeRotate, 2500);
-
-// ==========================================
-// DYNAMIC CANVAS ENGINES FOR CREATIVE SHOWCASE (OPTIMIZED & LAG-FREE)
-// ==========================================
-function setupCreativeCanvases() {
-  const creativeSection = document.getElementById('creative');
-  let isVisible = false;
-
-  // 1. HOGWARTS: Golden Spell Sparks & Floating Lumos Embers
-  const cHogwarts = document.getElementById('canvas-hogwarts');
-  let loopHActive = false;
-  if (cHogwarts) {
-    const ctx = cHogwarts.getContext('2d');
-    let w = cHogwarts.width = cHogwarts.offsetWidth || 340;
-    let h = cHogwarts.height = cHogwarts.offsetHeight || 180;
-    let particles = [];
-    let sparks = [];
-    let mouse = { x: -100, y: -100, active: false };
-
-    function initHogwartsParticles() {
-      w = cHogwarts.width = cHogwarts.offsetWidth || 340;
-      h = cHogwarts.height = cHogwarts.offsetHeight || 180;
-      particles = [];
-      for (let i = 0; i < 24; i++) {
-        particles.push({
-          x: Math.random() * w,
-          y: Math.random() * h,
-          size: Math.random() * 2.5 + 1.2,
-          speedY: Math.random() * 0.6 + 0.3,
-          speedX: (Math.random() - 0.5) * 0.3,
-          opacity: Math.random() * 0.6 + 0.3,
-          pulse: Math.random() * Math.PI * 2,
-          color: Math.random() > 0.3 ? '#FFD700' : '#FFA500'
-        });
-      }
-    }
-    initHogwartsParticles();
-
-    cHogwarts.addEventListener('mousemove', (e) => {
-      mouse.x = e.offsetX;
-      mouse.y = e.offsetY;
-      mouse.active = true;
-      for (let i = 0; i < 3; i++) {
-        sparks.push({
-          x: mouse.x,
-          y: mouse.y,
-          vx: (Math.random() - 0.5) * 3.8,
-          vy: (Math.random() - 0.5) * 3.8 - 0.6,
-          size: Math.random() * 2.8 + 1.4,
-          life: 1,
-          decay: Math.random() * 0.04 + 0.025,
-          color: Math.random() > 0.3 ? '#FFF4B8' : '#FFB703'
-        });
-      }
-    });
-    cHogwarts.addEventListener('mouseleave', () => { mouse.active = false; });
-
-    function loopH() {
-      if (!isVisible) { loopHActive = false; return; }
-      ctx.clearRect(0, 0, w, h);
-
-      // Ambient golden Lumos embers
-      for (let i = 0; i < particles.length; i++) {
-        const p = particles[i];
-        p.y -= p.speedY;
-        p.x += p.speedX + Math.sin(p.pulse) * 0.3;
-        p.pulse += 0.04;
-        if (p.y < -10) {
-          p.y = h + 10;
-          p.x = Math.random() * w;
+        charIdx++;
+        rotatingEl.textContent = dynamicWords[wordIdx].substring(0, charIdx);
+        if (charIdx >= dynamicWords[wordIdx].length) {
+          isDeleting = true;
+          setTimeout(typeRotate, 2400);
+          return;
         }
-        const alpha = p.opacity * (0.55 + 0.45 * Math.sin(p.pulse));
-        ctx.save();
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-        ctx.fillStyle = p.color;
-        ctx.globalAlpha = alpha;
-        ctx.shadowBlur = 10;
-        ctx.shadowColor = p.color;
-        ctx.fill();
-        ctx.restore();
-      }
-
-      // Interactive Wand Sparks
-      for (let i = sparks.length - 1; i >= 0; i--) {
-        const s = sparks[i];
-        s.x += s.vx;
-        s.y += s.vy;
-        s.life -= s.decay;
-        if (s.life <= 0) {
-          sparks.splice(i, 1);
-          continue;
-        }
-        ctx.save();
-        ctx.beginPath();
-        ctx.arc(s.x, s.y, s.size * s.life, 0, Math.PI * 2);
-        ctx.fillStyle = s.color;
-        ctx.globalAlpha = s.life;
-        ctx.shadowBlur = 12;
-        ctx.shadowColor = s.color;
-        ctx.fill();
-        ctx.restore();
-      }
-      requestAnimationFrame(loopH);
-    }
-
-    window.addEventListener('resize', initHogwartsParticles, { passive: true });
-  }
-
-  // 2. WEDDING: 3D Fluttering Rose Petals & Wind Dynamics
-  const cWedding = document.getElementById('canvas-wedding');
-  let loopWActive = false;
-  if (cWedding) {
-    const ctx = cWedding.getContext('2d');
-    let w = cWedding.width = cWedding.offsetWidth || 340;
-    let h = cWedding.height = cWedding.offsetHeight || 180;
-    let petals = [];
-    let mouse = { x: -100, y: -100, active: false };
-
-    function initWeddingPetals() {
-      w = cWedding.width = cWedding.offsetWidth || 340;
-      h = cWedding.height = cWedding.offsetHeight || 180;
-      petals = [];
-      const colors = ['#D90429', '#EF233C', '#FF4D6D', '#FF758F', '#FFD166'];
-      for (let i = 0; i < 20; i++) {
-        petals.push({
-          x: Math.random() * w,
-          y: Math.random() * h,
-          pw: Math.random() * 7 + 6,
-          ph: Math.random() * 12 + 9,
-          color: colors[Math.floor(Math.random() * colors.length)],
-          speedY: Math.random() * 0.8 + 0.45,
-          speedX: (Math.random() - 0.5) * 0.4,
-          angle: Math.random() * Math.PI * 2,
-          angularSpeed: (Math.random() - 0.5) * 0.035,
-          flip: Math.random() * Math.PI,
-          flipSpeed: Math.random() * 0.045 + 0.02
-        });
+        setTimeout(typeRotate, 75);
       }
     }
-    initWeddingPetals();
+    setTimeout(typeRotate, 2500);
 
-    cWedding.addEventListener('mousemove', (e) => {
-      mouse.x = e.offsetX;
-      mouse.y = e.offsetY;
-      mouse.active = true;
-    });
-    cWedding.addEventListener('mouseleave', () => { mouse.active = false; });
+    // ==========================================
+    // DYNAMIC CANVAS ENGINES FOR CREATIVE SHOWCASE (OPTIMIZED & LAG-FREE)
+    // ==========================================
+    function setupCreativeCanvases() {
+      const creativeSection = document.getElementById('creative');
+      let isVisible = false;
 
-    function loopW() {
-      if (!isVisible) { loopWActive = false; return; }
-      ctx.clearRect(0, 0, w, h);
+      // 1. HOGWARTS: Golden Spell Sparks & Floating Lumos Embers
+      const cHogwarts = document.getElementById('canvas-hogwarts');
+      let loopHActive = false;
+      if (cHogwarts) {
+        const ctx = cHogwarts.getContext('2d');
+        let w = cHogwarts.width = cHogwarts.offsetWidth || 340;
+        let h = cHogwarts.height = cHogwarts.offsetHeight || 180;
+        let particles = [];
+        let sparks = [];
+        let mouse = { x: -100, y: -100, active: false };
 
-      for (let i = 0; i < petals.length; i++) {
-        const p = petals[i];
-        p.y += p.speedY;
-        p.x += p.speedX + Math.sin(p.angle) * 0.5;
-        p.angle += p.angularSpeed;
-        p.flip += p.flipSpeed;
-
-        if (mouse.active) {
-          const dx = p.x - mouse.x;
-          const dy = p.y - mouse.y;
-          const dist = Math.sqrt(dx * dx + dy * dy);
-          if (dist < 60) {
-            p.x += (dx / dist) * 2.2;
-            p.y += (dy / dist) * 2.2;
+        function initHogwartsParticles() {
+          w = cHogwarts.width = cHogwarts.offsetWidth || 340;
+          h = cHogwarts.height = cHogwarts.offsetHeight || 180;
+          particles = [];
+          for (let i = 0; i < 24; i++) {
+            particles.push({
+              x: Math.random() * w,
+              y: Math.random() * h,
+              size: Math.random() * 2.5 + 1.2,
+              speedY: Math.random() * 0.6 + 0.3,
+              speedX: (Math.random() - 0.5) * 0.3,
+              opacity: Math.random() * 0.6 + 0.3,
+              pulse: Math.random() * Math.PI * 2,
+              color: Math.random() > 0.3 ? '#FFD700' : '#FFA500'
+            });
           }
         }
+        initHogwartsParticles();
 
-        if (p.y > h + 15) {
-          p.y = -15;
-          p.x = Math.random() * w;
+        cHogwarts.addEventListener('mousemove', (e) => {
+          mouse.x = e.offsetX;
+          mouse.y = e.offsetY;
+          mouse.active = true;
+          for (let i = 0; i < 3; i++) {
+            sparks.push({
+              x: mouse.x,
+              y: mouse.y,
+              vx: (Math.random() - 0.5) * 3.8,
+              vy: (Math.random() - 0.5) * 3.8 - 0.6,
+              size: Math.random() * 2.8 + 1.4,
+              life: 1,
+              decay: Math.random() * 0.04 + 0.025,
+              color: Math.random() > 0.3 ? '#FFF4B8' : '#FFB703'
+            });
+          }
+        });
+        cHogwarts.addEventListener('mouseleave', () => { mouse.active = false; });
+
+        function loopH() {
+          if (!isVisible) { loopHActive = false; return; }
+          ctx.clearRect(0, 0, w, h);
+
+          // Ambient golden Lumos embers
+          for (let i = 0; i < particles.length; i++) {
+            const p = particles[i];
+            p.y -= p.speedY;
+            p.x += p.speedX + Math.sin(p.pulse) * 0.3;
+            p.pulse += 0.04;
+            if (p.y < -10) {
+              p.y = h + 10;
+              p.x = Math.random() * w;
+            }
+            const alpha = p.opacity * (0.55 + 0.45 * Math.sin(p.pulse));
+            ctx.save();
+            ctx.beginPath();
+            ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+            ctx.fillStyle = p.color;
+            ctx.globalAlpha = alpha;
+            ctx.shadowBlur = 10;
+            ctx.shadowColor = p.color;
+            ctx.fill();
+            ctx.restore();
+          }
+
+          // Interactive Wand Sparks
+          for (let i = sparks.length - 1; i >= 0; i--) {
+            const s = sparks[i];
+            s.x += s.vx;
+            s.y += s.vy;
+            s.life -= s.decay;
+            if (s.life <= 0) {
+              sparks.splice(i, 1);
+              continue;
+            }
+            ctx.save();
+            ctx.beginPath();
+            ctx.arc(s.x, s.y, s.size * s.life, 0, Math.PI * 2);
+            ctx.fillStyle = s.color;
+            ctx.globalAlpha = s.life;
+            ctx.shadowBlur = 12;
+            ctx.shadowColor = s.color;
+            ctx.fill();
+            ctx.restore();
+          }
+          requestAnimationFrame(loopH);
         }
 
-        ctx.save();
-        ctx.translate(p.x, p.y);
-        ctx.rotate(p.angle);
-        ctx.scale(1, Math.cos(p.flip));
-        ctx.beginPath();
-        ctx.moveTo(0, 0);
-        ctx.quadraticCurveTo(p.pw / 2, -p.ph / 2, p.pw, 0);
-        ctx.quadraticCurveTo(p.pw / 2, p.ph / 2, 0, 0);
-        ctx.fillStyle = p.color;
-        ctx.globalAlpha = 0.88;
-        ctx.shadowBlur = 4;
-        ctx.shadowColor = 'rgba(0, 0, 0, 0.3)';
-        ctx.fill();
-        ctx.restore();
+        window.addEventListener('resize', initHogwartsParticles, { passive: true });
       }
 
-      requestAnimationFrame(loopW);
+      // 2. WEDDING: 3D Fluttering Rose Petals & Wind Dynamics
+      const cWedding = document.getElementById('canvas-wedding');
+      let loopWActive = false;
+      if (cWedding) {
+        const ctx = cWedding.getContext('2d');
+        let w = cWedding.width = cWedding.offsetWidth || 340;
+        let h = cWedding.height = cWedding.offsetHeight || 180;
+        let petals = [];
+        let mouse = { x: -100, y: -100, active: false };
+
+        function initWeddingPetals() {
+          w = cWedding.width = cWedding.offsetWidth || 340;
+          h = cWedding.height = cWedding.offsetHeight || 180;
+          petals = [];
+          const colors = ['#D90429', '#EF233C', '#FF4D6D', '#FF758F', '#FFD166'];
+          for (let i = 0; i < 20; i++) {
+            petals.push({
+              x: Math.random() * w,
+              y: Math.random() * h,
+              pw: Math.random() * 7 + 6,
+              ph: Math.random() * 12 + 9,
+              color: colors[Math.floor(Math.random() * colors.length)],
+              speedY: Math.random() * 0.8 + 0.45,
+              speedX: (Math.random() - 0.5) * 0.4,
+              angle: Math.random() * Math.PI * 2,
+              angularSpeed: (Math.random() - 0.5) * 0.035,
+              flip: Math.random() * Math.PI,
+              flipSpeed: Math.random() * 0.045 + 0.02
+            });
+          }
+        }
+        initWeddingPetals();
+
+        cWedding.addEventListener('mousemove', (e) => {
+          mouse.x = e.offsetX;
+          mouse.y = e.offsetY;
+          mouse.active = true;
+        });
+        cWedding.addEventListener('mouseleave', () => { mouse.active = false; });
+
+        function loopW() {
+          if (!isVisible) { loopWActive = false; return; }
+          ctx.clearRect(0, 0, w, h);
+
+          for (let i = 0; i < petals.length; i++) {
+            const p = petals[i];
+            p.y += p.speedY;
+            p.x += p.speedX + Math.sin(p.angle) * 0.5;
+            p.angle += p.angularSpeed;
+            p.flip += p.flipSpeed;
+
+            if (mouse.active) {
+              const dx = p.x - mouse.x;
+              const dy = p.y - mouse.y;
+              const dist = Math.sqrt(dx * dx + dy * dy);
+              if (dist < 60) {
+                p.x += (dx / dist) * 2.2;
+                p.y += (dy / dist) * 2.2;
+              }
+            }
+
+            if (p.y > h + 15) {
+              p.y = -15;
+              p.x = Math.random() * w;
+            }
+
+            ctx.save();
+            ctx.translate(p.x, p.y);
+            ctx.rotate(p.angle);
+            ctx.scale(1, Math.cos(p.flip));
+            ctx.beginPath();
+            ctx.moveTo(0, 0);
+            ctx.quadraticCurveTo(p.pw / 2, -p.ph / 2, p.pw, 0);
+            ctx.quadraticCurveTo(p.pw / 2, p.ph / 2, 0, 0);
+            ctx.fillStyle = p.color;
+            ctx.globalAlpha = 0.88;
+            ctx.shadowBlur = 4;
+            ctx.shadowColor = 'rgba(0, 0, 0, 0.3)';
+            ctx.fill();
+            ctx.restore();
+          }
+
+          requestAnimationFrame(loopW);
+        }
+
+        window.addEventListener('resize', initWeddingPetals, { passive: true });
+      }
+
+      // 3. LOAN PORTAL: Real-Time Financial Waveform & HUD Crosshair
+      const cLoan = document.getElementById('canvas-loan');
+      let loopLActive = false;
+      if (cLoan) {
+        const ctx = cLoan.getContext('2d');
+        let w = cLoan.width = cLoan.offsetWidth || 340;
+        let h = cLoan.height = cLoan.offsetHeight || 180;
+        let offset = 0;
+        let mouse = { x: -100, y: -100, active: false };
+
+        function initLoanCanvas() {
+          w = cLoan.width = cLoan.offsetWidth || 340;
+          h = cLoan.height = cLoan.offsetHeight || 180;
+        }
+        initLoanCanvas();
+
+        cLoan.addEventListener('mousemove', (e) => {
+          mouse.x = e.offsetX;
+          mouse.y = e.offsetY;
+          mouse.active = true;
+        });
+        cLoan.addEventListener('mouseleave', () => { mouse.active = false; });
+
+        function loopL() {
+          if (!isVisible) { loopLActive = false; return; }
+          ctx.clearRect(0, 0, w, h);
+
+          // Cyber Grid Lines
+          ctx.strokeStyle = 'rgba(16, 185, 129, 0.12)';
+          ctx.lineWidth = 1;
+          const step = 20;
+          for (let x = 0; x < w; x += step) {
+            ctx.beginPath();
+            ctx.moveTo(x, 0);
+            ctx.lineTo(x, h);
+            ctx.stroke();
+          }
+          for (let y = 0; y < h; y += step) {
+            ctx.beginPath();
+            ctx.moveTo(0, y);
+            ctx.lineTo(w, y);
+            ctx.stroke();
+          }
+
+          // Dynamic Mathematical Spline Curve
+          offset += 0.038;
+          const points = [];
+          const numPoints = 24;
+          for (let i = 0; i <= numPoints; i++) {
+            const x = (i / numPoints) * w;
+            const wave1 = Math.sin(i * 0.45 + offset) * 18;
+            const wave2 = Math.cos(i * 0.85 - offset * 0.8) * 10;
+            const y = h * 0.60 + wave1 + wave2;
+            points.push({ x, y });
+          }
+
+          // Emerald Area Glow Fill
+          const grad = ctx.createLinearGradient(0, h * 0.35, 0, h);
+          grad.addColorStop(0, 'rgba(16, 185, 129, 0.35)');
+          grad.addColorStop(1, 'rgba(16, 185, 129, 0.0)');
+          ctx.beginPath();
+          ctx.moveTo(0, h);
+          points.forEach((p, idx) => {
+            if (idx === 0) ctx.lineTo(p.x, p.y);
+            else {
+              const prev = points[idx - 1];
+              ctx.quadraticCurveTo(prev.x, prev.y, (prev.x + p.x) / 2, (prev.y + p.y) / 2);
+            }
+          });
+          ctx.lineTo(w, h);
+          ctx.closePath();
+          ctx.fillStyle = grad;
+          ctx.fill();
+
+          // Glowing Neon Emerald Chart Line
+          ctx.beginPath();
+          points.forEach((p, idx) => {
+            if (idx === 0) ctx.moveTo(p.x, p.y);
+            else {
+              const prev = points[idx - 1];
+              ctx.quadraticCurveTo(prev.x, prev.y, (prev.x + p.x) / 2, (prev.y + p.y) / 2);
+            }
+          });
+          ctx.strokeStyle = '#34D399';
+          ctx.lineWidth = 2.4;
+          ctx.stroke();
+
+          // Live pulsing head beacon node on graph
+          const leadNode = points[points.length - 3];
+          if (leadNode) {
+            ctx.beginPath();
+            ctx.arc(leadNode.x, leadNode.y, 4, 0, Math.PI * 2);
+            ctx.fillStyle = '#FFFFFF';
+            ctx.fill();
+          }
+
+          // Interactive Crosshair on Hover
+          if (mouse.active) {
+            ctx.strokeStyle = 'rgba(255, 255, 255, 0.55)';
+            ctx.setLineDash([3, 3]);
+            ctx.beginPath();
+            ctx.moveTo(mouse.x, 0);
+            ctx.lineTo(mouse.x, h);
+            ctx.stroke();
+            ctx.setLineDash([]);
+
+            const closest = points.reduce((prev, curr) => Math.abs(curr.x - mouse.x) < Math.abs(prev.x - mouse.x) ? curr : prev);
+            ctx.beginPath();
+            ctx.arc(closest.x, closest.y, 5, 0, Math.PI * 2);
+            ctx.fillStyle = '#FFFFFF';
+            ctx.fill();
+          }
+
+          requestAnimationFrame(loopL);
+        }
+
+        window.addEventListener('resize', initLoanCanvas, { passive: true });
+      }
+
+      // IntersectionObserver: Only animate canvases when the Creative section is on screen!
+      if ('IntersectionObserver' in window && creativeSection) {
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            isVisible = entry.isIntersecting;
+            if (isVisible) {
+              if (!loopHActive && cHogwarts) { loopHActive = true; requestAnimationFrame(loopH); }
+              if (!loopWActive && cWedding) { loopWActive = true; requestAnimationFrame(loopW); }
+              if (!loopLActive && cLoan) { loopLActive = true; requestAnimationFrame(loopL); }
+            }
+          });
+        }, { threshold: 0.05 });
+        observer.observe(creativeSection);
+      } else {
+        // Fallback if IntersectionObserver is unsupported
+        isVisible = true;
+        if (cHogwarts) requestAnimationFrame(loopH);
+        if (cWedding) requestAnimationFrame(loopW);
+        if (cLoan) requestAnimationFrame(loopL);
+      }
     }
 
-    window.addEventListener('resize', initWeddingPetals, { passive: true });
-  }
-
-  // 3. LOAN PORTAL: Real-Time Financial Waveform & HUD Crosshair
-  const cLoan = document.getElementById('canvas-loan');
-  let loopLActive = false;
-  if (cLoan) {
-    const ctx = cLoan.getContext('2d');
-    let w = cLoan.width = cLoan.offsetWidth || 340;
-    let h = cLoan.height = cLoan.offsetHeight || 180;
-    let offset = 0;
-    let mouse = { x: -100, y: -100, active: false };
-
-    function initLoanCanvas() {
-      w = cLoan.width = cLoan.offsetWidth || 340;
-      h = cLoan.height = cLoan.offsetHeight || 180;
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', setupCreativeCanvases);
+    } else {
+      setupCreativeCanvases();
     }
-    initLoanCanvas();
-
-    cLoan.addEventListener('mousemove', (e) => {
-      mouse.x = e.offsetX;
-      mouse.y = e.offsetY;
-      mouse.active = true;
-    });
-    cLoan.addEventListener('mouseleave', () => { mouse.active = false; });
-
-    function loopL() {
-      if (!isVisible) { loopLActive = false; return; }
-      ctx.clearRect(0, 0, w, h);
-
-      // Cyber Grid Lines
-      ctx.strokeStyle = 'rgba(16, 185, 129, 0.12)';
-      ctx.lineWidth = 1;
-      const step = 20;
-      for (let x = 0; x < w; x += step) {
-        ctx.beginPath();
-        ctx.moveTo(x, 0);
-        ctx.lineTo(x, h);
-        ctx.stroke();
-      }
-      for (let y = 0; y < h; y += step) {
-        ctx.beginPath();
-        ctx.moveTo(0, y);
-        ctx.lineTo(w, y);
-        ctx.stroke();
-      }
-
-      // Dynamic Mathematical Spline Curve
-      offset += 0.038;
-      const points = [];
-      const numPoints = 24;
-      for (let i = 0; i <= numPoints; i++) {
-        const x = (i / numPoints) * w;
-        const wave1 = Math.sin(i * 0.45 + offset) * 18;
-        const wave2 = Math.cos(i * 0.85 - offset * 0.8) * 10;
-        const y = h * 0.60 + wave1 + wave2;
-        points.push({ x, y });
-      }
-
-      // Emerald Area Glow Fill
-      const grad = ctx.createLinearGradient(0, h * 0.35, 0, h);
-      grad.addColorStop(0, 'rgba(16, 185, 129, 0.35)');
-      grad.addColorStop(1, 'rgba(16, 185, 129, 0.0)');
-      ctx.beginPath();
-      ctx.moveTo(0, h);
-      points.forEach((p, idx) => {
-        if (idx === 0) ctx.lineTo(p.x, p.y);
-        else {
-          const prev = points[idx - 1];
-          ctx.quadraticCurveTo(prev.x, prev.y, (prev.x + p.x) / 2, (prev.y + p.y) / 2);
-        }
-      });
-      ctx.lineTo(w, h);
-      ctx.closePath();
-      ctx.fillStyle = grad;
-      ctx.fill();
-
-      // Glowing Neon Emerald Chart Line
-      ctx.beginPath();
-      points.forEach((p, idx) => {
-        if (idx === 0) ctx.moveTo(p.x, p.y);
-        else {
-          const prev = points[idx - 1];
-          ctx.quadraticCurveTo(prev.x, prev.y, (prev.x + p.x) / 2, (prev.y + p.y) / 2);
-        }
-      });
-      ctx.strokeStyle = '#34D399';
-      ctx.lineWidth = 2.4;
-      ctx.stroke();
-
-      // Live pulsing head beacon node on graph
-      const leadNode = points[points.length - 3];
-      if (leadNode) {
-        ctx.beginPath();
-        ctx.arc(leadNode.x, leadNode.y, 4, 0, Math.PI * 2);
-        ctx.fillStyle = '#FFFFFF';
-        ctx.fill();
-      }
-
-      // Interactive Crosshair on Hover
-      if (mouse.active) {
-        ctx.strokeStyle = 'rgba(255, 255, 255, 0.55)';
-        ctx.setLineDash([3, 3]);
-        ctx.beginPath();
-        ctx.moveTo(mouse.x, 0);
-        ctx.lineTo(mouse.x, h);
-        ctx.stroke();
-        ctx.setLineDash([]);
-
-        const closest = points.reduce((prev, curr) => Math.abs(curr.x - mouse.x) < Math.abs(prev.x - mouse.x) ? curr : prev);
-        ctx.beginPath();
-        ctx.arc(closest.x, closest.y, 5, 0, Math.PI * 2);
-        ctx.fillStyle = '#FFFFFF';
-        ctx.fill();
-      }
-
-      requestAnimationFrame(loopL);
-    }
-
-    window.addEventListener('resize', initLoanCanvas, { passive: true });
-  }
-
-  // IntersectionObserver: Only animate canvases when the Creative section is on screen!
-  if ('IntersectionObserver' in window && creativeSection) {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        isVisible = entry.isIntersecting;
-        if (isVisible) {
-          if (!loopHActive && cHogwarts) { loopHActive = true; requestAnimationFrame(loopH); }
-          if (!loopWActive && cWedding) { loopWActive = true; requestAnimationFrame(loopW); }
-          if (!loopLActive && cLoan) { loopLActive = true; requestAnimationFrame(loopL); }
-        }
-      });
-    }, { threshold: 0.05 });
-    observer.observe(creativeSection);
-  } else {
-    // Fallback if IntersectionObserver is unsupported
-    isVisible = true;
-    if (cHogwarts) requestAnimationFrame(loopH);
-    if (cWedding) requestAnimationFrame(loopW);
-    if (cLoan) requestAnimationFrame(loopL);
-  }
-}
-
-if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', setupCreativeCanvases);
-} else {
-  setupCreativeCanvases();
-}
-</script>
+  </script>
 
 </body>
+
 </html>

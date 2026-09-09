@@ -937,19 +937,40 @@
 
     .addr {
       font-family: var(--fi);
-      font-size: clamp(.48rem, .9vw, .65rem);
-      color: rgba(25, 60, 35, 0.95);
-      line-height: 1.7;
-      mix-blend-mode: multiply;
+      font-size: clamp(0.68rem, 1.05vw, 0.88rem);
+      color: #164627;
+      font-weight: 500;
+      line-height: 1.45;
+      text-shadow: 0 0 1px rgba(22, 70, 39, 0.25);
     }
 
     .addr-n {
       display: block;
       font-family: var(--fd);
-      font-size: clamp(.55rem, 1vw, .75rem);
-      color: rgba(15, 45, 25, 0.98);
-      font-weight: 400;
-      margin-bottom: .15rem;
+      font-size: clamp(0.78rem, 1.25vw, 1.05rem);
+      color: #0d381b;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      margin-bottom: 0.15rem;
+    }
+
+    .addr-loc {
+      display: block;
+      font-family: var(--fi);
+      font-size: clamp(0.58rem, 0.9vw, 0.74rem);
+      color: #1f5030;
+      font-style: italic;
+      line-height: 1.35;
+    }
+
+    .addr-from {
+      display: block;
+      margin-top: 0.35rem;
+      font-family: var(--fh);
+      font-size: clamp(0.55rem, 0.85vw, 0.7rem);
+      color: #5c3814;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
     }
 
     .seal {
@@ -1179,25 +1200,43 @@
     }
 
     #ltr-head {
-      font-family: var(--fd);
-      font-size: .94rem;
-      color: rgba(16, 5, 1, .88);
-      letter-spacing: .04em;
-      line-height: 1.38;
-      margin-bottom: .9rem;
+      font-family: var(--fd), 'Cinzel Decorative', serif;
+      font-size: clamp(1.15rem, 1.8vw, 1.5rem);
+      font-weight: 700;
+      color: #2a1506;
+      letter-spacing: .05em;
+      line-height: 1.35;
+      margin-bottom: 1.1rem;
+      padding-bottom: .6rem;
+      border-bottom: 1px solid rgba(140, 95, 35, 0.25);
       position: relative;
-      z-index: 1
+      z-index: 1;
     }
 
     #ltr-body {
-      font-family: var(--fc);
-      font-size: clamp(1.6rem, 2.5vw, 2.1rem);
-      color: rgba(24, 12, 4, .9);
-      line-height: 1.45;
+      font-family: var(--fi), 'IM Fell English', Georgia, serif;
+      font-size: clamp(1.02rem, 1.3vw, 1.25rem);
+      color: #1a1006;
+      line-height: 1.75;
       font-style: normal;
       position: relative;
       z-index: 1;
       min-height: 80px;
+    }
+
+    #ltr-body p {
+      margin-bottom: 0.95rem;
+      text-shadow: 0 0 1px rgba(26, 16, 6, 0.12);
+    }
+
+    .ltr-sig {
+      font-family: var(--fc), 'Great Vibes', cursive;
+      font-size: clamp(1.75rem, 2.6vw, 2.4rem);
+      color: #164627;
+      line-height: 1.4;
+      margin-top: 1.3rem;
+      padding-top: 0.7rem;
+      text-shadow: 0 0 1px rgba(22, 70, 39, 0.2);
     }
 
     .poem-wrap {
@@ -1306,58 +1345,68 @@
       flex: 1;
       display: flex;
       flex-direction: column;
-      gap: 10px;
+      gap: 14px;
     }
 
-    .photo-item {
+    .photo-item,
+    .pcard {
       width: 100%;
       position: relative;
       overflow: hidden;
       flex-shrink: 0;
       cursor: zoom-in;
-      transition: filter .3s;
+      transition: filter .3s, transform .35s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow .35s;
       transform: translateZ(0);
-      /* Prevent recalculations */
+      border: 3px solid #845f27;
+      outline: 1px solid rgba(220, 180, 90, 0.45);
+      border-radius: 4px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.85), inset 0 0 18px rgba(0, 0, 0, 0.8);
+      background: #14100a;
     }
 
-    .photo-item:hover {
-      filter: brightness(1.12);
+    .photo-item:hover,
+    .pcard:hover {
+      filter: brightness(1.18) contrast(1.06);
+      transform: scale(1.03) translateZ(0);
+      box-shadow: 0 16px 44px rgba(0, 0, 0, 0.95), 0 0 24px rgba(212, 168, 76, 0.5);
+      z-index: 10;
     }
 
     .photo-item img,
-    .photo-item video {
+    .photo-item video,
+    .pcard img,
+    .pcard video {
       width: 100%;
       height: 100%;
       object-fit: cover;
       display: block;
       border-radius: 2px;
       will-change: transform;
-      /* Hardware optimization for images */
     }
 
-    .photo-item.sq {
-      aspect-ratio: 1/1
+    .photo-item.sq, .pcard.sq {
+      aspect-ratio: 1/1;
     }
 
-    .photo-item.pt {
-      aspect-ratio: 3/4
+    .photo-item.pt, .pcard.pt {
+      aspect-ratio: 3/4;
     }
 
-    .photo-item.ld {
-      aspect-ratio: 4/3
+    .photo-item.ld, .pcard.ld {
+      aspect-ratio: 4/3;
     }
 
-    .photo-item.xl {
-      aspect-ratio: 16/9
+    .photo-item.xl, .pcard.xl {
+      aspect-ratio: 16/9;
     }
 
-    .photo-item.tl {
-      aspect-ratio: 2/3
+    .photo-item.tl, .pcard.tl {
+      aspect-ratio: 2/3;
     }
 
-    .photo-item.ph {
+    .photo-item.ph, .pcard.ph {
       background: linear-gradient(155deg, #1a1610, #221c12);
-      min-height: 130px
+      min-height: 130px;
     }
 
     #pause-hint {

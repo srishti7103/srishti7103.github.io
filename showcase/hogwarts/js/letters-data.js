@@ -49,10 +49,10 @@ window.HOGWARTS_LETTERS = [
     "sig": "Department of Magical Transportation"
   },
   {
-    "from": "Srishti",
+    "from": "The Mapmaker",
     "date": "Today",
-    "head": "A Parchment Note from the Maker",
-    "body": "To whoever unrolls this map:\n\nThis experience was crafted with ink, CSS, and pure statistical love for the wizarding world.\n\nSurviving deadlines, debugging rogue footsteps across parchment, and bringing Platform 9 \u00be to life has been one of my favorite creative challenges.\n\nI hope you enjoy wandering these corridors as much as I loved building them.\n\nWith magic and code,",
-    "sig": "Srishti"
+    "head": "A Parchment Note from the Cartographer",
+    "body": "To whoever unrolls this map:\n\nThis experience was crafted with ink, CSS, and pure love for the wizarding world.\n\nSurviving deadlines, debugging rogue footsteps across parchment, and bringing Platform 9 ¾ to life has been a magical creative journey.\n\nI hope you enjoy wandering these corridors as much as I loved building them.\n\nWith magic and code,",
+    "sig": "The Mapmaker"
   }
 ];

@@ -126,7 +126,7 @@
         spawnWizard('Hermione', 72, 42, -0.016, 0.015);
         spawnWizard('Luna', 28, 75, 0.019, -0.014);
         spawnWizard('Ron', 60, 65, -0.014, 0.012);
-        spawnWizard('Srishti', 45, 80, 0.015, -0.016);
+        spawnWizard('The Wanderer', 45, 80, 0.015, -0.016);
       }
       function spawnWizard(name, x, y, vx, vy) {
         var frame = document.getElementById('map-frame'); if (!frame) return;
@@ -381,7 +381,12 @@
             '<div class="ev-l"></div><div class="ev-r"></div><div class="ev-bot"></div><div class="ev-flap"></div>' +
             '<div class="ev-face">' +
               '<div class="stamps">' + stmps + '</div>' +
-              '<div class="addr"><span class="addr-n">Miss Srishti,</span>From: ' + esc(d.from) + '</div>' +
+              '<div class="addr">' +
+                '<span class="addr-n">The Resident Witch or Wizard,</span>' +
+                '<span class="addr-loc">Highest Turret &middot; Gryffindor Tower</span>' +
+                '<span class="addr-loc">Hogwarts School of Witchcraft &amp; Wizardry</span>' +
+                '<span class="addr-from">Owl Post &middot; From: ' + esc(d.from) + '</span>' +
+              '</div>' +
             '</div>' +
           '</div>' +
           '<div class="seal' + (sealGold[index % sealGold.length] ? ' gold' : '') + '">' +
