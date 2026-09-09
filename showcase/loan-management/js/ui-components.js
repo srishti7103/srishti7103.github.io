@@ -60,10 +60,10 @@ const UI = {
    */
   investorBadge(name) {
     if (!name) return '';
-    const isRameshwar = name.toLowerCase().includes('rameshwar');
+    const isRajesh = name.toLowerCase().includes('rajesh') || name.toLowerCase().includes('rameshwar');
     const isNaresh = name.toLowerCase().includes('naresh');
-    const cls = isRameshwar ? 'inv-rameshwar' : (isNaresh ? 'inv-naresh' : 'inv-other');
-    const icon = isRameshwar ? '👑' : (isNaresh ? '💼' : '👔');
+    const cls = isRajesh ? 'inv-rajesh' : (isNaresh ? 'inv-naresh' : 'inv-other');
+    const icon = isRajesh ? '👑' : (isNaresh ? '💼' : '👔');
     return `<span class="investor-pill ${cls}">${icon} ${name}</span>`;
   },
 
@@ -83,10 +83,10 @@ const UI = {
         <div class="investor-comparison-grid">`;
 
     investorList.forEach(inv => {
-      const isRameshwar = inv.investor.toLowerCase().includes('rameshwar');
+      const isRajesh = inv.investor.toLowerCase().includes('rajesh') || inv.investor.toLowerCase().includes('rameshwar');
       const isNaresh = inv.investor.toLowerCase().includes('naresh');
-      const cardCls = isRameshwar ? 'comp-rameshwar' : (isNaresh ? 'comp-naresh' : 'comp-other');
-      const icon = isRameshwar ? '👑' : (isNaresh ? '💼' : '👔');
+      const cardCls = isRajesh ? 'comp-rajesh' : (isNaresh ? 'comp-naresh' : 'comp-other');
+      const icon = isRajesh ? '👑' : (isNaresh ? '💼' : '👔');
       const isActive = activeFilter === inv.investor;
 
       html += `
@@ -246,8 +246,8 @@ const UI = {
     if (filter.investor && filter.investor !== 'all') {
       filtered = filtered.filter(m => {
         const memberLoans = loans.filter(l => l.personId === m.personId);
-        const activeInv = memberLoans[0]?.investor || m.investor || 'Rameshwar Lamba';
-        return activeInv === filter.investor || memberLoans.some(l => (l.investor || 'Rameshwar Lamba') === filter.investor);
+        const activeInv = memberLoans[0]?.investor || m.investor || 'Rajesh Varma';
+        return activeInv === filter.investor || memberLoans.some(l => (l.investor || 'Rajesh Varma') === filter.investor);
       });
     }
 
@@ -327,7 +327,7 @@ const UI = {
                 <span class="meta-ico">🏢</span> <span class="meta-txt"><strong>${m.group || 'General'}</strong></span>
               </div>
               <div class="card-meta-row">
-                <span class="meta-ico">💼</span> <span class="meta-txt">${this.investorBadge(latestLoan?.investor || m.investor || 'Rameshwar Lamba')}</span>
+                <span class="meta-ico">💼</span> <span class="meta-txt">${this.investorBadge(latestLoan?.investor || m.investor || 'Rajesh Varma')}</span>
               </div>
               <div class="card-meta-row">
                 <span class="meta-ico">📞</span> <span class="meta-txt">${m.phone || '—'}</span>
@@ -416,8 +416,8 @@ const UI = {
     if (filter.investor && filter.investor !== 'all') {
       filtered = filtered.filter(m => {
         const memberLoans = loans.filter(l => l.personId === m.personId);
-        const activeInv = memberLoans[0]?.investor || m.investor || 'Rameshwar Lamba';
-        return activeInv === filter.investor || memberLoans.some(l => (l.investor || 'Rameshwar Lamba') === filter.investor);
+        const activeInv = memberLoans[0]?.investor || m.investor || 'Rajesh Varma';
+        return activeInv === filter.investor || memberLoans.some(l => (l.investor || 'Rajesh Varma') === filter.investor);
       });
     }
 
@@ -497,7 +497,7 @@ const UI = {
             </div>
           </td>
           <td><span class="badge badge-pending">${m.group || 'General'}</span></td>
-          <td>${this.investorBadge(latestLoan?.investor || m.investor || 'Rameshwar Lamba')}</td>
+          <td>${this.investorBadge(latestLoan?.investor || m.investor || 'Rajesh Varma')}</td>
           <td>
             <span class="loan-count-badge">${memberLoans.length} Loan${memberLoans.length !== 1 ? 's' : ''}</span>
           </td>
@@ -586,7 +586,7 @@ const UI = {
           <div class="form-group">
             <label class="form-label">Investor / Capital Source <span class="required">*</span></label>
             <select name="investor" class="form-select" onchange="const el = document.querySelector('select[name=initInvestor]'); if (el) el.value = this.value;">
-              <option value="Rameshwar Lamba" ${(m.investor || 'Rameshwar Lamba') === 'Rameshwar Lamba' ? 'selected' : ''}>👑 Rameshwar Lamba</option>
+              <option value="Rajesh Varma" ${(m.investor || 'Rajesh Varma') === 'Rajesh Varma' ? 'selected' : ''}>👑 Rajesh Varma</option>
               <option value="Naresh Patel" ${m.investor === 'Naresh Patel' ? 'selected' : ''}>💼 Naresh Patel</option>
             </select>
           </div>
@@ -692,7 +692,7 @@ const UI = {
             <div class="form-group">
               <label class="form-label">Funding Investor <span class="required">*</span></label>
               <select name="initInvestor" class="form-select">
-                <option value="Rameshwar Lamba" selected>👑 Rameshwar Lamba</option>
+                <option value="Rajesh Varma" selected>👑 Rajesh Varma</option>
                 <option value="Naresh Patel">💼 Naresh Patel</option>
               </select>
             </div>
@@ -813,7 +813,7 @@ const UI = {
           <div class="form-group">
             <label class="form-label">Investor / Capital Source <span class="required">*</span></label>
             <select name="investor" class="form-select" required>
-              <option value="Rameshwar Lamba" ${(l.investor || (member && member.investor) || 'Rameshwar Lamba') === 'Rameshwar Lamba' ? 'selected' : ''}>👑 Rameshwar Lamba</option>
+              <option value="Rajesh Varma" ${(l.investor || (member && member.investor) || 'Rajesh Varma') === 'Rajesh Varma' ? 'selected' : ''}>👑 Rajesh Varma</option>
               <option value="Naresh Patel" ${(l.investor || (member && member.investor)) === 'Naresh Patel' ? 'selected' : ''}>💼 Naresh Patel</option>
             </select>
           </div>
@@ -1007,7 +1007,7 @@ const UI = {
               <div class="loan-card-badge-row">
                 <span class="loan-num-pill">Loan #${loan.loanNumber}</span>
                 <span class="loan-id-pill">${loan.loanId}</span>
-                ${this.investorBadge(loan.investor || 'Rameshwar Lamba')}
+                ${this.investorBadge(loan.investor || 'Rajesh Varma')}
                 ${this.badge(summary.loanStatus)}
               </div>
               <p class="card-subtitle" style="margin-top: 6px;">

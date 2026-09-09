@@ -639,6 +639,8 @@ section {
   overflow: hidden;
   background: #191410;
   border-bottom: 1px solid var(--border-light);
+  cursor: pointer;
+  user-select: none;
 }
 .cc-cover-img {
   position: absolute;
@@ -709,6 +711,7 @@ section {
   height: 100%;
   z-index: 2;
   pointer-events: auto;
+  cursor: pointer;
 }
 
 .cc-cover-overlay {
@@ -724,19 +727,32 @@ section {
 }
 .cc-hint {
   font-family: var(--mono);
-  font-size: 0.65rem;
-  color: rgba(255, 255, 255, 0.85);
-  background: rgba(0, 0, 0, 0.4);
+  font-size: 0.68rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.9);
+  background: rgba(0, 0, 0, 0.45);
   backdrop-filter: blur(4px);
-  padding: 0.15rem 0.55rem;
+  padding: 0.2rem 0.6rem;
   border-radius: 999px;
-  opacity: 0.8;
-  transition: all 0.2s;
+  opacity: 0.85;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
 }
 .creative-card:hover .cc-hint {
   opacity: 1;
-  background: rgba(168, 90, 42, 0.65);
+  background: var(--terracotta);
   color: #FFFFFF;
+  box-shadow: 0 4px 12px rgba(168, 90, 42, 0.4);
+  transform: translateY(-1px);
+}
+.creative-card .cc-title {
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+.creative-card:hover .cc-title {
+  color: var(--terracotta);
 }
 .cc-badge {
   display: inline-flex;
@@ -1382,18 +1398,18 @@ footer {
     <div class="creative-strip">
       <!-- Card 1: Hogwarts -->
       <div class="creative-card">
-        <div class="cc-cover-wrap">
+        <div class="cc-cover-wrap" onclick="openEmulator('showcase/hogwarts/index.html', 'A Hogwarts Journey')" role="button" tabindex="0" aria-label="Click to test-drive A Hogwarts Journey" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openEmulator('showcase/hogwarts/index.html', 'A Hogwarts Journey');}">
           <div class="cc-cover-img cc-cover-hogwarts"></div>
           <canvas class="cc-canvas" id="canvas-hogwarts"></canvas>
           <div class="cc-cover-overlay">
             <span class="cc-badge"><span class="pulse-dot red"></span> Wizarding Realm &middot; Spell Sparks</span>
-            <span class="cc-hint">Hover to cast spell &rarr;</span>
+            <span class="cc-hint">⚡ Click to Test-Drive &rarr;</span>
           </div>
         </div>
         <div class="cc-content">
           <div>
             <span class="cc-tag">Wizarding Realm &middot; Web Showcase</span>
-            <h4 class="cc-title">A Hogwarts Journey</h4>
+            <h4 class="cc-title" onclick="openEmulator('showcase/hogwarts/index.html', 'A Hogwarts Journey')" title="Click to test-drive">A Hogwarts Journey</h4>
             <p class="cc-desc">Interactive wizarding experience with canvas sparklers, Marauder's Map footsteps, wax-sealed owl post, and memory staircase.</p>
           </div>
           <div class="cc-actions">
@@ -1405,18 +1421,18 @@ footer {
 
       <!-- Card 2: Royal Wedding -->
       <div class="creative-card">
-        <div class="cc-cover-wrap">
+        <div class="cc-cover-wrap" onclick="openEmulator('showcase/invitation/index.html', 'Royal Celebration Experience')" role="button" tabindex="0" aria-label="Click to test-drive Royal Celebration Experience" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openEmulator('showcase/invitation/index.html', 'Royal Celebration Experience');}">
           <div class="cc-cover-img cc-cover-wedding"></div>
           <canvas class="cc-canvas" id="canvas-wedding"></canvas>
           <div class="cc-cover-overlay">
             <span class="cc-badge"><span class="pulse-dot gold"></span> Luxury Event &middot; Petal Physics</span>
-            <span class="cc-hint">Hover to swirl &rarr;</span>
+            <span class="cc-hint">⚡ Click to Test-Drive &rarr;</span>
           </div>
         </div>
         <div class="cc-content">
           <div>
             <span class="cc-tag">Event Experience &middot; Web Showcase</span>
-            <h4 class="cc-title">Royal Celebration Platform</h4>
+            <h4 class="cc-title" onclick="openEmulator('showcase/invitation/index.html', 'Royal Celebration Experience')" title="Click to test-drive">Royal Celebration Platform</h4>
             <p class="cc-desc">Luxury wedding web portal featuring falling rose petals canvas, skywriting cloud engine, boarding-pass RSVP modal, and live countdown.</p>
           </div>
           <div class="cc-actions">
@@ -1428,18 +1444,18 @@ footer {
 
       <!-- Card 3: Loan Management -->
       <div class="creative-card">
-        <div class="cc-cover-wrap">
+        <div class="cc-cover-wrap" onclick="openEmulator('showcase/loan-management/index.html', 'Lamba Enterprises Portal')" role="button" tabindex="0" aria-label="Click to test-drive Micro-Lending Management Portal" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openEmulator('showcase/loan-management/index.html', 'Lamba Enterprises Portal');}">
           <div class="cc-cover-img cc-cover-loan"></div>
           <canvas class="cc-canvas" id="canvas-loan"></canvas>
           <div class="cc-cover-overlay">
             <span class="cc-badge"><span class="pulse-dot green"></span> Live Telemetry &middot; Dynamic Sync HUD</span>
-            <span class="cc-hint">Live Data Stream</span>
+            <span class="cc-hint">⚡ Click to Test-Drive &rarr;</span>
           </div>
         </div>
         <div class="cc-content">
           <div>
             <span class="cc-tag">Microfinance &middot; Production Portal</span>
-            <h4 class="cc-title">Micro-Lending Management Portal</h4>
+            <h4 class="cc-title" onclick="openEmulator('showcase/loan-management/index.html', 'Lamba Enterprises Portal')" title="Click to test-drive">Micro-Lending Management Portal</h4>
             <p class="cc-desc">Offline-first lending web application with real-time two-way Excel file synchronization via File System Access API and printable passbooks.</p>
           </div>
           <div class="cc-actions">

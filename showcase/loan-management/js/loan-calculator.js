@@ -248,8 +248,8 @@ const LoanCalculator = {
    */
   getDashboardStats(members, loans, allTransactions, investorFilter = 'all') {
     const isFiltered = investorFilter && investorFilter !== 'all';
-    const targetLoans = isFiltered ? loans.filter(l => (l.investor || 'Rameshwar Lamba') === investorFilter) : loans;
-    const targetMembers = isFiltered ? members.filter(m => targetLoans.some(l => l.personId === m.personId) || ((m.investor || 'Rameshwar Lamba') === investorFilter)) : members;
+    const targetLoans = isFiltered ? loans.filter(l => (l.investor || 'Rajesh Varma') === investorFilter) : loans;
+    const targetMembers = isFiltered ? members.filter(m => targetLoans.some(l => l.personId === m.personId) || ((m.investor || 'Rajesh Varma') === investorFilter)) : members;
 
     let totalDisbursed = 0;
     let totalReceivable = 0;
@@ -323,12 +323,12 @@ const LoanCalculator = {
   },
 
   /**
-   * Compare financial metrics across all investors (Rameshwar Lamba & Naresh Patel).
+   * Compare financial metrics across all investors (Rajesh Varma & Naresh Patel).
    */
-  getInvestorComparison(members, loans, allTransactions, investorList = ['Rameshwar Lamba', 'Naresh Patel']) {
+  getInvestorComparison(members, loans, allTransactions, investorList = ['Rajesh Varma', 'Naresh Patel']) {
     return investorList.map(inv => {
-      const invLoans = loans.filter(l => (l.investor || 'Rameshwar Lamba') === inv);
-      const invMembers = members.filter(m => invLoans.some(l => l.personId === m.personId) || ((m.investor || 'Rameshwar Lamba') === inv));
+      const invLoans = loans.filter(l => (l.investor || 'Rajesh Varma') === inv);
+      const invMembers = members.filter(m => invLoans.some(l => l.personId === m.personId) || ((m.investor || 'Rajesh Varma') === inv));
 
       let disbursed = 0;
       let receivable = 0;
@@ -375,7 +375,7 @@ const LoanCalculator = {
    */
   getDueToday(members, loans, allTransactions, investorFilter = 'all') {
     const isFiltered = investorFilter && investorFilter !== 'all';
-    const targetLoans = isFiltered ? loans.filter(l => (l.investor || 'Rameshwar Lamba') === investorFilter) : loans;
+    const targetLoans = isFiltered ? loans.filter(l => (l.investor || 'Rajesh Varma') === investorFilter) : loans;
 
     const today = new Date(); today.setHours(0, 0, 0, 0);
     const todayDay = this.DAY_NAMES[today.getDay()];

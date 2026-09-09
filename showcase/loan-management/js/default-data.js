@@ -8,7 +8,7 @@ const DEFAULT_DATABASE = {
       personId: 'D001',
       name: 'Demo Borrower',
       group: 'Group A - Market',
-      investor: 'Rameshwar Lamba',
+      investor: 'Rajesh Varma',
       phone: '9876500001',
       email: 'demo.borrower@example.com',
       address: 'Demo Office #101, Main Market, Delhi - 110001',
@@ -28,7 +28,7 @@ const DEFAULT_DATABASE = {
       personId: 'D001',
       borrowerName: 'Demo Borrower',
       group: 'Group A - Market',
-      investor: 'Rameshwar Lamba',
+      investor: 'Rajesh Varma',
       loanNumber: 1,
       loanAmount: 50000,
       weeklyPayment: 2750,
@@ -46,7 +46,7 @@ const DEFAULT_DATABASE = {
       personId: 'D001',
       borrowerName: 'Demo Borrower',
       group: 'Group A - Market',
-      investor: 'Rameshwar Lamba',
+      investor: 'Rajesh Varma',
       weekNumber: 1,
       dueDate: '2026-08-03',
       paidDate: '2026-08-03',
@@ -61,7 +61,7 @@ const DEFAULT_DATABASE = {
 
   settings: {
     companyName: 'Lamba Enterprises',
-    investors: ['Rameshwar Lamba', 'Naresh Patel'],
+    investors: ['Rajesh Varma', 'Naresh Patel'],
     defaultTermWeeks: 20,
     currencySymbol: '₹',
     graceDays: 0

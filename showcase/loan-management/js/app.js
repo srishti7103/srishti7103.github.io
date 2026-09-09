@@ -14,7 +14,7 @@ const App = {
     transactions: [],
     settings: {
       companyName: 'Lamba Enterprises',
-      ownerName: 'Lamba',
+      ownerName: 'Varma',
       currency: '₹',
       version: '2.0 Professional',
       autoSync: true
@@ -61,17 +61,24 @@ const App = {
   async loadInitialState() {
     // Priority 1: Check localStorage for master database V4
     try {
-      const saved = localStorage.getItem('LAMBA_LOAN_MASTER_V4');
+      let saved = localStorage.getItem('LAMBA_LOAN_MASTER_V4');
       if (saved) {
+        if (saved.includes('Rameshwar') || saved.includes('Lamba')) {
+          saved = saved.replace(/Rameshwar\s+Lamba/gi, 'Rajesh Varma');
+          try { localStorage.setItem('LAMBA_LOAN_MASTER_V4', saved); } catch(e) {}
+        }
         const parsed = JSON.parse(saved);
         if (parsed && Array.isArray(parsed.members) && parsed.members.length > 0) {
-          this.state.members = parsed.members;
-          this.state.loans = (parsed.loans || []).map(l => ({ ...l, startDate: new Date(l.startDate) }));
-          this.state.transactions = parsed.transactions || [];
+          this.state.members = parsed.members.map(m => ({ ...m, investor: (m.investor || '').replace(/Rameshwar\s+Lamba/gi, 'Rajesh Varma') }));
+          this.state.loans = (parsed.loans || []).map(l => ({ ...l, investor: (l.investor || '').replace(/Rameshwar\s+Lamba/gi, 'Rajesh Varma'), startDate: new Date(l.startDate) }));
+          this.state.transactions = (parsed.transactions || []).map(t => ({ ...t, investor: (t.investor || '').replace(/Rameshwar\s+Lamba/gi, 'Rajesh Varma') }));
           this.state.settings = { ...this.state.settings, ...(parsed.settings || {}) };
+          if (Array.isArray(this.state.settings.investors)) {
+            this.state.settings.investors = this.state.settings.investors.map(i => i === 'Rameshwar Lamba' ? 'Rajesh Varma' : i);
+          }
           this.state.isDataLoaded = true;
           this.initPhotoCache();
-          console.log(`✓ Loaded user database from LAMBA_LOAN_MASTER_V4 (${this.state.members.length} members)`);
+          console.log(`✓ Loaded and sanitized database (${this.state.members.length} members)`);
           return;
         }
       }
@@ -87,6 +94,7 @@ const App = {
         this.state.loans = (idbData.loans || []).map(l => ({ ...l, startDate: new Date(l.startDate) }));
         this.state.transactions = idbData.transactions || [];
         this.state.settings = { ...this.state.settings, ...(idbData.settings || {}) };
+        this.sanitizeInvestorNames();
         this.state.isDataLoaded = true;
         this.persistLocalState();
         this.initPhotoCache();
@@ -198,8 +206,38 @@ const App = {
     this.render();
   },
 
+  sanitizeInvestorNames() {
+    const cleanStr = (s) => (typeof s === 'string' ? s.replace(/Rameshwar(\s+Lamba)?/gi, 'Rajesh Varma') : s);
+    if (Array.isArray(this.state.members)) {
+      this.state.members.forEach(m => {
+        if (m.investor) m.investor = cleanStr(m.investor);
+      });
+    }
+    if (Array.isArray(this.state.loans)) {
+      this.state.loans.forEach(l => {
+        if (l.investor) l.investor = cleanStr(l.investor);
+      });
+    }
+    if (Array.isArray(this.state.transactions)) {
+      this.state.transactions.forEach(t => {
+        if (t.investor) t.investor = cleanStr(t.investor);
+      });
+    }
+    if (this.state.settings) {
+      if (Array.isArray(this.state.settings.investors)) {
+        this.state.settings.investors = this.state.settings.investors.map(i => cleanStr(i));
+      } else {
+        this.state.settings.investors = ['Rajesh Varma', 'Naresh Patel'];
+      }
+    }
+    if (this.state.filters && this.state.filters.investor) {
+      this.state.filters.investor = cleanStr(this.state.filters.investor);
+    }
+  },
+
   // ──── Render Router ────
   render() {
+    this.sanitizeInvestorNames();
     // Update sidebar navigation active state
     document.querySelectorAll('.nav-item').forEach(item => {
       item.classList.remove('active');
@@ -261,7 +299,7 @@ const App = {
   renderDashboard(container, topBar) {
     const stats = LoanCalculator.getDashboardStats(this.state.members, this.state.loans, this.state.transactions, this.state.filters.investor);
     const dueToday = LoanCalculator.getDueToday(this.state.members, this.state.loans, this.state.transactions, this.state.filters.investor);
-    const compData = LoanCalculator.getInvestorComparison(this.state.members, this.state.loans, this.state.transactions, this.state.settings.investors || ['Rameshwar Lamba', 'Naresh Patel']);
+    const compData = LoanCalculator.getInvestorComparison(this.state.members, this.state.loans, this.state.transactions, this.state.settings.investors || ['Rajesh Varma', 'Naresh Patel']);
 
     const isFiltered = this.state.filters.investor && this.state.filters.investor !== 'all';
 
@@ -275,7 +313,7 @@ const App = {
           <span>💼 Investor:</span>
           <select class="topbar-investor-select" onchange="App.setInvestorFilter(this.value)">
             <option value="all" ${this.state.filters.investor === 'all' ? 'selected' : ''}>All Investors</option>
-            <option value="Rameshwar Lamba" ${this.state.filters.investor === 'Rameshwar Lamba' ? 'selected' : ''}>👑 Rameshwar Lamba</option>
+            <option value="Rajesh Varma" ${this.state.filters.investor === 'Rajesh Varma' ? 'selected' : ''}>👑 Rajesh Varma</option>
             <option value="Naresh Patel" ${this.state.filters.investor === 'Naresh Patel' ? 'selected' : ''}>💼 Naresh Patel</option>
           </select>
         </div>
@@ -447,7 +485,7 @@ const App = {
         </select>
         <select class="form-select filter-select" onchange="App.state.filters.investor = this.value; App.renderMembersDisplay();">
           <option value="all" ${this.state.filters.investor === 'all' ? 'selected' : ''}>All Investors</option>
-          <option value="Rameshwar Lamba" ${this.state.filters.investor === 'Rameshwar Lamba' ? 'selected' : ''}>👑 Rameshwar Lamba</option>
+          <option value="Rajesh Varma" ${this.state.filters.investor === 'Rajesh Varma' ? 'selected' : ''}>👑 Rajesh Varma</option>
           <option value="Naresh Patel" ${this.state.filters.investor === 'Naresh Patel' ? 'selected' : ''}>💼 Naresh Patel</option>
         </select>
         <select class="form-select filter-select" onchange="App.state.filters.status = this.value; App.renderMembersDisplay();">
@@ -628,7 +666,7 @@ const App = {
           <div class="detail-meta">
             <div class="detail-meta-item"><span class="meta-icon">📋</span> <strong>ID:</strong> ${member.personId}</div>
             <div class="detail-meta-item"><span class="meta-icon">🏢</span> <strong>Group:</strong> ${member.group}</div>
-            <div class="detail-meta-item"><span class="meta-icon">💼</span> <strong>Investor:</strong> ${UI.investorBadge(member.investor || activeLoan?.investor || 'Rameshwar Lamba')}</div>
+            <div class="detail-meta-item"><span class="meta-icon">💼</span> <strong>Investor:</strong> ${UI.investorBadge(member.investor || activeLoan?.investor || 'Rajesh Varma')}</div>
             <div class="detail-meta-item"><span class="meta-icon">📞</span> <strong>Phone:</strong> ${member.phone || '—'}</div>
             ${member.email ? `<div class="detail-meta-item"><span class="meta-icon">📧</span> ${member.email}</div>` : ''}
             <div class="detail-meta-item"><span class="meta-icon">🪪</span> <strong>Aadhar:</strong> ${member.aadharNumber}</div>
@@ -698,7 +736,7 @@ const App = {
       const s = LoanCalculator.getLoanSummary(l, this.state.transactions);
       if (s.isCompleted) return false;
       if (this.state.filters.investor && this.state.filters.investor !== 'all') {
-        return (l.investor || 'Rameshwar Lamba') === this.state.filters.investor;
+        return (l.investor || 'Rajesh Varma') === this.state.filters.investor;
       }
       return true;
     });
@@ -713,7 +751,7 @@ const App = {
         </div>
         <select class="form-select filter-select" onchange="App.state.filters.investor = this.value; App.render();">
           <option value="all" ${this.state.filters.investor === 'all' ? 'selected' : ''}>All Investors</option>
-          <option value="Rameshwar Lamba" ${this.state.filters.investor === 'Rameshwar Lamba' ? 'selected' : ''}>👑 Rameshwar Lamba</option>
+          <option value="Rajesh Varma" ${this.state.filters.investor === 'Rajesh Varma' ? 'selected' : ''}>👑 Rajesh Varma</option>
           <option value="Naresh Patel" ${this.state.filters.investor === 'Naresh Patel' ? 'selected' : ''}>💼 Naresh Patel</option>
         </select>
       </div>
@@ -1105,7 +1143,7 @@ const App = {
       personId: (fd.get('personId') || '').trim(),
       name: (fd.get('name') || '').trim(),
       group: (fd.get('group') || 'Group A - Market').trim(),
-      investor: (fd.get('investor') || 'Rameshwar Lamba').trim(),
+      investor: (fd.get('investor') || 'Rajesh Varma').trim(),
       phone: (fd.get('phone') || '').trim(),
       email: (fd.get('email') || '').trim(),
       address: (fd.get('address') || '').trim(),
@@ -1162,7 +1200,7 @@ const App = {
         const totalInst = Number(fd.get('initTotalInstallments')) || 20;
         const sDate = fd.get('initStartDate') ? new Date(fd.get('initStartDate')) : new Date();
         const pDay = fd.get('initPaymentDay') || 'Monday';
-        const pInv = (fd.get('initInvestor') || member.investor || 'Rameshwar Lamba').trim();
+        const pInv = (fd.get('initInvestor') || member.investor || 'Rajesh Varma').trim();
 
         const initialLoan = {
           loanId: `${member.personId}-L1`,
@@ -1254,7 +1292,7 @@ const App = {
       personId,
       borrowerName: member ? member.name : '',
       group: member ? member.group : '',
-      investor: (fd.get('investor') || member?.investor || 'Rameshwar Lamba').trim(),
+      investor: (fd.get('investor') || member?.investor || 'Rajesh Varma').trim(),
       loanAmount: Number(fd.get('loanAmount')),
       weeklyPayment: Number(fd.get('weeklyPayment')),
       totalInstallments: Number(fd.get('totalInstallments')),

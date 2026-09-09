@@ -178,7 +178,7 @@ const ExcelHandler = {
         personId,
         name,
         group: String(r['Group'] || r['Group_Name'] || 'General').trim(),
-        investor: String(r['Investor'] || 'Rameshwar Lamba').trim(),
+        investor: String(r['Investor'] || 'Rajesh Varma').trim(),
         phone: String(r['Phone'] || r['Mobile'] || '').trim(),
         email: String(r['Email'] || '').trim(),
         address: String(r['Address'] || '').trim(),
@@ -211,7 +211,7 @@ const ExcelHandler = {
         personId: String(r['Person_ID'] || '').trim(),
         borrowerName: String(r['Borrower_Name'] || r['Name'] || '').trim(),
         group: String(r['Group'] || '').trim(),
-        investor: String(r['Investor'] || 'Rameshwar Lamba').trim(),
+        investor: String(r['Investor'] || 'Rajesh Varma').trim(),
         loanNumber: Number(r['Loan_Number']) || 1,
         loanAmount: Number(r['Principal_Amount'] || r['Loan_Amount']) || 0,
         weeklyPayment: Number(r['Weekly_Installment'] || r['Weekly_Payment']) || 0,
@@ -267,7 +267,7 @@ const ExcelHandler = {
                 receiptNo: LoanCalculator.generateReceiptNo(),
                 loanId: loan.loanId,
                 personId: loan.personId,
-                investor: loan.investor || 'Rameshwar Lamba',
+                investor: loan.investor || 'Rajesh Varma',
                 weekNumber: w,
                 dueDate: LoanCalculator.formatDateISO(dueDates[w - 1] || new Date()),
                 paidDate: '',
@@ -285,7 +285,7 @@ const ExcelHandler = {
                 receiptNo: LoanCalculator.generateReceiptNo(),
                 loanId: loan.loanId,
                 personId: loan.personId,
-                investor: loan.investor || 'Rameshwar Lamba',
+                investor: loan.investor || 'Rajesh Varma',
                 weekNumber: w,
                 dueDate: LoanCalculator.formatDateISO(dueDates[w - 1] || new Date()),
                 paidDate: LoanCalculator.formatDateISO(dueDates[w - 1] || new Date()),
@@ -333,7 +333,7 @@ const ExcelHandler = {
     // 1. Borrowers Sheet
     const memberRows = members.map(m => {
       const memberLoans = loans.filter(l => l.personId === m.personId);
-      const activeInv = memberLoans[0]?.investor || m.investor || 'Rameshwar Lamba';
+      const activeInv = memberLoans[0]?.investor || m.investor || 'Rajesh Varma';
       return {
         'Person_ID': m.personId,
         'Name': m.name,
@@ -372,7 +372,7 @@ const ExcelHandler = {
         'Person_ID': l.personId,
         'Borrower_Name': member ? member.name : (l.borrowerName || ''),
         'Group': member ? member.group : (l.group || ''),
-        'Investor': l.investor || (member && member.investor) || 'Rameshwar Lamba',
+        'Investor': l.investor || (member && member.investor) || 'Rajesh Varma',
         'Loan_Number': l.loanNumber,
         'Principal_Amount': l.loanAmount,
         'Weekly_Installment': l.weeklyPayment,
@@ -406,7 +406,7 @@ const ExcelHandler = {
       const row = {
         'Loan_ID': l.loanId,
         'Name': member ? member.name : '',
-        'Investor': l.investor || (member && member.investor) || 'Rameshwar Lamba'
+        'Investor': l.investor || (member && member.investor) || 'Rajesh Varma'
       };
 
       for (let w = 1; w <= maxWeeks; w++) {
@@ -449,7 +449,7 @@ const ExcelHandler = {
         'Loan_ID': t.loanId,
         'Borrower_Name': member ? member.name : '',
         'Group': member ? member.group : '',
-        'Investor': t.investor || (loan && loan.investor) || (member && member.investor) || 'Rameshwar Lamba',
+        'Investor': t.investor || (loan && loan.investor) || (member && member.investor) || 'Rajesh Varma',
         'Week_No': t.weekNumber,
         'Due_Date': t.dueDate,
         'Paid_Date': t.paidDate || t.dueDate,
@@ -474,8 +474,8 @@ const ExcelHandler = {
     // 5. Settings Sheet
     const settingsRows = [
       { 'Key': 'Company_Name', 'Value': settings.companyName || 'Lamba Enterprises' },
-      { 'Key': 'Investors', 'Value': (settings.investors || ['Rameshwar Lamba', 'Naresh Patel']).join(', ') },
-      { 'Key': 'Owner_Name', 'Value': settings.ownerName || 'Lamba' },
+      { 'Key': 'Investors', 'Value': (settings.investors || ['Rajesh Varma', 'Naresh Patel']).join(', ') },
+      { 'Key': 'Owner_Name', 'Value': settings.ownerName || 'Varma' },
       { 'Key': 'Currency', 'Value': settings.currency || '₹' },
       { 'Key': 'Version', 'Value': '4.0 Multi-Investor' },
       { 'Key': 'Auto_Sync', 'Value': 'Enabled' },
