@@ -87,7 +87,7 @@
     }
 
     .container {
-      max-width: 1040px;
+      max-width: 1160px;
       margin: 0 auto;
       padding: 0 1.5rem;
       position: relative;
@@ -177,8 +177,8 @@
 
     .hero-grid {
       display: grid;
-      grid-template-columns: 1.15fr 0.85fr;
-      gap: 3.5rem;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 3rem;
       align-items: flex-start;
     }
 
@@ -205,7 +205,7 @@
       letter-spacing: -0.02em;
       color: var(--text-main);
       margin-bottom: 1.1rem;
-      min-height: 2.45em;
+      min-height: 2.55em;
     }
 
     .hero-title em {
@@ -216,7 +216,7 @@
 
     .rotating-word-wrap {
       display: inline-block;
-      min-width: 22ch;
+      min-width: 27ch;
       text-align: left;
       position: relative;
       white-space: nowrap;
@@ -324,19 +324,19 @@
       justify-content: flex-end;
       align-items: flex-start;
       align-self: flex-start;
-      padding-top: 0.5rem;
+      padding-top: 0.3rem;
     }
 
     .photo-frame {
       position: relative;
       width: 100%;
-      max-width: 380px;
+      max-width: 440px;
       aspect-ratio: 4 / 5;
-      border-radius: 44px;
+      border-radius: 46px;
       overflow: hidden;
       background: var(--border-light);
-      box-shadow: 0 24px 50px rgba(60, 45, 30, 0.14), 0 8px 20px rgba(60, 45, 30, 0.08);
-      border: 6px solid var(--bg-card);
+      box-shadow: 0 26px 58px rgba(60, 45, 30, 0.16), 0 10px 26px rgba(60, 45, 30, 0.08);
+      border: 7px solid var(--bg-card);
       isolation: isolate;
       flex-shrink: 0;
       margin-left: auto;
@@ -346,14 +346,16 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      object-position: 55% 42%;
+      object-position: center 60%;
+      transform: scale(1.36);
+      transform-origin: center 58%;
       display: block;
-      border-radius: 38px;
-      transition: transform 0.4s ease;
+      border-radius: 39px;
+      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
     .photo-frame:hover .hero-photo {
-      transform: scale(1.03);
+      transform: scale(1.42);
     }
 
     /* METRICS STRIP */
@@ -2040,13 +2042,12 @@
 
     // Dynamic Hero Headline Rotating Words
     const dynamicWords = [
-      "intelligent systems",
-      "ML pipelines",
-      "AI-powered solutions",
-      "data architectures",
-      "autonomous AI agents",
-      "predictive engines",
-      "deep learning models"
+      "intelligent AI systems",
+      "production ML pipelines",
+      "scalable data architectures",
+      "agentic AI workflows",
+      "predictive statistical models",
+      "real-world AI solutions"
     ];
     let wordIdx = 0;
     let charIdx = dynamicWords[0].length;
