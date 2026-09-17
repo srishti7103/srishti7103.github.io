@@ -177,9 +177,9 @@
 
     .hero-grid {
       display: grid;
-      grid-template-columns: 1.28fr 0.82fr;
+      grid-template-columns: 1.15fr 0.85fr;
       gap: 3.5rem;
-      align-items: center;
+      align-items: flex-start;
     }
 
     .hero-tag {
@@ -201,10 +201,11 @@
       font-family: var(--serif);
       font-size: clamp(2.3rem, 4.4vw, 3.3rem);
       font-weight: 600;
-      line-height: 1.18;
+      line-height: 1.22;
       letter-spacing: -0.02em;
       color: var(--text-main);
       margin-bottom: 1.1rem;
+      min-height: 2.45em;
     }
 
     .hero-title em {
@@ -215,7 +216,7 @@
 
     .rotating-word-wrap {
       display: inline-block;
-      min-width: 19ch;
+      min-width: 22ch;
       text-align: left;
       position: relative;
       white-space: nowrap;
@@ -321,20 +322,21 @@
       position: relative;
       display: flex;
       justify-content: flex-end;
-      align-items: center;
-      align-self: center;
+      align-items: flex-start;
+      align-self: flex-start;
+      padding-top: 0.5rem;
     }
 
     .photo-frame {
       position: relative;
       width: 100%;
-      max-width: 320px;
+      max-width: 380px;
       aspect-ratio: 4 / 5;
-      border-radius: 40px;
+      border-radius: 44px;
       overflow: hidden;
       background: var(--border-light);
-      box-shadow: 0 20px 44px rgba(60, 45, 30, 0.12), 0 6px 16px rgba(60, 45, 30, 0.06);
-      border: 5px solid var(--bg-card);
+      box-shadow: 0 24px 50px rgba(60, 45, 30, 0.14), 0 8px 20px rgba(60, 45, 30, 0.08);
+      border: 6px solid var(--bg-card);
       isolation: isolate;
       flex-shrink: 0;
       margin-left: auto;
@@ -346,7 +348,7 @@
       object-fit: cover;
       object-position: 55% 42%;
       display: block;
-      border-radius: 36px;
+      border-radius: 38px;
       transition: transform 0.4s ease;
     }
 
@@ -613,7 +615,8 @@
     .project-links {
       display: flex;
       align-items: center;
-      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 0.6rem 1.2rem;
       padding-top: 0.85rem;
       border-top: 1px solid var(--border-light);
     }
@@ -625,12 +628,14 @@
       text-decoration: none;
       display: inline-flex;
       align-items: center;
-      gap: 0.25rem;
-      transition: color 0.2s;
+      gap: 0.28rem;
+      transition: all 0.2s ease;
+      white-space: nowrap;
     }
 
     .project-link:hover {
       color: var(--terracotta-hover);
+      transform: translateX(2px);
     }
 
     /* SKILLS & TOOLKIT (BALANCED 3-COLUMN GRID) */
@@ -1476,17 +1481,16 @@
         <!-- Project 1: Minor Project -->
         <div class="project-card" data-category="analytics">
           <div class="project-top">
-            <span class="project-category">Data Analytics &amp; Econometrics &middot; DA-IICT Minor Project</span>
+            <span class="project-category">Statistical Modeling &amp; Cognitive Attention &middot; DA-IICT Minor</span>
             <h3 class="project-title">Digital Consumption &amp; Academic Performance</h3>
-            <div class="project-stat-badge"><em>p</em> = 0.0015 &middot; <em>N</em> = 32</div>
-            <p class="project-desc">Official DA-IICT longitudinal research (N=32) under Prof. Bhaskar Chaudhury
-              combining smartphone telemetry and cognitive battery (SART, PVT-B). Uncovered an 8.32 hrs/day self-report
-              screen time underestimation bias (p = 0.0015) using Linear Mixed Models.</p>
+            <div class="project-stat-badge">Longitudinal <em>N</em> = 32 &middot; 26 Hypotheses &middot; <em>p</em> = 0.0015</div>
+            <p class="project-desc">DA-IICT longitudinal research study under Prof. Bhaskar Chaudhary examining the relationship between cross-platform screen telemetry and student attention dynamics. Formulated 26 behavioral hypotheses evaluated against PVT-B and SART cognitive batteries, fitting Linear Mixed Models (LMM) to establish statistical significance for attentional fragmentation and perception biases.</p>
             <div class="project-badges">
-              <span class="badge">Linear Mixed Models</span>
-              <span class="badge">App Telemetry</span>
-              <span class="badge">Cognitive Battery</span>
+              <span class="badge">Linear Mixed Models (LMM)</span>
+              <span class="badge">Telemetry Analytics</span>
+              <span class="badge">Cognitive Battery (SART/PVT)</span>
               <span class="badge">26 Hypotheses</span>
+              <span class="badge">R &amp; Python</span>
             </div>
           </div>
           <div class="project-links">
@@ -1497,40 +1501,39 @@
         <!-- Project 2: IndiaShield -->
         <div class="project-card" data-category="analytics">
           <div class="project-top">
-            <span class="project-category">Data Analytics &amp; Geopolitical Telemetry &middot; SIPRI &amp;
-              Tableau</span>
-            <h3 class="project-title">IndiaShield &mdash; National Defense &amp; Cybercrime Telemetry</h3>
-            <div class="project-stat-badge">24-Yr SIPRI &middot; 50K+ Incidents &middot; 36 States</div>
-            <p class="project-desc">Macroeconomic and security analytics platform analyzing 24-year SIPRI defense budget
-              datasets and 50,000+ national cybercrime incidents. Uncovered the Capital Outlay paradox and modeled state
-              vulnerability indices across 36 Indian states.</p>
+            <span class="project-category">Macro Intelligence &amp; Defense Analytics &middot; SIPRI &amp; Union Budget</span>
+            <h3 class="project-title">IndiaShield &mdash; Defense Budget Intelligence Platform</h3>
+            <div class="project-stat-badge">24-Yr SIPRI &middot; Modernisation Paradox &middot; Live Tableau &amp; Streamlit</div>
+            <p class="project-desc">Engineered a 6-module strategic intelligence suite harmonizing 24 years of SIPRI military expenditure, Union Budget, and MoD data alongside real NSE market event returns. Surfaced the &ldquo;Modernisation Paradox&rdquo; showing capital acquisition share fell from 38.3% to 28.9% (FY16&ndash;FY25) despite 2.5&times; budget expansion. Built with custom Sankey flows and choropleths in Tableau Public paired with an interactive Streamlit app.</p>
             <div class="project-badges">
-              <span class="badge">SIPRI Analytics</span>
+              <span class="badge">SIPRI Intelligence</span>
               <span class="badge">Tableau Public</span>
+              <span class="badge">Streamlit App</span>
+              <span class="badge">Modernisation Paradox</span>
+              <span class="badge">NSE Market Data</span>
               <span class="badge">Pandas</span>
-              <span class="badge">NSE Event Study</span>
             </div>
           </div>
           <div class="project-links">
-            <a href="https://github.com/srishti7103/IndiaShield" target="_blank" class="project-link">GitHub Repository
-              &rarr;</a>
+            <a href="https://github.com/srishti7103/IndiaShield" target="_blank" class="project-link">GitHub Repo &rarr;</a>
+            <a href="https://indiashield-h4uhwhqbpkaf9tibxlcefp.streamlit.app/" target="_blank" class="project-link">Live Streamlit App &#8599;</a>
+            <a href="https://public.tableau.com/app/profile/srishti.lamba7274/viz/IndiaShield/IndiaShieldBudgetAnatomy" target="_blank" class="project-link">Tableau Dashboard &#8599;</a>
           </div>
         </div>
 
         <!-- Project 3: A World in Numbers -->
         <div class="project-card" data-category="analytics">
           <div class="project-top">
-            <span class="project-category">Data Analytics &amp; Visualization &middot; Tamara Munzner Framework</span>
+            <span class="project-category">Visual Analytics &amp; Socio-Economics &middot; Tamara Munzner Taxonomy</span>
             <h3 class="project-title">A World in Numbers &mdash; Global Development Atlas</h3>
-            <div class="project-stat-badge">195 Nations &middot; Munzner Framework</div>
-            <p class="project-desc">Interactive socio-economic dashboard modeling 195 nations across GDP per capita,
-              education indices, and health capital using the Tamara Munzner visualization framework with dynamic Plotly
-              correlation matrices.</p>
+            <div class="project-stat-badge">195 Nations &middot; Munzner Framework &middot; Multi-Attribute</div>
+            <p class="project-desc">Interactive socio-economic intelligence dashboard exploring multi-attribute indicators across 195 nations spanning GDP per capita, education investment, and health capital. Structured around Tamara Munzner&rsquo;s <em>what-why-how</em> visualization framework with dynamic Plotly correlation matrices, cross-filtered distributions, and choropleth projections.</p>
             <div class="project-badges">
-              <span class="badge">Macro Data</span>
+              <span class="badge">Global Socio-Economics</span>
               <span class="badge">Plotly</span>
-              <span class="badge">Correlation Matrices</span>
-              <span class="badge">Netlify</span>
+              <span class="badge">Correlation Analysis</span>
+              <span class="badge">Munzner Taxonomy</span>
+              <span class="badge">Exploratory Data Analysis</span>
             </div>
           </div>
           <div class="project-links">
@@ -1542,16 +1545,15 @@
         <!-- Project 4: UK Road Accidents -->
         <div class="project-card" data-category="ml-forecast">
           <div class="project-top">
-            <span class="project-category">ML &amp; Predictive Modeling &middot; Department for Transport (UK)</span>
+            <span class="project-category">Machine Learning &amp; Risk Classification &middot; UK Dept for Transport</span>
             <h3 class="project-title">UK Road Accident Severity &amp; Collision Risk</h3>
-            <div class="project-stat-badge">89,019 Collisions &middot; 23 Roadway Factors</div>
-            <p class="project-desc">Engineered predictive severity classification across 89,019 collisions and 23
-              roadway attributes. Deployed CatBoost and XGBoost with SMOTE balancing, identifying rural 60mph limits and
-              unlit junctions as prime fatality drivers.</p>
+            <div class="project-stat-badge">89,019 Collisions &middot; CatBoost &amp; XGBoost &middot; SMOTE Balanced</div>
+            <p class="project-desc">Engineered multi-class collision severity classification across 89,019 UK Department for Transport accident records and 23 roadway factors. Deployed CatBoost and XGBoost models with SMOTE class rebalancing, leveraging tree interpretability and SHAP values to isolate rural 60 mph limits and unlit junctions as prime fatality drivers.</p>
             <div class="project-badges">
               <span class="badge">CatBoost</span>
               <span class="badge">XGBoost</span>
-              <span class="badge">SMOTE</span>
+              <span class="badge">SMOTE Rebalancing</span>
+              <span class="badge">SHAP Interpretability</span>
               <span class="badge">89,019 Records</span>
             </div>
           </div>
@@ -1563,22 +1565,22 @@
         <!-- Project 5: RupeeRisk -->
         <div class="project-card" data-category="ml-forecast">
           <div class="project-top">
-            <span class="project-category">Forex Econometrics &amp; ML &middot; BigQuery &amp; GDELT</span>
-            <h3 class="project-title">RupeeRisk &mdash; USD/INR Econometric Forecasting</h3>
-            <div class="project-stat-badge">+17.67% Return &middot; Sharpe 1.30</div>
-            <p class="project-desc">Macroeconomic currency forecasting pipeline analyzing GDELT geopolitical tension
-              indices across 4 transmission channels. Backtested over 200 rolling weeks, achieving 58.5% directional
-              accuracy, Sharpe ratio 1.30, and +17.67% return.</p>
+            <span class="project-category">Forex Econometrics &amp; Machine Learning &middot; BigQuery &amp; GDELT</span>
+            <h3 class="project-title">RupeeRisk &mdash; USD/INR Forecasting Pipeline</h3>
+            <div class="project-stat-badge">+17.67% Return &middot; Sharpe 1.30 &middot; Live Streamlit</div>
+            <p class="project-desc">Engineered a 4-channel geopolitical tension index from GDELT Goldstein scale data via BigQuery to forecast USD/INR movements, verifying stationarity with ADF unit-root tests. Benchmarked 9 models over a 200-week rolling backtest with first-differencing to eliminate look-ahead bias; ARIMAX achieved a 1.30 Sharpe ratio and Lasso yielded 58.5% directional accuracy (+17.67% return).</p>
             <div class="project-badges">
               <span class="badge">ARIMAX</span>
               <span class="badge">GARCH</span>
-              <span class="badge">GDELT BigQuery</span>
+              <span class="badge">BigQuery GDELT</span>
+              <span class="badge">Rolling Backtest</span>
               <span class="badge">Sharpe 1.30</span>
+              <span class="badge">Streamlit</span>
             </div>
           </div>
           <div class="project-links">
-            <a href="https://github.com/srishti7103/RupeeRisk" target="_blank" class="project-link">View on GitHub
-              &rarr;</a>
+            <a href="https://github.com/srishti7103/RupeeRisk" target="_blank" class="project-link">GitHub Repo &rarr;</a>
+            <a href="https://rupeerisk.streamlit.app" target="_blank" class="project-link">Live Streamlit App &#8599;</a>
           </div>
         </div>
 
@@ -1586,21 +1588,21 @@
         <!-- Project 6: ShramikSaathi -->
         <div class="project-card" data-category="deep-learning">
           <div class="project-top">
-            <span class="project-category">Deep Learning &amp; GenAI &middot; Fine-Tuned LLaMA 3.1</span>
-            <h3 class="project-title">ShramikSaathi &mdash; Legal Rights AI for Workers</h3>
-            <div class="project-stat-badge">LLaMA 3.1 8B &middot; LoRA + DPO &middot; 9-Layer FAISS</div>
-            <p class="project-desc">Multilingual legal chatbot fine-tuned on LLaMA 3.1 8B using LoRA SFT and Direct
-              Preference Optimization (DPO). Coupled with 9-layer FAISS dense vector retrieval over the Code on Wages to
-              provide instant, uncorrupted worker rights aid.</p>
+            <span class="project-category">Generative AI &amp; Agentic RAG &middot; Fine-Tuned LLaMA 3.1</span>
+            <h3 class="project-title">ShramikSaathi &mdash; Legal Rights AI Agent for Workers</h3>
+            <div class="project-stat-badge">LLaMA 3.1 8B &middot; LoRA + DPO &middot; MRR@5 0.725 &middot; CCS 0.714</div>
+            <p class="project-desc">Architected a multi-stage RAG + ReAct agent pipeline with cross-domain routing, slot extraction, sufficiency gating, and FAISS retrieval over 311 Code on Wages legal docs (raising MRR@5 from 0.668 to 0.725). Fine-tuned LLaMA 3.1 8B via LoRA SFT and DPO on 373 human preference pairs, lifting Condition Coverage Score (CCS) to 0.714 and sufficiency accuracy to 99.1% with zero citation fabrication.</p>
             <div class="project-badges">
               <span class="badge">LLaMA 3.1 8B</span>
               <span class="badge">LoRA SFT / DPO</span>
-              <span class="badge">FAISS RAG</span>
+              <span class="badge">FAISS Vector RAG</span>
+              <span class="badge">ReAct Agent</span>
+              <span class="badge">Hugging Face</span>
               <span class="badge">PyTorch</span>
             </div>
           </div>
           <div class="project-links">
-            <a href="https://github.com/srishti7103/shramiksaathi" target="_blank" class="project-link">View on GitHub &rarr;</a>
+            <a href="https://github.com/srishti7103/shramiksaathi" target="_blank" class="project-link">GitHub Repo &rarr;</a>
           </div>
         </div>
 
@@ -1608,64 +1610,63 @@
         <!-- Project 7: Faculty Finder -->
         <div class="project-card" data-category="bde">
           <div class="project-top">
-            <span class="project-category">Data Management &amp; BDE &middot; Semantic Vector Search</span>
+            <span class="project-category">AI Engineering &amp; Semantic Retrieval &middot; FastAPI &amp; Docker</span>
             <h3 class="project-title">Faculty Finder &mdash; Big Data Semantic Recommender</h3>
-            <div class="project-stat-badge">&lt; 1s Latency &middot; Semantic Search &middot; Docker</div>
-            <p class="project-desc">End-to-end data recommendation pipeline connecting graduate applicants to
-              specialized faculty based on research statement semantics. Employs vector indexing over academic
-              publication databases, containerized with Docker and served via FastAPI on Railway.</p>
+            <div class="project-stat-badge">Dense Embeddings &middot; FastAPI &middot; Docker &middot; Railway</div>
+            <p class="project-desc">End-to-end semantic recommendation pipeline matching graduate applicants to specialized faculty based on research statement semantics. Employs dense vector indexing across publication corpuses, containerized with Docker, and served as a high-throughput REST API via FastAPI deployed on Railway.</p>
             <div class="project-badges">
               <span class="badge">Vector Indexing</span>
+              <span class="badge">Semantic Search</span>
               <span class="badge">FastAPI</span>
-              <span class="badge">Docker</span>
-              <span class="badge">Railway</span>
+              <span class="badge">Docker Container</span>
+              <span class="badge">Railway Cloud</span>
+              <span class="badge">NLP</span>
             </div>
           </div>
           <div class="project-links">
-            <a href="https://github.com/nikitasharma120/Sigma-and-Spark" target="_blank" class="project-link">View on GitHub &rarr;</a>
+            <a href="https://github.com/nikitasharma120/Sigma-and-Spark" target="_blank" class="project-link">GitHub Repo &rarr;</a>
           </div>
         </div>
 
         <!-- Project 8: LogiSense -->
         <div class="project-card" data-category="bde">
           <div class="project-top">
-            <span class="project-category">Data Management &amp; BDE &middot; PostgreSQL (BCNF)</span>
-            <h3 class="project-title">LogiSense &mdash; Supply Chain Database &amp; Analytics</h3>
-            <div class="project-stat-badge">7-Table BCNF &middot; IQR Anomaly Engine &middot; PostgreSQL</div>
-            <p class="project-desc">Enterprise supply chain intelligence system built over a Boyce-Codd Normal Form
-              (BCNF) normalized PostgreSQL warehouse. Engineered high-performance analytical SQL queries and IQR anomaly
-              detection pipelines for real-time freight and inventory tracking.</p>
+            <span class="project-category">Data Engineering &amp; Database Architecture &middot; PostgreSQL (BCNF)</span>
+            <h3 class="project-title">LogiSense &mdash; Supply Chain Intelligence &amp; Analytics</h3>
+            <div class="project-stat-badge">7-Table BCNF &middot; Adaptive IQR &middot; Live Netlify App</div>
+            <p class="project-desc">Designed a 7-table BCNF-normalized PostgreSQL warehouse and authored 10 analytical SQL queries powering 9 interactive operational dashboards. Implemented an adaptive IQR-based anomaly detection engine to replace static thresholds across shifting inventory distributions. Coupled with an interactive client-side analytics web app deployed live on Netlify.</p>
             <div class="project-badges">
               <span class="badge">PostgreSQL (BCNF)</span>
-              <span class="badge">Advanced SQL</span>
-              <span class="badge">IQR Anomaly Detection</span>
+              <span class="badge">Analytical SQL (CTEs)</span>
+              <span class="badge">Adaptive IQR Anomaly</span>
+              <span class="badge">Data Pipeline</span>
               <span class="badge">Netlify</span>
             </div>
           </div>
           <div class="project-links">
-            <a href="https://github.com/nikitasharma120/LogiSense" target="_blank" class="project-link">View on GitHub &rarr;</a>
+            <a href="https://github.com/nikitasharma120/LogiSense" target="_blank" class="project-link">GitHub Repo &rarr;</a>
+            <a href="https://logiisense.netlify.app/" target="_blank" class="project-link">Live Netlify App &#8599;</a>
           </div>
         </div>
 
         <!-- CATEGORY 5: BEHAVIORAL SENSING (MULTIDISCIPLINARY) -->
-        <!-- Project 9: Behavioral Sensing -->
+        <!-- Project 9: Behavioral Sensing Telemetry -->
         <div class="project-card" data-category="behavioral">
           <div class="project-top">
-            <span class="project-category">Behavioral Data Science &middot; Multimodal Telemetry</span>
-            <h3 class="project-title">Behavioral Sensing Telemetry Framework</h3>
-            <div class="project-stat-badge">26 Hypotheses &middot; BSMAS, PHQ-4 &amp; CFS Battery</div>
-            <p class="project-desc">Continuous background tracking engine monitoring StayFree smartphone app events,
-              circadian phase delays, and cognitive fatigue. Validated across BSMAS, PHQ-4, and CFS psychometric
-              scales&mdash;bridging statistics, ML, and behavioral sensing.</p>
+            <span class="project-category">Data Engineering &amp; NLP Ingestion &middot; Multimodal Telemetry</span>
+            <h3 class="project-title">Cross-Platform Telemetry &amp; Semantic Categorization Engine</h3>
+            <div class="project-stat-badge">Python Pipeline &middot; Active Learning &middot; Multi-Tier NLP</div>
+            <p class="project-desc">Engineered an end-to-end Python ingestion pipeline harmonizing high-frequency telemetry streams across laptops and smartphones, standardizing raw device activity logs. Built a multi-tier semantic categorization engine utilizing lookup caches, rule-based heuristics, NLP metadata, and active-learning review to automate software classification at scale.</p>
             <div class="project-badges">
-              <span class="badge">Circadian Telemetry</span>
-              <span class="badge">Causal Inference</span>
-              <span class="badge">Statistical Regressions</span>
-              <span class="badge">Psychometrics</span>
+              <span class="badge">Python Telemetry Pipeline</span>
+              <span class="badge">Multi-Tier NLP</span>
+              <span class="badge">Active Learning</span>
+              <span class="badge">ETL Processing</span>
+              <span class="badge">Event Streaming</span>
             </div>
           </div>
           <div class="project-links">
-            <a href="#contact" class="project-link">Request Methodology Details &rarr;</a>
+            <a href="#contact" class="project-link">Request Pipeline Architecture &rarr;</a>
           </div>
         </div>
 
@@ -2043,8 +2044,9 @@
       "ML pipelines",
       "AI-powered solutions",
       "data architectures",
-      "deep learning models",
-      "predictive engines"
+      "autonomous AI agents",
+      "predictive engines",
+      "deep learning models"
     ];
     let wordIdx = 0;
     let charIdx = dynamicWords[0].length;
@@ -2057,7 +2059,7 @@
 
       if (isDeleting) {
         charIdx--;
-        rotatingEl.textContent = currentWord.substring(0, charIdx);
+        rotatingEl.textContent = charIdx > 0 ? currentWord.substring(0, charIdx) : '\u00A0';
         if (charIdx <= 0) {
           isDeleting = false;
           wordIdx = (wordIdx + 1) % dynamicWords.length;
